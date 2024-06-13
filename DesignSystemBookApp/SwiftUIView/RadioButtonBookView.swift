@@ -33,7 +33,7 @@ struct RadioButtonBookView: View {
                         .font(.system(size: 12))
                         .foregroundStyle(.gray)
                     
-                    RadioButton(isOn: $isOn[index]) {
+                    SingleRadioButton(isOn: $isOn[index]) {
                         Text("Click me")
                     }
                     .styled(
