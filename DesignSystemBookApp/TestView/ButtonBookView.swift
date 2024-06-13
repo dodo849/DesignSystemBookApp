@@ -13,8 +13,8 @@ struct ButtonBookView: View {
     var variants = ["fill", "outline", "translucent"]
     @State var selectedSize = "large"
     var sizes = ["large", "medium", "small"]    
-    @State var selectedShape = "quare"
-    var sahpes = ["quare", "round", "smapillll"]    
+    @State var selectedShape = "round"
+    var sahpes = ["round", "square", "pill"]
     @State var selectedState = "enabled"
     var states = ["enabled", "disabled", "pressed"]
     
@@ -58,16 +58,15 @@ struct ButtonBookView: View {
             
             Divider()
             ForEach(colors, id: \.self) { color in
-                Button {
-                    print("호에엥")
-                } label: {
-                    Text("무아앙")
+                Button { } label: {
+                    Text("Button")
                 }
                 .styled(
                     variant: ButtonVariant(rawValue: selectedVariant)!,
                     state: ButtonState(rawValue: selectedState)!, 
                     color: ButtonColor(rawValue: color)!,
-                    size: ButtonSize(rawValue: selectedSize)!
+                    size: ButtonSize(rawValue: selectedSize)!,
+                    shape: ButtonShape(rawValue: selectedShape)!
                 )
             }
             

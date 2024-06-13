@@ -22,8 +22,8 @@ extension ButtonSize {
     
     var textWeight: Font.Weight {
         switch self {
-        case .large: .heavy
-        case .medium: .semibold
+        case .large: .semibold
+        case .medium: .medium
         case .small: .regular
         }
     }
@@ -31,8 +31,16 @@ extension ButtonSize {
     var padding: Spacing {
         switch self {
         case .large: .init(16, 32)
-        case .medium: .init(8, 24)
-        case .small: .init(6, 12)
+        case .medium: .init(12, 28)
+        case .small: .init(8, 16)
+        }
+    }
+    
+    var rounded: CGFloat {
+        switch self {
+        case .large: 16
+        case .medium: 12
+        case .small: 8
         }
     }
     

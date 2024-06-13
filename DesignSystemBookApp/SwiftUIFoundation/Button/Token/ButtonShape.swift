@@ -8,7 +8,5 @@
 import Foundation
 
 public enum ButtonShape: String {
-    case square, round, pill
-    
-    static let roundRadius: CGFloat = 15
+    case round, square, pill
 }

@@ -13,39 +13,45 @@ struct BaseButtonStyle: ButtonStyle {
     let size: ButtonSize
     let shape: ButtonShape
     
-    func makeBody(
-        configuration: Self.Configuration
-    ) -> some View {
+    func makeBody(configuration: Self.Configuration) -> some View {
         let isDisabled = state == .disabled
         
         configuration.label
             .padding(.vertical, size.padding.vertical)
             .padding(.horizontal, size.padding.horizontal)
             .frame(maxWidth: size.width)
-            .background(
-                theme.backgroundColor(
-                    state: configuration.isPressed ? .pressed : state
-                )
-            )
-            .clipShape(
-                RoundedRectangle(cornerRadius: ButtonShape.roundRadius)
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: ButtonShape.roundRadius)
-                    .stroke(theme.borderColor(state: state), lineWidth: 1)
-            )
-            .foregroundColor(theme.foregroundColor(state: state))
-            .scaleEffect(
-                configuration.isPressed ?
-                CGFloat(0.9) :
-                1.0
-            )
-            .animation(
-                Animation.spring(
-                    response: 0.35
-                ),
-                value: configuration.isPressed
-            )
+            .background(backgroundColor(configuration: configuration))
+            .clipShape(shapeView())
+            .overlay(border(configuration: configuration))
+            .foregroundColor(foregroundColor(configuration: configuration))
+            .font(.system(size: size.textSize))
+            .fontWeight(size.textWeight)
+            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+            .animation(.spring(response: 0.35), value: configuration.isPressed)
             .allowsHitTesting(!isDisabled)
+    }
+    
+    private func backgroundColor(configuration: Self.Configuration) -> some View {
+        theme.backgroundColor(state: configuration.isPressed ? .pressed : state)
+    }
+    
+    private func border(configuration: Self.Configuration) -> some View {
+        shapeView()
+            .stroke(theme.borderColor(state: state), lineWidth: 1)
+    }
+    
+    private func foregroundColor(configuration: Self.Configuration) -> Color {
+        theme.foregroundColor(state: state)
+    }
+    
+    private func shapeView() -> AnyShape {
+        switch shape {
+        case .square:
+            return RoundedRectangle(cornerRadius: 0).asAnyShape()
+        case .round:
+            return RoundedRectangle(cornerRadius: size.rounded).asAnyShape()
+        case .pill:
+            return Capsule().asAnyShape()
+        }
     }
 }
