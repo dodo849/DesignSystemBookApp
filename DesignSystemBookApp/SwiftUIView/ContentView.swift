@@ -14,8 +14,13 @@ struct ContentView: View {
                 Spacer().frame(height: 100)
                 
                 VStack(alignment: .leading) {
-                    Text("Button")
-                        .font(.system(size: 20, weight: .bold))
+                    HStack(alignment: .bottom) {
+                        Text("Button")
+                            .font(.system(size: 20, weight: .bold))
+                        Text("theme - basic")
+                            .font(.system(size: 14))
+                            .foregroundStyle(.gray)
+                    }
                     NavigationLink(destination: ButtonBookView()) {
                         Text("Button example")
                     }

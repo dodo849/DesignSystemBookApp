@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ButtonBookView: View {
-    private var colors = ButtonColor.allCases
-    @State private var selectedVariant =  ButtonVariant.allCases.first!
-    private var variants = ButtonVariant.allCases
-    @State private var selectedSize = ButtonSize.allCases.first!
-    private var sizes = ButtonSize.allCases
-    @State private var selectedShape = ButtonShape.allCases.first!
-    var sahpes = ButtonShape.allCases
-    @State private var selectedState = "disabled"
+    private var colors = BasicButtonColor.allCases
+    @State private var selectedVariant =  BasicButtonVariant.allCases.first!
+    private var variants = BasicButtonVariant.allCases
+    @State private var selectedSize = BasicButtonSize.allCases.first!
+    private var sizes = BasicButtonSize.allCases
+    @State private var selectedShape = BasicButtonShape.allCases.first!
+    var sahpes = BasicButtonShape.allCases
+    @State private var selectedState = "enabled"
     // "pressed" is contained in enabled
     private var states = ["enabled", "disabled"]
     
@@ -83,22 +83,6 @@ struct ButtonBookView: View {
                 }
                 
                 Spacer().frame(height: 15)
-                
-                Button {
-                    let generatedCode = generateCode("primary")
-                    ClipboardHelper.copyToClipboard(text: generatedCode)
-                    printGeneratedCode(generatedCode)
-                } label: {
-                    HStack {
-                        Image(systemName: "doc.on.doc")
-                        Text("Copy Code")
-                    }
-                }
-                .styled(
-                    variant: .transparent,
-                    size: .small,
-                    shape: .pill
-                )
             }
             .padding()
         }

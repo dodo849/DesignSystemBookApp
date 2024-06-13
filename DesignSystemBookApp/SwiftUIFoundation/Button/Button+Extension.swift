@@ -9,27 +9,23 @@ import SwiftUI
 
 public extension Button {
     func styled(
-        _ theme: ButtonThemeType = .basic,
-        variant: ButtonVariant = .fill,
-        color: ButtonColor = .primary,
-        size: ButtonSize = .large,
-        shape: ButtonShape = .round
+        variant: BasicButtonVariant = .fill,
+        color: BasicButtonColor = .primary,
+        size: BasicButtonSize = .large,
+        shape: BasicButtonShape = .round
     ) -> some View {
-        
-        let buttonStyle = {
-            switch theme {
-            case .basic:
-                let basicTheme = BasicButtonTheme(
-                    variant: variant,
-                    color: color
-                )
-                return ButtonStyleMaker(
-                    theme: basicTheme,
-                    size: size,
-                    shape: shape
-                )
-            }
-        }()
+        let colorTheme = BasicButtonColorTheme(
+            variant: variant,
+            color: color
+        )
+        let figureTheme = BasicButtonFigureTheme(
+            size: size,
+            shape: shape
+        )
+        let buttonStyle = ButtonStyleMaker(
+            colorTheme: colorTheme,
+            figuretheme: figureTheme
+        )
         
         return self.buttonStyle(buttonStyle)
     }

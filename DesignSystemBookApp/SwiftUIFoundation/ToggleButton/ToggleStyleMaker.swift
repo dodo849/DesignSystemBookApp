@@ -33,7 +33,7 @@ struct ToggleButtonStyleMaker: ToggleStyle {
             styledImage(for: toggleButtonState)
             configuration.label
         }
-        .scaleEffect(isPressed ? 0.9 : 1.0)
+        .scaleEffect(isPressed ? 0.95 : 1.0)
         .animation(animation, value: isPressed)
         .gesture(dragGesture(configuration: configuration))
     }

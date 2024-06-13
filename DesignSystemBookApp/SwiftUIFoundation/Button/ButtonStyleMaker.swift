@@ -10,23 +10,27 @@ import SwiftUI
 struct ButtonStyleMaker: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled: Bool
     
-    let theme: ButtonTheme
-    let size: ButtonSize
-    let shape: ButtonShape
+    let colorTheme: ButtonColorTheme
+    let figuretheme: ButtonFigureTheme
     
     func makeBody(configuration: Self.Configuration) -> some View {
-        let buttonState = state(configuration: configuration)
+        let state = makeState(configuration: configuration)
+        let padding = figuretheme.padding()
+        let textSize = figuretheme.textSize()
+        let textWeight = figuretheme.textWeight()
+        let rounded = figuretheme.rounded()
+        let frame = figuretheme.frame()
         
         configuration.label
-            .padding(.vertical, size.padding.vertical)
-            .padding(.horizontal, size.padding.horizontal)
-            .frame(maxWidth: size.width)
-            .background(backgroundColor( configuration, buttonState))
-            .clipShape(shapeView())
-            .overlay(border(configuration, buttonState))
-            .foregroundColor(foregroundColor(configuration, buttonState))
-            .font(.system(size: size.textSize))
-            .fontWeight(size.textWeight)
+            .padding(.vertical, padding.vertical)
+            .padding(.horizontal, padding.horizontal)
+            .frame(maxWidth: frame.horizontal, maxHeight: frame.vertical)
+            .background(backgroundColor( configuration, state))
+            .clipShape(figuretheme.shape())
+            .overlay(border(configuration, state))
+            .foregroundColor(foregroundColor(configuration, state))
+            .font(.system(size: textSize))
+            .fontWeight(textWeight)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
             .animation(.spring(response: 0.35), value: configuration.isPressed)
     }
@@ -35,36 +39,25 @@ struct ButtonStyleMaker: ButtonStyle {
         _ configuration: Self.Configuration,
         _ state: ButtonState
     ) -> some View {
-        theme.backgroundColor(state: configuration.isPressed ? .pressed : state)
+        colorTheme.backgroundColor(state: configuration.isPressed ? .pressed : state)
     }
     
     private func border(
         _ configuration: Self.Configuration,
         _ state: ButtonState
     ) -> some View {
-        shapeView()
-            .stroke(theme.borderColor(state: state), lineWidth: 1)
+        figuretheme.shape()
+            .stroke(colorTheme.borderColor(state: state), lineWidth: 1)
     }
     
     private func foregroundColor(
         _ configuration: Self.Configuration,
         _ state: ButtonState
     ) -> Color {
-        theme.foregroundColor(state: state)
+        colorTheme.foregroundColor(state: state)
     }
     
-    private func shapeView() -> AnyShape {
-        switch shape {
-        case .square:
-            return RoundedRectangle(cornerRadius: 0).asAnyShape()
-        case .round:
-            return RoundedRectangle(cornerRadius: size.rounded).asAnyShape()
-        case .pill:
-            return Capsule().asAnyShape()
-        }
-    }
-    
-    private func state(configuration: Self.Configuration) -> ButtonState {
+    private func makeState(configuration: Self.Configuration) -> ButtonState {
         if !isEnabled {
             return .disabled
         }
