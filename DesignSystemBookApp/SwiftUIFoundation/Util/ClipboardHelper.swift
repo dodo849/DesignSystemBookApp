@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ClipboardManager {
+struct ClipboardHelper {
     static func copyToClipboard(text: String) {
         UIPasteboard.general.string = text
     }

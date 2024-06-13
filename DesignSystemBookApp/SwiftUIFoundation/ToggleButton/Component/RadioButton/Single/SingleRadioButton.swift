@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+/// This is a standalone radio button.
+///
+/// ```swift
+/// SingleRadioButton(isOn: $isOn) {
+///     Text("Click me")
+/// }
+/// .styled(
+///     color: .primary,
+///     shape: .round
+/// )
+/// ```
 public struct SingleRadioButton<Label: View>: View, RadioButton {
     @Binding var isOn: Bool
     let label: () -> Label

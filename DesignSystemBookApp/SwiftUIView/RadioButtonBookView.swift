@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct RadioButtonBookView: View {
-    @State var isOn: [Bool] = [false, false, false]
-    @State var selectedColor = ToggleButtonColor.allCases.first!
-    var colors = ToggleButtonColor.allCases
-    var defaultColor: ToggleButtonColor?
-    @State var selectedShape = ToggleButtonShape.allCases.first!
-    var shapes = ToggleButtonShape.allCases
+    @State private var isOn: [Bool] = [false, false, false]
+    @State private var selectedColor = ToggleButtonColor.allCases.first!
+    private var colors = ToggleButtonColor.allCases
+    private var defaultColor: ToggleButtonColor?
+    @State private var selectedShape = ToggleButtonShape.allCases.first!
+    private var shapes = ToggleButtonShape.allCases
     
     var body: some View {
         ScrollView {
@@ -43,6 +43,17 @@ struct RadioButtonBookView: View {
                         color: color,
                         shape: selectedShape
                     )
+                    .simultaneousGesture(
+                        TapGesture()
+                            .onEnded {
+                                let generatedCode = generateRadioCode(
+                                    color.rawValue,
+                                    isOn: !isOn[index]
+                                )
+                                ClipboardHelper.copyToClipboard(text: generatedCode)
+                                printGeneratedRadioCode(generatedCode)
+                            }
+                    )
                 }
                 
                 Text("Group radio button")
@@ -60,12 +71,84 @@ struct RadioButtonBookView: View {
                             color: option,
                             shape: selectedShape
                         )
+                        .simultaneousGesture(
+                            TapGesture()
+                                .onEnded {
+                                    let generatedCode = generateGroupRadioCode(
+                                        option.rawValue,
+                                        isOn: !isOn.contains(true)
+                                    )
+                                    ClipboardHelper.copyToClipboard(text: generatedCode)
+                                    printGeneratedRadioCode(generatedCode)
+                                }
+                        )
                     }
                 }
                 Spacer()
             }
             .padding()
         }
+    }
+    
+    private func generateRadioCode(_ color: String, isOn: Bool) -> String {
+        let colorString = color == "primary"
+        ? ""
+        : "color: .\(color)"
+        
+        let shapeString = selectedShape.rawValue == "round"
+        ? ""
+        : "shape: .\(selectedShape)"
+        
+        let components = [colorString, shapeString]
+            .filter { !$0.isEmpty }
+            .joined(separator: ", ")
+        
+        let styledString = """
+        SingleRadioButton(isOn: <#Binding<Bool>#>) {
+        }
+        .styled(\(components))
+        """
+        return styledString
+    }
+    
+    private func generateGroupRadioCode(_ color: String, isOn: Bool) -> String {
+        let colorString = color == "primary"
+        ? ""
+        : "color: .\(color)"
+        
+        let shapeString = selectedShape.rawValue == "round"
+        ? ""
+        : "shape: .\(selectedShape)"
+        
+        let components = [colorString, shapeString]
+            .filter { !$0.isEmpty }
+            .joined(separator: ", ")
+        
+        let styledString = """
+        RadioGroup(
+            defaultValue: <#Identifierable#>,
+            onChange: { _ in }
+        ) {
+            ForEach(<#Identifiable & Equatable#>, id: \\.self) { option in
+                RadioOption(value: option) {
+                }
+                .styled(\(components))
+            }
+        }
+        """
+        return styledString
+    }
+    
+    private func printGeneratedRadioCode(_ code: String) {
+        print(
+            """
+            <Copy/Paste Code>
+            Generated code has been copied to your clipboard.
+            ---
+            \(code)
+            """
+        )
+        print("Generated code has been copied to your clipboard.")
     }
 }
 

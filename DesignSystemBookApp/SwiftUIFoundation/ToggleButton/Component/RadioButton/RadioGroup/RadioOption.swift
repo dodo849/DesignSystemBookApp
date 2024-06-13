@@ -7,7 +7,27 @@
 
 import SwiftUI
 
-public struct RadioOption<Label: View, Option: Equatable & Identifiable>: View, RadioButton {
+/// A radio button used with `RadioGroup`.
+///
+/// ```swift
+/// RadioGroup(
+///     defaultValue: defaultColor,
+///     onChange: { print($0) }
+/// ) {
+///     ForEach(colors, id: \.self) { (option: ToggleButtonColor) in
+///         RadioOption(value: option) {
+///             Text(option.rawValue)
+///         }
+///         .styled(
+///             color: .primary,
+///             shape: .circle
+///         )
+///     }
+/// }
+/// ```
+///
+/// - Important: `RadioOption` must be used as an internal view of `RadioGroup`.
+public struct RadioOption<Label: View, Option: Identifiable & Equatable>: View, RadioButton {
     @EnvironmentObject var store: RadioOptionStore<Option>
     var value: Option
     let label: () -> Label

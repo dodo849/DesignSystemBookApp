@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ButtonBookView: View {
-    var colors = ["primary", "secondary", "tertiary", "destructive"]
-    @State var selectedVariant = "fill"
-    var variants = ["fill", "outline", "translucent"]
-    @State var selectedSize = "large"
-    var sizes = ["large", "medium", "small"]    
-    @State var selectedShape = "round"
-    var sahpes = ["round", "square", "pill"]
-    @State var selectedState = "enabled"
-    var states = ["enabled", "disabled", "pressed"]
+    private var colors = ButtonColor.allCases
+    @State private var selectedVariant =  ButtonVariant.allCases.first!
+    private var variants = ButtonVariant.allCases
+    @State private var selectedSize = ButtonSize.allCases.first!
+    private var sizes = ButtonSize.allCases
+    @State private var selectedShape = ButtonShape.allCases.first!
+    var sahpes = ButtonShape.allCases
+    @State private var selectedState = ButtonState.allCases.first!
+    private var states = ButtonState.allCases
     
     var body: some View {
         ScrollView {
@@ -25,7 +25,7 @@ struct ButtonBookView: View {
                     .font(.system(size: 16, weight: .semibold))
                 Picker("Choose a variant", selection: $selectedVariant) {
                     ForEach(variants, id: \.self) {
-                        Text($0)
+                        Text($0.rawValue)
                     }
                 }
                 .pickerStyle(.segmented)
@@ -34,7 +34,7 @@ struct ButtonBookView: View {
                     .font(.system(size: 16, weight: .semibold))
                 Picker("Choose a shape", selection: $selectedState) {
                     ForEach(states, id: \.self) {
-                        Text($0)
+                        Text($0.rawValue)
                     }
                 }
                 .pickerStyle(.segmented)
@@ -43,7 +43,7 @@ struct ButtonBookView: View {
                     .font(.system(size: 16, weight: .semibold))
                 Picker("Choose a szie", selection: $selectedSize) {
                     ForEach(sizes, id: \.self) {
-                        Text($0)
+                        Text($0.rawValue)
                     }
                 }
                 .pickerStyle(.segmented)
@@ -52,34 +52,29 @@ struct ButtonBookView: View {
                     .font(.system(size: 16, weight: .semibold))
                 Picker("Choose a shape", selection: $selectedShape) {
                     ForEach(sahpes, id: \.self) {
-                        Text($0)
+                        Text($0.rawValue)
                     }
                 }
                 .pickerStyle(.segmented)
                 
                 Divider()
                 ForEach(colors, id: \.self) { color in
-                    Text(color)
+                    Text(color.rawValue)
                         .font(.system(size: 12))
                         .foregroundStyle(.gray)
                     Button {
-                        let generatedCode = generateCode(color)
-                        print(
-                            """
-                            <Copy/Paste Code>
-                            \(generatedCode)
-                            """
-                        )
-                        
+                        let generatedCode = generateCode(color.rawValue)
+                        ClipboardHelper.copyToClipboard(text: generatedCode)
+                        printGeneratedCode(generatedCode)
                     } label: {
                         Text("Button")
                     }
                     .styled(
-                        variant: ButtonVariant(rawValue: selectedVariant)!,
-                        state: ButtonState(rawValue: selectedState)!, 
-                        color: ButtonColor(rawValue: color)!,
-                        size: ButtonSize(rawValue: selectedSize)!,
-                        shape: ButtonShape(rawValue: selectedShape)!
+                        variant: selectedVariant,
+                        state: selectedState,
+                        color: color,
+                        size: selectedSize,
+                        shape: selectedShape
                     )
                 }
                 
@@ -89,12 +84,12 @@ struct ButtonBookView: View {
         }
     }
     
-    func generateCode(_ color: String) -> String {
-        let variantString = selectedVariant == "fill"
+    private func generateCode(_ color: String) -> String {
+        let variantString = selectedVariant.rawValue == "fill"
             ? ""
             : "variant: .\(selectedVariant)"
 
-        let stateString = selectedState == "enabled"
+        let stateString = selectedState.rawValue == "enabled"
             ? ""
             : "state: .\(selectedState)"
         
@@ -102,11 +97,11 @@ struct ButtonBookView: View {
             ? ""
             : "color: .\(color)"
 
-        let sizeString = selectedSize == "large"
+        let sizeString = selectedSize.rawValue == "large"
             ? ""
             : "size: .\(selectedSize)"
 
-        let shapeString = selectedShape == "round"
+        let shapeString = selectedShape.rawValue == "round"
             ? ""
             : "shape: .\(selectedShape)"
         
@@ -115,10 +110,26 @@ struct ButtonBookView: View {
             .joined(separator: ", ")
         
         let styledString = """
+        Button {
+        } label: {
+        }
         .styled(\(components))
         """
         return styledString
     }
+    
+    private func printGeneratedCode(_ code: String) {
+        print(
+            """
+            <Copy/Paste Code>
+            Generated code has been copied to your clipboard.
+            ---
+            \(code)
+            """
+        )
+        print("Generated code has been copied to your clipboard.")
+    }
+    
 }
 
 #Preview {

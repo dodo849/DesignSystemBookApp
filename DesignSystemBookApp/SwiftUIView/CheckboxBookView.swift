@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CheckButtonBookView: View {
-    @State var isOn: [Bool] = [false, false, false]
-    @State var selectedColor = ToggleButtonColor.allCases.first!
-    var colors = ToggleButtonColor.allCases
-    @State var selectedShape =  ToggleButtonShape.allCases.first!
-    var shapes = ToggleButtonShape.allCases
+    @State private var isOn: [Bool] = [false, false, false]
+    @State private var selectedColor = ToggleButtonColor.allCases.first!
+    private var colors = ToggleButtonColor.allCases
+    @State private var selectedShape =  ToggleButtonShape.allCases.first!
+    private var shapes = ToggleButtonShape.allCases
     
     var body: some View {
         ScrollView {
@@ -37,9 +37,21 @@ struct CheckButtonBookView: View {
                         Text("Click me")
                     }
                     .styled(
-                        color: selectedColor,
+                        color: color,
                         shape: selectedShape
                     )
+                    .simultaneousGesture(
+                        TapGesture()
+                            .onEnded {
+                                let generatedCode = generateCode(
+                                    color.rawValue,
+                                    isOn: !isOn[index]
+                                )
+                                ClipboardHelper.copyToClipboard(text: generatedCode)
+                                printGeneratedCode(generatedCode)
+                            }
+                    )
+                    
                 }
                 
                 Spacer()
@@ -47,6 +59,40 @@ struct CheckButtonBookView: View {
             .padding()
         }
     }
+    
+    private func generateCode(_ color: String, isOn: Bool) -> String {
+        let colorString = color == "primary"
+            ? ""
+            : "color: .\(color)"
+        
+        let shapeString = selectedShape.rawValue == "round"
+            ? ""
+            : "shape: .\(selectedShape)"
+        
+        let components = [colorString, shapeString]
+            .filter { !$0.isEmpty }
+            .joined(separator: ", ")
+        
+        let styledString = """
+        CheckboxButton(isOn: <#Binding<Bool>#>) {
+        }
+        .styled(\(components))
+        """
+        return styledString
+    }
+    
+    private func printGeneratedCode(_ code: String) {
+        print(
+            """
+            <Copy/Paste Code>
+            Generated code has been copied to your clipboard.
+            ---
+            \(code)
+            """
+        )
+        print("Generated code has been copied to your clipboard.")
+    }
+    
 }
 
 #Preview {
