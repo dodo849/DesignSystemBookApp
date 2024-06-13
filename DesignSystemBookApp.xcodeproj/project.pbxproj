@@ -36,21 +36,24 @@
 		BC0933E32C1B2C1A00D3F8CB /* RadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933CE2C1B2C1A00D3F8CB /* RadioGroup.swift */; };
 		BC0933E42C1B2C1A00D3F8CB /* SingleRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933D02C1B2C1A00D3F8CB /* SingleRadioButton.swift */; };
 		BC0933E52C1B2C1A00D3F8CB /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933D22C1B2C1A00D3F8CB /* RadioButton.swift */; };
-		BC0933E62C1B2C1A00D3F8CB /* BasicCheckboxTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933D52C1B2C1A00D3F8CB /* BasicCheckboxTheme.swift */; };
-		BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933D72C1B2C1A00D3F8CB /* BasicRadioButtonTheme.swift */; };
-		BC0933E82C1B2C1A00D3F8CB /* ToggleButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933D92C1B2C1A00D3F8CB /* ToggleButtonTheme.swift */; };
+		BC0933E62C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933D52C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift */; };
+		BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933D72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift */; };
+		BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933D92C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift */; };
 		BC0933E92C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933DA2C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift */; };
-		BC0933EA2C1B2C1A00D3F8CB /* ToggleButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933DC2C1B2C1A00D3F8CB /* ToggleButtonColor.swift */; };
-		BC0933EB2C1B2C1A00D3F8CB /* ToggleButtonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933DD2C1B2C1A00D3F8CB /* ToggleButtonShape.swift */; };
+		BC0933EA2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933DC2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift */; };
+		BC0933EB2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933DD2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift */; };
 		BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933DE2C1B2C1A00D3F8CB /* ToggleButtonState.swift */; };
 		BC0933ED2C1B2C1A00D3F8CB /* ToggleStyleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933E02C1B2C1A00D3F8CB /* ToggleStyleMaker.swift */; };
 		BC0934112C1B2E1300D3F8CB /* RadioOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0934102C1B2E1300D3F8CB /* RadioOption.swift */; };
 		BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0934122C1B34C500D3F8CB /* ClipboardHelper.swift */; };
 		BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */; };
 		BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */; };
-		BCFD537F2C1B5F9D00191F34 /* LayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537E2C1B5F9D00191F34 /* LayoutSize.swift */; };
+		BCFD537F2C1B5F9D00191F34 /* GapOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */; };
 		BCFD53832C1B628200191F34 /* RoundedOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD53822C1B628200191F34 /* RoundedOffset.swift */; };
 		BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD53842C1B656B00191F34 /* IndividualRoundedRectangle.swift */; };
+		BCFD538B2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD538A2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift */; };
+		BCFD538D2C1B725600191F34 /* FrameOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD538C2C1B725600191F34 /* FrameOffset.swift */; };
+		BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD538E2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,12 +86,12 @@
 		BC0933CE2C1B2C1A00D3F8CB /* RadioGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroup.swift; sourceTree = "<group>"; };
 		BC0933D02C1B2C1A00D3F8CB /* SingleRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRadioButton.swift; sourceTree = "<group>"; };
 		BC0933D22C1B2C1A00D3F8CB /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
-		BC0933D52C1B2C1A00D3F8CB /* BasicCheckboxTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCheckboxTheme.swift; sourceTree = "<group>"; };
-		BC0933D72C1B2C1A00D3F8CB /* BasicRadioButtonTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRadioButtonTheme.swift; sourceTree = "<group>"; };
-		BC0933D92C1B2C1A00D3F8CB /* ToggleButtonTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonTheme.swift; sourceTree = "<group>"; };
+		BC0933D52C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCheckButtonColorTheme.swift; sourceTree = "<group>"; };
+		BC0933D72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRadioButtonColorTheme.swift; sourceTree = "<group>"; };
+		BC0933D92C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0933DA2C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonThemeType.swift; sourceTree = "<group>"; };
-		BC0933DC2C1B2C1A00D3F8CB /* ToggleButtonColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonColor.swift; sourceTree = "<group>"; };
-		BC0933DD2C1B2C1A00D3F8CB /* ToggleButtonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonShape.swift; sourceTree = "<group>"; };
+		BC0933DC2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicToggleButtonColor.swift; sourceTree = "<group>"; };
+		BC0933DD2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicToggleButtonShape.swift; sourceTree = "<group>"; };
 		BC0933DE2C1B2C1A00D3F8CB /* ToggleButtonState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonState.swift; sourceTree = "<group>"; };
 		BC0933E02C1B2C1A00D3F8CB /* ToggleStyleMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleStyleMaker.swift; sourceTree = "<group>"; };
 		BC0934102C1B2E1300D3F8CB /* RadioOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioOption.swift; sourceTree = "<group>"; };
@@ -96,9 +99,12 @@
 		BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFigureTheme.swift; sourceTree = "<group>"; };
 		BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButtonFigureTheme.swift; sourceTree = "<group>"; };
-		BCFD537E2C1B5F9D00191F34 /* LayoutSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSize.swift; sourceTree = "<group>"; };
+		BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapOffset.swift; sourceTree = "<group>"; };
 		BCFD53822C1B628200191F34 /* RoundedOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedOffset.swift; sourceTree = "<group>"; };
 		BCFD53842C1B656B00191F34 /* IndividualRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualRoundedRectangle.swift; sourceTree = "<group>"; };
+		BCFD538A2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonFigureTheme.swift; sourceTree = "<group>"; };
+		BCFD538C2C1B725600191F34 /* FrameOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameOffset.swift; sourceTree = "<group>"; };
+		BCFD538E2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicToggleButtonFigureTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +121,9 @@
 		BC09324F2C1A8F5200D3F8CB /* Basic */ = {
 			isa = PBXGroup;
 			children = (
-				BC0932592C1A8F5200D3F8CB /* Token */,
 				BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */,
 				BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */,
+				BC0932592C1A8F5200D3F8CB /* Token */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -148,9 +154,9 @@
 		BC09325C2C1A8F5200D3F8CB /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				BC0932522C1A8F5200D3F8CB /* Theme */,
 				BC09325A2C1A8F5200D3F8CB /* ButtonStyleMaker.swift */,
-				BC09325B2C1A8F5200D3F8CB /* Button+Extension.swift */,
+				BC0932522C1A8F5200D3F8CB /* Theme */,
+				BCFD53892C1B6F9F00191F34 /* Component */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -253,29 +259,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		BC0933D62C1B2C1A00D3F8CB /* Checkbox */ = {
-			isa = PBXGroup;
-			children = (
-				BC0933D52C1B2C1A00D3F8CB /* BasicCheckboxTheme.swift */,
-			);
-			path = Checkbox;
-			sourceTree = "<group>";
-		};
-		BC0933D82C1B2C1A00D3F8CB /* Radio */ = {
-			isa = PBXGroup;
-			children = (
-				BC0933D72C1B2C1A00D3F8CB /* BasicRadioButtonTheme.swift */,
-			);
-			path = Radio;
-			sourceTree = "<group>";
-		};
 		BC0933DB2C1B2C1A00D3F8CB /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				BC0933D62C1B2C1A00D3F8CB /* Checkbox */,
-				BC0933D82C1B2C1A00D3F8CB /* Radio */,
-				BC0933D92C1B2C1A00D3F8CB /* ToggleButtonTheme.swift */,
+				BC0933D92C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift */,
+				BCFD538A2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift */,
 				BC0933DA2C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift */,
+				BCFD53872C1B6E2000191F34 /* Common */,
+				BCFD53862C1B6DDD00191F34 /* Basic */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -283,9 +274,8 @@
 		BC0933DF2C1B2C1A00D3F8CB /* Token */ = {
 			isa = PBXGroup;
 			children = (
-				BC0933DC2C1B2C1A00D3F8CB /* ToggleButtonColor.swift */,
-				BC0933DD2C1B2C1A00D3F8CB /* ToggleButtonShape.swift */,
-				BC0933DE2C1B2C1A00D3F8CB /* ToggleButtonState.swift */,
+				BC0933DC2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift */,
+				BC0933DD2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -293,10 +283,9 @@
 		BC0933E12C1B2C1A00D3F8CB /* ToggleButton */ = {
 			isa = PBXGroup;
 			children = (
-				BC0933D42C1B2C1A00D3F8CB /* Component */,
-				BC0933DB2C1B2C1A00D3F8CB /* Theme */,
-				BC0933DF2C1B2C1A00D3F8CB /* Token */,
 				BC0933E02C1B2C1A00D3F8CB /* ToggleStyleMaker.swift */,
+				BC0933DB2C1B2C1A00D3F8CB /* Theme */,
+				BC0933D42C1B2C1A00D3F8CB /* Component */,
 			);
 			path = ToggleButton;
 			sourceTree = "<group>";
@@ -324,7 +313,8 @@
 			children = (
 				BC0932902C1AA4B300D3F8CB /* AnyShape.swift */,
 				BC0932BB2C1AED0600D3F8CB /* AnyView.swift */,
-				BCFD537E2C1B5F9D00191F34 /* LayoutSize.swift */,
+				BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */,
+				BCFD538C2C1B725600191F34 /* FrameOffset.swift */,
 				BCFD53822C1B628200191F34 /* RoundedOffset.swift */,
 				BCFD53842C1B656B00191F34 /* IndividualRoundedRectangle.swift */,
 			);
@@ -345,6 +335,41 @@
 				BC0932542C1A8F5200D3F8CB /* ButtonState.swift */,
 			);
 			path = Token;
+			sourceTree = "<group>";
+		};
+		BCFD53862C1B6DDD00191F34 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				BCFD538E2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift */,
+				BC0933D52C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift */,
+				BC0933D72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift */,
+				BC0933DF2C1B2C1A00D3F8CB /* Token */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		BCFD53872C1B6E2000191F34 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BCFD53882C1B6F8300191F34 /* Token */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BCFD53882C1B6F8300191F34 /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				BC0933DE2C1B2C1A00D3F8CB /* ToggleButtonState.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
+		BCFD53892C1B6F9F00191F34 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				BC09325B2C1A8F5200D3F8CB /* Button+Extension.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,12 +470,14 @@
 				BC0933E92C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift in Sources */,
 				BC0932792C1A8F5200D3F8CB /* Button+Extension.swift in Sources */,
 				BC09327C2C1A8F5200D3F8CB /* Keyboard+Extension.swift in Sources */,
-				BCFD537F2C1B5F9D00191F34 /* LayoutSize.swift in Sources */,
+				BCFD537F2C1B5F9D00191F34 /* GapOffset.swift in Sources */,
 				BC0934112C1B2E1300D3F8CB /* RadioOption.swift in Sources */,
 				BC0932962C1ABF7000D3F8CB /* CheckboxBookView.swift in Sources */,
 				BC0933ED2C1B2C1A00D3F8CB /* ToggleStyleMaker.swift in Sources */,
 				BC0932742C1A8F5200D3F8CB /* ButtonState.swift in Sources */,
 				BC09327A2C1A8F5200D3F8CB /* BackButton+Extension.swift in Sources */,
+				BCFD538D2C1B725600191F34 /* FrameOffset.swift in Sources */,
+				BCFD538B2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift in Sources */,
 				BC0932772C1A8F5200D3F8CB /* BasicButtonSize.swift in Sources */,
 				BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
@@ -461,7 +488,8 @@
 				BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */,
 				BC0932BE2C1AF40200D3F8CB /* RadioButtonBookView.swift in Sources */,
 				BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */,
-				BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonTheme.swift in Sources */,
+				BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift in Sources */,
+				BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */,
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
 				BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */,
 				BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */,
@@ -469,17 +497,17 @@
 				BC0932862C1A8F5200D3F8CB /* PrimitiveType+Extension.swift in Sources */,
 				BC0932732C1A8F5200D3F8CB /* BasicButtonColor.swift in Sources */,
 				BC0932762C1A8F5200D3F8CB /* BasicButtonShape.swift in Sources */,
-				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonTheme.swift in Sources */,
+				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */,
 				BC0933E22C1B2C1A00D3F8CB /* CheckboxButton.swift in Sources */,
-				BC0933E62C1B2C1A00D3F8CB /* BasicCheckboxTheme.swift in Sources */,
+				BC0933E62C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift in Sources */,
 				BC0932752C1A8F5200D3F8CB /* BasicButtonVariant.swift in Sources */,
-				BC0933EB2C1B2C1A00D3F8CB /* ToggleButtonShape.swift in Sources */,
+				BC0933EB2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift in Sources */,
 				BC0932782C1A8F5200D3F8CB /* ButtonStyleMaker.swift in Sources */,
 				BC09327B2C1A8F5200D3F8CB /* Frame+Extension.swift in Sources */,
 				BC0933E52C1B2C1A00D3F8CB /* RadioButton.swift in Sources */,
 				BC0933E32C1B2C1A00D3F8CB /* RadioGroup.swift in Sources */,
 				BC0933E42C1B2C1A00D3F8CB /* SingleRadioButton.swift in Sources */,
-				BC0933EA2C1B2C1A00D3F8CB /* ToggleButtonColor.swift in Sources */,
+				BC0933EA2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift in Sources */,
 				BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,26 +12,23 @@ public protocol RadioButton: View { }
 public extension RadioButton {
     func styled(
         _ theme: ToggleButtonThemeType = .basic,
-        color: ToggleButtonColor = .primary,
-        shape: ToggleButtonShape = .round
+        color: BasicToggleButtonColor = .primary,
+        shape: BasicToggleButtonShape = .round
     ) -> some View {
         let checkboxStyle = {
-            switch theme {
-            case .basic:
-                let basicTheme = BasicRadioButtonTheme(color: color)
+                let colorTheme = BasicRadioButtonTheme(color: color)
+                let fighureTheme = BasicToggleButtonFigureTheme(shape: shape)
                 return ToggleButtonStyleMaker(
-                    theme: basicTheme,
-                    shape: shape,
-                    innerImage: shape.innerImage
+                    colorTheme: colorTheme,
+                    figureTheme: fighureTheme
                 )
-            }
         }()
         
         return self.toggleStyle(checkboxStyle)
     }
 }
 
-fileprivate extension ToggleButtonShape {
+fileprivate extension BasicToggleButtonShape {
     var innerImage: Image {
         switch self {
         case .round: Image(systemName: "square.fill")

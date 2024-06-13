@@ -26,27 +26,23 @@ public struct CheckboxButton<Label>: View where Label: View {
 
 public extension CheckboxButton {
     func styled(
-        _ theme: ToggleButtonThemeType = .basic,
-        color: ToggleButtonColor = .primary,
-        shape: ToggleButtonShape = .round
+        color: BasicToggleButtonColor = .primary,
+        shape: BasicToggleButtonShape = .round
     ) -> some View {
         let checkboxStyle = {
-            switch theme {
-            case .basic:
-                let basicTheme = BasicCheckButtonTheme(color: color)
+                let colorTheme = BasicCheckButtonColorTheme(color: color)
+                let fighureTheme = BasicToggleButtonFigureTheme(shape: shape)
                 return ToggleButtonStyleMaker(
-                    theme: basicTheme,
-                    shape: shape,
-                    innerImage: shape.innerImage
+                    colorTheme: colorTheme,
+                    figureTheme: fighureTheme
                 )
-            }
         }()
         
         return self.toggleStyle(checkboxStyle)
     }
 }
 
-fileprivate extension ToggleButtonShape {
+fileprivate extension BasicToggleButtonShape {
     var innerImage: Image {
         Image(systemName: "checkmark")
     }

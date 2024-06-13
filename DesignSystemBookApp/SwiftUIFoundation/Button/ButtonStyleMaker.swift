@@ -18,13 +18,12 @@ struct ButtonStyleMaker: ButtonStyle {
         let padding = figuretheme.padding()
         let textSize = figuretheme.textSize()
         let textWeight = figuretheme.textWeight()
-        let rounded = figuretheme.rounded()
         let frame = figuretheme.frame()
         
         configuration.label
             .padding(.vertical, padding.vertical)
             .padding(.horizontal, padding.horizontal)
-            .frame(maxWidth: frame.horizontal, maxHeight: frame.vertical)
+            .frame(maxWidth: frame.width, maxHeight: frame.height)
             .background(backgroundColor( configuration, state))
             .clipShape(figuretheme.shape())
             .overlay(border(configuration, state))

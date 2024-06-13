@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LayoutSize {
+struct GapOffset {
     let vertical: CGFloat?
     let horizontal: CGFloat?
     
@@ -17,5 +17,10 @@ struct LayoutSize {
     ) {
         self.vertical = vertical
         self.horizontal = horizontal
+    }
+    
+    init(all: CGFloat) {
+        self.vertical = all
+        self.horizontal = all
     }
 }

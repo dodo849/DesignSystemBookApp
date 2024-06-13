@@ -16,7 +16,7 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
         self._shape = shape
     }
     
-    func padding() -> LayoutSize {
+    func padding() -> GapOffset {
         switch size {
         case .large: .init(16, 32)
         case .medium: .init(10, 24)
@@ -50,7 +50,7 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
         }
     }
     
-    func frame() -> LayoutSize {
+    func frame() -> FrameOffset {
         switch size {
         case .large: .init(nil, .infinity)
         case .medium, .small, .xsmall: .init(nil, nil)

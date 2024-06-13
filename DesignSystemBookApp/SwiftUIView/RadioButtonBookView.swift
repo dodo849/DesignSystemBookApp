@@ -9,11 +9,11 @@ import SwiftUI
 
 struct RadioButtonBookView: View {
     @State private var isOn: [Bool] = [false, false, false]
-    @State private var selectedColor = ToggleButtonColor.allCases.first!
-    private var colors = ToggleButtonColor.allCases
-    private var defaultColor: ToggleButtonColor?
-    @State private var selectedShape = ToggleButtonShape.allCases.first!
-    private var shapes = ToggleButtonShape.allCases
+    @State private var selectedColor = BasicToggleButtonColor.allCases.first!
+    private var colors = BasicToggleButtonColor.allCases
+    private var defaultColor: BasicToggleButtonColor?
+    @State private var selectedShape = BasicToggleButtonShape.allCases.first!
+    private var shapes = BasicToggleButtonShape.allCases
     
     var body: some View {
         ScrollView {
@@ -63,7 +63,7 @@ struct RadioButtonBookView: View {
                     defaultValue: defaultColor,
                     onChange: { print($0) }
                 ) {
-                    ForEach(colors, id: \.self) { (option: ToggleButtonColor) in
+                    ForEach(colors, id: \.self) { (option: BasicToggleButtonColor) in
                         RadioOption(value: option) {
                             Text(option.rawValue)
                         }
@@ -152,7 +152,7 @@ struct RadioButtonBookView: View {
     }
 }
 
-extension ToggleButtonColor: Identifiable, Equatable {
+extension BasicToggleButtonColor: Identifiable, Equatable {
     public var id: UUID {
         UUID()
     }

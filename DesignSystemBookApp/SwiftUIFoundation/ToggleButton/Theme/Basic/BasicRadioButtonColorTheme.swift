@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct BasicRadioButtonTheme: ToggleButtonTheme {
-    let color: ToggleButtonColor
+struct BasicRadioButtonTheme: ToggleButtonColorTheme {
+    let color: BasicToggleButtonColor
     
     func backgroundColor(state: ToggleButtonState) -> Color {
         switch (state, color) {

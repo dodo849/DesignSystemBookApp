@@ -1,5 +1,5 @@
 //
-//  BasicToggleButtonTheme.swift
+//  BasicCheckButtonColorTheme.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/13/24.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct BasicCheckButtonTheme: ToggleButtonTheme {
-    let color: ToggleButtonColor
+struct BasicCheckButtonColorTheme: ToggleButtonColorTheme {
+    let color: BasicToggleButtonColor
     
     func backgroundColor(state: ToggleButtonState) -> Color {
         switch (state, color) {

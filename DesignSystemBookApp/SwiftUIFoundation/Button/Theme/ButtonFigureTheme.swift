@@ -8,10 +8,10 @@
 import SwiftUI
 
 protocol ButtonFigureTheme {
-    func padding() -> LayoutSize
+    func padding() -> GapOffset
     func textSize() -> CGFloat
     func textWeight() -> Font.Weight
     func rounded() -> RoundedOffset
-    func frame() -> LayoutSize
+    func frame() -> FrameOffset
     func shape() -> AnyShape
 }

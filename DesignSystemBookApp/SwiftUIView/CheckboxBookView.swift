@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CheckButtonBookView: View {
     @State private var isOn: [Bool] = [false, false, false]
-    @State private var selectedColor = ToggleButtonColor.allCases.first!
-    private var colors = ToggleButtonColor.allCases
-    @State private var selectedShape =  ToggleButtonShape.allCases.first!
-    private var shapes = ToggleButtonShape.allCases
+    @State private var selectedColor = BasicToggleButtonColor.allCases.first!
+    private var colors = BasicToggleButtonColor.allCases
+    @State private var selectedShape =  BasicToggleButtonShape.allCases.first!
+    private var shapes = BasicToggleButtonShape.allCases
     
     var body: some View {
         ScrollView {

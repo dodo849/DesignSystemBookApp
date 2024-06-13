@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol ToggleButtonTheme {
+protocol ToggleButtonColorTheme {
     func foregroundColor(state: ToggleButtonState) -> Color
     func backgroundColor(state: ToggleButtonState) -> Color
     func borderColor(state: ToggleButtonState) -> Color

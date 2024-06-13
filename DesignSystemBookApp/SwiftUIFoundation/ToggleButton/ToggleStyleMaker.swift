@@ -10,17 +10,17 @@ import SwiftUI
 struct ToggleButtonStyleMaker: ToggleStyle {
     @GestureState private var isPressed = false
     
-    let theme: ToggleButtonTheme
-    let shape: ToggleButtonShape
-    let innerImage: Image?
+    private let colorTheme: ToggleButtonColorTheme
+    private let figureTheme: ToggleButtonFigureTheme
+    private let innerImage: Image?
     
     init(
-        theme: ToggleButtonTheme,
-        shape: ToggleButtonShape,
+        colorTheme: ToggleButtonColorTheme,
+        figureTheme: ToggleButtonFigureTheme,
         innerImage: Image? = nil
     ) {
-        self.theme = theme
-        self.shape = shape
+        self.colorTheme = colorTheme
+        self.figureTheme = figureTheme
         self.innerImage = innerImage
     }
     
@@ -47,32 +47,27 @@ struct ToggleButtonStyleMaker: ToggleStyle {
             return EmptyView().asAnyView()
         }
         
+        let imageSize = figureTheme.innnerImageSize()
+        let padding = figureTheme.padding()
+        let shape = figureTheme.shape()
+        
         let styledImage = image
             .resizable()
-            .frame(width: shape.imageSize, height: shape.imageSize)
-            .padding(shape.boxPadding)
-            .foregroundColor(theme.foregroundColor(state: state))
+            .renderingMode(.template)
+            .frame(width: imageSize.width, height: imageSize.height)
+            .padding(.vertical, padding.vertical)
+            .padding(.horizontal, padding.horizontal)
+            .foregroundColor(colorTheme.foregroundColor(state: state))
             .background(
-                shapeView()
-                    .fill(theme.backgroundColor(state: state))
+                shape
+                    .fill(colorTheme.backgroundColor(state: state))
             )
             .overlay(
-                shapeView()
-                    .stroke(theme.borderColor(state: state))
+                shape
+                    .stroke(colorTheme.borderColor(state: state))
             )
         
         return styledImage.asAnyView()
-    }
-    
-    private func shapeView() -> AnyShape {
-        switch shape {
-        case .square:
-            return RoundedRectangle(cornerRadius: 0).asAnyShape()
-        case .round:
-            return RoundedRectangle(cornerRadius: 4).asAnyShape()
-        case .circle:
-            return Circle().asAnyShape()
-        }
     }
     
     private func dragGesture(configuration: Configuration) -> some Gesture {

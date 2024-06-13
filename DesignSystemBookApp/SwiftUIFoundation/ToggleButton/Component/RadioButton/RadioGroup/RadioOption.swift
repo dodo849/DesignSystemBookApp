@@ -14,7 +14,7 @@ import SwiftUI
 ///     defaultValue: defaultColor,
 ///     onChange: { print($0) }
 /// ) {
-///     ForEach(colors, id: \.self) { (option: ToggleButtonColor) in
+///     ForEach(colors, id: \.self) { (option: BasicToggleButtonColor) in
 ///         RadioOption(value: option) {
 ///             Text(option.rawValue)
 ///         }
