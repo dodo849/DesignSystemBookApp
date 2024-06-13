@@ -20,7 +20,8 @@ public extension RadioButton {
                 let fighureTheme = BasicToggleButtonFigureTheme(shape: shape)
                 return ToggleButtonStyleMaker(
                     colorTheme: colorTheme,
-                    figureTheme: fighureTheme
+                    figureTheme: fighureTheme,
+                    innerImage: shape.innerImage
                 )
         }()
         

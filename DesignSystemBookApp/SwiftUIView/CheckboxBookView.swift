@@ -33,7 +33,7 @@ struct CheckButtonBookView: View {
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundStyle(.gray)
                     
-                    CheckboxButton(isOn: $isOn[index]) {
+                    CheckButton(isOn: $isOn[index]) {
                         Text("Click me")
                     }
                     .styled(

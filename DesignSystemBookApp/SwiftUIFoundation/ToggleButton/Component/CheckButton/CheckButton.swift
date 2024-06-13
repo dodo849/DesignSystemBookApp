@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct CheckboxButton<Label>: View where Label: View {
+public struct CheckButton<Label>: View where Label: View {
     @Binding var isOn: Bool
     let label: () -> Label
     
@@ -24,7 +24,7 @@ public struct CheckboxButton<Label>: View where Label: View {
     }
 }
 
-public extension CheckboxButton {
+public extension CheckButton {
     func styled(
         color: BasicToggleButtonColor = .primary,
         shape: BasicToggleButtonShape = .round
@@ -34,7 +34,8 @@ public extension CheckboxButton {
                 let fighureTheme = BasicToggleButtonFigureTheme(shape: shape)
                 return ToggleButtonStyleMaker(
                     colorTheme: colorTheme,
-                    figureTheme: fighureTheme
+                    figureTheme: fighureTheme,
+                    innerImage: shape.innerImage
                 )
         }()
         
