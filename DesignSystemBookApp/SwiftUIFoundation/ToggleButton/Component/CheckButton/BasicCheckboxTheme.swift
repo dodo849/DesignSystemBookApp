@@ -1,5 +1,5 @@
 //
-//  BasicCheckboxTheme.swift
+//  BasicToggleButtonTheme.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/13/24.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct BasicCheckboxTheme: CheckboxTheme {
-    let color: CheckboxColor
+struct BasicCheckButtonTheme: ToggleButtonTheme {
+    let color: ToggleButtonColor
     
-    func backgroundColor(state: CheckboxState) -> Color {
+    func backgroundColor(state: ToggleButtonState) -> Color {
         switch (state, color) {
         case (.unchecked, _): return .clear
         case (.checked, .primary): return .basicYellow
@@ -19,14 +19,14 @@ struct BasicCheckboxTheme: CheckboxTheme {
         }
     }
     
-    func foregroundColor(state: CheckboxState) -> Color {
+    func foregroundColor(state: ToggleButtonState) -> Color {
         switch (state, color) {
         case (.unchecked, _): return .clear
         case (.checked, _): return .white
         }
     }
     
-    func borderColor(state: CheckboxState) -> Color {
+    func borderColor(state: ToggleButtonState) -> Color {
         switch (state, color) {
         case (_, .primary): return .basicYellow
         case (_, .secondary): return .basicGreen

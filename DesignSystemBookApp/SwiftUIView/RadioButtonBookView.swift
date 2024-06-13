@@ -1,5 +1,5 @@
 //
-//  CheckButtonView.swift
+//  RadioButtonBookView.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/13/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CheckButtonBookView: View {
+struct RadioButtonBookView: View {
     @State var isOn: [Bool] = [false, false, false]
     @State var selectedColor = "primary"
     var colors = ["primary", "secondary", "tertiary"]
@@ -33,7 +33,7 @@ struct CheckButtonBookView: View {
                         .font(.system(size: 12))
                         .foregroundStyle(.gray)
                     
-                    CheckButton(isOn: $isOn[index]) {
+                    RadioButton(isOn: $isOn[index]) {
                         Text("Click me")
                     }
                     .styled(

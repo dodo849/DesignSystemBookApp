@@ -22,10 +22,18 @@ struct ContentView: View {
                     
                     Spacer().frame(height: 20)
                     
-                    Text("Checkbox")
+                    Text("CheckButton")
                         .font(.system(size: 20, weight: .bold))
-                    NavigationLink(destination: CheckboxBookView()) {
-                        Text("Checkbox example")
+                    NavigationLink(destination: CheckButtonBookView()) {
+                        Text("CheckButton example")
+                    }
+                    
+                    Spacer().frame(height: 20)
+                    
+                    Text("RadioButton")
+                        .font(.system(size: 20, weight: .bold))
+                    NavigationLink(destination: RadioButtonBookView()) {
+                        Text("RadioButton example")
                     }
                 }
                 .padding(.horizontal)

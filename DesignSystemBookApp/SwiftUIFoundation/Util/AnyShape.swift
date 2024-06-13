@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-extension Shape {
-    func asAnyShape() -> AnyShape {
-        AnyShape(self)
-    }
-}
-
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 struct AnyShape: Shape, Sendable {
     private let pathMaker: @Sendable (CGRect) -> Path
@@ -25,5 +19,11 @@ struct AnyShape: Shape, Sendable {
 
     func path(in rect: CGRect) -> Path {
         pathMaker(rect)
+    }
+}
+
+extension Shape {
+    func asAnyShape() -> AnyShape {
+        AnyShape(self)
     }
 }

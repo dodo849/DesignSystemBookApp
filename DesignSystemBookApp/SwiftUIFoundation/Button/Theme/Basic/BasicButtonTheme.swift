@@ -113,7 +113,6 @@ private extension BasicButtonTheme {
         }
     }
     
-    
     func outlineBorderColor(
         state: ButtonState,
         color: ButtonColor

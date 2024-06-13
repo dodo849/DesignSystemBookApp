@@ -31,7 +31,7 @@ extension ButtonSize {
     var padding: Spacing {
         switch self {
         case .large: .init(16, 32)
-        case .medium: .init(12, 28)
+        case .medium: .init(10, 24)
         case .small: .init(8, 16)
         }
     }

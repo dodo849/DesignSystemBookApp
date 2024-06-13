@@ -1,5 +1,5 @@
 //
-//  BaseCheckboxStyle.swift
+//  BaseCheckButtonStyle.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/13/24.
@@ -7,24 +7,30 @@
 
 import SwiftUI
 
-struct CheckboxStyleMaker: ToggleStyle {
+struct ToggleButtonStyleMaker: ToggleStyle {
     @GestureState private var isPressed = false
     
-    let theme: CheckboxTheme
-    let shape: CheckboxShape
+    let theme: ToggleButtonTheme
+    let shape: ToggleButtonShape
+    let innerImage: Image?
     
-    init(theme: CheckboxTheme, shape: CheckboxShape) {
+    init(
+        theme: ToggleButtonTheme,
+        shape: ToggleButtonShape,
+        innerImage: Image? = nil
+    ) {
         self.theme = theme
         self.shape = shape
+        self.innerImage = innerImage
     }
     
     func makeBody(configuration: Configuration) -> some View {
-        let checkboxState: CheckboxState = configuration.isOn
+        let toggleButtonState: ToggleButtonState = configuration.isOn
         ? .checked
         : .unchecked
         
         HStack(alignment: .center) {
-            checkboxImage(for: checkboxState)
+            styledImage(for: toggleButtonState)
             configuration.label
         }
         .scaleEffect(isPressed ? 0.9 : 1.0)
@@ -36,8 +42,12 @@ struct CheckboxStyleMaker: ToggleStyle {
         Animation.spring(response: 0.35)
     }()
     
-    private func checkboxImage(for state: CheckboxState) -> some View {
-        Image(systemName: "checkmark")
+    private func styledImage(for state: ToggleButtonState) -> some View {
+        guard let image = innerImage else {
+            return EmptyView().asAnyView()
+        }
+        
+        let styledImage = image
             .resizable()
             .frame(width: shape.imageSize, height: shape.imageSize)
             .padding(shape.boxPadding)
@@ -50,6 +60,8 @@ struct CheckboxStyleMaker: ToggleStyle {
                 shapeView()
                     .stroke(theme.borderColor(state: state))
             )
+        
+        return styledImage.asAnyView()
     }
     
     private func shapeView() -> AnyShape {
@@ -76,5 +88,4 @@ struct CheckboxStyleMaker: ToggleStyle {
                 }
             }
     }
-    
 }
