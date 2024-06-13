@@ -13,7 +13,7 @@ public extension Button {
         variant: ButtonVariant = .fill,
         state: ButtonState = .enabled,
         color: ButtonColor = .primary,
-        size: ButtonSize = .medium,
+        size: ButtonSize = .large,
         shape: ButtonShape = .round
     ) -> some View {
         

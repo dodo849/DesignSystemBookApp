@@ -14,7 +14,7 @@ struct ContentView: View {
                 Text("Button")
                     .font(.system(size: 20, weight: .bold))
                 NavigationLink(destination: ButtonBookView()) {
-                    Text("Button")
+                    Text("Button example")
                 }
             }
             .padding(.horizontal)
