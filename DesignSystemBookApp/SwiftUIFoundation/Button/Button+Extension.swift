@@ -11,7 +11,6 @@ public extension Button {
     func styled(
         _ theme: ButtonThemeType = .basic,
         variant: ButtonVariant = .fill,
-        state: ButtonState = .enabled,
         color: ButtonColor = .primary,
         size: ButtonSize = .large,
         shape: ButtonShape = .round
@@ -26,7 +25,6 @@ public extension Button {
                 )
                 return ButtonStyleMaker(
                     theme: basicTheme,
-                    state: state,
                     size: size,
                     shape: shape
                 )

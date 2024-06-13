@@ -19,6 +19,8 @@ struct BasicButtonTheme: ButtonTheme {
             return .clear
         case .translucent:
             return translucentBackgroundColor(state: state, color: color)
+        case .transparent:
+            return state == .pressed ? .gray01 : .clear
         }
     }
     
@@ -30,6 +32,8 @@ struct BasicButtonTheme: ButtonTheme {
             return outlineForegroundColor(state: state, color: color)
         case .translucent:
             return translucentForegroundColor(state: state, color: color)
+        case .transparent:
+            return transparentForegroundColor(state: state, color: color)
         }
     }
     
@@ -39,6 +43,8 @@ struct BasicButtonTheme: ButtonTheme {
             return .clear
         case .outline:
             return outlineBorderColor(state: state, color: color)
+        case .transparent:
+            return .clear
         }
     }
 }
@@ -106,6 +112,23 @@ private extension BasicButtonTheme {
         case (.enabled, .tertiary): return .basicPink
         case (.enabled, .destructive): return .red
         case (.disabled, _): return .gray05
+        case (.pressed, .primary): return .basicYellowDeep
+        case (.pressed, .secondary): return .basicGreenDeep
+        case (.pressed, .tertiary): return .basicPinkDeep
+        case (.pressed, .destructive): return .red // FIXME: need arRedDeep
+        }
+    }
+    
+    func transparentForegroundColor(
+        state: ButtonState,
+        color: ButtonColor
+    ) -> Color {
+        switch (state, color) {
+        case (.enabled, .primary): return .basicYellow
+        case (.enabled, .secondary): return .basicGreen
+        case (.enabled, .tertiary): return .basicPink
+        case (.enabled, .destructive): return .red
+        case (.disabled, _): return .gray01
         case (.pressed, .primary): return .basicYellowDeep
         case (.pressed, .secondary): return .basicGreenDeep
         case (.pressed, .tertiary): return .basicPinkDeep

@@ -30,7 +30,7 @@ struct CheckButtonBookView: View {
                 
                 ForEach(Array(colors.enumerated()), id: \.offset) { index, color in
                     Text(color.rawValue)
-                        .font(.system(size: 12))
+                        .font(.system(size: 12, weight: .semibold))
                         .foregroundStyle(.gray)
                     
                     CheckboxButton(isOn: $isOn[index]) {
@@ -51,7 +51,6 @@ struct CheckButtonBookView: View {
                                 printGeneratedCode(generatedCode)
                             }
                     )
-                    
                 }
                 
                 Spacer()
@@ -62,12 +61,12 @@ struct CheckButtonBookView: View {
     
     private func generateCode(_ color: String, isOn: Bool) -> String {
         let colorString = color == "primary"
-            ? ""
-            : "color: .\(color)"
+        ? ""
+        : "color: .\(color)"
         
         let shapeString = selectedShape.rawValue == "round"
-            ? ""
-            : "shape: .\(selectedShape)"
+        ? ""
+        : "shape: .\(selectedShape)"
         
         let components = [colorString, shapeString]
             .filter { !$0.isEmpty }

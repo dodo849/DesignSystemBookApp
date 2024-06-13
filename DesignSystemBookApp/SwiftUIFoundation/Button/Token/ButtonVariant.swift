@@ -8,5 +8,5 @@
 import Foundation
 
 public enum ButtonVariant: String, CaseIterable {
-    case fill, outline, translucent
+    case fill, outline, translucent, transparent
 }

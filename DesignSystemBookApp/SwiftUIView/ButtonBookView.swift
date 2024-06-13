@@ -15,8 +15,9 @@ struct ButtonBookView: View {
     private var sizes = ButtonSize.allCases
     @State private var selectedShape = ButtonShape.allCases.first!
     var sahpes = ButtonShape.allCases
-    @State private var selectedState = ButtonState.allCases.first!
-    private var states = ButtonState.allCases
+    @State private var selectedState = "disabled"
+    // "pressed" is contained in enabled
+    private var states = ["enabled", "disabled"]
     
     var body: some View {
         ScrollView {
@@ -34,7 +35,7 @@ struct ButtonBookView: View {
                     .font(.system(size: 16, weight: .semibold))
                 Picker("Choose a shape", selection: $selectedState) {
                     ForEach(states, id: \.self) {
-                        Text($0.rawValue)
+                        Text($0)
                     }
                 }
                 .pickerStyle(.segmented)
@@ -67,18 +68,37 @@ struct ButtonBookView: View {
                         ClipboardHelper.copyToClipboard(text: generatedCode)
                         printGeneratedCode(generatedCode)
                     } label: {
-                        Text("Button")
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Button")
+                        }
                     }
                     .styled(
                         variant: selectedVariant,
-                        state: selectedState,
                         color: color,
                         size: selectedSize,
                         shape: selectedShape
                     )
+                    .disabled(selectedState == "disabled")
                 }
                 
-                Spacer()
+                Spacer().frame(height: 15)
+                
+                Button {
+                    let generatedCode = generateCode("primary")
+                    ClipboardHelper.copyToClipboard(text: generatedCode)
+                    printGeneratedCode(generatedCode)
+                } label: {
+                    HStack {
+                        Image(systemName: "doc.on.doc")
+                        Text("Copy Code")
+                    }
+                }
+                .styled(
+                    variant: .transparent,
+                    size: .small,
+                    shape: .pill
+                )
             }
             .padding()
         }
@@ -86,26 +106,26 @@ struct ButtonBookView: View {
     
     private func generateCode(_ color: String) -> String {
         let variantString = selectedVariant.rawValue == "fill"
-            ? ""
-            : "variant: .\(selectedVariant)"
-
-        let stateString = selectedState.rawValue == "enabled"
-            ? ""
-            : "state: .\(selectedState)"
+        ? ""
+        : "variant: .\(selectedVariant)"
         
         let colorString = color == "primary"
-            ? ""
-            : "color: .\(color)"
-
-        let sizeString = selectedSize.rawValue == "large"
-            ? ""
-            : "size: .\(selectedSize)"
-
-        let shapeString = selectedShape.rawValue == "round"
-            ? ""
-            : "shape: .\(selectedShape)"
+        ? ""
+        : "color: .\(color)"
         
-        let components = [variantString, stateString, colorString, sizeString, shapeString]
+        let sizeString = selectedSize.rawValue == "large"
+        ? ""
+        : "size: .\(selectedSize)"
+        
+        let shapeString = selectedShape.rawValue == "round"
+        ? ""
+        : "shape: .\(selectedShape)"
+        
+        let disabledString = selectedState == "enabled"
+        ? ""
+        : "\n.disabled(true)"
+        
+        let components = [variantString, colorString, sizeString, shapeString]
             .filter { !$0.isEmpty }
             .joined(separator: ", ")
         
@@ -113,7 +133,7 @@ struct ButtonBookView: View {
         Button {
         } label: {
         }
-        .styled(\(components))
+        .styled(\(components))\(disabledString)
         """
         return styledString
     }

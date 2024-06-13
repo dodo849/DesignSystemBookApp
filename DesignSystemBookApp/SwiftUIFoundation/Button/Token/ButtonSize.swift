@@ -8,7 +8,7 @@
 import SwiftUI
 
 public enum ButtonSize: String, CaseIterable {
-    case large, medium, small
+    case large, medium, small, xsmall
 }
 
 extension ButtonSize {
@@ -16,7 +16,7 @@ extension ButtonSize {
         switch self {
         case .large: 18
         case .medium: 16
-        case .small: 12
+        case .small, .xsmall: 12
         }
     }
     
@@ -24,7 +24,7 @@ extension ButtonSize {
         switch self {
         case .large: .semibold
         case .medium: .medium
-        case .small: .regular
+        case .small, .xsmall: .regular
         }
     }
     
@@ -33,6 +33,7 @@ extension ButtonSize {
         case .large: .init(16, 32)
         case .medium: .init(10, 24)
         case .small: .init(8, 16)
+        case .xsmall: .init(4, 4)
         }
     }
     
@@ -41,14 +42,14 @@ extension ButtonSize {
         case .large: 16
         case .medium: 12
         case .small: 8
+        case .xsmall: 6
         }
     }
     
     var width: CGFloat? {
         switch self {
         case .large: .infinity
-        case .medium: nil
-        case .small: nil
+        case .medium, .small, .xsmall: nil
         }
     }
     

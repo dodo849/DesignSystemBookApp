@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum ButtonState: String, CaseIterable {
+enum ButtonState: String, CaseIterable {
     case enabled, disabled, pressed
 }
