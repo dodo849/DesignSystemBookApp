@@ -9,5 +9,4 @@ import Foundation
 
 public enum ButtonState: String {
     case enabled, disabled, pressed
-//    case checked // FIXME: 추후 진한 색상 추가 후 구현
 }

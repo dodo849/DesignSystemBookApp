@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public extension Button {
+public extension Button where Button == Button{
     func styled(
         _ theme: ButtonThemeType = .basic,
         variant: ButtonVariant = .fill,
@@ -24,7 +24,7 @@ public extension Button {
                     variant: variant,
                     color: color
                 )
-                return BaseButtonStyle(
+                return ButtonStyleMaker(
                     theme: basicTheme,
                     state: state,
                     size: size,

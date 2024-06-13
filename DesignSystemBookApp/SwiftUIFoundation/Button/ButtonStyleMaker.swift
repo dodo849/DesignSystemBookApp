@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BaseButtonStyle: ButtonStyle {
+struct ButtonStyleMaker: ButtonStyle {
     let theme: ButtonTheme
     let state: ButtonState
     let size: ButtonSize

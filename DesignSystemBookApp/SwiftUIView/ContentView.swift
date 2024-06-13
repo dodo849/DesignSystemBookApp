@@ -10,14 +10,26 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                Text("Button")
-                    .font(.system(size: 20, weight: .bold))
-                NavigationLink(destination: ButtonBookView()) {
-                    Text("Button example")
+            ScrollView {
+                Spacer().frame(height: 100)
+                
+                VStack(alignment: .leading) {
+                    Text("Button")
+                        .font(.system(size: 20, weight: .bold))
+                    NavigationLink(destination: ButtonBookView()) {
+                        Text("Button example")
+                    }
+                    
+                    Spacer().frame(height: 20)
+                    
+                    Text("Checkbox")
+                        .font(.system(size: 20, weight: .bold))
+                    NavigationLink(destination: CheckboxBookView()) {
+                        Text("Checkbox example")
+                    }
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
             .frameMax([.width], alignment: .leading)
         }
     }

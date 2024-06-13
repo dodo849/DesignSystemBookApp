@@ -14,20 +14,16 @@ extension Shape {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct AnyShape: Shape {
-    public var make: (CGRect, inout Path) -> ()
+struct AnyShape: Shape, Sendable {
+    private let pathMaker: @Sendable (CGRect) -> Path
 
-    public init(_ make: @escaping (CGRect, inout Path) -> ()) {
-        self.make = make
-    }
-
-    public init<S: Shape>(_ shape: S) {
-        self.make = { rect, path in
-            path = shape.path(in: rect)
+    init<S: Shape>(_ shape: S) where S: Sendable {
+        self.pathMaker = { rect in
+            shape.path(in: rect)
         }
     }
 
-    public func path(in rect: CGRect) -> Path {
-        return Path { [make] in make(rect, &$0) }
+    func path(in rect: CGRect) -> Path {
+        pathMaker(rect)
     }
 }

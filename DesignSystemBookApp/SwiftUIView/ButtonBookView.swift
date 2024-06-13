@@ -92,36 +92,33 @@ struct ButtonBookView: View {
     func generateCode(_ color: String) -> String {
         let variantString = selectedVariant == "fill"
             ? ""
-            : "variant: .\(selectedVariant), "
+            : "variant: .\(selectedVariant)"
 
         let stateString = selectedState == "enabled"
             ? ""
-            : "state: .\(selectedState), "
+            : "state: .\(selectedState)"
         
         let colorString = color == "primary"
             ? ""
-            : "variant: .\(color), "
+            : "color: .\(color)"
 
         let sizeString = selectedSize == "large"
             ? ""
-            : "size: .\(selectedSize), "
+            : "size: .\(selectedSize)"
 
         let shapeString = selectedShape == "round"
             ? ""
             : "shape: .\(selectedShape)"
         
+        let components = [variantString, stateString, colorString, sizeString, shapeString]
+            .filter { !$0.isEmpty }
+            .joined(separator: ", ")
+        
         let styledString = """
-        .styled(\
-        \(variantString)\
-        \(stateString)\
-        \(colorString)\
-        \(sizeString)\
-        \(shapeString)\
-        )
+        .styled(\(components))
         """
         return styledString
     }
-
 }
 
 #Preview {

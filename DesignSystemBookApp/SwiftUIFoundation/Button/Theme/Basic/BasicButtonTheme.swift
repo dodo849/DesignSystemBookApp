@@ -22,23 +22,23 @@ struct BasicButtonTheme: ButtonTheme {
         }
     }
     
+    func foregroundColor(state: ButtonState) -> Color {
+        switch variant {
+        case .fill:
+            return .white
+        case .outline:
+            return outlineForegroundColor(state: state, color: color)
+        case .translucent:
+            return translucentForegroundColor(state: state, color: color)
+        }
+    }
+    
     func borderColor(state: ButtonState) -> Color {
         switch variant {
         case .fill, .translucent:
             return .clear
         case .outline:
             return outlineBorderColor(state: state, color: color)
-        }
-    }
-    
-    func foregroundColor(state: ButtonState) -> Color {
-        switch variant {
-        case .fill:
-            return .white
-        case .outline:
-            return outlineTintColor(state: state, color: color)
-        case .translucent:
-            return translucentTintColor(state: state, color: color)
         }
     }
 }
@@ -79,24 +79,7 @@ private extension BasicButtonTheme {
         }
     }
     
-    func outlineBorderColor(
-        state: ButtonState,
-        color: ButtonColor
-    ) -> Color {
-        switch (state, color) {
-        case (.enabled, .primary): return .basicYellow
-        case (.enabled, .secondary): return .basicGreen
-        case (.enabled, .tertiary): return .basicPink
-        case (.enabled, .destructive): return .red // FIXME: need new color
-        case (.disabled, _): return .gray02
-        case (.pressed, .primary): return .basicYellowDeep
-        case (.pressed, .secondary): return .basicGreenDeep
-        case (.pressed, .tertiary): return .basicPinkDeep
-        case (.pressed, .destructive): return .red // FIXME: need arRedDeep
-        }
-    }
-    
-    func outlineTintColor(
+    func outlineForegroundColor(
         state: ButtonState,
         color: ButtonColor
     ) -> Color {
@@ -113,7 +96,7 @@ private extension BasicButtonTheme {
         }
     }
     
-    func translucentTintColor(
+    func translucentForegroundColor(
         state: ButtonState,
         color: ButtonColor
     ) -> Color {
@@ -123,6 +106,24 @@ private extension BasicButtonTheme {
         case (.enabled, .tertiary): return .basicPink
         case (.enabled, .destructive): return .red
         case (.disabled, _): return .gray05
+        case (.pressed, .primary): return .basicYellowDeep
+        case (.pressed, .secondary): return .basicGreenDeep
+        case (.pressed, .tertiary): return .basicPinkDeep
+        case (.pressed, .destructive): return .red // FIXME: need arRedDeep
+        }
+    }
+    
+    
+    func outlineBorderColor(
+        state: ButtonState,
+        color: ButtonColor
+    ) -> Color {
+        switch (state, color) {
+        case (.enabled, .primary): return .basicYellow
+        case (.enabled, .secondary): return .basicGreen
+        case (.enabled, .tertiary): return .basicPink
+        case (.enabled, .destructive): return .red // FIXME: need new color
+        case (.disabled, _): return .gray02
         case (.pressed, .primary): return .basicYellowDeep
         case (.pressed, .secondary): return .basicGreenDeep
         case (.pressed, .tertiary): return .basicPinkDeep
