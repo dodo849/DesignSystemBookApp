@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ToggleButtonShape: String {
+public enum ToggleButtonShape: String, CaseIterable {
     case round, square, circle
     
     var imageSize: CGFloat {

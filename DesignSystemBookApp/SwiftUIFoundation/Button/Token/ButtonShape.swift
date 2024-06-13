@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum ButtonShape: String {
+public enum ButtonShape: String, CaseIterable {
     case round, square, pill
 }

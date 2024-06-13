@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct RadioOption<Label: View, Option: Equatable & Identifiable>: View {
+public struct RadioOption<Label: View, Option: Equatable & Identifiable>: View, RadioButton {
     @EnvironmentObject var store: RadioOptionStore<Option>
     var value: Option
     let label: () -> Label

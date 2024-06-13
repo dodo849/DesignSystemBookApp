@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum ToggleButtonColor: String {
+public enum ToggleButtonColor: String, CaseIterable {
     case primary, secondary, tertiary
 }

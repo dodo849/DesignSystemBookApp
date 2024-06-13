@@ -9,10 +9,11 @@ import SwiftUI
 
 struct RadioButtonBookView: View {
     @State var isOn: [Bool] = [false, false, false]
-    @State var selectedColor = "primary"
-    var colors = ["primary", "secondary", "tertiary"]
-    @State var selectedShape = "round"
-    var shapes = ["round", "square", "circle"]
+    @State var selectedColor = ToggleButtonColor.allCases.first!
+    var colors = ToggleButtonColor.allCases
+    var defaultColor: ToggleButtonColor?
+    @State var selectedShape = ToggleButtonShape.allCases.first!
+    var shapes = ToggleButtonShape.allCases
     
     var body: some View {
         ScrollView {
@@ -21,15 +22,17 @@ struct RadioButtonBookView: View {
                     .font(.system(size: 16, weight: .semibold))
                 Picker("Choose a shape", selection: $selectedShape) {
                     ForEach(shapes, id: \.self) {
-                        Text($0)
+                        Text($0.rawValue)
                     }
                 }
                 .pickerStyle(.segmented)
                 
                 Divider()
-                
+                Text("Single radio button")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundStyle(.black)
                 ForEach(Array(colors.enumerated()), id: \.offset) { index, color in
-                    Text(color)
+                    Text(color.rawValue)
                         .font(.system(size: 12))
                         .foregroundStyle(.gray)
                     
@@ -37,15 +40,38 @@ struct RadioButtonBookView: View {
                         Text("Click me")
                     }
                     .styled(
-                        color: ToggleButtonColor(rawValue: color)!,
-                        shape: ToggleButtonShape(rawValue: selectedShape)!
+                        color: color,
+                        shape: selectedShape
                     )
                 }
                 
+                Text("Group radio button")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundStyle(.black)
+                RadioGroup(
+                    defaultValue: defaultColor,
+                    onChange: { print($0) }
+                ) {
+                    ForEach(colors, id: \.self) { (option: ToggleButtonColor) in
+                        RadioOption(value: option) {
+                            Text(option.rawValue)
+                        }
+                        .styled(
+                            color: option,
+                            shape: selectedShape
+                        )
+                    }
+                }
                 Spacer()
             }
             .padding()
         }
+    }
+}
+
+extension ToggleButtonColor: Identifiable, Equatable {
+    public var id: UUID {
+        UUID()
     }
 }
 

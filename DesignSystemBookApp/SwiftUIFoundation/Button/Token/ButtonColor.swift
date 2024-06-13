@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum ButtonColor: String {
+public enum ButtonColor: String, CaseIterable {
     case primary, secondary, tertiary, destructive
 }

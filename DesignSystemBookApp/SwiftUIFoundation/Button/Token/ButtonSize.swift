@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum ButtonSize: String {
+public enum ButtonSize: String, CaseIterable {
     case large, medium, small
 }
 
