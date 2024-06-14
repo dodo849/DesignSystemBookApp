@@ -12,9 +12,6 @@
 		BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */; };
 		BC0932732C1A8F5200D3F8CB /* BasicButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932532C1A8F5200D3F8CB /* BasicButtonColor.swift */; };
 		BC0932742C1A8F5200D3F8CB /* ButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932542C1A8F5200D3F8CB /* ButtonState.swift */; };
-		BC0932752C1A8F5200D3F8CB /* BasicButtonVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932552C1A8F5200D3F8CB /* BasicButtonVariant.swift */; };
-		BC0932762C1A8F5200D3F8CB /* BasicButtonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932572C1A8F5200D3F8CB /* BasicButtonShape.swift */; };
-		BC0932772C1A8F5200D3F8CB /* BasicButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932582C1A8F5200D3F8CB /* BasicButtonSize.swift */; };
 		BC0932782C1A8F5200D3F8CB /* ButtonStyleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09325A2C1A8F5200D3F8CB /* ButtonStyleMaker.swift */; };
 		BC0932792C1A8F5200D3F8CB /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09325B2C1A8F5200D3F8CB /* Button+Extension.swift */; };
 		BC09327A2C1A8F5200D3F8CB /* BackButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09325D2C1A8F5200D3F8CB /* BackButton+Extension.swift */; };
@@ -25,7 +22,6 @@
 		BC0932852C1A8F5200D3F8CB /* DesignSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09326D2C1A8F5200D3F8CB /* DesignSystemApp.swift */; };
 		BC0932862C1A8F5200D3F8CB /* PrimitiveType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09326E2C1A8F5200D3F8CB /* PrimitiveType+Extension.swift */; };
 		BC0932882C1A8F7900D3F8CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC0932872C1A8F7900D3F8CB /* Assets.xcassets */; };
-		BC09328A2C1A907B00D3F8CB /* ButtonBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932892C1A907B00D3F8CB /* ButtonBookView.swift */; };
 		BC09328C2C1A9C1A00D3F8CB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BC09328B2C1A9C1A00D3F8CB /* .swiftlint.yml */; };
 		BC09328F2C1AA13D00D3F8CB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BC09328E2C1AA13D00D3F8CB /* .gitignore */; };
 		BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932902C1AA4B300D3F8CB /* AnyShape.swift */; };
@@ -54,6 +50,13 @@
 		BCFD538B2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD538A2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift */; };
 		BCFD538D2C1B725600191F34 /* FrameOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD538C2C1B725600191F34 /* FrameOffset.swift */; };
 		BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD538E2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift */; };
+		BCFD54582C1BE7E900191F34 /* GrayButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54512C1BE7E900191F34 /* GrayButtonColorTheme.swift */; };
+		BCFD545B2C1BE7E900191F34 /* BasicButtonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54542C1BE7E900191F34 /* BasicButtonShape.swift */; };
+		BCFD545C2C1BE7E900191F34 /* BasicButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54552C1BE7E900191F34 /* BasicButtonSize.swift */; };
+		BCFD545D2C1BE7E900191F34 /* BasicButtonVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54562C1BE7E900191F34 /* BasicButtonVariant.swift */; };
+		BCFD545F2C1BECA900191F34 /* BasicButtonBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD545E2C1BECA900191F34 /* BasicButtonBookView.swift */; };
+		BCFD54652C1BEFAC00191F34 /* GrayButtonBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54642C1BEFAC00191F34 /* GrayButtonBookView.swift */; };
+		BCFD54672C1BEFEA00191F34 /* GrayButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54662C1BEFEA00191F34 /* GrayButtonColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,9 +65,6 @@
 		BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonThemeType.swift; sourceTree = "<group>"; };
 		BC0932532C1A8F5200D3F8CB /* BasicButtonColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColor.swift; sourceTree = "<group>"; };
 		BC0932542C1A8F5200D3F8CB /* ButtonState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonState.swift; sourceTree = "<group>"; };
-		BC0932552C1A8F5200D3F8CB /* BasicButtonVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonVariant.swift; sourceTree = "<group>"; };
-		BC0932572C1A8F5200D3F8CB /* BasicButtonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonShape.swift; sourceTree = "<group>"; };
-		BC0932582C1A8F5200D3F8CB /* BasicButtonSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonSize.swift; sourceTree = "<group>"; };
 		BC09325A2C1A8F5200D3F8CB /* ButtonStyleMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyleMaker.swift; sourceTree = "<group>"; };
 		BC09325B2C1A8F5200D3F8CB /* Button+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		BC09325D2C1A8F5200D3F8CB /* BackButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BackButton+Extension.swift"; sourceTree = "<group>"; };
@@ -75,7 +75,6 @@
 		BC09326D2C1A8F5200D3F8CB /* DesignSystemApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignSystemApp.swift; sourceTree = "<group>"; };
 		BC09326E2C1A8F5200D3F8CB /* PrimitiveType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PrimitiveType+Extension.swift"; sourceTree = "<group>"; };
 		BC0932872C1A8F7900D3F8CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BC0932892C1A907B00D3F8CB /* ButtonBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBookView.swift; sourceTree = "<group>"; };
 		BC09328B2C1A9C1A00D3F8CB /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BC09328E2C1AA13D00D3F8CB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BC0932902C1AA4B300D3F8CB /* AnyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShape.swift; sourceTree = "<group>"; };
@@ -105,6 +104,13 @@
 		BCFD538A2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonFigureTheme.swift; sourceTree = "<group>"; };
 		BCFD538C2C1B725600191F34 /* FrameOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameOffset.swift; sourceTree = "<group>"; };
 		BCFD538E2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicToggleButtonFigureTheme.swift; sourceTree = "<group>"; };
+		BCFD54512C1BE7E900191F34 /* GrayButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayButtonColorTheme.swift; sourceTree = "<group>"; };
+		BCFD54542C1BE7E900191F34 /* BasicButtonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonShape.swift; sourceTree = "<group>"; };
+		BCFD54552C1BE7E900191F34 /* BasicButtonSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonSize.swift; sourceTree = "<group>"; };
+		BCFD54562C1BE7E900191F34 /* BasicButtonVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonVariant.swift; sourceTree = "<group>"; };
+		BCFD545E2C1BECA900191F34 /* BasicButtonBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonBookView.swift; sourceTree = "<group>"; };
+		BCFD54642C1BEFAC00191F34 /* GrayButtonBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayButtonBookView.swift; sourceTree = "<group>"; };
+		BCFD54662C1BEFEA00191F34 /* GrayButtonColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayButtonColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,7 @@
 				BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */,
 				BCFD53802C1B5FCC00191F34 /* Common */,
 				BC09324F2C1A8F5200D3F8CB /* Basic */,
+				BCFD54502C1BE75600191F34 /* Gray */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -144,9 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				BC0932532C1A8F5200D3F8CB /* BasicButtonColor.swift */,
-				BC0932552C1A8F5200D3F8CB /* BasicButtonVariant.swift */,
-				BC0932582C1A8F5200D3F8CB /* BasicButtonSize.swift */,
-				BC0932572C1A8F5200D3F8CB /* BasicButtonShape.swift */,
+				BCFD54542C1BE7E900191F34 /* BasicButtonShape.swift */,
+				BCFD54552C1BE7E900191F34 /* BasicButtonSize.swift */,
+				BCFD54562C1BE7E900191F34 /* BasicButtonVariant.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -195,9 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				BC09326A2C1A8F5200D3F8CB /* ContentView.swift */,
-				BC0932892C1A907B00D3F8CB /* ButtonBookView.swift */,
-				BC0932952C1ABF7000D3F8CB /* CheckboxBookView.swift */,
-				BC0932BD2C1AF40200D3F8CB /* RadioButtonBookView.swift */,
+				BCFD54632C1BECF000191F34 /* ToggleButton */,
+				BCFD54622C1BECEA00191F34 /* Button */,
 			);
 			path = SwiftUIView;
 			sourceTree = "<group>";
@@ -372,6 +378,41 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		BCFD54502C1BE75600191F34 /* Gray */ = {
+			isa = PBXGroup;
+			children = (
+				BCFD54512C1BE7E900191F34 /* GrayButtonColorTheme.swift */,
+				BCFD54572C1BE7E900191F34 /* Token */,
+			);
+			path = Gray;
+			sourceTree = "<group>";
+		};
+		BCFD54572C1BE7E900191F34 /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				BCFD54662C1BEFEA00191F34 /* GrayButtonColor.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
+		BCFD54622C1BECEA00191F34 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				BCFD545E2C1BECA900191F34 /* BasicButtonBookView.swift */,
+				BCFD54642C1BEFAC00191F34 /* GrayButtonBookView.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		BCFD54632C1BECF000191F34 /* ToggleButton */ = {
+			isa = PBXGroup;
+			children = (
+				BC0932952C1ABF7000D3F8CB /* CheckboxBookView.swift */,
+				BC0932BD2C1AF40200D3F8CB /* RadioButtonBookView.swift */,
+			);
+			path = ToggleButton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -472,40 +513,43 @@
 				BC09327C2C1A8F5200D3F8CB /* Keyboard+Extension.swift in Sources */,
 				BCFD537F2C1B5F9D00191F34 /* GapOffset.swift in Sources */,
 				BC0934112C1B2E1300D3F8CB /* RadioOption.swift in Sources */,
+				BCFD54672C1BEFEA00191F34 /* GrayButtonColor.swift in Sources */,
 				BC0932962C1ABF7000D3F8CB /* CheckboxBookView.swift in Sources */,
 				BC0933ED2C1B2C1A00D3F8CB /* ToggleStyleMaker.swift in Sources */,
 				BC0932742C1A8F5200D3F8CB /* ButtonState.swift in Sources */,
 				BC09327A2C1A8F5200D3F8CB /* BackButton+Extension.swift in Sources */,
 				BCFD538D2C1B725600191F34 /* FrameOffset.swift in Sources */,
 				BCFD538B2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift in Sources */,
-				BC0932772C1A8F5200D3F8CB /* BasicButtonSize.swift in Sources */,
 				BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */,
+				BCFD54582C1BE7E900191F34 /* GrayButtonColorTheme.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
 				BC0932BC2C1AED0600D3F8CB /* AnyView.swift in Sources */,
 				BC0932852C1A8F5200D3F8CB /* DesignSystemApp.swift in Sources */,
-				BC09328A2C1A907B00D3F8CB /* ButtonBookView.swift in Sources */,
 				BC0932832C1A8F5200D3F8CB /* ContentView.swift in Sources */,
 				BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */,
+				BCFD545D2C1BE7E900191F34 /* BasicButtonVariant.swift in Sources */,
+				BCFD54652C1BEFAC00191F34 /* GrayButtonBookView.swift in Sources */,
 				BC0932BE2C1AF40200D3F8CB /* RadioButtonBookView.swift in Sources */,
 				BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */,
 				BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift in Sources */,
+				BCFD545C2C1BE7E900191F34 /* BasicButtonSize.swift in Sources */,
 				BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */,
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
+				BCFD545F2C1BECA900191F34 /* BasicButtonBookView.swift in Sources */,
 				BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */,
 				BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */,
 				BCFD53832C1B628200191F34 /* RoundedOffset.swift in Sources */,
 				BC0932862C1A8F5200D3F8CB /* PrimitiveType+Extension.swift in Sources */,
 				BC0932732C1A8F5200D3F8CB /* BasicButtonColor.swift in Sources */,
-				BC0932762C1A8F5200D3F8CB /* BasicButtonShape.swift in Sources */,
 				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */,
 				BC0933E22C1B2C1A00D3F8CB /* CheckButton.swift in Sources */,
 				BC0933E62C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift in Sources */,
-				BC0932752C1A8F5200D3F8CB /* BasicButtonVariant.swift in Sources */,
 				BC0933EB2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift in Sources */,
 				BC0932782C1A8F5200D3F8CB /* ButtonStyleMaker.swift in Sources */,
 				BC09327B2C1A8F5200D3F8CB /* Frame+Extension.swift in Sources */,
 				BC0933E52C1B2C1A00D3F8CB /* RadioButton.swift in Sources */,
 				BC0933E32C1B2C1A00D3F8CB /* RadioGroup.swift in Sources */,
+				BCFD545B2C1BE7E900191F34 /* BasicButtonShape.swift in Sources */,
 				BC0933E42C1B2C1A00D3F8CB /* SingleRadioButton.swift in Sources */,
 				BC0933EA2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift in Sources */,
 				BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */,

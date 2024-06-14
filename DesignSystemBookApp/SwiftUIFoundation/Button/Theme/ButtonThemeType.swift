@@ -1,6 +1,6 @@
 //
 //  ButtonThemeType.swift
-//  arambyeol2023ver
+//  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/13/24.
 //
@@ -8,5 +8,5 @@
 import Foundation
 
 public enum ButtonThemeType {
-    case basic
+    case basic, gray
 }

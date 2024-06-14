@@ -52,7 +52,7 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
     
     func frame() -> FrameOffset {
         switch size {
-        case .large: .init(nil, .infinity)
+        case .large: .init(.infinity, nil)
         case .medium, .small, .xsmall: .init(nil, nil)
         }
     }

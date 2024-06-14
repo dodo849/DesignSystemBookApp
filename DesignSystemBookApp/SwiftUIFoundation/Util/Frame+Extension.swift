@@ -1,6 +1,6 @@
 //
 //  Frame+Extension.swift
-//  arambyeol2023ver
+//  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/10/24.
 //

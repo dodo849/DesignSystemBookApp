@@ -29,7 +29,7 @@ public extension RadioButton {
     }
 }
 
-fileprivate extension BasicToggleButtonShape {
+private extension BasicToggleButtonShape {
     var innerImage: Image {
         switch self {
         case .round: Image(systemName: "square.fill")

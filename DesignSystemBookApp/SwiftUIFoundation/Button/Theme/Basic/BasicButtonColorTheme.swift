@@ -1,6 +1,6 @@
 //
-//  BasicButtonTheme.swift
-//  arambyeol2023ver
+//  GrayButtonColorTheme.swift
+//  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/13/24.
 //
@@ -25,7 +25,7 @@ struct BasicButtonColorTheme: ButtonColorTheme {
         case .translucent:
             return translucentBackgroundColor(state: state, color: color)
         case .transparent:
-            return state == .pressed ? .gray01 : .clear
+            return state == .pressed ? .gray01.opacity(0.5) : .clear
         }
     }
     
@@ -54,7 +54,6 @@ struct BasicButtonColorTheme: ButtonColorTheme {
     }
 }
 
-// Private methods extension
 private extension BasicButtonColorTheme {
     func fillBackgroundColor(
         state: ButtonState,

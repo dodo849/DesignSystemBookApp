@@ -40,5 +40,4 @@ struct BasicToggleButtonFigureTheme: ToggleButtonFigureTheme {
             return Circle().asAnyShape()
         }
     }
-    
 }

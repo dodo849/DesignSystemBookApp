@@ -43,7 +43,7 @@ public extension CheckButton {
     }
 }
 
-fileprivate extension BasicToggleButtonShape {
+private extension BasicToggleButtonShape {
     var innerImage: Image {
         Image(systemName: "checkmark")
     }
