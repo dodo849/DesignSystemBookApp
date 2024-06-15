@@ -14,6 +14,13 @@ struct ContentView: View {
                 Spacer().frame(height: 100)
                 
                 VStack(alignment: .leading, spacing: 4) {
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50)
+                    
+                    Spacer().frame(height: 20)
+                    
                     Text("Button")
                         .font(.system(size: 24, weight: .bold))
                     Text("Basic Button")

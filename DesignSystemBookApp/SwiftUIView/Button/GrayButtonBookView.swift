@@ -114,7 +114,9 @@ struct GrayButtonBookView: View {
         
         let styledString = """
         Button {
+            <#Action#>
         } label: {
+            <#Label#>
         }
         .styled(\(components))\(disabledString)
         """

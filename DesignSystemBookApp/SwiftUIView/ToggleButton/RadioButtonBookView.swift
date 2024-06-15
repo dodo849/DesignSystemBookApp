@@ -126,7 +126,7 @@ struct RadioButtonBookView: View {
         
         let styledString = """
         RadioGroup(
-            defaultValue: <#Identifierable#>,
+            defaultValue: <#Identifiable & Equatable#>,
             onChange: { _ in }
         ) {
             ForEach(<#Identifiable & Equatable#>, id: \\.self) { option in
