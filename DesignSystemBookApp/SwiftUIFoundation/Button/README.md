@@ -1,3 +1,4 @@
+# Button
 ## Bad Example ❌
 When using multiple components in a button label, not wrapping the components can make it look like two separate buttons.
 
