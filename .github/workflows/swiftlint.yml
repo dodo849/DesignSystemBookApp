@@ -10,6 +10,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   lint:
@@ -20,7 +21,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install SwiftLint via Homebrew
+    - name: Cache Homebrew
+      id: cache-brew
+      uses: actions/cache@v3
+      with:
+        path: /usr/local/Homebrew
+        key: ${{ runner.os }}-brew-${{ hashFiles('**/*.swift') }}
+        restore-keys: |
+          ${{ runner.os }}-brew-
+
+    - name: Install Homebrew
+      if: steps.cache-brew.outputs.cache-hit != 'true'
+      run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    - name: Install SwiftLint
       run: brew install swiftlint
 
     - name: Run SwiftLint
