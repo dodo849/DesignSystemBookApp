@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TextFieldBookView: View {
     
+    @State private var searchText: String = ""
+    
     @State var text: String = ""
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -19,6 +21,15 @@ struct TextFieldBookView: View {
         Label("Settings", systemImage: "gear")
             .padding()
             .font(.title)
+    }
+    
+    var searchResults: [String] {
+        let items = ["Apple", "Banana", "Orange", "Peach", "Grape"]
+        if searchText.isEmpty {
+            return items
+        } else {
+            return items.filter { $0.contains(searchText) }
+        }
     }
 }
 

@@ -28,7 +28,7 @@ Button {
 
 
 ## Recommendation 👍
-Label is a suitable component for use with text and icons in interactive menus.
+Label is suitable for handling both text and icons, and is used in interactive menus.
 
 ```swift
 Button {
