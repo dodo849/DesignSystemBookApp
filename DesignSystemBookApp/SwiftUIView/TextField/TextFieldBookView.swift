@@ -19,7 +19,10 @@ struct TextFieldBookView: View {
     // Check `focus` state directly through the view
     private let states = ["normal", "disabled", "error", "success"]
     
-    @State private var texts: [String] = [.empty, .empty, .empty, .empty]
+    @State private var texts: [String] = Array(repeating: .empty, count: 6)
+    
+    // With message
+    @State private var stateWithMessage: TextFieldState = .normal
     
     var body: some View {
         ScrollView {
@@ -61,6 +64,7 @@ struct TextFieldBookView: View {
                 .pickerStyle(.segmented)
                 
                 Divider()
+                    .padding(.vertical)
                 
                 ForEach(Array(colors.enumerated()), id: \.element) { (index, color) in
                     Text(color.rawValue)
@@ -81,9 +85,73 @@ struct TextFieldBookView: View {
                         .disabled(selectedState == "disabled")
                 }
                 .addHideKeyboardGuesture()
+                
+                Divider()
+                    .padding(.vertical)
+                
+                // MARK: With message
+                Text("With message")
+                    .font(.system(size: 16, weight: .semibold))
+                
+                TextFieldContainer(state: stateWithMessage) {
+                    TextField("Message example", text: $texts[4])
+                        .styled(
+                            variant: selectedVariant,
+                            color: .primary,
+                            size: selectedSize,
+                            shape: selectedShape
+                        )
+                    TextFieldCaption("error or success description")
+                }
+                .state(
+                    selectedState != "disabled"
+                    ? TextFieldState(rawValue: selectedState)!
+                    : .normal
+                )
+                .disabled(selectedState == "disabled")
+                
+                Divider()
+                    .padding(.vertical)
+                
+                // MARK: With other components
+                Text("With other components")
+                    .font(.system(size: 16, weight: .semibold))
+                
+                TextFieldContainer(state: stateWithMessage) {
+                    VStack(alignment: .leading) {
+                        Text("Title")
+                            .font(.system(size: 14, weight: .semibold))
+                        HStack {
+                            TextField("Message example", text: $texts[5])
+                                .styled(
+                                    variant: selectedVariant,
+                                    color: .primary,
+                                    size: selectedSize,
+                                    shape: selectedShape
+                                )
+                        }
+                        TextFieldCaption {
+                            HStack {
+                                Image(systemName: "exclamationmark.circle.fill")
+                                Text("error or success description")
+                            }
+                        }
+                    }
+                }
+                .state(
+                    selectedState != "disabled"
+                    ? TextFieldState(rawValue: selectedState)!
+                    : .normal
+                )
+                .disabled(selectedState == "disabled")
+            }
+            .padding()
+            .onChange(of: selectedState) { newValue in
+                stateWithMessage = newValue != "disabled"
+                ? TextFieldState(rawValue: newValue)!
+                : .normal
             }
         }
-        .padding()
     }
 }
 

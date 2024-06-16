@@ -20,7 +20,7 @@ struct TextFieldStyleFactory: TextFieldStyle {
     ) {
         self.colorTheme = colorTheme
         self.figureTheme = figureTheme
-        self.variant = variant // injection for underline
+        self.variant = variant // Injection for underline
     }
     
     func _body(configuration: TextField<_Label>) -> some View {
@@ -39,7 +39,6 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
     @Environment(\.isEnabled) private var isEnabled: Bool
     @FocusState private var isFocused: Bool
     @Environment(\.textFieldState) private var state: TextFieldState
-    @GestureState private var isPressed = false
     
     private let configuration: Configuration
     private let colorTheme: TextFieldColorTheme
@@ -55,7 +54,7 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
         self.configuration = configuration
         self.colorTheme = colorTheme
         self.figureTheme = figureTheme
-        self.variant = variant // injection for underline
+        self.variant = variant // Injection for underline
     }
     
     var body: some View {

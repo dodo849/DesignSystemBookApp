@@ -17,7 +17,12 @@ struct BasicTextFieldColorTheme: TextFieldColorTheme {
     let color: BasicTextFieldColor
     
     func foregroundColor(state: TextFieldAllState) -> Color {
-        return .basicText
+        switch state {
+        case .disabled:
+            return .gray04
+        default:
+            return .basicText
+        }
     }
     
     func backgroundColor(state: TextFieldAllState) -> Color {
@@ -53,6 +58,8 @@ extension BasicTextFieldColorTheme {
         case (.tertiary, .focused): return .basicPinkSoft
         case (.gray, .normal): return .none
         case (.gray, .focused): return .gray01
+        case (_, .error): return .destructive.opacity(0.2)
+        case (_, .success): return .success.opacity(0.2)
         default: return .none
         }
     }
