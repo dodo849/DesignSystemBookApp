@@ -18,7 +18,7 @@ public extension RadioButton {
         let checkboxStyle = {
                 let colorTheme = BasicRadioButtonTheme(color: color)
                 let fighureTheme = BasicToggleButtonFigureTheme(shape: shape)
-                return ToggleButtonStyleMaker(
+                return ToggleButtonStyleFactory(
                     colorTheme: colorTheme,
                     figureTheme: fighureTheme,
                     innerImage: shape.innerImage

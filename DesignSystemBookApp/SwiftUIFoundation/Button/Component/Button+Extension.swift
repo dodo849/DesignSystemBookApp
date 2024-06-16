@@ -19,11 +19,13 @@ public extension Button {
             variant: variant,
             color: color
         )
+        
         let figureTheme = BasicButtonFigureTheme(
             size: size,
             shape: shape
         )
-        let buttonStyle = ButtonStyleMaker(
+        
+        let buttonStyle = ButtonStyleFactory(
             colorTheme: colorTheme,
             figuretheme: figureTheme
         )
@@ -42,11 +44,13 @@ public extension Button {
             variant: variant,
             color: color
         )
+        
         let figureTheme = BasicButtonFigureTheme(
             size: size,
             shape: shape
         )
-        let buttonStyle = ButtonStyleMaker(
+        
+        let buttonStyle = ButtonStyleFactory(
             colorTheme: colorTheme,
             figuretheme: figureTheme
         )

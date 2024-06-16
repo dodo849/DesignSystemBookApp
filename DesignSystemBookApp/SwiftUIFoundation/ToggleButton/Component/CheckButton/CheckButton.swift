@@ -32,7 +32,7 @@ public extension CheckButton {
         let checkboxStyle = {
                 let colorTheme = BasicCheckButtonColorTheme(color: color)
                 let fighureTheme = BasicToggleButtonFigureTheme(shape: shape)
-                return ToggleButtonStyleMaker(
+                return ToggleButtonStyleFactory(
                     colorTheme: colorTheme,
                     figureTheme: fighureTheme,
                     innerImage: shape.innerImage

@@ -24,7 +24,8 @@ final class RadioOptionStore<Option: Identifiable & Equatable>: ObservableObject
     }
 }
 
-/// A group that contains radio options as internal views, ensuring that only one option can be selected at a time.
+/// A group that contains radio options as internal views, 
+/// ensuring that only one option can be selected at a time.
 ///
 /// ```swift
 /// let defaultColor: BasicToggleButtonColor? = nil // Use this if you want no initial selection

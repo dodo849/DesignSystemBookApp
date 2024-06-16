@@ -63,12 +63,12 @@ private extension BasicButtonColorTheme {
         case (.enabled, .primary): return .basicYellow
         case (.enabled, .secondary): return .basicGreen
         case (.enabled, .tertiary): return .basicPink
-        case (.enabled, .destructive): return .red // FIXME: need new color
+        case (.enabled, .destructive): return .destructive
         case (.disabled, _): return .gray03
         case (.pressed, .primary): return .basicYellowDeep
         case (.pressed, .secondary): return .basicGreenDeep
         case (.pressed, .tertiary): return .basicPinkDeep
-        case (.pressed, .destructive): return .red
+        case (.pressed, .destructive): return .destructive
         }
     }
     
@@ -80,12 +80,12 @@ private extension BasicButtonColorTheme {
         case (.enabled, .primary): return .basicYellowSoft
         case (.enabled, .secondary): return .basicGreenSoft
         case (.enabled, .tertiary): return .basicPinkSoft
-        case (.enabled, .destructive): return .red.opacity(0.2) // FIXME: need new color
+        case (.enabled, .destructive): return .destructiveSoft
         case (.disabled, _): return .gray01
         case (.pressed, .primary): return .basicYellowSoftDeep
         case (.pressed, .secondary): return .basicGreenSoftDeep
         case (.pressed, .tertiary): return .basicPinkSoftDeep
-        case (.pressed, .destructive): return .red.opacity(0.2) // FIXME: need arRedDeepSoft
+        case (.pressed, .destructive): return .destructiveSoft
         }
     }
     
@@ -97,12 +97,12 @@ private extension BasicButtonColorTheme {
         case (.enabled, .primary): return .basicYellow
         case (.enabled, .secondary): return .basicGreen
         case (.enabled, .tertiary): return .basicPink
-        case (.enabled, .destructive): return .red // FIXME: need new color
+        case (.enabled, .destructive): return .destructive
         case (.disabled, _): return .gray04
         case (.pressed, .primary): return .basicYellowDeep
         case (.pressed, .secondary): return .basicGreenDeep
         case (.pressed, .tertiary): return .basicPinkDeep
-        case (.pressed, .destructive): return .red // FIXME: need arRedDeep
+        case (.pressed, .destructive): return .destructive
         }
     }
     
@@ -114,12 +114,12 @@ private extension BasicButtonColorTheme {
         case (.enabled, .primary): return .basicYellow
         case (.enabled, .secondary): return .basicGreen
         case (.enabled, .tertiary): return .basicPink
-        case (.enabled, .destructive): return .red
+        case (.enabled, .destructive): return .destructive
         case (.disabled, _): return .gray05
         case (.pressed, .primary): return .basicYellowDeep
         case (.pressed, .secondary): return .basicGreenDeep
         case (.pressed, .tertiary): return .basicPinkDeep
-        case (.pressed, .destructive): return .red // FIXME: need arRedDeep
+        case (.pressed, .destructive): return .destructive
         }
     }
     
@@ -131,12 +131,12 @@ private extension BasicButtonColorTheme {
         case (.enabled, .primary): return .basicYellow
         case (.enabled, .secondary): return .basicGreen
         case (.enabled, .tertiary): return .basicPink
-        case (.enabled, .destructive): return .red
+        case (.enabled, .destructive): return .destructive
         case (.disabled, _): return .gray02
         case (.pressed, .primary): return .basicYellowDeep
         case (.pressed, .secondary): return .basicGreenDeep
         case (.pressed, .tertiary): return .basicPinkDeep
-        case (.pressed, .destructive): return .red // FIXME: need arRedDeep
+        case (.pressed, .destructive): return .destructive
         }
     }
     
@@ -148,12 +148,12 @@ private extension BasicButtonColorTheme {
         case (.enabled, .primary): return .basicYellow
         case (.enabled, .secondary): return .basicGreen
         case (.enabled, .tertiary): return .basicPink
-        case (.enabled, .destructive): return .red // FIXME: need new color
+        case (.enabled, .destructive): return .destructive
         case (.disabled, _): return .gray02
         case (.pressed, .primary): return .basicYellowDeep
         case (.pressed, .secondary): return .basicGreenDeep
         case (.pressed, .tertiary): return .basicPinkDeep
-        case (.pressed, .destructive): return .red // FIXME: need arRedDeep
+        case (.pressed, .destructive): return .destructive
         }
     }
 }

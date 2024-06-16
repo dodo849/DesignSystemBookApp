@@ -31,4 +31,6 @@ struct RoundedOffset {
         self.bottomRightRadius = all
         self.topRightRadius = all
     }
+    
+//    static let
 }

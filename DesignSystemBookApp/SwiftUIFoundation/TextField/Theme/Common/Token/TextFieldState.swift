@@ -5,8 +5,19 @@
 //  Created by DOYEON LEE on 6/15/24.
 //
 
-import Foundation
+import SwiftUI
 
 public enum TextFieldState: String, CaseIterable {
-    case normal, focused, disabled, error
+    case normal, success, error
+}
+
+struct TextFieldStateKey: EnvironmentKey {
+    static let defaultValue: TextFieldState = .normal
+}
+
+extension EnvironmentValues {
+    var textFieldState: TextFieldState {
+        get { self[TextFieldStateKey.self] }
+        set { self[TextFieldStateKey.self] = newValue }
+    }
 }

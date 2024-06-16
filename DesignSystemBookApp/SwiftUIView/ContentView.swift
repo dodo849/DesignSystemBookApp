@@ -66,6 +66,19 @@ struct ContentView: View {
                     NavigationLink(destination: RadioButtonBookView()) {
                         Text("RadioButton example")
                     }
+                    
+                    Spacer().frame(height: 20)
+                    
+                    Text("TextField")
+                        .font(.system(size: 24, weight: .bold))
+                    Text("Basic TextField")
+                        .font(.system(size: 18, weight: .bold))
+                    Text("Color theme **Basic** | Figure theme **Basic**")
+                        .font(.system(size: 14))
+                        .foregroundStyle(.gray)
+                    NavigationLink(destination: TextFieldBookView()) {
+                        Text("TextField example")
+                    }
                 }
                 .padding(.horizontal)
             }

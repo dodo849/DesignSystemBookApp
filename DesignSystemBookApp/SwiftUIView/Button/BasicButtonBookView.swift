@@ -31,15 +31,6 @@ struct BasicButtonBookView: View {
                 }
                 .pickerStyle(.segmented)
                 
-                Text("state")
-                    .font(.system(size: 16, weight: .semibold))
-                Picker("Choose a shape", selection: $selectedState) {
-                    ForEach(states, id: \.self) {
-                        Text($0)
-                    }
-                }
-                .pickerStyle(.segmented)
-                
                 Text("size")
                     .font(.system(size: 16, weight: .semibold))
                 Picker("Choose a szie", selection: $selectedSize) {
@@ -54,6 +45,15 @@ struct BasicButtonBookView: View {
                 Picker("Choose a shape", selection: $selectedShape) {
                     ForEach(sahpes, id: \.self) {
                         Text($0.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                Text("state")
+                    .font(.system(size: 16, weight: .semibold))
+                Picker("Choose a state", selection: $selectedState) {
+                    ForEach(states, id: \.self) {
+                        Text($0)
                     }
                 }
                 .pickerStyle(.segmented)

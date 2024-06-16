@@ -1,17 +1,20 @@
 //
-//  BasicButtonFigureTheme.swift
+//  BasicTextFieldFigureTheme.swift
 //  DesignSystemBookApp
 //
-//  Created by DOYEON LEE on 6/14/24.
+//  Created by DOYEON LEE on 6/15/24.
 //
 
 import SwiftUI
 
-struct BasicButtonFigureTheme: ButtonFigureTheme {
-    private let size: BasicButtonSize
-    private let _shape: BasicButtonShape
+struct BasicTextFieldFigureTheme: TextFieldFigureTheme {
+    private let size: BasicTextFieldSize
+    private let _shape: BasicTextFieldShape
     
-    init(size: BasicButtonSize, shape: BasicButtonShape) {
+    init(
+        size: BasicTextFieldSize,
+        shape: BasicTextFieldShape
+    ) {
         self.size = size
         self._shape = shape
     }
@@ -21,43 +24,27 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
         case .large: .init(16, 32)
         case .medium: .init(10, 24)
         case .small: .init(8, 16)
-        case .xsmall: .init(4, 4)
         }
     }
     
     func textSize() -> CGFloat {
-        switch size {
-        case .large: 18
-        case .medium: 16
-        case .small, .xsmall: 12
-        }
+        return 16
     }
     
     func textWeight() -> Font.Weight {
-        switch size {
-        case .large: .semibold
-        case .medium: .medium
-        case .small, .xsmall: .regular
-        }
+        return .regular
     }
     
     func rounded() -> RoundedOffset {
-        switch size {
-        case .large: .init(all: 16)
-        case .medium: .init(all: 12)
-        case .small: .init(all: 8)
-        case .xsmall: .init(all: 6)
-        }
+        return .init(all: 16)
     }
+    
     func borderWidth() -> CGFloat {
         return 1
     }
     
     func frame() -> FrameOffset {
-        switch size {
-        case .large: .init(.infinity, nil)
-        case .medium, .small, .xsmall: .init(nil, nil)
-        }
+        return .init(.infinity, nil)
     }
     
     func shape() -> AnyShape {

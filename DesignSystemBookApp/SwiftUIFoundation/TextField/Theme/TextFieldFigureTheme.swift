@@ -12,6 +12,7 @@ protocol TextFieldFigureTheme {
     func textSize() -> CGFloat
     func textWeight() -> Font.Weight
     func rounded() -> RoundedOffset
+    func borderWidth() -> CGFloat
     func frame() -> FrameOffset
     func shape() -> AnyShape
 }

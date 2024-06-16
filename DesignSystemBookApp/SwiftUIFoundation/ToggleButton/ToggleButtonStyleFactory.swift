@@ -1,5 +1,5 @@
 //
-//  BaseCheckButtonStyle.swift
+//  ToggleButtonStyleFactory.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/13/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ToggleButtonStyleMaker: ToggleStyle {
+struct ToggleButtonStyleFactory: ToggleStyle {
     @GestureState private var isPressed = false
     
     private let colorTheme: ToggleButtonColorTheme
@@ -35,7 +35,7 @@ struct ToggleButtonStyleMaker: ToggleStyle {
         }
         .scaleEffect(isPressed ? 0.95 : 1.0)
         .animation(animation, value: isPressed)
-        .gesture(dragGesture(configuration: configuration))
+        .gesture(dragGesture(configuration))
     }
     
     private var animation: Animation = {
@@ -70,8 +70,10 @@ struct ToggleButtonStyleMaker: ToggleStyle {
         return styledImage.asAnyView()
     }
     
-    private func dragGesture(configuration: Configuration) -> some Gesture {
-        DragGesture(minimumDistance: 0)
+    private func dragGesture(_ configuration: Configuration) -> some Gesture {
+        let animation = AnimationFactory.startInteract.make
+        
+        return DragGesture(minimumDistance: 0)
             .updating($isPressed) { _, state, _ in
                 withAnimation {
                     state = true

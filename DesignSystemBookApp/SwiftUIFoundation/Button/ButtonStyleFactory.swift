@@ -1,5 +1,5 @@
 //
-//  BaseButtonStyle.swift
+//  ButtonStyleFactory.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/13/24.
@@ -7,25 +7,33 @@
 
 import SwiftUI
 
-struct ButtonStyleMaker: ButtonStyle {
+struct ButtonStyleFactory: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled: Bool
     
-    let colorTheme: ButtonColorTheme
-    let figuretheme: ButtonFigureTheme
+    private let colorTheme: ButtonColorTheme
+    private let figureTheme: ButtonFigureTheme
+    
+    init(
+        colorTheme: ButtonColorTheme,
+        figuretheme: ButtonFigureTheme
+    ) {
+        self.colorTheme = colorTheme
+        self.figureTheme = figuretheme
+    }
     
     func makeBody(configuration: Self.Configuration) -> some View {
         let state = makeState(configuration: configuration)
-        let padding = figuretheme.padding()
-        let textSize = figuretheme.textSize()
-        let textWeight = figuretheme.textWeight()
-        let frame = figuretheme.frame()
+        let padding = figureTheme.padding()
+        let textSize = figureTheme.textSize()
+        let textWeight = figureTheme.textWeight()
+        let frame = figureTheme.frame()
         
         configuration.label
             .padding(.vertical, padding.vertical)
             .padding(.horizontal, padding.horizontal)
             .frame(maxWidth: frame.width, maxHeight: frame.height)
-            .background(backgroundColor( configuration, state))
-            .clipShape(figuretheme.shape())
+            .background(backgroundColor(configuration, state))
+            .clipShape(figureTheme.shape())
             .overlay(border(configuration, state))
             .foregroundColor(foregroundColor(configuration, state))
             .font(.system(size: textSize))
@@ -33,7 +41,9 @@ struct ButtonStyleMaker: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
             .animation(.spring(response: 0.35), value: configuration.isPressed)
     }
+}
     
+extension ButtonStyleFactory {
     private func backgroundColor(
         _ configuration: Self.Configuration,
         _ state: ButtonState
@@ -45,8 +55,12 @@ struct ButtonStyleMaker: ButtonStyle {
         _ configuration: Self.Configuration,
         _ state: ButtonState
     ) -> some View {
-        figuretheme.shape()
-            .stroke(colorTheme.borderColor(state: state), lineWidth: 1)
+        figureTheme.shape()
+            .stroke(
+                colorTheme.borderColor(state: state),
+                lineWidth: figureTheme.borderWidth()
+            )
+            .padding(figureTheme.borderWidth())
     }
     
     private func foregroundColor(

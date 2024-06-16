@@ -8,19 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		BC05D3AE2C1DCC67006C599B /* BasicTextFieldVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3AD2C1DCC67006C599B /* BasicTextFieldVariant.swift */; };
-		BC05D3B12C1DCCC6006C599B /* TextFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3B02C1DCCC6006C599B /* TextFieldState.swift */; };
+		BC05D3B12C1DCCC6006C599B /* TextFieldAllState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3B02C1DCCC6006C599B /* TextFieldAllState.swift */; };
 		BC05D3B32C1DCD37006C599B /* TextFieldColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3B22C1DCD37006C599B /* TextFieldColorTheme.swift */; };
 		BC05D3B52C1DCD46006C599B /* BasicTextFieldSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3B42C1DCD46006C599B /* BasicTextFieldSize.swift */; };
 		BC05D3B72C1DCE2F006C599B /* BasicTextFieldShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3B62C1DCE2F006C599B /* BasicTextFieldShape.swift */; };
 		BC05D3B92C1DCEB1006C599B /* TextFieldFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3B82C1DCEB1006C599B /* TextFieldFigureTheme.swift */; };
 		BC05D3BB2C1DCEF9006C599B /* TextFieldThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3BA2C1DCEF9006C599B /* TextFieldThemeType.swift */; };
 		BC05D3BE2C1DCF7B006C599B /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3BD2C1DCF7B006C599B /* TextField+Extension.swift */; };
+		BC05D3C22C1DD3FF006C599B /* BasicTextFieldColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C12C1DD3FF006C599B /* BasicTextFieldColor.swift */; };
+		BC05D3C42C1DD4D2006C599B /* BasicTextFieldColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C32C1DD4D2006C599B /* BasicTextFieldColorTheme.swift */; };
+		BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C52C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift */; };
+		BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C72C1DD855006C599B /* TextFieldState.swift */; };
+		BC05D3CA2C1DFB15006C599B /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C92C1DFB15006C599B /* AnimationFactory.swift */; };
 		BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */; };
 		BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */; };
 		BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */; };
 		BC0932732C1A8F5200D3F8CB /* BasicButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932532C1A8F5200D3F8CB /* BasicButtonColor.swift */; };
 		BC0932742C1A8F5200D3F8CB /* ButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932542C1A8F5200D3F8CB /* ButtonState.swift */; };
-		BC0932782C1A8F5200D3F8CB /* ButtonStyleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09325A2C1A8F5200D3F8CB /* ButtonStyleMaker.swift */; };
+		BC0932782C1A8F5200D3F8CB /* ButtonStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09325A2C1A8F5200D3F8CB /* ButtonStyleFactory.swift */; };
 		BC0932792C1A8F5200D3F8CB /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09325B2C1A8F5200D3F8CB /* Button+Extension.swift */; };
 		BC09327A2C1A8F5200D3F8CB /* BackButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09325D2C1A8F5200D3F8CB /* BackButton+Extension.swift */; };
 		BC09327B2C1A8F5200D3F8CB /* Frame+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09325E2C1A8F5200D3F8CB /* Frame+Extension.swift */; };
@@ -47,11 +52,11 @@
 		BC0933EA2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933DC2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift */; };
 		BC0933EB2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933DD2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift */; };
 		BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933DE2C1B2C1A00D3F8CB /* ToggleButtonState.swift */; };
-		BC0933ED2C1B2C1A00D3F8CB /* ToggleStyleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933E02C1B2C1A00D3F8CB /* ToggleStyleMaker.swift */; };
+		BC0933ED2C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933E02C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift */; };
 		BC0934112C1B2E1300D3F8CB /* RadioOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0934102C1B2E1300D3F8CB /* RadioOption.swift */; };
 		BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0934122C1B34C500D3F8CB /* ClipboardHelper.swift */; };
 		BC18EC872C1DAFA50061599B /* TextFieldBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC862C1DAFA50061599B /* TextFieldBookView.swift */; };
-		BC18EC8D2C1DB1810061599B /* TextFieldStyleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC8C2C1DB1810061599B /* TextFieldStyleMaker.swift */; };
+		BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */; };
 		BC18EC912C1DC39B0061599B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BC18EC902C1DC39B0061599B /* README.md */; };
 		BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */; };
 		BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */; };
@@ -72,19 +77,24 @@
 
 /* Begin PBXFileReference section */
 		BC05D3AD2C1DCC67006C599B /* BasicTextFieldVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFieldVariant.swift; sourceTree = "<group>"; };
-		BC05D3B02C1DCCC6006C599B /* TextFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldState.swift; sourceTree = "<group>"; };
+		BC05D3B02C1DCCC6006C599B /* TextFieldAllState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAllState.swift; sourceTree = "<group>"; };
 		BC05D3B22C1DCD37006C599B /* TextFieldColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldColorTheme.swift; sourceTree = "<group>"; };
 		BC05D3B42C1DCD46006C599B /* BasicTextFieldSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFieldSize.swift; sourceTree = "<group>"; };
 		BC05D3B62C1DCE2F006C599B /* BasicTextFieldShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFieldShape.swift; sourceTree = "<group>"; };
 		BC05D3B82C1DCEB1006C599B /* TextFieldFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFigureTheme.swift; sourceTree = "<group>"; };
 		BC05D3BA2C1DCEF9006C599B /* TextFieldThemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldThemeType.swift; sourceTree = "<group>"; };
 		BC05D3BD2C1DCF7B006C599B /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
+		BC05D3C12C1DD3FF006C599B /* BasicTextFieldColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFieldColor.swift; sourceTree = "<group>"; };
+		BC05D3C32C1DD4D2006C599B /* BasicTextFieldColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFieldColorTheme.swift; sourceTree = "<group>"; };
+		BC05D3C52C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFieldFigureTheme.swift; sourceTree = "<group>"; };
+		BC05D3C72C1DD855006C599B /* TextFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldState.swift; sourceTree = "<group>"; };
+		BC05D3C92C1DFB15006C599B /* AnimationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFactory.swift; sourceTree = "<group>"; };
 		BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonThemeType.swift; sourceTree = "<group>"; };
 		BC0932532C1A8F5200D3F8CB /* BasicButtonColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColor.swift; sourceTree = "<group>"; };
 		BC0932542C1A8F5200D3F8CB /* ButtonState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonState.swift; sourceTree = "<group>"; };
-		BC09325A2C1A8F5200D3F8CB /* ButtonStyleMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyleMaker.swift; sourceTree = "<group>"; };
+		BC09325A2C1A8F5200D3F8CB /* ButtonStyleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyleFactory.swift; sourceTree = "<group>"; };
 		BC09325B2C1A8F5200D3F8CB /* Button+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		BC09325D2C1A8F5200D3F8CB /* BackButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BackButton+Extension.swift"; sourceTree = "<group>"; };
 		BC09325E2C1A8F5200D3F8CB /* Frame+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Frame+Extension.swift"; sourceTree = "<group>"; };
@@ -111,11 +121,11 @@
 		BC0933DC2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicToggleButtonColor.swift; sourceTree = "<group>"; };
 		BC0933DD2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicToggleButtonShape.swift; sourceTree = "<group>"; };
 		BC0933DE2C1B2C1A00D3F8CB /* ToggleButtonState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonState.swift; sourceTree = "<group>"; };
-		BC0933E02C1B2C1A00D3F8CB /* ToggleStyleMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleStyleMaker.swift; sourceTree = "<group>"; };
+		BC0933E02C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonStyleFactory.swift; sourceTree = "<group>"; };
 		BC0934102C1B2E1300D3F8CB /* RadioOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioOption.swift; sourceTree = "<group>"; };
 		BC0934122C1B34C500D3F8CB /* ClipboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHelper.swift; sourceTree = "<group>"; };
 		BC18EC862C1DAFA50061599B /* TextFieldBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBookView.swift; sourceTree = "<group>"; };
-		BC18EC8C2C1DB1810061599B /* TextFieldStyleMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyleMaker.swift; sourceTree = "<group>"; };
+		BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyleFactory.swift; sourceTree = "<group>"; };
 		BC18EC902C1DC39B0061599B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFigureTheme.swift; sourceTree = "<group>"; };
@@ -164,7 +174,8 @@
 		BC05D3AF2C1DCCB8006C599B /* Token */ = {
 			isa = PBXGroup;
 			children = (
-				BC05D3B02C1DCCC6006C599B /* TextFieldState.swift */,
+				BC05D3C72C1DD855006C599B /* TextFieldState.swift */,
+				BC05D3B02C1DCCC6006C599B /* TextFieldAllState.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -214,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				BC18EC902C1DC39B0061599B /* README.md */,
-				BC09325A2C1A8F5200D3F8CB /* ButtonStyleMaker.swift */,
+				BC09325A2C1A8F5200D3F8CB /* ButtonStyleFactory.swift */,
 				BC0932522C1A8F5200D3F8CB /* Theme */,
 				BCFD53892C1B6F9F00191F34 /* Component */,
 			);
@@ -256,8 +267,8 @@
 		BC09326B2C1A8F5200D3F8CB /* SwiftUIView */ = {
 			isa = PBXGroup;
 			children = (
-				BC18EC832C1DAF7C0061599B /* TextField */,
 				BC09326A2C1A8F5200D3F8CB /* ContentView.swift */,
+				BC18EC832C1DAF7C0061599B /* TextField */,
 				BCFD54632C1BECF000191F34 /* ToggleButton */,
 				BCFD54622C1BECEA00191F34 /* Button */,
 			);
@@ -345,7 +356,7 @@
 		BC0933E12C1B2C1A00D3F8CB /* ToggleButton */ = {
 			isa = PBXGroup;
 			children = (
-				BC0933E02C1B2C1A00D3F8CB /* ToggleStyleMaker.swift */,
+				BC0933E02C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift */,
 				BC0933DB2C1B2C1A00D3F8CB /* Theme */,
 				BC0933D42C1B2C1A00D3F8CB /* Component */,
 			);
@@ -363,7 +374,7 @@
 		BC18EC882C1DB0970061599B /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				BC18EC8C2C1DB1810061599B /* TextFieldStyleMaker.swift */,
+				BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */,
 				BC18EC892C1DB0E20061599B /* Theme */,
 				BC18EC8A2C1DB0E70061599B /* Component */,
 			);
@@ -394,6 +405,8 @@
 		BC18EC922C1DC4D00061599B /* Basic */ = {
 			isa = PBXGroup;
 			children = (
+				BC05D3C32C1DD4D2006C599B /* BasicTextFieldColorTheme.swift */,
+				BC05D3C52C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift */,
 				BC18EC942C1DC4E70061599B /* Token */,
 			);
 			path = Basic;
@@ -413,6 +426,7 @@
 				BC05D3AD2C1DCC67006C599B /* BasicTextFieldVariant.swift */,
 				BC05D3B42C1DCD46006C599B /* BasicTextFieldSize.swift */,
 				BC05D3B62C1DCE2F006C599B /* BasicTextFieldShape.swift */,
+				BC05D3C12C1DD3FF006C599B /* BasicTextFieldColor.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -444,6 +458,7 @@
 				BCFD538C2C1B725600191F34 /* FrameOffset.swift */,
 				BCFD53822C1B628200191F34 /* RoundedOffset.swift */,
 				BCFD53842C1B656B00191F34 /* IndividualRoundedRectangle.swift */,
+				BC05D3C92C1DFB15006C599B /* AnimationFactory.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -629,8 +644,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC05D3C42C1DD4D2006C599B /* BasicTextFieldColorTheme.swift in Sources */,
 				BC18EC872C1DAFA50061599B /* TextFieldBookView.swift in Sources */,
 				BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */,
+				BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */,
 				BC0933E92C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift in Sources */,
 				BC05D3BE2C1DCF7B006C599B /* TextField+Extension.swift in Sources */,
 				BC05D3B72C1DCE2F006C599B /* BasicTextFieldShape.swift in Sources */,
@@ -641,16 +658,17 @@
 				BC0934112C1B2E1300D3F8CB /* RadioOption.swift in Sources */,
 				BCFD54672C1BEFEA00191F34 /* GrayButtonColor.swift in Sources */,
 				BC0932962C1ABF7000D3F8CB /* CheckboxBookView.swift in Sources */,
-				BC0933ED2C1B2C1A00D3F8CB /* ToggleStyleMaker.swift in Sources */,
+				BC0933ED2C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift in Sources */,
 				BC0932742C1A8F5200D3F8CB /* ButtonState.swift in Sources */,
 				BC09327A2C1A8F5200D3F8CB /* BackButton+Extension.swift in Sources */,
 				BCFD538D2C1B725600191F34 /* FrameOffset.swift in Sources */,
 				BCFD538B2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift in Sources */,
-				BC18EC8D2C1DB1810061599B /* TextFieldStyleMaker.swift in Sources */,
+				BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */,
 				BC05D3AE2C1DCC67006C599B /* BasicTextFieldVariant.swift in Sources */,
 				BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */,
 				BCFD54582C1BE7E900191F34 /* GrayButtonColorTheme.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
+				BC05D3CA2C1DFB15006C599B /* AnimationFactory.swift in Sources */,
 				BC0932BC2C1AED0600D3F8CB /* AnyView.swift in Sources */,
 				BC0932852C1A8F5200D3F8CB /* DesignSystemApp.swift in Sources */,
 				BC0932832C1A8F5200D3F8CB /* ContentView.swift in Sources */,
@@ -665,6 +683,7 @@
 				BC05D3B92C1DCEB1006C599B /* TextFieldFigureTheme.swift in Sources */,
 				BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */,
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
+				BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */,
 				BCFD545F2C1BECA900191F34 /* BasicButtonBookView.swift in Sources */,
 				BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */,
 				BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */,
@@ -674,8 +693,9 @@
 				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */,
 				BC0933E22C1B2C1A00D3F8CB /* CheckButton.swift in Sources */,
 				BC0933E62C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift in Sources */,
+				BC05D3C22C1DD3FF006C599B /* BasicTextFieldColor.swift in Sources */,
 				BC0933EB2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift in Sources */,
-				BC0932782C1A8F5200D3F8CB /* ButtonStyleMaker.swift in Sources */,
+				BC0932782C1A8F5200D3F8CB /* ButtonStyleFactory.swift in Sources */,
 				BC09327B2C1A8F5200D3F8CB /* Frame+Extension.swift in Sources */,
 				BC0933E52C1B2C1A00D3F8CB /* RadioButton.swift in Sources */,
 				BC0933E32C1B2C1A00D3F8CB /* RadioGroup.swift in Sources */,
@@ -684,7 +704,7 @@
 				BC0933E42C1B2C1A00D3F8CB /* SingleRadioButton.swift in Sources */,
 				BC0933EA2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift in Sources */,
 				BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */,
-				BC05D3B12C1DCCC6006C599B /* TextFieldState.swift in Sources */,
+				BC05D3B12C1DCCC6006C599B /* TextFieldAllState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
