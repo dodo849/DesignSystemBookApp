@@ -21,14 +21,18 @@ struct BasicTextFieldFigureTheme: TextFieldFigureTheme {
     
     func padding() -> GapOffset {
         switch size {
-        case .large: .init(16, 32)
-        case .medium: .init(10, 24)
+        case .large: .init(16, 24)
+        case .medium: .init(10, 20)
         case .small: .init(8, 16)
         }
     }
     
     func textSize() -> CGFloat {
-        return 16
+        switch size {
+        case .large: 16
+        case .medium: 16
+        case .small: 14
+        }
     }
     
     func textWeight() -> Font.Weight {

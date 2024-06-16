@@ -9,9 +9,10 @@ import SwiftUI
 
 extension View {
     func addHideKeyboardGuesture() -> some View {
-        return self.onTapGesture {
+        let tapGesture = TapGesture().onEnded {
             hideKeyboard()
         }
+        return self.simultaneousGesture(tapGesture)
     }
     
     func hideKeyboard() {

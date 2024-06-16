@@ -8,5 +8,5 @@
 import Foundation
 
 public enum BasicTextFieldColor: String, CaseIterable {
-    case primary, secondary, tertiary
+    case primary, secondary, tertiary, gray
 }

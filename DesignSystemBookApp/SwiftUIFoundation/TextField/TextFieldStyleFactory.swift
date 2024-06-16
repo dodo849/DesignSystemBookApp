@@ -11,20 +11,24 @@ struct TextFieldStyleFactory: TextFieldStyle {
     
     private let colorTheme: TextFieldColorTheme
     private let figureTheme: TextFieldFigureTheme
+    private let variant: BasicTextFieldVariant
     
     init(
         colorTheme: TextFieldColorTheme,
-        figureTheme: TextFieldFigureTheme
+        figureTheme: TextFieldFigureTheme,
+        variant: BasicTextFieldVariant
     ) {
         self.colorTheme = colorTheme
         self.figureTheme = figureTheme
+        self.variant = variant // injection for underline
     }
     
     func _body(configuration: TextField<_Label>) -> some View {
         _TextFieldStyleMaker(
             configuration: configuration,
             colorTheme: colorTheme,
-            figureTheme: figureTheme
+            figureTheme: figureTheme,
+            variant: variant
         )
     }
 }
@@ -40,37 +44,49 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
     private let configuration: Configuration
     private let colorTheme: TextFieldColorTheme
     private let figureTheme: TextFieldFigureTheme
+    private let variant: BasicTextFieldVariant
     
     fileprivate init(
         configuration: TextField<Label>,
         colorTheme: TextFieldColorTheme,
-        figureTheme: TextFieldFigureTheme
+        figureTheme: TextFieldFigureTheme,
+        variant: BasicTextFieldVariant
     ) {
         self.configuration = configuration
         self.colorTheme = colorTheme
         self.figureTheme = figureTheme
+        self.variant = variant // injection for underline
     }
     
     var body: some View {
         let allState = makeAllState(state)
         let padding = figureTheme.padding()
-        let animation = AnimationFactory.startInteract.make
+        let animation = SwiftUIAnimationFactory.startInteract.make
         
         ZStack {
             configuration
                 .padding(.vertical, padding.vertical)
-                .padding(.horizontal, padding.horizontal)
+                .padding(.horizontal, isUnderlined ? 0 : padding.horizontal)
                 .background(colorTheme.backgroundColor(state: allState))
                 .clipShape(figureTheme.shape())
-                .overlay(border(allState).padding(0))
+                .overlay(overlay(allState))
                 .foregroundColor(colorTheme.foregroundColor(state: allState))
                 .font(.system(size: figureTheme.textSize()))
                 .fontWeight(figureTheme.textWeight())
                 .focused($isFocused)
                 .animation(animation, value: allState)
             
+            if isUnderlined {
+                VStack {
+                    Spacer()
+                    Divider()
+                        .frame(height: 1)
+                        .background(colorTheme.borderColor(state: allState))
+                }
+            }
+            
             // Designate the padding area of the text field as a touch target
-            Color.clear
+            Color.none
                 .contentShape(Rectangle())
                 .onTapGesture {
                     isFocused = true
@@ -78,23 +94,37 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
         }
     }
 }
-extension  _TextFieldStyleMaker {
+
+private extension  _TextFieldStyleMaker {
     private func makeAllState(_ inputState: TextFieldState) -> TextFieldAllState {
         if !isEnabled {
             return .disabled
         }
         
-        if isFocused {
+        // If in error or success state, do not change to focus color
+        if isFocused && state != .error && state != .success {
             return .focused
         }
         
-        if let convertedState = TextFieldAllState .init(rawValue: inputState.rawValue) {
+        if let convertedState = TextFieldAllState.init(rawValue: inputState.rawValue) {
             return convertedState
         } else {
-            fatalError("TextFieldAllState and TextFieldState(Input) is mismatch")
+            fatalError("TextFieldAllState and TextFieldState(\(inputState.rawValue) is mismatch")
         }
     }
     
+    private func overlay(
+        _ state: TextFieldAllState
+    ) -> some View {
+        Group {
+            if !isUnderlined {
+                border(state).padding(1)
+            }
+        }
+    }
+}
+
+private extension _TextFieldStyleMaker {
     private func border(
         _ state: TextFieldAllState
     ) -> some View {
@@ -104,5 +134,11 @@ extension  _TextFieldStyleMaker {
                 lineWidth: figureTheme.borderWidth()
             )
             .padding(figureTheme.borderWidth())
+    }
+}
+
+private extension _TextFieldStyleMaker {
+    private var isUnderlined: Bool {
+        return variant == .underlined
     }
 }

@@ -49,12 +49,6 @@ extension Date {
     }
 }
 
-extension Color {
-    static var none: Color {
-        return .clear
-    }
-}
-
 extension CGSize {
     static var zero: CGSize {
         return CGSize(width: 0, height: 0)
@@ -64,5 +58,25 @@ extension CGSize {
 extension CGPoint {
     static var zero: CGPoint {
         return CGPoint(x: 0, y: 0)
+    }
+}
+
+
+// MARK: - SwiftUI
+extension Color {
+    static var none: Color {
+        return .basicBackground.opacity(0)
+    }
+}
+
+extension Shape {
+    static var empty: any Shape {
+        return EmptyShape()
+    }
+}
+
+extension View {
+    var empty: any View {
+        return EmptyView().asAnyView()
     }
 }

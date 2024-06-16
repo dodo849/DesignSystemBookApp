@@ -27,7 +27,8 @@ public extension TextField {
         
         let textFieldStyle = TextFieldStyleFactory(
             colorTheme: colorTheme,
-            figureTheme: figureTheme
+            figureTheme: figureTheme,
+            variant: variant
         )
         
         return self.textFieldStyle(textFieldStyle)

@@ -12,7 +12,7 @@ struct BasicCheckButtonColorTheme: ToggleButtonColorTheme {
     
     func backgroundColor(state: ToggleButtonState) -> Color {
         switch (state, color) {
-        case (.unchecked, _): return .clear
+        case (.unchecked, _): return .none
         case (.checked, .primary): return .basicYellow
         case (.checked, .secondary): return .basicGreen
         case (.checked, .tertiary): return .basicPink
@@ -21,7 +21,7 @@ struct BasicCheckButtonColorTheme: ToggleButtonColorTheme {
     
     func foregroundColor(state: ToggleButtonState) -> Color {
         switch (state, color) {
-        case (.unchecked, _): return .clear
+        case (.unchecked, _): return .none
         case (.checked, _): return .white
         }
     }

@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-enum AnimationFactory {
+enum SwiftUIAnimationFactory {
     case startInteract
     
     var make: Animation {
         switch self {
         case .startInteract:
-            return Animation.spring(response: 0.35)
+            return .spring(response: 0.35)
         }
     }
 }

@@ -71,7 +71,7 @@ struct ToggleButtonStyleFactory: ToggleStyle {
     }
     
     private func dragGesture(_ configuration: Configuration) -> some Gesture {
-        let animation = AnimationFactory.startInteract.make
+        let animation = SwiftUIAnimationFactory.startInteract.make
         
         return DragGesture(minimumDistance: 0)
             .updating($isPressed) { _, state, _ in

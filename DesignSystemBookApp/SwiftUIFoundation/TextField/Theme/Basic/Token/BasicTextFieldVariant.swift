@@ -8,5 +8,5 @@
 import Foundation
 
 public enum BasicTextFieldVariant: String, CaseIterable {
-    case plain, outlined, underlined, gray
+    case plain, outlined, underlined
 }

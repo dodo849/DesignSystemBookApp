@@ -50,10 +50,4 @@ identifier_name:
     - URL
     - GlobalAPIKey
   allowed_symbols: "_"
-custom_rules:
-  prohibit_lower_snake_case:
-    name: "Prohibit Lower Snake Case"
-    regex: "[a-z]+_[a-z]+"
-    message: "Identifiers should not be written in lower snake case."
-    severity: error
 reporter: "xcode"

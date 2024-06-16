@@ -21,11 +21,11 @@ struct GrayButtonColorTheme: ButtonColorTheme {
         case .fill:
             return fillBackgroundColor(state: state, color: color)
         case .outline:
-            return .clear
+            return .none
         case .translucent:
             return translucentBackgroundColor(state: state, color: color)
         case .transparent:
-            return state == .pressed ? .gray01.opacity(0.5) : .clear
+            return state == .pressed ? .gray01.opacity(0.5) : .none
         }
     }
     
@@ -45,11 +45,11 @@ struct GrayButtonColorTheme: ButtonColorTheme {
     func borderColor(state: ButtonState) -> Color {
         switch variant {
         case .fill, .translucent:
-            return .clear
+            return .none
         case .outline:
             return outlineBorderColor(state: state, color: color)
         case .transparent:
-            return .clear
+            return .none
         }
     }
 }

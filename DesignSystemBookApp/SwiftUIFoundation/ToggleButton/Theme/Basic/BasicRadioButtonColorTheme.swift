@@ -12,13 +12,13 @@ struct BasicRadioButtonTheme: ToggleButtonColorTheme {
     
     func backgroundColor(state: ToggleButtonState) -> Color {
         switch (state, color) {
-        case (_, _): return .clear
+        case (_, _): return .none
         }
     }
     
     func foregroundColor(state: ToggleButtonState) -> Color {
         switch (state, color) {
-        case (.unchecked, _): return .clear
+        case (.unchecked, _): return .none
         case (.checked, .primary): return .basicYellow
         case (.checked, .secondary): return .basicGreen
         case (.checked, .tertiary): return .basicPink

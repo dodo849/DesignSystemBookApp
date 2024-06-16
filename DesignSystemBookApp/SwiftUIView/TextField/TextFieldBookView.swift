@@ -19,7 +19,7 @@ struct TextFieldBookView: View {
     // Check `focus` state directly through the view
     private let states = ["normal", "disabled", "error", "success"]
     
-    @State private var text: String = ""
+    @State private var texts: [String] = [.empty, .empty, .empty, .empty]
     
     var body: some View {
         ScrollView {
@@ -62,11 +62,11 @@ struct TextFieldBookView: View {
                 
                 Divider()
                 
-                ForEach(colors, id: \.self) { color in
+                ForEach(Array(colors.enumerated()), id: \.element) { (index, color) in
                     Text(color.rawValue)
                         .font(.system(size: 12))
                         .foregroundStyle(.gray)
-                    TextField("Placeholder", text: $text)
+                    TextField("Placeholder", text: $texts[index])
                         .styled(
                             variant: selectedVariant,
                             color: color,
@@ -80,6 +80,7 @@ struct TextFieldBookView: View {
                         )
                         .disabled(selectedState == "disabled")
                 }
+                .addHideKeyboardGuesture()
             }
         }
         .padding()

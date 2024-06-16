@@ -15,17 +15,17 @@ public extension RadioButton {
         color: BasicToggleButtonColor = .primary,
         shape: BasicToggleButtonShape = .round
     ) -> some View {
-        let checkboxStyle = {
-                let colorTheme = BasicRadioButtonTheme(color: color)
-                let fighureTheme = BasicToggleButtonFigureTheme(shape: shape)
-                return ToggleButtonStyleFactory(
-                    colorTheme: colorTheme,
-                    figureTheme: fighureTheme,
-                    innerImage: shape.innerImage
-                )
-        }()
+        let colorTheme = BasicRadioButtonTheme(color: color)
         
-        return self.toggleStyle(checkboxStyle)
+        let figureTheme = BasicToggleButtonFigureTheme(shape: shape)
+        
+        let radioButtonStyle = ToggleButtonStyleFactory(
+            colorTheme: colorTheme,
+            figureTheme: figureTheme,
+            innerImage: shape.innerImage
+        )
+        
+        return self.toggleStyle(radioButtonStyle)
     }
 }
 
