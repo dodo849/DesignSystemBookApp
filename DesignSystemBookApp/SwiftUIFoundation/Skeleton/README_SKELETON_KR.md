@@ -11,6 +11,9 @@ Text(selectedState == .loading ? "loading..." : "loaded")
         shape: .round
     )
 ```
+![Jun-17-2024 18-04-57](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/1eb57283-fffa-41c8-94fe-8ba4f44357ad)
+<br>
+
 
 ## 조합하기
 여러 Shape를 조합해 실제 컨텐츠와 유사한 스켈레톤을 생성할 수 있습니다.
@@ -46,3 +49,5 @@ HStack {
     }
 }
 ```         
+![Jun-17-2024 18-05-03](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/2050688d-1b7b-4a4e-a2b2-f5d8f88ba77e)
+
