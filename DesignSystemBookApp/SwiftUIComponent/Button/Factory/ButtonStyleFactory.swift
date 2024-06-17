@@ -24,8 +24,7 @@ struct ButtonStyleFactory: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         let state = makeState(configuration: configuration)
         let padding = figureTheme.padding()
-        let textSize = figureTheme.textSize()
-        let textWeight = figureTheme.textWeight()
+        let typo = figureTheme.typo()
         let frame = figureTheme.frame()
         
         configuration.label
@@ -36,7 +35,7 @@ struct ButtonStyleFactory: ButtonStyle {
             .clipShape(figureTheme.shape())
             .overlay(border(configuration, state))
             .foregroundColor(foregroundColor(configuration, state))
-            .font(.system(size: textSize, weight: textWeight))
+            .typo(figureTheme.typo())
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
             .animation(.spring(response: 0.35), value: configuration.isPressed)
     }

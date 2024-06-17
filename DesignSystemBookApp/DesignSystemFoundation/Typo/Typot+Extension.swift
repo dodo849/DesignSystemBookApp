@@ -62,8 +62,31 @@ extension FontWeight {
 }
 
 public enum Typo {
-    case heading1, heading1b, heading2
-    case body0, body0b, body1, body1b, body2, body2b, body3, body3b
+    /// Font size: 32, weight: medium
+    case heading1
+    /// Font size: 32, weight: bold
+    case heading1b
+    /// Font size: 28, weight: bold
+    case heading2
+    /// Font size: 22, weight: bold
+    case heading3
+    /// Font size: 22, weight: regular
+    case body0
+    /// Font size: 22, weight: semibold
+    case body0b
+    /// Font size: 16, weight: regular
+    case body1
+    /// Font size: 16, weight: semibold
+    case body1b
+    /// Font size: 14, weight: medium
+    case body2
+    /// Font size: 14, weight: semibold
+    case body2b
+    /// Font size: 12, weight: medium
+    case body3
+    /// Font size: 12, weight: semibold
+    case body3b
+    /// Font size: 10, weight: regular
     case detail
 }
 
@@ -122,29 +145,31 @@ public extension UILabel {
             self.setDefaultFont(size: 32, weight: .bold)
         case .heading2:
             self.setDefaultFont(size: 28, weight: .bold)
-        case .body0:
-            self.setDefaultFont(size: 22, weight: .regular)
-        case .body0b:
+        case .heading3:
             self.setDefaultFont(size: 22, weight: .bold)
+        case .body0:
+            self.setDefaultFont(size: 18, weight: .regular)
+        case .body0b:
+            self.setDefaultFont(size: 18, weight: .semibold)
         case .body1:
             self.setDefaultFont(size: 16, weight: .regular)
         case .body1b:
-            self.setDefaultFont(size: 16, weight: .bold)
+            self.setDefaultFont(size: 16, weight: .semibold)
         case .body2:
             self.setDefaultFont(size: 14, weight: .medium)
         case .body2b:
-            self.setDefaultFont(size: 14, weight: .bold)
+            self.setDefaultFont(size: 14, weight: .semibold)
         case .body3:
             self.setDefaultFont(size: 12, weight: .medium)
         case .body3b:
-            self.setDefaultFont(size: 12, weight: .bold)
+            self.setDefaultFont(size: 12, weight: .semibold)
         case .detail:
             self.setDefaultFont(size: 10, weight: .regular)
         }
     }
 }
 
-public extension Text {
+public extension View {
     /// Set the default font of the text.
     ///
     /// ```swift
@@ -196,22 +221,24 @@ public extension Text {
             return self.defaultFont(size: 32, weight: .bold)
         case .heading2:
             return self.defaultFont(size: 28, weight: .bold)
-        case .body0:
-            return self.defaultFont(size: 22, weight: .regular)
-        case .body0b:
+        case .heading3:
             return self.defaultFont(size: 22, weight: .bold)
+        case .body0:
+            return self.defaultFont(size: 18, weight: .regular)
+        case .body0b:
+            return self.defaultFont(size: 18, weight: .semibold)
         case .body1:
             return self.defaultFont(size: 16, weight: .regular)
         case .body1b:
-            return self.defaultFont(size: 16, weight: .bold)
+            return self.defaultFont(size: 16, weight: .semibold)
         case .body2:
             return self.defaultFont(size: 14, weight: .medium)
         case .body2b:
-            return self.defaultFont(size: 14, weight: .bold)
+            return self.defaultFont(size: 14, weight: .semibold)
         case .body3:
             return self.defaultFont(size: 12, weight: .medium)
         case .body3b:
-            return self.defaultFont(size: 12, weight: .bold)
+            return self.defaultFont(size: 12, weight: .semibold)
         case .detail:
             return self.defaultFont(size: 10, weight: .regular)
         }

@@ -15,7 +15,7 @@ extension DSButton {
         color: BasicButtonColor = .primary,
         size: BasicButtonSize = .large,
         shape: BasicButtonShape = .round
-    ) -> Self {
+    ) {
         let colorTheme = BasicButtonColorTheme(
             variant: variant,
             color: color
@@ -28,7 +28,6 @@ extension DSButton {
         
         self.colorTheme = colorTheme
         self.figureTheme = figureTheme
-        return self
     }
 }
 
@@ -37,11 +36,13 @@ class DSButton: UIControl {
     private var colorTheme: ButtonColorTheme? {
         didSet {
             setupTheme()
+            updateLayout()
         }
     }
     private var figureTheme: ButtonFigureTheme? {
         didSet {
             setupTheme()
+            updateLayout()
         }
     }
     
@@ -70,8 +71,12 @@ class DSButton: UIControl {
         
         // Setup default style
         backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
+        clipsToBounds = true
         layer.cornerRadius = figureTheme.rounded().max
+        layer.borderColor = colorTheme.borderColor(state: .enabled).cgColor
+        layer.borderWidth = figureTheme.borderWidth()
         
+        titleLabel.setTypo(figureTheme.typo())
         titleLabel.textColor = colorTheme.foregroundColor(state: .enabled).uiColor
     }
     
@@ -85,15 +90,29 @@ class DSButton: UIControl {
         
         let padding = figureTheme.padding()
         titleLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(8)
-            $0.trailing.equalToSuperview().offset(-8)
+            $0.top.equalToSuperview().inset(padding.vertical ?? 0)
+            $0.bottom.equalToSuperview().inset(padding.vertical ?? 0)
+            $0.leading.equalToSuperview().offset(padding.horizontal ?? 0)
+            $0.trailing.equalToSuperview().offset(-(padding.horizontal ?? 0))
         }
     }
     
     private func setupBind() {
         
+    }
+    
+    private func updateLayout() {
+        guard let figureTheme = figureTheme
+        else { return }
+        
+        let padding = figureTheme.padding()
+        titleLabel.snp.removeConstraints()
+        titleLabel.snp.updateConstraints {
+            $0.top.equalToSuperview().inset(padding.vertical ?? 0)
+            $0.bottom.equalToSuperview().inset(padding.vertical ?? 0)
+            $0.leading.equalToSuperview().offset(padding.horizontal ?? 0)
+            $0.trailing.equalToSuperview().offset(-(padding.horizontal ?? 0))
+        }
     }
     
     // MARK: Life cycle
@@ -172,7 +191,7 @@ class DSButton: UIControl {
             withDuration: 0.35,
             delay: 0,
             usingSpringWithDamping: 0.8,
-            initialSpringVelocity: 0.4,
+            initialSpringVelocity: 0.8,
             options: []
         ) {
             completion()

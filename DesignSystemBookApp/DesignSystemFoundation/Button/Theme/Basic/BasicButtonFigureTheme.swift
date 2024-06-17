@@ -25,6 +25,14 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
         }
     }
     
+    func typo() -> Typo {
+        switch size {
+        case .large: .body0b
+        case .medium: .body1b
+        case .small, .xsmall: .body2
+        }
+    }
+    
     func textSize() -> CGFloat {
         switch size {
         case .large: 18
