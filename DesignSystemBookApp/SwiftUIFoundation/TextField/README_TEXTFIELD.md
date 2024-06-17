@@ -1,6 +1,4 @@
 # TextField
-<br/>
-
 ## Basic Usage
 Use `.styled()` to apply styles to the text field.
 ```swift
