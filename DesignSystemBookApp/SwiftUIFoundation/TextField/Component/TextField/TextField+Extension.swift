@@ -40,34 +40,13 @@ public extension View {
         return self.environment(\.textFieldState, state)
     }
     
-    func prefix(_ prefix: String) -> some View {
-        return self.environment(\.textFieldPrefix, prefix)
+    func suffix<Suffix: View>(@ViewBuilder _ suffix: @escaping () -> Suffix) -> some View {
+        let suffixStyle = TextFieldSuffixStyleFactory(suffix: suffix)
+        return self.textFieldStyle(suffixStyle)
     }
     
-    func suffix(_ prefix: String) -> some View {
-        return self.environment(\.textFieldSuffix, prefix)
-    }
-}
-
-
-struct TextFieldPrefixKey: EnvironmentKey {
-    static let defaultValue: String = ""
-}
-
-extension EnvironmentValues {
-    var textFieldPrefix: String {
-        get { self[TextFieldPrefixKey.self] }
-        set { self[TextFieldPrefixKey.self] = newValue }
-    }
-}
-
-struct TextFieldSuffixKey: EnvironmentKey {
-    static let defaultValue: String = ""
-}
-
-extension EnvironmentValues {
-    var textFieldSuffix: String {
-        get { self[TextFieldSuffixKey.self] }
-        set { self[TextFieldSuffixKey.self] = newValue }
+    func prefix<Prefix: View>(@ViewBuilder _ prefix: @escaping () -> Prefix) -> some View {
+        let prefixStyle = TextFieldPrefixStyleFactory(prefix: prefix)
+        return self.textFieldStyle(prefixStyle)
     }
 }

@@ -1,4 +1,5 @@
 # TextField
+<br/>
 
 ## Basic Usage
 Use `.styled()` to apply styles to the text field.
@@ -46,7 +47,23 @@ TextField("Placeholder", text: $text)
     .disabled(true)
 ```
 
+We also provide a way to specify suffixes and prefixes. Use `.prefix()` and `.suffix()` to add elements.
+```swift
+@State var text: String = ""
 
+TextField("Placeholder", text: $text)
+    .styled()
+    .prefix {
+        Image(systemName: "square.and.pencil")
+            .foregroundColor(.gray)
+    }
+    .suffix {
+        Text("\(text.count)/10")
+            .foregroundColor(.gray)
+    }
+```
+
+<br/>
 
 ## Composit Components
 Additional components are provided to configure external elements of the text field. 
@@ -72,10 +89,8 @@ TextFieldContainer(state: state) {
     VStack(alignment: .leading) {
         Text("Title")
             .font(.system(size: 14, weight: .semibold))
-        HStack {
-            TextField("Message example", text: $text)
-                .styled()
-        }
+        TextField("Message example", text: $text)
+            .styled()
         TextFieldCaption {
             HStack {
                 Image(systemName: "exclamationmark.circle.fill")

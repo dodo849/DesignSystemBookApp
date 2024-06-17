@@ -26,7 +26,7 @@
 		BC05D3DA2C1F408C006C599B /* TextFieldCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D92C1F408C006C599B /* TextFieldCaption.swift */; };
 		BC05D3DC2C1F41AE006C599B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3DB2C1F41AE006C599B /* TextFieldContainer.swift */; };
 		BC05D3DE2C1F4D73006C599B /* README_TEXTFIELD.md in Resources */ = {isa = PBXBuildFile; fileRef = BC05D3DD2C1F4D73006C599B /* README_TEXTFIELD.md */; };
-		BC05D3E02C1F538F006C599B /* TextFieldWithAffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3DF2C1F538F006C599B /* TextFieldWithAffix.swift */; };
+		BC05D3E22C1FD83D006C599B /* TextFieldAffixStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3E12C1FD83D006C599B /* TextFieldAffixStyleFactory.swift */; };
 		BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */; };
 		BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */; };
 		BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */; };
@@ -102,7 +102,7 @@
 		BC05D3D92C1F408C006C599B /* TextFieldCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCaption.swift; sourceTree = "<group>"; };
 		BC05D3DB2C1F41AE006C599B /* TextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		BC05D3DD2C1F4D73006C599B /* README_TEXTFIELD.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_TEXTFIELD.md; sourceTree = "<group>"; };
-		BC05D3DF2C1F538F006C599B /* TextFieldWithAffix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithAffix.swift; sourceTree = "<group>"; };
+		BC05D3E12C1FD83D006C599B /* TextFieldAffixStyleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAffixStyleFactory.swift; sourceTree = "<group>"; };
 		BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonThemeType.swift; sourceTree = "<group>"; };
@@ -176,7 +176,6 @@
 				BC05D3BD2C1DCF7B006C599B /* TextField+Extension.swift */,
 				BC05D3D92C1F408C006C599B /* TextFieldCaption.swift */,
 				BC05D3DB2C1F41AE006C599B /* TextFieldContainer.swift */,
-				BC05D3DF2C1F538F006C599B /* TextFieldWithAffix.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -430,6 +429,7 @@
 			children = (
 				BC05D3DD2C1F4D73006C599B /* README_TEXTFIELD.md */,
 				BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */,
+				BC05D3E12C1FD83D006C599B /* TextFieldAffixStyleFactory.swift */,
 				BC18EC892C1DB0E20061599B /* Theme */,
 				BC18EC8A2C1DB0E70061599B /* Component */,
 			);
@@ -746,7 +746,6 @@
 				BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */,
 				BCFD53832C1B628200191F34 /* RoundedOffset.swift in Sources */,
 				BC0932862C1A8F5200D3F8CB /* Type+Extension.swift in Sources */,
-				BC05D3E02C1F538F006C599B /* TextFieldWithAffix.swift in Sources */,
 				BC0932732C1A8F5200D3F8CB /* BasicButtonColor.swift in Sources */,
 				BC05D3D42C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift in Sources */,
 				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */,
@@ -760,6 +759,7 @@
 				BC0933E32C1B2C1A00D3F8CB /* RadioGroup.swift in Sources */,
 				BC05D3B32C1DCD37006C599B /* TextFieldColorTheme.swift in Sources */,
 				BCFD545B2C1BE7E900191F34 /* BasicButtonShape.swift in Sources */,
+				BC05D3E22C1FD83D006C599B /* TextFieldAffixStyleFactory.swift in Sources */,
 				BC0933E42C1B2C1A00D3F8CB /* SingleRadioButton.swift in Sources */,
 				BC0933EA2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift in Sources */,
 				BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */,

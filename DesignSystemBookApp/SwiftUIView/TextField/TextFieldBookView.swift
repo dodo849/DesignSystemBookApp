@@ -19,7 +19,7 @@ struct TextFieldBookView: View {
     // Check `focus` state directly through the view
     private let states = ["normal", "disabled", "error", "success"]
     
-    @State private var texts: [String] = Array(repeating: .empty, count: 6)
+    @State private var texts: [String] = Array(repeating: .empty, count: 8)
     
     // With message
     @State private var stateWithMessage: TextFieldState = .normal
@@ -84,7 +84,35 @@ struct TextFieldBookView: View {
                         )
                         .disabled(selectedState == "disabled")
                 }
-                .addHideKeyboardGuesture()
+                
+                Divider()
+                    .padding(.vertical)
+                
+                // MARK: With affix
+                Text("With affix")
+                    .font(.system(size: 16, weight: .semibold))
+                
+                    TextField("Affix example", text: $texts[4])
+                        .styled(
+                            variant: selectedVariant,
+                            color: .primary,
+                            size: selectedSize,
+                            shape: selectedShape
+                        )
+                        .prefix {
+                            Image(systemName: "square.and.pencil")
+                                .foregroundColor(.gray)
+                        }
+                        .suffix {
+                            Text("\(texts[4].count)/10")
+                                .foregroundColor(.gray)
+                        }
+                .state(
+                    selectedState != "disabled"
+                    ? TextFieldState(rawValue: selectedState)!
+                    : .normal
+                )
+                .disabled(selectedState == "disabled")
                 
                 Divider()
                     .padding(.vertical)
@@ -94,7 +122,7 @@ struct TextFieldBookView: View {
                     .font(.system(size: 16, weight: .semibold))
                 
                 TextFieldContainer(state: stateWithMessage) {
-                    TextField("Message example", text: $texts[4])
+                    TextField("Message example", text: $texts[5])
                         .styled(
                             variant: selectedVariant,
                             color: .primary,
@@ -121,8 +149,38 @@ struct TextFieldBookView: View {
                     VStack(alignment: .leading) {
                         Text("Title")
                             .font(.system(size: 14, weight: .semibold))
+                        TextField("Message example", text: $texts[6])
+                            .styled(
+                                variant: selectedVariant,
+                                color: .primary,
+                                size: selectedSize,
+                                shape: selectedShape
+                            )
+                        TextFieldCaption {
+                            HStack {
+                                Image(systemName: "exclamationmark.circle.fill")
+                                Text("error or success description")
+                            }
+                        }
+                    }
+                }
+                .state(
+                    selectedState != "disabled"
+                    ? TextFieldState(rawValue: selectedState)!
+                    : .normal
+                )
+                .disabled(selectedState == "disabled")
+                
+                Text("With affix")
+                    .font(.system(size: 16, weight: .semibold))
+                
+                TextFieldContainer(state: stateWithMessage) {
+                    VStack(alignment: .leading) {
+                        Text("Title")
+                            .font(.system(size: 14, weight: .semibold))
                         HStack {
-                            TextField("Message example", text: $texts[5])
+                            
+                            TextField("Message example", text: $texts[7])
                                 .styled(
                                     variant: selectedVariant,
                                     color: .primary,
@@ -151,6 +209,7 @@ struct TextFieldBookView: View {
                 ? TextFieldState(rawValue: newValue)!
                 : .normal
             }
+//            .addHideKeyboardGesture()
         }
     }
 }
