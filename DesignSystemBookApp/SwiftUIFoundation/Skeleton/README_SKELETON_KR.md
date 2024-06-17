@@ -18,6 +18,8 @@ Text(selectedState == .loading ? "loading..." : "loaded")
 ## 조합하기
 여러 Shape를 조합해 실제 컨텐츠와 유사한 스켈레톤을 생성할 수 있습니다.
 ```swift
+@State var state: SkeletonState = .loading
+
 HStack {
     Image("logo_padding")
         .resizable()
@@ -25,8 +27,8 @@ HStack {
         .frame(height: 60)
         .clipShape(.circle)
         .skeleton(
-            variant: selectedVariant,
-            state: selectedState,
+            variant: .shining,
+            state: state,
             shape: .circle
         )
     VStack(alignment: .leading) {
@@ -34,16 +36,16 @@ HStack {
             .font(.system(size: 16, weight: .semibold))
             .frame(maxWidth: .infinity, alignment: .leading)
             .skeleton(
-                variant: selectedVariant,
-                state: selectedState,
+                variant: /shining,
+                state: state,
                 shape: .pill
             )
         Text("user description")
             .font(.system(size: 14))
             .frame(maxWidth: .infinity, alignment: .leading)
             .skeleton(
-                variant: selectedVariant,
-                state: selectedState,
+                variant: .shining,
+                state: state,
                 shape: .pill
             )
     }
