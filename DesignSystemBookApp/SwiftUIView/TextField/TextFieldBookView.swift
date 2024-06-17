@@ -95,7 +95,7 @@ struct TextFieldBookView: View {
                     TextField("Affix example", text: $texts[4])
                         .styled(
                             variant: selectedVariant,
-                            color: .primary,
+                            color: .secondary,
                             size: selectedSize,
                             shape: selectedShape
                         )
@@ -125,7 +125,7 @@ struct TextFieldBookView: View {
                     TextField("Message example", text: $texts[5])
                         .styled(
                             variant: selectedVariant,
-                            color: .primary,
+                            color: .secondary,
                             size: selectedSize,
                             shape: selectedShape
                         )
@@ -147,47 +147,21 @@ struct TextFieldBookView: View {
                 
                 TextFieldContainer(state: stateWithMessage) {
                     VStack(alignment: .leading) {
-                        Text("Title")
-                            .font(.system(size: 14, weight: .semibold))
+                        HStack {
+                            Text("Title")
+                                .font(.system(size: 14, weight: .semibold))
+                            if selectedState == "success" {
+                                Image(systemName: "checkmark.circle")
+                                    .foregroundStyle(.success)
+                            }
+                        }
                         TextField("Message example", text: $texts[6])
                             .styled(
                                 variant: selectedVariant,
-                                color: .primary,
+                                color: .secondary,
                                 size: selectedSize,
                                 shape: selectedShape
                             )
-                        TextFieldCaption {
-                            HStack {
-                                Image(systemName: "exclamationmark.circle.fill")
-                                Text("error or success description")
-                            }
-                        }
-                    }
-                }
-                .state(
-                    selectedState != "disabled"
-                    ? TextFieldState(rawValue: selectedState)!
-                    : .normal
-                )
-                .disabled(selectedState == "disabled")
-                
-                Text("With affix")
-                    .font(.system(size: 16, weight: .semibold))
-                
-                TextFieldContainer(state: stateWithMessage) {
-                    VStack(alignment: .leading) {
-                        Text("Title")
-                            .font(.system(size: 14, weight: .semibold))
-                        HStack {
-                            
-                            TextField("Message example", text: $texts[7])
-                                .styled(
-                                    variant: selectedVariant,
-                                    color: .primary,
-                                    size: selectedSize,
-                                    shape: selectedShape
-                                )
-                        }
                         TextFieldCaption {
                             HStack {
                                 Image(systemName: "exclamationmark.circle.fill")
