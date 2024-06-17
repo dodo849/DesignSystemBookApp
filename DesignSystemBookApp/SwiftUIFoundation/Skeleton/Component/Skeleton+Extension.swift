@@ -8,9 +8,11 @@
 import SwiftUI
 
 public extension View {
+    // 기본 스켈레톤 설정
     func skeleton(
         variant: SkeletonVariant = .blink,
-        state: SkeletonState = .loading
+        state: SkeletonState = .loading,
+        shape: SkeletonShape = .round
     ) -> some View {
         let isAnimationActive: Bool = {
             switch state {
@@ -19,14 +21,31 @@ public extension View {
             }
         }()
         
+        let figureTheme = BasicSkeletonFigureTheme(
+            state: state,
+            shape: shape
+        )
+        let colorTheme = BasicSkeletonColorTheme(state: state)
+        
         switch variant {
         case .blink:
+            let blinkStyle = SkeletonBlinkStyleFactory(
+                isActive: isAnimationActive,
+                figureTheme: figureTheme,
+                colorTheme: colorTheme
+            )
             return self
-                .modifier(SkeletonBlinkModifier(isActive: isAnimationActive))
+                .modifier(blinkStyle)
                 .asAnyView()
+            
         case .shining:
+            let shiningStyle = SkeletonShiningStyleFactory(
+                isActive: isAnimationActive,
+                figureTheme: figureTheme,
+                colorTheme: colorTheme
+            )
             return self
-                .modifier(SkeletonShiningModifier(isActive: isAnimationActive))
+                .modifier(shiningStyle)
                 .asAnyView()
         }
     }

@@ -31,6 +31,33 @@ struct RoundedOffset {
         self.bottomRightRadius = all
         self.topRightRadius = all
     }
+}
     
-//    static let
+extension RoundedOffset {
+    static let zero = RoundedOffset()
+    static let large = RoundedOffset(all: 16)
+    static let medium = RoundedOffset(all: 12)
+    static let small = RoundedOffset(all: 8)
+}
+
+extension RoundedOffset {
+    var max: CGFloat {
+        let maxValue = Swift.max(
+            topLeftRadius,
+            bottomLeftRadius,
+            bottomRightRadius,
+            topRightRadius
+        )
+        return maxValue
+    }
+    
+    var min: CGFloat {
+        let minValue = Swift.min(
+            topLeftRadius,
+            bottomLeftRadius,
+            bottomRightRadius,
+            topRightRadius
+        )
+        return minValue
+    }
 }

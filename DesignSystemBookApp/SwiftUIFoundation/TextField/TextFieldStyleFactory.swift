@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TextFieldStyleFactory: TextFieldStyle {
-    
     private let colorTheme: TextFieldColorTheme
     private let figureTheme: TextFieldFigureTheme
     private let variant: BasicTextFieldVariant

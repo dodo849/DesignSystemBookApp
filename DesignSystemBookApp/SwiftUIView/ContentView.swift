@@ -73,6 +73,8 @@ struct ContentView: View {
                         figureTheme: "-",
                         destination: SkeletonBook()
                     )
+                    
+                    Spacer().frame(height: 100)
                 }
                 .padding(.horizontal)
                 .frameMax([.width], alignment: .leading)

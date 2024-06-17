@@ -24,3 +24,14 @@ public struct TextFieldContainer<Content: View>: View {
             .environment(\.textFieldState, state)
     }
 }
+
+struct TextFieldStateKey: EnvironmentKey {
+    static let defaultValue: TextFieldState = .normal
+}
+
+extension EnvironmentValues {
+    var textFieldState: TextFieldState {
+        get { self[TextFieldStateKey.self] }
+        set { self[TextFieldStateKey.self] = newValue }
+    }
+}

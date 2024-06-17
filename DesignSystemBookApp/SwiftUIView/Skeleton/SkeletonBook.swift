@@ -10,6 +10,8 @@ import SwiftUI
 struct SkeletonBook: View {
     @State private var selectedVariant: SkeletonVariant = .blink
     @State private var variants: [SkeletonVariant] = SkeletonVariant.allCases
+    @State private var selectedShape: SkeletonShape = .round
+    @State private var shapes: [SkeletonShape] = SkeletonShape.allCases
     @State private var selectedState: SkeletonState = .loading
     @State private var states: [SkeletonState] = SkeletonState.allCases
     
@@ -23,7 +25,16 @@ struct SkeletonBook: View {
                         Text(state.rawValue)
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
+                .pickerStyle(.segmented)
+                
+                Text("shape")
+                    .font(.system(size: 16, weight: .semibold))
+                Picker("Skeleton Shape", selection: $selectedShape) {
+                    ForEach(shapes, id: \.self) { state in
+                        Text(state.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
                 
                 Text("state")
                     .font(.system(size: 16, weight: .semibold))
@@ -32,69 +43,51 @@ struct SkeletonBook: View {
                         Text(state.rawValue)
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
+                .pickerStyle(.segmented)
                 
                 Divider()
                 
                 Text(selectedState == .loading ? "loading..." : "loaded")
                     .skeleton(
                         variant: selectedVariant,
-                        state: selectedState
+                        state: selectedState,
+                        shape: selectedShape
                     )
                     .padding(.vertical, 4)
                 
-                // MARK: With Shape
-                
-                Text("With Shape")
-                    .font(.system(size: 16, weight: .semibold))
-                    .padding(.top)
-                
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(.gray02)
-                    .frame(height: 100)
-                    .skeleton(
-                        variant: selectedVariant,
-                        state: selectedState
-                    )
-                
-                // MARK: Composition
+                // MARK: Composition 
                 Text("Composition")
                     .font(.system(size: 16, weight: .semibold))
                     .padding(.top)
                 
-                if selectedState == .loading {
-                    HStack {
-                        Circle()
-                            .fill(.gray02)
-                            .frame(height: 50)
-                        VStack {
-                            RoundedRectangle(cornerRadius: 16)
-                                .fill(.gray02)
-                                .frame(height: 20)
-                            RoundedRectangle(cornerRadius: 16)
-                                .fill(.gray02)
-                                .frame(height: 20)
-                        }
-                    }
-                    .skeleton(
-                        variant: selectedVariant,
-                        state: selectedState
-                    )
-                } else {
-                    HStack {
-                        Circle()
-                            .fill(.gray02)
-                            .frame(height: 50)
-                        VStack(alignment: .leading) {
-                            Text("User name")
-                                .font(.system(size: 16, weight: .semibold))
-                                .frame(height: 20)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            Text("user description")
-                                .font(.system(size: 14))
-                                .frame(height: 20)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
+                HStack {
+                    Image("logo_padding")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 60)
+                        .clipShape(.circle)
+                        .skeleton(
+                            variant: selectedVariant,
+                            state: selectedState,
+                            shape: .circle
+                        )
+                    VStack(alignment: .leading) {
+                        Text("User name")
+                            .font(.system(size: 16, weight: .semibold))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .skeleton(
+                                variant: selectedVariant,
+                                state: selectedState,
+                                shape: .pill
+                            )
+                        Text("user description")
+                            .font(.system(size: 14))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .skeleton(
+                                variant: selectedVariant,
+                                state: selectedState,
+                                shape: .pill
+                            )
                     }
                 }
             }

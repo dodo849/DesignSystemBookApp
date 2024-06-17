@@ -61,11 +61,11 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
     }
     
     func shape() -> AnyShape {
-        let offset = rounded()
         switch _shape {
         case .square:
-            return RoundedRectangle(cornerRadius: 0).asAnyShape()
+            return Rectangle().asAnyShape()
         case .round:
+            let offset = rounded()
             return IndividualRoundedRectangle(
                 topLeftRadius: offset.topLeftRadius,
                 topRightRadius: offset.topRightRadius,
