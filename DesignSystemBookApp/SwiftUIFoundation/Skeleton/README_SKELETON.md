@@ -1,5 +1,5 @@
 # Skeleton
-## 기본 사용법
+## Basic Usage
 You can apply a skeleton using the `.skeleton()` method.
 ```swift
 @State var state: SkeletonState = .loading
@@ -15,8 +15,8 @@ Text(selectedState == .loading ? "loading..." : "loaded")
 <br>
 
 
-## 조합하기
-By combining various shapes, you can create a skeleton that closely resembles the actual content.
+## Composition
+By compositing various shapes, you can create a skeleton that closely resembles the actual content.
 ```swift
 @State var state: SkeletonState = .loading
 
