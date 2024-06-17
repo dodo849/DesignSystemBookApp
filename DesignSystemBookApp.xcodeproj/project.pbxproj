@@ -342,6 +342,21 @@
 			path = Token;
 			sourceTree = "<group>";
 		};
+		BC05D4112C203864006C599B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BC05D4122C20387C006C599B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BC0934122C1B34C500D3F8CB /* ClipboardHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		BC09324F2C1A8F5200D3F8CB /* Basic */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,10 +405,16 @@
 		BC0932602C1A8F5200D3F8CB /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				BC0934122C1B34C500D3F8CB /* ClipboardHelper.swift */,
+				BC05D4122C20387C006C599B /* Helper */,
+				BC05D4112C203864006C599B /* Extension */,
+				BC09326E2C1A8F5200D3F8CB /* Type+Extension.swift */,
 				BC09325D2C1A8F5200D3F8CB /* BackButton+Extension.swift */,
 				BC09325E2C1A8F5200D3F8CB /* Frame+Extension.swift */,
 				BC09325F2C1A8F5200D3F8CB /* Keyboard+Extension.swift */,
+				BC05D3D02C1F18EC006C599B /* Animation */,
+				BC05D3CF2C1F18DB006C599B /* Shape */,
+				BC05D3CE2C1F18D7006C599B /* Any */,
+				BC05D3CD2C1F18D1006C599B /* Offset */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -610,11 +631,6 @@
 		BCFD537D2C1B5F9100191F34 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				BC09326E2C1A8F5200D3F8CB /* Type+Extension.swift */,
-				BC05D3D02C1F18EC006C599B /* Animation */,
-				BC05D3CF2C1F18DB006C599B /* Shape */,
-				BC05D3CE2C1F18D7006C599B /* Any */,
-				BC05D3CD2C1F18D1006C599B /* Offset */,
 			);
 			path = Common;
 			sourceTree = "<group>";
