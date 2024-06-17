@@ -183,7 +183,7 @@ struct TextFieldBook: View {
                 ? TextFieldState(rawValue: newValue)!
                 : .normal
             }
-            .addHideKeyboardGesture()
+//            .addHideKeyboardGesture() // 넣으면 세그먼트가 터치가 안됨
         }
     }
 }
