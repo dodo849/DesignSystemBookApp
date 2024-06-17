@@ -274,9 +274,7 @@
 			children = (
 				BC05D4132C203ECB006C599B /* README_SKELETON.md */,
 				BC05D40D2C202C91006C599B /* README_SKELETON_KR.md */,
-				BC05D3EA2C200AC6006C599B /* SkeletonShiningStyleFactory.swift */,
-				BC05D3EC2C200AEC006C599B /* SkeletonBlinkStyleFactory.swift */,
-				BC05D3F62C200E4D006C599B /* Theme */,
+				BC05D41E2C204086006C599B /* Factory */,
 				BC05D3F32C200B29006C599B /* Component */,
 			);
 			path = Skeleton;
@@ -360,6 +358,91 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		BC05D4152C203F9B006C599B /* UIKitComponent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIKitComponent;
+			sourceTree = "<group>";
+		};
+		BC05D4162C203FD5006C599B /* DesignSystemFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D41A2C204037006C599B /* Skeleton */,
+				BC05D4192C20402F006C599B /* ToggleButton */,
+				BC05D4182C204029006C599B /* TextField */,
+				BC05D4172C204025006C599B /* Button */,
+				BC0932602C1A8F5200D3F8CB /* Util */,
+			);
+			path = DesignSystemFoundation;
+			sourceTree = "<group>";
+		};
+		BC05D4172C204025006C599B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				BC0932522C1A8F5200D3F8CB /* Theme */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		BC05D4182C204029006C599B /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				BC18EC892C1DB0E20061599B /* Theme */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		BC05D4192C20402F006C599B /* ToggleButton */ = {
+			isa = PBXGroup;
+			children = (
+				BC0933DB2C1B2C1A00D3F8CB /* Theme */,
+			);
+			path = ToggleButton;
+			sourceTree = "<group>";
+		};
+		BC05D41A2C204037006C599B /* Skeleton */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3F62C200E4D006C599B /* Theme */,
+			);
+			path = Skeleton;
+			sourceTree = "<group>";
+		};
+		BC05D41B2C20406A006C599B /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				BC09325A2C1A8F5200D3F8CB /* ButtonStyleFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		BC05D41C2C204073006C599B /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				BC0933E02C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		BC05D41D2C20407B006C599B /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */,
+				BC05D3E12C1FD83D006C599B /* TextFieldAffixStyleFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		BC05D41E2C204086006C599B /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3EA2C200AC6006C599B /* SkeletonShiningStyleFactory.swift */,
+				BC05D3EC2C200AEC006C599B /* SkeletonBlinkStyleFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		BC09324F2C1A8F5200D3F8CB /* Basic */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,8 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				BC18EC902C1DC39B0061599B /* README_BUTTON.md */,
-				BC09325A2C1A8F5200D3F8CB /* ButtonStyleFactory.swift */,
-				BC0932522C1A8F5200D3F8CB /* Theme */,
+				BC05D41B2C20406A006C599B /* Factory */,
 				BCFD53892C1B6F9F00191F34 /* Component */,
 			);
 			path = Button;
@@ -422,7 +504,7 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		BC0932632C1A8F5200D3F8CB /* SwiftUIFoundation */ = {
+		BC0932632C1A8F5200D3F8CB /* SwiftUIComponent */ = {
 			isa = PBXGroup;
 			children = (
 				BCFD537D2C1B5F9100191F34 /* Common */,
@@ -431,9 +513,8 @@
 				BC05D3BC2C1DCF44006C599B /* Typo */,
 				BC0933E12C1B2C1A00D3F8CB /* ToggleButton */,
 				BC09325C2C1A8F5200D3F8CB /* Button */,
-				BC0932602C1A8F5200D3F8CB /* Util */,
 			);
-			path = SwiftUIFoundation;
+			path = SwiftUIComponent;
 			sourceTree = "<group>";
 		};
 		BC0932652C1A8F5200D3F8CB /* Preview Content */ = {
@@ -461,7 +542,9 @@
 			children = (
 				BC09326D2C1A8F5200D3F8CB /* DesignSystemApp.swift */,
 				BC0932872C1A8F7900D3F8CB /* Assets.xcassets */,
-				BC0932632C1A8F5200D3F8CB /* SwiftUIFoundation */,
+				BC05D4162C203FD5006C599B /* DesignSystemFoundation */,
+				BC05D4152C203F9B006C599B /* UIKitComponent */,
+				BC0932632C1A8F5200D3F8CB /* SwiftUIComponent */,
 				BC09326B2C1A8F5200D3F8CB /* SwiftUIView */,
 				BC0932652C1A8F5200D3F8CB /* Preview Content */,
 			);
@@ -536,8 +619,7 @@
 		BC0933E12C1B2C1A00D3F8CB /* ToggleButton */ = {
 			isa = PBXGroup;
 			children = (
-				BC0933E02C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift */,
-				BC0933DB2C1B2C1A00D3F8CB /* Theme */,
+				BC05D41C2C204073006C599B /* Factory */,
 				BC0933D42C1B2C1A00D3F8CB /* Component */,
 			);
 			path = ToggleButton;
@@ -555,9 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				BC05D3DD2C1F4D73006C599B /* README_TEXTFIELD.md */,
-				BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */,
-				BC05D3E12C1FD83D006C599B /* TextFieldAffixStyleFactory.swift */,
-				BC18EC892C1DB0E20061599B /* Theme */,
+				BC05D41D2C20407B006C599B /* Factory */,
 				BC18EC8A2C1DB0E70061599B /* Component */,
 			);
 			path = TextField;
