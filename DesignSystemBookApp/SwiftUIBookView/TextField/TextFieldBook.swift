@@ -28,7 +28,7 @@ struct TextFieldBook: View {
         ScrollView {
             VStack {
                 Text("variant")
-                    .font(.system(size: 16, weight: .semibold))
+                    .typo(.body1b)
                 Picker("Choose a variant", selection: $selectedVariant) {
                     ForEach(variants, id: \.self) {
                         Text($0.rawValue)
@@ -37,7 +37,7 @@ struct TextFieldBook: View {
                 .pickerStyle(.segmented)
                 
                 Text("size")
-                    .font(.system(size: 16, weight: .semibold))
+                    .typo(.body1b)
                 Picker("Choose a szie", selection: $selectedSize) {
                     ForEach(sizes, id: \.self) {
                         Text($0.rawValue)
@@ -46,7 +46,7 @@ struct TextFieldBook: View {
                 .pickerStyle(.segmented)
                 
                 Text("shape")
-                    .font(.system(size: 16, weight: .semibold))
+                    .typo(.body1b)
                 Picker("Choose a shape", selection: $selectedShape) {
                     ForEach(sahpes, id: \.self) {
                         Text($0.rawValue)
@@ -55,7 +55,7 @@ struct TextFieldBook: View {
                 .pickerStyle(.segmented)
                 
                 Text("state")
-                    .font(.system(size: 16, weight: .semibold))
+                    .typo(.body1b)
                 Picker("Choose a state", selection: $selectedState) {
                     ForEach(states, id: \.self) {
                         Text($0)

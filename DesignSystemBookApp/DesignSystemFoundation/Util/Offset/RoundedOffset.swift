@@ -32,13 +32,6 @@ struct RoundedOffset {
         self.topRightRadius = all
     }
 }
-    
-extension RoundedOffset {
-    static let zero = RoundedOffset()
-    static let large = RoundedOffset(all: 16)
-    static let medium = RoundedOffset(all: 12)
-    static let small = RoundedOffset(all: 8)
-}
 
 extension RoundedOffset {
     var max: CGFloat {
