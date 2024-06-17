@@ -10,20 +10,20 @@ import UIKit
 import Then
 import SnapKit
 
-class ButtonBookViewController: BaseViewController {
-    let button = BasicButton()
+final class ButtonBookViewController: BaseViewController {
+    let button = DSButton().styled()
 
-    open override func setupHierarchy() {
+    override func setupHierarchy() {
         view.addSubview(button)
     }
     
-    open override func setupLayout() {
+    override func setupLayout() {
         button.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
     
-    open override func setupBind() { 
+    override func setupBind() {
         
     }
 

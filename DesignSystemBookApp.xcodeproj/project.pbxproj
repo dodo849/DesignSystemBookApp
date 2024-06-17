@@ -43,7 +43,7 @@
 		BC05D4142C203ECB006C599B /* README_SKELETON.md in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4132C203ECB006C599B /* README_SKELETON.md */; };
 		BC05D4202C204171006C599B /* Typot+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D41F2C204171006C599B /* Typot+Extension.swift */; };
 		BC05D4232C20428A006C599B /* Rounded+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4222C20428A006C599B /* Rounded+Extension.swift */; };
-		BC05D4272C204877006C599B /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4262C204877006C599B /* BasicButton.swift */; };
+		BC05D4272C204877006C599B /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4262C204877006C599B /* DSButton.swift */; };
 		BC05D42D2C2049B5006C599B /* ButtonBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D42C2C2049B5006C599B /* ButtonBookRepresentable.swift */; };
 		BC05D42F2C204AE4006C599B /* ButtonBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D42E2C204AE4006C599B /* ButtonBookViewController.swift */; };
 		BC05D4372C204CF7006C599B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D4362C204CF7006C599B /* Then */; };
@@ -150,7 +150,7 @@
 		BC05D4132C203ECB006C599B /* README_SKELETON.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SKELETON.md; sourceTree = "<group>"; };
 		BC05D41F2C204171006C599B /* Typot+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Typot+Extension.swift"; sourceTree = "<group>"; };
 		BC05D4222C20428A006C599B /* Rounded+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rounded+Extension.swift"; sourceTree = "<group>"; };
-		BC05D4262C204877006C599B /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
+		BC05D4262C204877006C599B /* DSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButton.swift; sourceTree = "<group>"; };
 		BC05D42C2C2049B5006C599B /* ButtonBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBookRepresentable.swift; sourceTree = "<group>"; };
 		BC05D42E2C204AE4006C599B /* ButtonBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBookViewController.swift; sourceTree = "<group>"; };
 		BC05D4392C204DC0006C599B /* BaseCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
@@ -498,7 +498,7 @@
 		BC05D4252C204854006C599B /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				BC05D4262C204877006C599B /* BasicButton.swift */,
+				BC05D4262C204877006C599B /* DSButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -1067,7 +1067,7 @@
 				BC0932732C1A8F5200D3F8CB /* BasicButtonColor.swift in Sources */,
 				BC05D3FC2C200E8A006C599B /* SkeletonThemeType.swift in Sources */,
 				BC05D3D42C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift in Sources */,
-				BC05D4272C204877006C599B /* BasicButton.swift in Sources */,
+				BC05D4272C204877006C599B /* DSButton.swift in Sources */,
 				BC05D4202C204171006C599B /* Typot+Extension.swift in Sources */,
 				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */,
 				BC05D42F2C204AE4006C599B /* ButtonBookViewController.swift in Sources */,
