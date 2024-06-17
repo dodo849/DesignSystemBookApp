@@ -16,40 +16,40 @@ struct GrayButtonColorTheme: ButtonColorTheme {
         self.color = color
     }
     
-    func backgroundColor(state: ButtonState) -> Color {
+    func backgroundColor(state: ButtonState) -> ColorOffset {
         switch variant {
         case .fill:
-            return fillBackgroundColor(state: state, color: color)
+            return .init(fillBackgroundColor(state: state, color: color))
         case .outline:
-            return .none
+            return .init(.none)
         case .translucent:
-            return translucentBackgroundColor(state: state, color: color)
+            return .init(translucentBackgroundColor(state: state, color: color))
         case .transparent:
-            return state == .pressed ? .gray01.opacity(0.5) : .none
+            return .init(state == .pressed ? .gray01.opacity(0.5) : .none)
         }
     }
     
-    func foregroundColor(state: ButtonState) -> Color {
+    func foregroundColor(state: ButtonState) -> ColorOffset {
         switch variant {
         case .fill:
-            return .white
+            return .init(.white)
         case .outline:
-            return outlineForegroundColor(state: state, color: color)
+            return .init(outlineForegroundColor(state: state, color: color))
         case .translucent:
-            return translucentForegroundColor(state: state, color: color)
+            return .init(translucentForegroundColor(state: state, color: color))
         case .transparent:
-            return transparentForegroundColor(state: state, color: color)
+            return .init(transparentForegroundColor(state: state, color: color))
         }
     }
     
-    func borderColor(state: ButtonState) -> Color {
+    func borderColor(state: ButtonState) -> ColorOffset {
         switch variant {
         case .fill, .translucent:
-            return .none
+            return .init(.none)
         case .outline:
-            return outlineBorderColor(state: state, color: color)
+            return .init(outlineBorderColor(state: state, color: color))
         case .transparent:
-            return .none
+            return .init(.none)
         }
     }
 }
@@ -84,7 +84,7 @@ private extension GrayButtonColorTheme {
         case (.pressed, .ghost): return .gray03.opacity(0.7)
         }
     }
-    
+
     func outlineForegroundColor(
         state: ButtonState,
         color: GrayButtonColor
@@ -99,7 +99,7 @@ private extension GrayButtonColorTheme {
         case (.pressed, .ghost): return .gray04
         }
     }
-    
+
     func translucentForegroundColor(
         state: ButtonState,
         color: GrayButtonColor
@@ -114,7 +114,7 @@ private extension GrayButtonColorTheme {
         case (.pressed, .ghost): return .gray04
         }
     }
-    
+
     func transparentForegroundColor(
         state: ButtonState,
         color: GrayButtonColor
@@ -129,7 +129,7 @@ private extension GrayButtonColorTheme {
         case (.pressed, .ghost): return .gray04
         }
     }
-    
+
     func outlineBorderColor(
         state: ButtonState,
         color: GrayButtonColor

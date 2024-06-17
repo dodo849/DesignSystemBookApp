@@ -8,7 +8,7 @@
 import SwiftUI
 
 protocol ButtonColorTheme {
-    func foregroundColor(state: ButtonState) -> Color
-    func backgroundColor(state: ButtonState) -> Color
-    func borderColor(state: ButtonState) -> Color
+    func foregroundColor(state: ButtonState) -> ColorOffset
+    func backgroundColor(state: ButtonState) -> ColorOffset
+    func borderColor(state: ButtonState) -> ColorOffset
 }

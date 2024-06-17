@@ -20,7 +20,8 @@ struct ContentView: View {
                         title: "Basic Button",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
-                        destination: BasicButtonBook()
+                        uikitDestination: ButtonBookRepresentable(),
+                        swiftuiDestination: BasicButtonBook()
                     )
                     
                     Spacer().frame(height: 10)
@@ -29,7 +30,7 @@ struct ContentView: View {
                         title: "Gray Button",
                         colorTheme: "Gray",
                         figureTheme: "Basic",
-                        destination: GrayButtonBook()
+                        swiftuiDestination: GrayButtonBook()
                     )
                     
                     Spacer().frame(height: 20)
@@ -40,7 +41,7 @@ struct ContentView: View {
                         title: "CheckButton",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
-                        destination: CheckButtonBook()
+                        swiftuiDestination: CheckButtonBook()
                     )
                     
                     Spacer().frame(height: 20)
@@ -49,7 +50,7 @@ struct ContentView: View {
                         title: "RadioButton",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
-                        destination: RadioButtonBook()
+                        swiftuiDestination: RadioButtonBook()
                     )
                     
                     Spacer().frame(height: 20)
@@ -60,7 +61,7 @@ struct ContentView: View {
                         title: "Basic TextField",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
-                        destination: TextFieldBook()
+                        swiftuiDestination: TextFieldBook()
                     )
                     
                     Spacer().frame(height: 20)
@@ -69,9 +70,9 @@ struct ContentView: View {
                     
                     exampleSection(
                         title: "Basic Skeleton",
-                        colorTheme: "-",
-                        figureTheme: "-",
-                        destination: SkeletonBook()
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        swiftuiDestination: SkeletonBook()
                     )
                     
                     Spacer().frame(height: 100)
@@ -89,11 +90,12 @@ struct ContentView: View {
     }
     
     @ViewBuilder
-    private func exampleSection<Destination: View>(
+    private func exampleSection<UIKitDestination: View, SwiftUIDestination: View>(
         title: String,
         colorTheme: String,
         figureTheme: String,
-        destination: Destination
+        uikitDestination: UIKitDestination = EmptyView(),
+        swiftuiDestination: SwiftUIDestination
     ) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
@@ -101,8 +103,11 @@ struct ContentView: View {
             Text("Color theme **\(colorTheme)** | Figure theme **\(figureTheme)**")
                 .font(.system(size: 14))
                 .foregroundStyle(.gray)
-            NavigationLink(destination: destination) {
-                Text("\(title) example")
+            NavigationLink(destination: uikitDestination) {
+                Text("UIKit example")
+            }
+            NavigationLink(destination: swiftuiDestination) {
+                Text("SwiftUI example")
             }
         }
     }

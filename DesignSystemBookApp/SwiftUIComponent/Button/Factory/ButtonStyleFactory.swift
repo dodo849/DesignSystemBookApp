@@ -36,8 +36,7 @@ struct ButtonStyleFactory: ButtonStyle {
             .clipShape(figureTheme.shape())
             .overlay(border(configuration, state))
             .foregroundColor(foregroundColor(configuration, state))
-            .font(.system(size: textSize))
-            .fontWeight(textWeight)
+            .font(.system(size: textSize, weight: textWeight))
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
             .animation(.spring(response: 0.35), value: configuration.isPressed)
     }
@@ -48,7 +47,10 @@ extension ButtonStyleFactory {
         _ configuration: Self.Configuration,
         _ state: ButtonState
     ) -> some View {
-        colorTheme.backgroundColor(state: configuration.isPressed ? .pressed : state)
+        colorTheme
+            .backgroundColor(
+                state: configuration.isPressed ? .pressed : state
+            ).color
     }
     
     private func border(
@@ -57,7 +59,7 @@ extension ButtonStyleFactory {
     ) -> some View {
         figureTheme.shape()
             .stroke(
-                colorTheme.borderColor(state: state),
+                colorTheme.borderColor(state: state).color,
                 lineWidth: figureTheme.borderWidth()
             )
             .padding(figureTheme.borderWidth())
@@ -67,7 +69,7 @@ extension ButtonStyleFactory {
         _ configuration: Self.Configuration,
         _ state: ButtonState
     ) -> Color {
-        colorTheme.foregroundColor(state: state)
+        colorTheme.foregroundColor(state: state).color
     }
     
     private func makeState(configuration: Self.Configuration) -> ButtonState {

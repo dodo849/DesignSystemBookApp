@@ -43,6 +43,21 @@
 		BC05D4142C203ECB006C599B /* README_SKELETON.md in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4132C203ECB006C599B /* README_SKELETON.md */; };
 		BC05D4202C204171006C599B /* Typot+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D41F2C204171006C599B /* Typot+Extension.swift */; };
 		BC05D4232C20428A006C599B /* Rounded+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4222C20428A006C599B /* Rounded+Extension.swift */; };
+		BC05D4272C204877006C599B /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4262C204877006C599B /* BasicButton.swift */; };
+		BC05D42D2C2049B5006C599B /* ButtonBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D42C2C2049B5006C599B /* ButtonBookRepresentable.swift */; };
+		BC05D42F2C204AE4006C599B /* ButtonBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D42E2C204AE4006C599B /* ButtonBookViewController.swift */; };
+		BC05D4372C204CF7006C599B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D4362C204CF7006C599B /* Then */; };
+		BC05D43F2C204DC0006C599B /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4392C204DC0006C599B /* BaseCollectionView.swift */; };
+		BC05D4402C204DC0006C599B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D43A2C204DC0006C599B /* BaseCollectionViewCell.swift */; };
+		BC05D4412C204DC0006C599B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D43B2C204DC0006C599B /* BaseTableViewCell.swift */; };
+		BC05D4422C204DC0006C599B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D43C2C204DC0006C599B /* BaseView.swift */; };
+		BC05D4432C204DC0006C599B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D43D2C204DC0006C599B /* BaseViewController.swift */; };
+		BC05D4462C204F10006C599B /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D4452C204F10006C599B /* RxCocoa */; };
+		BC05D4482C204F10006C599B /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D4472C204F10006C599B /* RxRelay */; };
+		BC05D44A2C204F10006C599B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D4492C204F10006C599B /* RxSwift */; };
+		BC05D44C2C204F96006C599B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D44B2C204F96006C599B /* WebViewController.swift */; };
+		BC05D44F2C20562F006C599B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D44E2C20562F006C599B /* SnapKit */; };
+		BC05D4512C205AA2006C599B /* ColorOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4502C205AA2006C599B /* ColorOffset.swift */; };
 		BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */; };
 		BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */; };
 		BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */; };
@@ -135,6 +150,16 @@
 		BC05D4132C203ECB006C599B /* README_SKELETON.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SKELETON.md; sourceTree = "<group>"; };
 		BC05D41F2C204171006C599B /* Typot+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Typot+Extension.swift"; sourceTree = "<group>"; };
 		BC05D4222C20428A006C599B /* Rounded+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rounded+Extension.swift"; sourceTree = "<group>"; };
+		BC05D4262C204877006C599B /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
+		BC05D42C2C2049B5006C599B /* ButtonBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBookRepresentable.swift; sourceTree = "<group>"; };
+		BC05D42E2C204AE4006C599B /* ButtonBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBookViewController.swift; sourceTree = "<group>"; };
+		BC05D4392C204DC0006C599B /* BaseCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
+		BC05D43A2C204DC0006C599B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC05D43B2C204DC0006C599B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		BC05D43C2C204DC0006C599B /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		BC05D43D2C204DC0006C599B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		BC05D44B2C204F96006C599B /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		BC05D4502C205AA2006C599B /* ColorOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOffset.swift; sourceTree = "<group>"; };
 		BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonThemeType.swift; sourceTree = "<group>"; };
@@ -196,6 +221,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC05D44A2C204F10006C599B /* RxSwift in Frameworks */,
+				BC05D4482C204F10006C599B /* RxRelay in Frameworks */,
+				BC05D4372C204CF7006C599B /* Then in Frameworks */,
+				BC05D4462C204F10006C599B /* RxCocoa in Frameworks */,
+				BC05D44F2C20562F006C599B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +264,7 @@
 				BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */,
 				BCFD538C2C1B725600191F34 /* FrameOffset.swift */,
 				BCFD53822C1B628200191F34 /* RoundedOffset.swift */,
+				BC05D4502C205AA2006C599B /* ColorOffset.swift */,
 			);
 			path = Offset;
 			sourceTree = "<group>";
@@ -343,6 +374,10 @@
 		BC05D4112C203864006C599B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BC09326E2C1A8F5200D3F8CB /* Type+Extension.swift */,
+				BC09325D2C1A8F5200D3F8CB /* BackButton+Extension.swift */,
+				BC09325E2C1A8F5200D3F8CB /* Frame+Extension.swift */,
+				BC09325F2C1A8F5200D3F8CB /* Keyboard+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -358,6 +393,8 @@
 		BC05D4152C203F9B006C599B /* UIKitComponent */ = {
 			isa = PBXGroup;
 			children = (
+				BC05D43E2C204DC0006C599B /* Base */,
+				BC05D4252C204854006C599B /* Button */,
 			);
 			path = UIKitComponent;
 			sourceTree = "<group>";
@@ -458,6 +495,44 @@
 			path = Rounded;
 			sourceTree = "<group>";
 		};
+		BC05D4252C204854006C599B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D4262C204877006C599B /* BasicButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		BC05D4282C2048F2006C599B /* UIKitBookView */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D42B2C20496C006C599B /* Button */,
+			);
+			path = UIKitBookView;
+			sourceTree = "<group>";
+		};
+		BC05D42B2C20496C006C599B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D42C2C2049B5006C599B /* ButtonBookRepresentable.swift */,
+				BC05D42E2C204AE4006C599B /* ButtonBookViewController.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		BC05D43E2C204DC0006C599B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D44B2C204F96006C599B /* WebViewController.swift */,
+				BC05D4392C204DC0006C599B /* BaseCollectionView.swift */,
+				BC05D43A2C204DC0006C599B /* BaseCollectionViewCell.swift */,
+				BC05D43B2C204DC0006C599B /* BaseTableViewCell.swift */,
+				BC05D43C2C204DC0006C599B /* BaseView.swift */,
+				BC05D43D2C204DC0006C599B /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		BC09324F2C1A8F5200D3F8CB /* Basic */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,10 +582,6 @@
 			children = (
 				BC05D4122C20387C006C599B /* Helper */,
 				BC05D4112C203864006C599B /* Extension */,
-				BC09326E2C1A8F5200D3F8CB /* Type+Extension.swift */,
-				BC09325D2C1A8F5200D3F8CB /* BackButton+Extension.swift */,
-				BC09325E2C1A8F5200D3F8CB /* Frame+Extension.swift */,
-				BC09325F2C1A8F5200D3F8CB /* Keyboard+Extension.swift */,
 				BC05D3D02C1F18EC006C599B /* Animation */,
 				BC05D3CF2C1F18DB006C599B /* Shape */,
 				BC05D3CE2C1F18D7006C599B /* Any */,
@@ -542,7 +613,6 @@
 		BC09326B2C1A8F5200D3F8CB /* SwiftUIBookView */ = {
 			isa = PBXGroup;
 			children = (
-				BC09326A2C1A8F5200D3F8CB /* ContentView.swift */,
 				BC05D3E62C1FEB54006C599B /* Skeleton */,
 				BC18EC832C1DAF7C0061599B /* TextField */,
 				BCFD54632C1BECF000191F34 /* ToggleButton */,
@@ -555,10 +625,12 @@
 			isa = PBXGroup;
 			children = (
 				BC09326D2C1A8F5200D3F8CB /* DesignSystemApp.swift */,
+				BC09326A2C1A8F5200D3F8CB /* ContentView.swift */,
 				BC0932872C1A8F7900D3F8CB /* Assets.xcassets */,
 				BC05D4162C203FD5006C599B /* DesignSystemFoundation */,
 				BC05D4152C203F9B006C599B /* UIKitComponent */,
 				BC0932632C1A8F5200D3F8CB /* SwiftUIComponent */,
+				BC05D4282C2048F2006C599B /* UIKitBookView */,
 				BC09326B2C1A8F5200D3F8CB /* SwiftUIBookView */,
 				BC0932652C1A8F5200D3F8CB /* Preview Content */,
 			);
@@ -835,6 +907,13 @@
 			dependencies = (
 			);
 			name = DesignSystemBookApp;
+			packageProductDependencies = (
+				BC05D4362C204CF7006C599B /* Then */,
+				BC05D4452C204F10006C599B /* RxCocoa */,
+				BC05D4472C204F10006C599B /* RxRelay */,
+				BC05D4492C204F10006C599B /* RxSwift */,
+				BC05D44E2C20562F006C599B /* SnapKit */,
+			);
 			productName = DesignSystem;
 			productReference = BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */;
 			productType = "com.apple.product-type.application";
@@ -863,6 +942,11 @@
 				Base,
 			);
 			mainGroup = BC9046AC2C1A8EA40038970D;
+			packageReferences = (
+				BC05D4352C204CF7006C599B /* XCRemoteSwiftPackageReference "Then" */,
+				BC05D4442C204F10006C599B /* XCRemoteSwiftPackageReference "RxSwift" */,
+				BC05D44D2C20562F006C599B /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = BC9046B62C1A8EA40038970D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -920,17 +1004,20 @@
 				BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */,
 				BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */,
 				BC0933E92C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift in Sources */,
+				BC05D4432C204DC0006C599B /* BaseViewController.swift in Sources */,
 				BC05D3BE2C1DCF7B006C599B /* TextField+Extension.swift in Sources */,
 				BC05D3B72C1DCE2F006C599B /* BasicTextFieldShape.swift in Sources */,
 				BC05D3D22C1F1BA0006C599B /* BottomBorderShape.swift in Sources */,
 				BC0932792C1A8F5200D3F8CB /* Button+Extension.swift in Sources */,
 				BC09327C2C1A8F5200D3F8CB /* Keyboard+Extension.swift in Sources */,
+				BC05D44C2C204F96006C599B /* WebViewController.swift in Sources */,
 				BCFD537F2C1B5F9D00191F34 /* GapOffset.swift in Sources */,
 				BC05D3BB2C1DCEF9006C599B /* TextFieldThemeType.swift in Sources */,
 				BC0934112C1B2E1300D3F8CB /* RadioOption.swift in Sources */,
 				BCFD54672C1BEFEA00191F34 /* GrayButtonColor.swift in Sources */,
 				BC0932962C1ABF7000D3F8CB /* CheckboxBookView.swift in Sources */,
 				BC0933ED2C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift in Sources */,
+				BC05D4412C204DC0006C599B /* BaseTableViewCell.swift in Sources */,
 				BC0932742C1A8F5200D3F8CB /* ButtonState.swift in Sources */,
 				BC05D4042C2013FC006C599B /* BasicSkeletonColorTheme.swift in Sources */,
 				BC09327A2C1A8F5200D3F8CB /* BackButton+Extension.swift in Sources */,
@@ -943,12 +1030,14 @@
 				BCFD54582C1BE7E900191F34 /* GrayButtonColorTheme.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
 				BC05D3CA2C1DFB15006C599B /* SwiftUIAnimationFactory.swift in Sources */,
+				BC05D4422C204DC0006C599B /* BaseView.swift in Sources */,
 				BC0932BC2C1AED0600D3F8CB /* AnyView.swift in Sources */,
 				BC0932852C1A8F5200D3F8CB /* DesignSystemApp.swift in Sources */,
 				BC0932832C1A8F5200D3F8CB /* ContentView.swift in Sources */,
 				BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */,
 				BC05D3F22C200B15006C599B /* SkeletonState.swift in Sources */,
 				BC05D4232C20428A006C599B /* Rounded+Extension.swift in Sources */,
+				BC05D4512C205AA2006C599B /* ColorOffset.swift in Sources */,
 				BCFD545D2C1BE7E900191F34 /* BasicButtonVariant.swift in Sources */,
 				BCFD54652C1BEFAC00191F34 /* GrayButtonBook.swift in Sources */,
 				BC05D4062C201405006C599B /* BasicSkeletonFigureTheme.swift in Sources */,
@@ -965,18 +1054,23 @@
 				BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */,
 				BC05D4022C2013D2006C599B /* SkeletonColorTheme.swift in Sources */,
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
+				BC05D4402C204DC0006C599B /* BaseCollectionViewCell.swift in Sources */,
 				BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */,
+				BC05D42D2C2049B5006C599B /* ButtonBookRepresentable.swift in Sources */,
 				BCFD545F2C1BECA900191F34 /* BasicButtonBook.swift in Sources */,
 				BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */,
 				BC05D3D62C1F3094006C599B /* EmptyShape.swift in Sources */,
+				BC05D43F2C204DC0006C599B /* BaseCollectionView.swift in Sources */,
 				BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */,
 				BCFD53832C1B628200191F34 /* RoundedOffset.swift in Sources */,
 				BC0932862C1A8F5200D3F8CB /* Type+Extension.swift in Sources */,
 				BC0932732C1A8F5200D3F8CB /* BasicButtonColor.swift in Sources */,
 				BC05D3FC2C200E8A006C599B /* SkeletonThemeType.swift in Sources */,
 				BC05D3D42C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift in Sources */,
+				BC05D4272C204877006C599B /* BasicButton.swift in Sources */,
 				BC05D4202C204171006C599B /* Typot+Extension.swift in Sources */,
 				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */,
+				BC05D42F2C204AE4006C599B /* ButtonBookViewController.swift in Sources */,
 				BC0933E22C1B2C1A00D3F8CB /* CheckButton.swift in Sources */,
 				BC0933E62C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift in Sources */,
 				BC05D3C22C1DD3FF006C599B /* BasicTextFieldColor.swift in Sources */,
@@ -1055,7 +1149,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1112,7 +1206,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1212,6 +1306,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC05D4352C204CF7006C599B /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		BC05D4442C204F10006C599B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
+		BC05D44D2C20562F006C599B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC05D4362C204CF7006C599B /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC05D4352C204CF7006C599B /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		BC05D4452C204F10006C599B /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC05D4442C204F10006C599B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		BC05D4472C204F10006C599B /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC05D4442C204F10006C599B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		BC05D4492C204F10006C599B /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC05D4442C204F10006C599B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		BC05D44E2C20562F006C599B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC05D44D2C20562F006C599B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BC9046AD2C1A8EA40038970D /* Project object */;
 }
