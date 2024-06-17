@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CheckButtonBookView: View {
+struct CheckButtonBook: View {
     @State private var isOn: [Bool] = [false, false, false]
     @State private var selectedColor = BasicToggleButtonColor.allCases.first!
     private var colors = BasicToggleButtonColor.allCases
@@ -95,5 +95,5 @@ struct CheckButtonBookView: View {
 }
 
 #Preview {
-    CheckButtonBookView()
+    CheckButtonBook()
 }

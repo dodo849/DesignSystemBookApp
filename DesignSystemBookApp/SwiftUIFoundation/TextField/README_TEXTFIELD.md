@@ -102,7 +102,7 @@ TextFieldContainer(state: state) {
         HStack {
             Text("Title")
                 .font(.system(size: 14, weight: .semibold))
-            if (state == .success) {
+            if isSuccess {
                 Image(systemName: "checkmark.circle")
                     .foregroundStyle(.success)
             }
@@ -117,6 +117,11 @@ TextFieldContainer(state: state) {
         }
     }
 }
+
+var isSuccess: Bool {
+    state == .success
+}
+```
 ```
 ![image](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/669de758-0bea-4347-bd38-4926e981c488)
 

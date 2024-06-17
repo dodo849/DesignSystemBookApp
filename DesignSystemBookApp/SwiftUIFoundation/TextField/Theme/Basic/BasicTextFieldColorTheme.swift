@@ -56,8 +56,8 @@ extension BasicTextFieldColorTheme {
         case (.secondary, .focused): return .basicGreenSoft
         case (.tertiary, .normal): return .gray03.opacity(0.2)
         case (.tertiary, .focused): return .basicPinkSoft
-        case (.gray, .normal): return .none
-        case (.gray, .focused): return .gray01
+        case (.gray, .normal): return .gray01
+        case (.gray, .focused): return .gray02
         case (_, .error): return .destructive.opacity(0.2)
         case (_, .success): return .success.opacity(0.2)
         default: return .none

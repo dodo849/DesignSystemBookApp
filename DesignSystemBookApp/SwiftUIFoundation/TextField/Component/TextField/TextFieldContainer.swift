@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFieldContainer<Content: View>: View {
+public struct TextFieldContainer<Content: View>: View {
     private let content: () -> Content
     private let state: TextFieldState
     
@@ -19,7 +19,7 @@ struct TextFieldContainer<Content: View>: View {
         self.state = state
     }
     
-    var body: some View {
+    public var body: some View {
         content()
             .environment(\.textFieldState, state)
     }

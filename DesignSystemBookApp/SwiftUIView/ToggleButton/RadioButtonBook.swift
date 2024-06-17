@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RadioButtonBookView: View {
+struct RadioButtonBook: View {
     @State private var isOn: [Bool] = [false, false, false]
     @State private var selectedColor = BasicToggleButtonColor.allCases.first!
     private var colors = BasicToggleButtonColor.allCases
@@ -159,5 +159,5 @@ extension BasicToggleButtonColor: Identifiable, Equatable {
 }
 
 #Preview {
-    CheckButtonBookView()
+    CheckButtonBook()
 }

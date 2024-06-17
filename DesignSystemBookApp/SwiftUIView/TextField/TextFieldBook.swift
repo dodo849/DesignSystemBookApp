@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFieldBookView: View {
+struct TextFieldBook: View {
     private var colors = BasicTextFieldColor.allCases
     @State private var selectedVariant = BasicTextFieldVariant.allCases.first!
     private var variants = BasicTextFieldVariant.allCases
@@ -85,10 +85,10 @@ struct TextFieldBookView: View {
                         .disabled(selectedState == "disabled")
                 }
                 
+                // MARK: With affix
                 Divider()
                     .padding(.vertical)
                 
-                // MARK: With affix
                 Text("With affix")
                     .font(.system(size: 16, weight: .semibold))
                 
@@ -114,10 +114,10 @@ struct TextFieldBookView: View {
                 )
                 .disabled(selectedState == "disabled")
                 
+                // MARK: With message
                 Divider()
                     .padding(.vertical)
                 
-                // MARK: With message
                 Text("With message")
                     .font(.system(size: 16, weight: .semibold))
                 
@@ -138,10 +138,10 @@ struct TextFieldBookView: View {
                 )
                 .disabled(selectedState == "disabled")
                 
+                // MARK: With other components
                 Divider()
                     .padding(.vertical)
                 
-                // MARK: With other components
                 Text("With other components")
                     .font(.system(size: 16, weight: .semibold))
                 
@@ -183,11 +183,11 @@ struct TextFieldBookView: View {
                 ? TextFieldState(rawValue: newValue)!
                 : .normal
             }
-//            .addHideKeyboardGesture()
+            .addHideKeyboardGesture()
         }
     }
 }
 
 #Preview {
-    TextFieldBookView()
+    TextFieldBook()
 }

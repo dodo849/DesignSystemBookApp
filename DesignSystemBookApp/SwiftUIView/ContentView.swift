@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  DesignSystem
-//
-//  Created by DOYEON LEE on 6/13/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -21,68 +14,94 @@ struct ContentView: View {
                     
                     Spacer().frame(height: 20)
                     
-                    Text("Button")
-                        .font(.system(size: 24, weight: .bold))
-                    Text("Basic Button")
-                        .font(.system(size: 18, weight: .semibold))
-                    Text("Color theme **Basic** | Figure theme **Basic**")
-                        .font(.system(size: 14))
-                        .foregroundStyle(.gray)
-                    NavigationLink(destination: BasicButtonBookView()) {
-                        Text("Basic Button example")
-                    }
+                    sectionHeader(title: "Button")
+                    
+                    exampleSection(
+                        title: "Basic Button",
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        destination: BasicButtonBook()
+                    )
                     
                     Spacer().frame(height: 10)
                     
-                    Text("Gray Button")
-                        .font(.system(size: 18, weight: .semibold))
-                    Text("Color theme **Gray** | Figure theme **Basic**")
-                        .font(.system(size: 14))
-                        .foregroundStyle(.gray)
-                    NavigationLink(destination: GrayButtonBookView()) {
-                        Text("Gray Button example")
-                    }
+                    exampleSection(
+                        title: "Gray Button",
+                        colorTheme: "Gray",
+                        figureTheme: "Basic",
+                        destination: GrayButtonBook()
+                    )
                     
                     Spacer().frame(height: 20)
                     
-                    Text("ToggleButton")
-                        .font(.system(size: 24, weight: .bold))
-                    Text("CheckButton")
-                        .font(.system(size: 18, weight: .bold))
-                    Text("Color theme **Basic** | Figure theme **Basic**")
-                        .font(.system(size: 14))
-                        .foregroundStyle(.gray)
-                    NavigationLink(destination: CheckButtonBookView()) {
-                        Text("CheckButton example")
-                    }
+                    sectionHeader(title: "ToggleButton")
+                    
+                    exampleSection(
+                        title: "CheckButton",
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        destination: CheckButtonBook()
+                    )
                     
                     Spacer().frame(height: 20)
                     
-                    Text("RadioButton")
-                        .font(.system(size: 18, weight: .bold))
-                    Text("Color theme **Basic** | Figure theme **Basic**")
-                        .font(.system(size: 14))
-                        .foregroundStyle(.gray)
-                    NavigationLink(destination: RadioButtonBookView()) {
-                        Text("RadioButton example")
-                    }
+                    exampleSection(
+                        title: "RadioButton",
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        destination: RadioButtonBook()
+                    )
                     
                     Spacer().frame(height: 20)
                     
-                    Text("TextField")
-                        .font(.system(size: 24, weight: .bold))
-                    Text("Basic TextField")
-                        .font(.system(size: 18, weight: .bold))
-                    Text("Color theme **Basic** | Figure theme **Basic**")
-                        .font(.system(size: 14))
-                        .foregroundStyle(.gray)
-                    NavigationLink(destination: TextFieldBookView()) {
-                        Text("TextField example")
-                    }
+                    sectionHeader(title: "TextField")
+                    
+                    exampleSection(
+                        title: "Basic TextField",
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        destination: TextFieldBook()
+                    )
+                    
+                    Spacer().frame(height: 20)
+                    
+                    sectionHeader(title: "Skeleton")
+                    
+                    exampleSection(
+                        title: "Basic Skeleton",
+                        colorTheme: "-",
+                        figureTheme: "-",
+                        destination: SkeletonBook()
+                    )
                 }
                 .padding(.horizontal)
+                .frameMax([.width], alignment: .leading)
             }
-            .frameMax([.width], alignment: .leading)
+        }
+    }
+    
+    @ViewBuilder
+    private func sectionHeader(title: String) -> some View {
+        Text(title)
+            .font(.system(size: 24, weight: .bold))
+    }
+    
+    @ViewBuilder
+    private func exampleSection<Destination: View>(
+        title: String,
+        colorTheme: String,
+        figureTheme: String,
+        destination: Destination
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(.system(size: 18, weight: .semibold))
+            Text("Color theme **\(colorTheme)** | Figure theme **\(figureTheme)**")
+                .font(.system(size: 14))
+                .foregroundStyle(.gray)
+            NavigationLink(destination: destination) {
+                Text("\(title) example")
+            }
         }
     }
 }

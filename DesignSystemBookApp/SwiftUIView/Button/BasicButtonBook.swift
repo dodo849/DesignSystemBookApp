@@ -1,13 +1,14 @@
 //
-//  GrayButtonBookView.swift
+//  ButtonBookView.swift
 //  DesignSystemBookApp
 //
-//  Created by DOYEON LEE on 6/14/24.
+//  Created by DOYEON LEE on 6/13/24.
 //
+
 import SwiftUI
 
-struct GrayButtonBookView: View {
-    private var colors = GrayButtonColor.allCases
+struct BasicButtonBook: View {
+    private var colors = BasicButtonColor.allCases
     @State private var selectedVariant =  BasicButtonVariant.allCases.first!
     private var variants = BasicButtonVariant.allCases
     @State private var selectedSize = BasicButtonSize.allCases.first!
@@ -138,5 +139,5 @@ struct GrayButtonBookView: View {
 }
 
 #Preview {
-    BasicButtonBookView()
+    BasicButtonBook()
 }

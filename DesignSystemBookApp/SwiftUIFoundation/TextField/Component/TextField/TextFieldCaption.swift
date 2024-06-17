@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFieldCaption<Label: View>: View {
+public struct TextFieldCaption<Label: View>: View {
     @Environment(\.textFieldState) private var state: TextFieldState
     
     private let content: () -> Label
@@ -20,7 +20,7 @@ struct TextFieldCaption<Label: View>: View {
         self.content = { Text(message) }
     }
     
-    var body: some View {
+    public var body: some View {
         Group {
             if let text = content() as? Text {
                 text

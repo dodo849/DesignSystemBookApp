@@ -27,6 +27,14 @@
 		BC05D3DC2C1F41AE006C599B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3DB2C1F41AE006C599B /* TextFieldContainer.swift */; };
 		BC05D3DE2C1F4D73006C599B /* README_TEXTFIELD.md in Resources */ = {isa = PBXBuildFile; fileRef = BC05D3DD2C1F4D73006C599B /* README_TEXTFIELD.md */; };
 		BC05D3E22C1FD83D006C599B /* TextFieldAffixStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3E12C1FD83D006C599B /* TextFieldAffixStyleFactory.swift */; };
+		BC05D3E52C1FEB1A006C599B /* Skeleton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3E42C1FEB1A006C599B /* Skeleton+Extension.swift */; };
+		BC05D3E82C1FEB69006C599B /* SkeletonBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3E72C1FEB69006C599B /* SkeletonBook.swift */; };
+		BC05D3EB2C200AC6006C599B /* SkeletonShiningModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3EA2C200AC6006C599B /* SkeletonShiningModifier.swift */; };
+		BC05D3ED2C200AEC006C599B /* SkeletonBlinkModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3EC2C200AEC006C599B /* SkeletonBlinkModifier.swift */; };
+		BC05D3F02C200B0E006C599B /* SkeletonVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3EF2C200B0E006C599B /* SkeletonVariant.swift */; };
+		BC05D3F22C200B15006C599B /* SkeletonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3F12C200B15006C599B /* SkeletonState.swift */; };
+		BC05D3FC2C200E8A006C599B /* SkeletonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3FB2C200E8A006C599B /* SkeletonThemeType.swift */; };
+		BC05D3FE2C20128D006C599B /* SkeletonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3FD2C20128D006C599B /* SkeletonShape.swift */; };
 		BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */; };
 		BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */; };
 		BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */; };
@@ -47,7 +55,7 @@
 		BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932902C1AA4B300D3F8CB /* AnyShape.swift */; };
 		BC0932962C1ABF7000D3F8CB /* CheckboxBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932952C1ABF7000D3F8CB /* CheckboxBookView.swift */; };
 		BC0932BC2C1AED0600D3F8CB /* AnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932BB2C1AED0600D3F8CB /* AnyView.swift */; };
-		BC0932BE2C1AF40200D3F8CB /* RadioButtonBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932BD2C1AF40200D3F8CB /* RadioButtonBookView.swift */; };
+		BC0932BE2C1AF40200D3F8CB /* RadioButtonBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932BD2C1AF40200D3F8CB /* RadioButtonBook.swift */; };
 		BC0933E22C1B2C1A00D3F8CB /* CheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933CC2C1B2C1A00D3F8CB /* CheckButton.swift */; };
 		BC0933E32C1B2C1A00D3F8CB /* RadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933CE2C1B2C1A00D3F8CB /* RadioGroup.swift */; };
 		BC0933E42C1B2C1A00D3F8CB /* SingleRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933D02C1B2C1A00D3F8CB /* SingleRadioButton.swift */; };
@@ -62,7 +70,7 @@
 		BC0933ED2C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0933E02C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift */; };
 		BC0934112C1B2E1300D3F8CB /* RadioOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0934102C1B2E1300D3F8CB /* RadioOption.swift */; };
 		BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0934122C1B34C500D3F8CB /* ClipboardHelper.swift */; };
-		BC18EC872C1DAFA50061599B /* TextFieldBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC862C1DAFA50061599B /* TextFieldBookView.swift */; };
+		BC18EC872C1DAFA50061599B /* TextFieldBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC862C1DAFA50061599B /* TextFieldBook.swift */; };
 		BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */; };
 		BC18EC912C1DC39B0061599B /* README_BUTTON.md in Resources */ = {isa = PBXBuildFile; fileRef = BC18EC902C1DC39B0061599B /* README_BUTTON.md */; };
 		BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */; };
@@ -77,8 +85,8 @@
 		BCFD545B2C1BE7E900191F34 /* BasicButtonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54542C1BE7E900191F34 /* BasicButtonShape.swift */; };
 		BCFD545C2C1BE7E900191F34 /* BasicButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54552C1BE7E900191F34 /* BasicButtonSize.swift */; };
 		BCFD545D2C1BE7E900191F34 /* BasicButtonVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54562C1BE7E900191F34 /* BasicButtonVariant.swift */; };
-		BCFD545F2C1BECA900191F34 /* BasicButtonBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD545E2C1BECA900191F34 /* BasicButtonBookView.swift */; };
-		BCFD54652C1BEFAC00191F34 /* GrayButtonBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54642C1BEFAC00191F34 /* GrayButtonBookView.swift */; };
+		BCFD545F2C1BECA900191F34 /* BasicButtonBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD545E2C1BECA900191F34 /* BasicButtonBook.swift */; };
+		BCFD54652C1BEFAC00191F34 /* GrayButtonBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54642C1BEFAC00191F34 /* GrayButtonBook.swift */; };
 		BCFD54672C1BEFEA00191F34 /* GrayButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD54662C1BEFEA00191F34 /* GrayButtonColor.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +111,14 @@
 		BC05D3DB2C1F41AE006C599B /* TextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		BC05D3DD2C1F4D73006C599B /* README_TEXTFIELD.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_TEXTFIELD.md; sourceTree = "<group>"; };
 		BC05D3E12C1FD83D006C599B /* TextFieldAffixStyleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAffixStyleFactory.swift; sourceTree = "<group>"; };
+		BC05D3E42C1FEB1A006C599B /* Skeleton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skeleton+Extension.swift"; sourceTree = "<group>"; };
+		BC05D3E72C1FEB69006C599B /* SkeletonBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonBook.swift; sourceTree = "<group>"; };
+		BC05D3EA2C200AC6006C599B /* SkeletonShiningModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonShiningModifier.swift; sourceTree = "<group>"; };
+		BC05D3EC2C200AEC006C599B /* SkeletonBlinkModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonBlinkModifier.swift; sourceTree = "<group>"; };
+		BC05D3EF2C200B0E006C599B /* SkeletonVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonVariant.swift; sourceTree = "<group>"; };
+		BC05D3F12C200B15006C599B /* SkeletonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonState.swift; sourceTree = "<group>"; };
+		BC05D3FB2C200E8A006C599B /* SkeletonThemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonThemeType.swift; sourceTree = "<group>"; };
+		BC05D3FD2C20128D006C599B /* SkeletonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonShape.swift; sourceTree = "<group>"; };
 		BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonThemeType.swift; sourceTree = "<group>"; };
@@ -123,7 +139,7 @@
 		BC0932902C1AA4B300D3F8CB /* AnyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShape.swift; sourceTree = "<group>"; };
 		BC0932952C1ABF7000D3F8CB /* CheckboxBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBookView.swift; sourceTree = "<group>"; };
 		BC0932BB2C1AED0600D3F8CB /* AnyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyView.swift; sourceTree = "<group>"; };
-		BC0932BD2C1AF40200D3F8CB /* RadioButtonBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonBookView.swift; sourceTree = "<group>"; };
+		BC0932BD2C1AF40200D3F8CB /* RadioButtonBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonBook.swift; sourceTree = "<group>"; };
 		BC0933CC2C1B2C1A00D3F8CB /* CheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		BC0933CE2C1B2C1A00D3F8CB /* RadioGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroup.swift; sourceTree = "<group>"; };
 		BC0933D02C1B2C1A00D3F8CB /* SingleRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRadioButton.swift; sourceTree = "<group>"; };
@@ -138,7 +154,7 @@
 		BC0933E02C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonStyleFactory.swift; sourceTree = "<group>"; };
 		BC0934102C1B2E1300D3F8CB /* RadioOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioOption.swift; sourceTree = "<group>"; };
 		BC0934122C1B34C500D3F8CB /* ClipboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHelper.swift; sourceTree = "<group>"; };
-		BC18EC862C1DAFA50061599B /* TextFieldBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBookView.swift; sourceTree = "<group>"; };
+		BC18EC862C1DAFA50061599B /* TextFieldBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBook.swift; sourceTree = "<group>"; };
 		BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyleFactory.swift; sourceTree = "<group>"; };
 		BC18EC902C1DC39B0061599B /* README_BUTTON.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_BUTTON.md; sourceTree = "<group>"; };
 		BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,8 +170,8 @@
 		BCFD54542C1BE7E900191F34 /* BasicButtonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonShape.swift; sourceTree = "<group>"; };
 		BCFD54552C1BE7E900191F34 /* BasicButtonSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonSize.swift; sourceTree = "<group>"; };
 		BCFD54562C1BE7E900191F34 /* BasicButtonVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonVariant.swift; sourceTree = "<group>"; };
-		BCFD545E2C1BECA900191F34 /* BasicButtonBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonBookView.swift; sourceTree = "<group>"; };
-		BCFD54642C1BEFAC00191F34 /* GrayButtonBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayButtonBookView.swift; sourceTree = "<group>"; };
+		BCFD545E2C1BECA900191F34 /* BasicButtonBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonBook.swift; sourceTree = "<group>"; };
+		BCFD54642C1BEFAC00191F34 /* GrayButtonBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayButtonBook.swift; sourceTree = "<group>"; };
 		BCFD54662C1BEFEA00191F34 /* GrayButtonColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayButtonColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +257,84 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		BC05D3E32C1FEB04006C599B /* Skeleton */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3F62C200E4D006C599B /* Theme */,
+				BC05D3F32C200B29006C599B /* Component */,
+			);
+			path = Skeleton;
+			sourceTree = "<group>";
+		};
+		BC05D3E62C1FEB54006C599B /* Skeleton */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3E72C1FEB69006C599B /* SkeletonBook.swift */,
+			);
+			path = Skeleton;
+			sourceTree = "<group>";
+		};
+		BC05D3E92C200AB7006C599B /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3EA2C200AC6006C599B /* SkeletonShiningModifier.swift */,
+				BC05D3EC2C200AEC006C599B /* SkeletonBlinkModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		BC05D3EE2C200AFD006C599B /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3EF2C200B0E006C599B /* SkeletonVariant.swift */,
+				BC05D3FD2C20128D006C599B /* SkeletonShape.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
+		BC05D3F32C200B29006C599B /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3E42C1FEB1A006C599B /* Skeleton+Extension.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		BC05D3F62C200E4D006C599B /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3FB2C200E8A006C599B /* SkeletonThemeType.swift */,
+				BC05D3F82C200E5D006C599B /* Common */,
+				BC05D3F72C200E59006C599B /* Basic */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		BC05D3F72C200E59006C599B /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3E92C200AB7006C599B /* Modifier */,
+				BC05D3EE2C200AFD006C599B /* Token */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		BC05D3F82C200E5D006C599B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3F92C200E5F006C599B /* Token */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BC05D3F92C200E5F006C599B /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D3F12C200B15006C599B /* SkeletonState.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
 		BC09324F2C1A8F5200D3F8CB /* Basic */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				BCFD537D2C1B5F9100191F34 /* Common */,
+				BC05D3E32C1FEB04006C599B /* Skeleton */,
 				BC18EC882C1DB0970061599B /* TextField */,
 				BC05D3BC2C1DCF44006C599B /* Typo */,
 				BC0933E12C1B2C1A00D3F8CB /* ToggleButton */,
@@ -322,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				BC09326A2C1A8F5200D3F8CB /* ContentView.swift */,
+				BC05D3E62C1FEB54006C599B /* Skeleton */,
 				BC18EC832C1DAF7C0061599B /* TextField */,
 				BCFD54632C1BECF000191F34 /* ToggleButton */,
 				BCFD54622C1BECEA00191F34 /* Button */,
@@ -419,7 +515,7 @@
 		BC18EC832C1DAF7C0061599B /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				BC18EC862C1DAFA50061599B /* TextFieldBookView.swift */,
+				BC18EC862C1DAFA50061599B /* TextFieldBook.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -587,8 +683,8 @@
 		BCFD54622C1BECEA00191F34 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				BCFD545E2C1BECA900191F34 /* BasicButtonBookView.swift */,
-				BCFD54642C1BEFAC00191F34 /* GrayButtonBookView.swift */,
+				BCFD545E2C1BECA900191F34 /* BasicButtonBook.swift */,
+				BCFD54642C1BEFAC00191F34 /* GrayButtonBook.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -597,7 +693,7 @@
 			isa = PBXGroup;
 			children = (
 				BC0932952C1ABF7000D3F8CB /* CheckboxBookView.swift */,
-				BC0932BD2C1AF40200D3F8CB /* RadioButtonBookView.swift */,
+				BC0932BD2C1AF40200D3F8CB /* RadioButtonBook.swift */,
 			);
 			path = ToggleButton;
 			sourceTree = "<group>";
@@ -699,7 +795,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC05D3C42C1DD4D2006C599B /* BasicTextFieldColorTheme.swift in Sources */,
-				BC18EC872C1DAFA50061599B /* TextFieldBookView.swift in Sources */,
+				BC18EC872C1DAFA50061599B /* TextFieldBook.swift in Sources */,
 				BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */,
 				BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */,
 				BC0933E92C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift in Sources */,
@@ -721,6 +817,7 @@
 				BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */,
 				BC05D3AE2C1DCC67006C599B /* BasicTextFieldVariant.swift in Sources */,
 				BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */,
+				BC05D3FE2C20128D006C599B /* SkeletonShape.swift in Sources */,
 				BCFD54582C1BE7E900191F34 /* GrayButtonColorTheme.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
 				BC05D3CA2C1DFB15006C599B /* SwiftUIAnimationFactory.swift in Sources */,
@@ -728,30 +825,36 @@
 				BC0932852C1A8F5200D3F8CB /* DesignSystemApp.swift in Sources */,
 				BC0932832C1A8F5200D3F8CB /* ContentView.swift in Sources */,
 				BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */,
+				BC05D3F22C200B15006C599B /* SkeletonState.swift in Sources */,
 				BCFD545D2C1BE7E900191F34 /* BasicButtonVariant.swift in Sources */,
-				BCFD54652C1BEFAC00191F34 /* GrayButtonBookView.swift in Sources */,
+				BCFD54652C1BEFAC00191F34 /* GrayButtonBook.swift in Sources */,
 				BC05D3B52C1DCD46006C599B /* BasicTextFieldSize.swift in Sources */,
-				BC0932BE2C1AF40200D3F8CB /* RadioButtonBookView.swift in Sources */,
+				BC0932BE2C1AF40200D3F8CB /* RadioButtonBook.swift in Sources */,
+				BC05D3E52C1FEB1A006C599B /* Skeleton+Extension.swift in Sources */,
 				BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */,
+				BC05D3EB2C200AC6006C599B /* SkeletonShiningModifier.swift in Sources */,
 				BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift in Sources */,
+				BC05D3ED2C200AEC006C599B /* SkeletonBlinkModifier.swift in Sources */,
 				BCFD545C2C1BE7E900191F34 /* BasicButtonSize.swift in Sources */,
 				BC05D3DC2C1F41AE006C599B /* TextFieldContainer.swift in Sources */,
 				BC05D3B92C1DCEB1006C599B /* TextFieldFigureTheme.swift in Sources */,
 				BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */,
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
 				BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */,
-				BCFD545F2C1BECA900191F34 /* BasicButtonBookView.swift in Sources */,
+				BCFD545F2C1BECA900191F34 /* BasicButtonBook.swift in Sources */,
 				BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */,
 				BC05D3D62C1F3094006C599B /* EmptyShape.swift in Sources */,
 				BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */,
 				BCFD53832C1B628200191F34 /* RoundedOffset.swift in Sources */,
 				BC0932862C1A8F5200D3F8CB /* Type+Extension.swift in Sources */,
 				BC0932732C1A8F5200D3F8CB /* BasicButtonColor.swift in Sources */,
+				BC05D3FC2C200E8A006C599B /* SkeletonThemeType.swift in Sources */,
 				BC05D3D42C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift in Sources */,
 				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */,
 				BC0933E22C1B2C1A00D3F8CB /* CheckButton.swift in Sources */,
 				BC0933E62C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift in Sources */,
 				BC05D3C22C1DD3FF006C599B /* BasicTextFieldColor.swift in Sources */,
+				BC05D3E82C1FEB69006C599B /* SkeletonBook.swift in Sources */,
 				BC0933EB2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift in Sources */,
 				BC0932782C1A8F5200D3F8CB /* ButtonStyleFactory.swift in Sources */,
 				BC09327B2C1A8F5200D3F8CB /* Frame+Extension.swift in Sources */,
@@ -760,6 +863,7 @@
 				BC05D3B32C1DCD37006C599B /* TextFieldColorTheme.swift in Sources */,
 				BCFD545B2C1BE7E900191F34 /* BasicButtonShape.swift in Sources */,
 				BC05D3E22C1FD83D006C599B /* TextFieldAffixStyleFactory.swift in Sources */,
+				BC05D3F02C200B0E006C599B /* SkeletonVariant.swift in Sources */,
 				BC0933E42C1B2C1A00D3F8CB /* SingleRadioButton.swift in Sources */,
 				BC0933EA2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift in Sources */,
 				BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */,
