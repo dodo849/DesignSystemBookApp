@@ -129,30 +129,10 @@ class DSButton: UIControl {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return true }
         
-//        self.animationWithColor(
-//            fromColor: colorTheme.backgroundColor(state: .enabled).cgColor,
-//            toColor: colorTheme.backgroundColor(state: .pressed).cgColor
-//        ) { [weak self] in
-//            guard let self = self else { return }
-//            
-//            if let colorTheme = self.colorTheme {
-//                self.transform = .init(scaleX: 0.9, y: 0.9)
-//            }
-//        }
-        
-        UIView.transition(with: self, duration: 0.2, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
+        UIView.transition(with: self, duration: 0.2, options: [.transitionCrossDissolve], animations: {
             self.backgroundColor = colorTheme.backgroundColor(state: .pressed).uiColor
             self.transform = .init(scaleX: 0.9, y: 0.9)
-        }) { (finish) in
-        }
-        
-        return true
-    }
-    
-    override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        guard let colorTheme = colorTheme, let figureTheme = figureTheme
-        else { return true }
-        print("continue")
+        })
         
         return true
     }
@@ -161,22 +141,10 @@ class DSButton: UIControl {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return }
         
-        self.animationWithColor(
-            fromColor: colorTheme.backgroundColor(state: .pressed).cgColor,
-            toColor: colorTheme.backgroundColor(state: .enabled).cgColor
-        ) { [weak self] in
-            guard let self = self else { return }
-            
-            if let colorTheme = self.colorTheme {
-                self.transform = .identity
-            }
-        }
-        UIView.transition(with: self, duration: 0.4, options: .curveEaseOut, animations: {
-               self.backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
-           }) { (finish) in
-           }
-        
-        
+        UIView.transition(with: self, duration: 0.2, options: [.curveEaseOut], animations: {
+           self.backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
+            self.transform = .identity
+           })
         sendActions(for: .touchUpInside)
     }
     
@@ -185,55 +153,5 @@ class DSButton: UIControl {
         else { return }
         
         backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
-    }
-    
-    // MARK: Animation
-    private func animationWithColor(
-        fromColor: CGColor,
-        toColor: CGColor,
-        _ completion: @escaping () -> Void
-    ) {
-//        let caLayer = CALayer()
-//        caLayer.backgroundColor = self.backgroundColor?.cgColor
-//        caLayer.frame = self.bounds
-//        self.layer.addSublayer(caLayer)
-//
-//        let colorAnimation = CABasicAnimation(keyPath: "backgroundColor")
-//        colorAnimation.duration = 0.35
-//        colorAnimation.fromValue = fromColor
-//        colorAnimation.toValue = toColor
-//        colorAnimation.isRemovedOnCompletion = false
-//        colorAnimation.fillMode = .forwards
-//        colorAnimation.repeatCount = 1
-//        colorAnimation.delegate = LayerRemover(for: caLayer)
-//        caLayer.add(colorAnimation, forKey: "backgroundColorChange")
-        
-        UIView.animate(
-            withDuration: 0.35,
-            delay: 0,
-            usingSpringWithDamping: 0.8,
-            initialSpringVelocity: 0.8,
-            options: [.layoutSubviews]
-        ) {
-            completion()
-        }
-    }
-}
-
-class LayerRemover: NSObject, CAAnimationDelegate {
-    private weak var layer: CALayer?
-
-    init(for layer: CALayer) {
-        self.layer = layer
-        super.init()
-    }
-    
-    func animationDidStart(_ anim: CAAnimation) {
-        print("start")
-    }
-
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        print("stop")
-        layer?.removeFromSuperlayer()
     }
 }
