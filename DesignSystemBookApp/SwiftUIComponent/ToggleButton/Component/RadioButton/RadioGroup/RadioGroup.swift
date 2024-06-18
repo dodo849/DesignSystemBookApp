@@ -32,7 +32,7 @@ final class RadioOptionStore<Option: Identifiable & Equatable>: ObservableObject
 ///
 /// RadioGroup(
 ///     defaultValue: defaultColor,
-///     onChange: { print($0) }
+///     onChange: { _ in }
 /// ) {
 ///     ForEach(colors, id: \.self) { (option: BasicToggleButtonColor) in
 ///         RadioOption(value: option) {

@@ -36,4 +36,3 @@ open class BaseView: UIView, BaseViewProtocol {
     
     open func setupBind() { }
 }
-

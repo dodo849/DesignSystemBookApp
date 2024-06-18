@@ -81,9 +81,10 @@ final class ButtonBookViewController: BaseViewController {
         }
     }
     
-    let buttons: [DSButton] = BasicButtonColor.allCases.map { _ in
-        DSButton().then {
+    let buttons: [BaseButton] = BasicButtonColor.allCases.map { _ in
+        BaseButton().then {
             $0.styled()
+            $0.setImage(systemName: "square.and.arrow.up")
         }
     }
     
@@ -189,7 +190,6 @@ final class ButtonBookViewController: BaseViewController {
                     size: BasicButtonSize.allCases[value.1],
                     shape: BasicButtonShape.allCases[value.2]
                 )
-                print("value.3 == 0 \(value.3 == 0)")
                 button.isEnabled = value.3 == 0
             }
             owner.updateLayout()

@@ -10,7 +10,7 @@ import UIKit
 import Then
 import RxSwift
 
-class DSButton: UIControl {
+public class BaseButton: UIControl {
     // MARK: Theme
     var colorTheme: ButtonColorTheme? {
         didSet {
@@ -26,7 +26,7 @@ class DSButton: UIControl {
     }
     
     // MARK: Override button state
-    override var isEnabled: Bool {
+    override public var isEnabled: Bool {
         didSet {
             updateTheme()
         }
@@ -36,7 +36,7 @@ class DSButton: UIControl {
     private let disposeBag = DisposeBag()
     
     // MARK: UI Components
-    private let stackView = UIStackView().then {
+    let stackView = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 8
         $0.alignment = .center
@@ -64,6 +64,17 @@ class DSButton: UIControl {
         setupHierachy()
         setupLayout()
         setupBind()
+    }
+    
+    // MARK: Life cycle
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        updateLayout()
+        updateCornerRadius()
+    }
+    
+    override public func draw(_ rect: CGRect) {
+        super.draw(rect)
     }
     
     // MARK: Setup
@@ -102,6 +113,12 @@ class DSButton: UIControl {
         titleLabel.textColor = colorTheme.foregroundColor(state: getState(.enabled)).uiColor
         
         updateCornerRadius()
+        
+        stackView.arrangedSubviews
+            .filter { $0 is UIImageView }
+            .forEach {
+                $0.tintColor = colorTheme.foregroundColor(state: getState(.enabled)).uiColor
+            }
     }
     
     private func updateCornerRadius() {
@@ -128,19 +145,8 @@ class DSButton: UIControl {
         }
     }
     
-    // MARK: Life cycle
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        updateLayout()
-        updateCornerRadius()
-    }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-    }
-    
     // MARK: UIControl handling
-    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    override public func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         UIView.transition(
             with: self,
             duration: 0.2,
@@ -155,7 +161,7 @@ class DSButton: UIControl {
         return true
     }
     
-    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+    override public func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         UIView.transition(
             with: self,
             duration: 0.2,
@@ -170,7 +176,7 @@ class DSButton: UIControl {
         sendActions(for: .touchUpInside)
     }
     
-    override func cancelTracking(with event: UIEvent?) {
+    override public func cancelTracking(with event: UIEvent?) {
         guard let colorTheme = colorTheme
         else { return }
         
