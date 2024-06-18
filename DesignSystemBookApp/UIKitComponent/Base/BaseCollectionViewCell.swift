@@ -5,9 +5,7 @@
 //  Created by DOYEON LEE on 2023/05/30.
 //
 
-import Foundation
 import UIKit
-
 
 open class BaseCollectionViewCell: UICollectionViewCell, BaseViewProtocol {
     

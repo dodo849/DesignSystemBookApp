@@ -41,12 +41,16 @@ public class BaseButton: UIControl {
         $0.spacing = 8
         $0.alignment = .center
         $0.distribution = .fillProportionally
+        $0.isUserInteractionEnabled = false
     }
     
     private let titleLabel = UILabel().then {
         $0.text = "Button"
         $0.setTypo(.body1)
         $0.textAlignment = .center
+        $0.isUserInteractionEnabled = false
+        $0.setContentHuggingPriority(.required, for: .horizontal)
+        $0.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
     
     // MARK: Initializers
@@ -100,7 +104,7 @@ public class BaseButton: UIControl {
     }
     
     // MARK: Update
-    private func updateTheme() {
+    func updateTheme() {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return }
         
@@ -118,6 +122,8 @@ public class BaseButton: UIControl {
             .filter { $0 is UIImageView }
             .forEach {
                 $0.tintColor = colorTheme.foregroundColor(state: getState(.enabled)).uiColor
+                $0.contentMode = .scaleAspectFit
+                $0.isUserInteractionEnabled = false
             }
     }
     
@@ -134,15 +140,26 @@ public class BaseButton: UIControl {
     private func updateLayout() {
         guard let figureTheme = figureTheme
         else { return }
+        stackView.snp.removeConstraints()
         
         let padding = figureTheme.padding()
-        
-        stackView.snp.removeConstraints()
         stackView.snp.updateConstraints {
             $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
             $0.width.lessThanOrEqualToSuperview().inset(padding.horizontal ?? 0)
             $0.centerX.equalToSuperview()
         }
+        
+        let size = figureTheme.iconSize()
+        stackView.arrangedSubviews
+            .filter { $0 is UIImageView }
+            .forEach { image in
+                image.snp.updateConstraints {
+                    $0.width.equalTo(size.width ?? 0)
+                    $0.height.equalTo(size.height ?? 0)
+                    
+                }
+                image.setContentHuggingPriority(.defaultLow, for: .horizontal)
+            }
     }
     
     // MARK: UIControl handling

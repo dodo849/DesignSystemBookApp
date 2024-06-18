@@ -21,7 +21,7 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
         case .large: .init(16, 32)
         case .medium: .init(10, 24)
         case .small: .init(8, 16)
-        case .xsmall: .init(4, 4)
+        case .xsmall: .init(6, 8)
         }
     }
     
@@ -61,8 +61,8 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
         switch size {
         case .large: return .init(all: 16)
         case .medium: return .init(all: 12)
-        case .small: return .init(all: 8)
-        case .xsmall: return .init(all: 6)
+        case .small: return .init(all: 10)
+        case .xsmall: return .init(all: 8)
         }
     }
     func borderWidth() -> CGFloat {
@@ -90,6 +90,19 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
             ).asAnyShape()
         case .pill:
             return Capsule().asAnyShape()
+        }
+    }
+    
+    func iconSize() -> FrameOffset {
+        switch size {
+        case .large:
+            return .init(22, 22)
+        case .medium:
+            return .init(18, 18)
+        case .small:
+            return .init(16, 16)
+        case .xsmall:
+            return .init(16, 16)
         }
     }
 }

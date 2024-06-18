@@ -65,9 +65,9 @@ public extension BaseButton {
         imageView: UIView,
         alignment: BaseButtonImageAlignment = .leading
     ) {
-        imageView.tintColor = colorTheme?
-            .foregroundColor(state: getState(.enabled)).uiColor
-        imageView.contentMode = .scaleAspectFit
+//        imageView.tintColor = colorTheme?
+//            .foregroundColor(state: getState(.enabled)).uiColor
+//        imageView.contentMode = .scaleAspectFit
         
         stackView.arrangedSubviews
             .filter { $0 is UIImageView }
@@ -79,6 +79,8 @@ public extension BaseButton {
         case .trailing:
             stackView.addArrangedSubview(imageView)
         }
+        
+        updateTheme()
     }
 }
 

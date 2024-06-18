@@ -25,17 +25,6 @@ final class ButtonBookViewController: BaseViewController {
         $0.spacing = 16
     }
     
-    let variantControlLabel = UILabel().then {
-        $0.text = "variant"
-        $0.setTypo(.body1b)
-    }
-    
-    let variantControl = UISegmentedControl(
-        items: Array(BasicButtonVariant.allCases).map { $0.rawValue }
-    ).then {
-        $0.selectedSegmentIndex = 0
-    }
-    
     let sizeControlLabel = UILabel().then {
         $0.text = "size"
         $0.setTypo(.body1b)
@@ -47,6 +36,17 @@ final class ButtonBookViewController: BaseViewController {
         $0.selectedSegmentIndex = 0
     }
     
+    let variantControlLabel = UILabel().then {
+        $0.text = "variant"
+        $0.setTypo(.body1b)
+    }
+    
+    let variantControl = UISegmentedControl(
+        items: Array(BasicButtonVariant.allCases).map { $0.rawValue }
+    ).then {
+        $0.selectedSegmentIndex = 0
+    }
+
     let shapeControlLabel = UILabel().then {
         $0.text = "shape"
         $0.setTypo(.body1b)
@@ -97,10 +97,10 @@ final class ButtonBookViewController: BaseViewController {
         scrollView.addSubview(contentView)
         contentView.addSubview(stackContainer)
         
-        stackContainer.addArrangedSubview(sizeControlLabel)
-        stackContainer.addArrangedSubview(sizeControl)
         stackContainer.addArrangedSubview(variantControlLabel)
         stackContainer.addArrangedSubview(variantControl)
+        stackContainer.addArrangedSubview(sizeControlLabel)
+        stackContainer.addArrangedSubview(sizeControl)
         stackContainer.addArrangedSubview(shapeControlLabel)
         stackContainer.addArrangedSubview(shapeControl)
         stackContainer.addArrangedSubview(stateControlLabel)
