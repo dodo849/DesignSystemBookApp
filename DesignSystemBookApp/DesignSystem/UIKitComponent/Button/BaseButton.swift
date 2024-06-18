@@ -112,11 +112,10 @@ public class BaseButton: UIControl {
         clipsToBounds = true
         layer.borderColor = colorTheme.borderColor(state: getState(.enabled)).cgColor
         layer.borderWidth = figureTheme.borderWidth()
+        updateCornerRadius()
         
         titleLabel.setTypo(figureTheme.typo())
         titleLabel.textColor = colorTheme.foregroundColor(state: getState(.enabled)).uiColor
-        
-        updateCornerRadius()
         
         stackView.arrangedSubviews
             .filter { $0 is UIImageView }
@@ -182,7 +181,7 @@ public class BaseButton: UIControl {
         UIView.transition(
             with: self,
             duration: 0.2,
-            options: [.curveEaseOut],
+            options: [.curveEaseInOut],
             animations: { [weak self] in
                 guard let self = self else { return }
                 guard let colorTheme = colorTheme else { return }
