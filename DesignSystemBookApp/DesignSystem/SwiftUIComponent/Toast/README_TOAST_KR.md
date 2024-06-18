@@ -17,7 +17,9 @@ struct DesignSystemApp: App {
 
 ```
 
-그리고 토스트를 띄우고 싶은 시점에 ToastManager를 통해 `showToast()`를 호출하세요
+그리고 토스트를 띄우고 싶은 시점에 ToastManager를 통해 `showToast()`를 호출하세요.
+
+
 토스트가 유지되는 시간은 `duration`을 통해 설정할 수 있습니다.
 ```swift
 ToastManager.shared.showToast(
