@@ -104,9 +104,11 @@ struct ContentView: View {
                 .foregroundStyle(.gray)
             NavigationLink(destination: uikitDestination) {
                 Text("UIKit example")
+                    .foregroundStyle(.blue)
             }
             NavigationLink(destination: swiftuiDestination) {
                 Text("SwiftUI example")
+                    .foregroundStyle(.blue)
             }
             .padding(.bottom, 20)
         }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-public enum ToastShape {
-    case rounded
+public enum ToastShape: String, CaseIterable {
+    case round
     case square
     case pill
 }

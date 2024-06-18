@@ -202,7 +202,7 @@ public extension View {
          return self.font(.custom(fontName, size: size))
          */
         return self.font(.system(size: size, weight: weight.swiftuiWeight))
-            .foregroundStyle(.basicText)
+            .asAnyView()
     }
     
     // swiftlint:disable:next orphaned_doc_comment

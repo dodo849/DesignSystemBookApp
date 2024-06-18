@@ -10,15 +10,31 @@ import SwiftUI
 public class ToastManager: ObservableObject {
     @Published fileprivate var isOpen: Bool = false
     @Published fileprivate var toastMessage: String = ""
+    @Published fileprivate var colorTheme: ToastColorTheme
+    @Published fileprivate var figureTheme: ToastFigureTheme
     
     public static let shared = ToastManager()
     
-    private init() {}
+    private init() {
+        self.colorTheme = BasicToastColorTheme(variant: .info)
+        self.figureTheme = BasicToastFigureTheme(
+            variant: .info,
+            shape: .round
+        )
+    }
     
     public func showToast(
         message: String,
-        openTime: Double = 3
+        variant: ToastVariant = .info,
+        shape: ToastShape = .round,
+        openTime: Double = 4
     ) {
+        self.colorTheme = BasicToastColorTheme(variant: variant)
+        self.figureTheme = BasicToastFigureTheme(
+            variant: variant,
+            shape: shape
+        )
+        
         toastMessage = message
         withAnimation(.bouncy(duration: 0.35)) {
             isOpen = true
@@ -45,13 +61,17 @@ public struct ToastRoot<Content: View>: View {
     public var body: some View {
         ZStack {
             content()
-
+            
             VStack {
                 Spacer()
                 if toastManager.isOpen {
-                    Toast(message: toastManager.toastMessage)
-                        .transition(.move(edge: .bottom).combined(with: .opacity))
-                        .padding(.bottom, 30)
+                    Toast(
+                        message: toastManager.toastMessage,
+                        colorTheme: toastManager.colorTheme,
+                        figureTheme: toastManager.figureTheme
+                    )
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .padding(.bottom, 30)
                 }
             }
         }

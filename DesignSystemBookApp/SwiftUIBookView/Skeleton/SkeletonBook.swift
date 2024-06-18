@@ -19,7 +19,7 @@ struct SkeletonBook: View {
         ScrollView {
             VStack {
                 Text("variant")
-                    .font(.system(size: 16, weight: .semibold))
+                    .typo(.body1b)
                 Picker("Skeleton Variant", selection: $selectedVariant) {
                     ForEach(variants, id: \.self) { state in
                         Text(state.rawValue)
@@ -28,7 +28,7 @@ struct SkeletonBook: View {
                 .pickerStyle(.segmented)
                 
                 Text("shape")
-                    .font(.system(size: 16, weight: .semibold))
+                    .typo(.body1b)
                 Picker("Skeleton Shape", selection: $selectedShape) {
                     ForEach(shapes, id: \.self) { state in
                         Text(state.rawValue)
@@ -37,7 +37,7 @@ struct SkeletonBook: View {
                 .pickerStyle(.segmented)
                 
                 Text("state")
-                    .font(.system(size: 16, weight: .semibold))
+                    .typo(.body1b)
                 Picker("Skeleton State", selection: $selectedState) {
                     ForEach(states, id: \.self) { state in
                         Text(state.rawValue)
@@ -57,7 +57,7 @@ struct SkeletonBook: View {
                 
                 // MARK: Composition 
                 Text("Composition")
-                    .font(.system(size: 16, weight: .semibold))
+                    .typo(.body1b)
                     .padding(.top)
                 
                 HStack {

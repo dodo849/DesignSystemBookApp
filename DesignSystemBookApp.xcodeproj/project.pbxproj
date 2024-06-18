@@ -68,6 +68,9 @@
 		BC05D50B2C21C1D4006C599B /* ToastFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D50A2C21C1D4006C599B /* ToastFigureTheme.swift */; };
 		BC05D50F2C21D822006C599B /* ToastVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D50E2C21D822006C599B /* ToastVariant.swift */; };
 		BC05D5112C21D849006C599B /* ToastShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5102C21D849006C599B /* ToastShape.swift */; };
+		BC05D5142C21DCA3006C599B /* BasicToastColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5132C21DCA3006C599B /* BasicToastColorTheme.swift */; };
+		BC05D5162C21DCB0006C599B /* BasicToastFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5152C21DCB0006C599B /* BasicToastFigureTheme.swift */; };
+		BC05D5182C21E119006C599B /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5172C21E119006C599B /* ImageName.swift */; };
 		BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */; };
 		BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */; };
 		BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */; };
@@ -180,6 +183,9 @@
 		BC05D50A2C21C1D4006C599B /* ToastFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastFigureTheme.swift; sourceTree = "<group>"; };
 		BC05D50E2C21D822006C599B /* ToastVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastVariant.swift; sourceTree = "<group>"; };
 		BC05D5102C21D849006C599B /* ToastShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastShape.swift; sourceTree = "<group>"; };
+		BC05D5132C21DCA3006C599B /* BasicToastColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicToastColorTheme.swift; sourceTree = "<group>"; };
+		BC05D5152C21DCB0006C599B /* BasicToastFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicToastFigureTheme.swift; sourceTree = "<group>"; };
+		BC05D5172C21E119006C599B /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
 		BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonThemeType.swift; sourceTree = "<group>"; };
@@ -285,6 +291,7 @@
 				BCFD538C2C1B725600191F34 /* FrameOffset.swift */,
 				BCFD53822C1B628200191F34 /* RoundedOffset.swift */,
 				BC05D4502C205AA2006C599B /* ColorOffset.swift */,
+				BC05D5172C21E119006C599B /* ImageName.swift */,
 			);
 			path = Offset;
 			sourceTree = "<group>";
@@ -613,7 +620,7 @@
 			children = (
 				BC05D5082C21C1CD006C599B /* ToastColorTheme.swift */,
 				BC05D50A2C21C1D4006C599B /* ToastFigureTheme.swift */,
-				BC05D50C2C21C1D9006C599B /* Token */,
+				BC05D5122C21DC95006C599B /* Basic */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -625,6 +632,16 @@
 				BC05D5102C21D849006C599B /* ToastShape.swift */,
 			);
 			path = Token;
+			sourceTree = "<group>";
+		};
+		BC05D5122C21DC95006C599B /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D5132C21DCA3006C599B /* BasicToastColorTheme.swift */,
+				BC05D5152C21DCB0006C599B /* BasicToastFigureTheme.swift */,
+				BC05D50C2C21C1D9006C599B /* Token */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 		BC09324F2C1A8F5200D3F8CB /* Basic */ = {
@@ -1133,6 +1150,7 @@
 				BC0932BC2C1AED0600D3F8CB /* AnyView.swift in Sources */,
 				BC0932852C1A8F5200D3F8CB /* DesignSystemApp.swift in Sources */,
 				BC05D5022C21B677006C599B /* ToastRoot.swift in Sources */,
+				BC05D5162C21DCB0006C599B /* BasicToastFigureTheme.swift in Sources */,
 				BC0932832C1A8F5200D3F8CB /* ContentView.swift in Sources */,
 				BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */,
 				BC05D3F22C200B15006C599B /* SkeletonState.swift in Sources */,
@@ -1143,8 +1161,10 @@
 				BC05D4062C201405006C599B /* BasicSkeletonFigureTheme.swift in Sources */,
 				BC05D3B52C1DCD46006C599B /* BasicTextFieldSize.swift in Sources */,
 				BC0932BE2C1AF40200D3F8CB /* RadioButtonBook.swift in Sources */,
+				BC05D5182C21E119006C599B /* ImageName.swift in Sources */,
 				BC05D3E52C1FEB1A006C599B /* Skeleton+Extension.swift in Sources */,
 				BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */,
+				BC05D5142C21DCA3006C599B /* BasicToastColorTheme.swift in Sources */,
 				BC05D3EB2C200AC6006C599B /* SkeletonShiningStyleFactory.swift in Sources */,
 				BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift in Sources */,
 				BC05D3ED2C200AEC006C599B /* SkeletonBlinkStyleFactory.swift in Sources */,

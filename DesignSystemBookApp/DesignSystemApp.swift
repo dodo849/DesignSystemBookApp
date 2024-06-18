@@ -13,6 +13,7 @@ struct DesignSystemApp: App {
         WindowGroup {
             ToastRoot {
                 ContentView()
+                    .foregroundStyle(.basicText) // For set default text color
             }
         }
     }

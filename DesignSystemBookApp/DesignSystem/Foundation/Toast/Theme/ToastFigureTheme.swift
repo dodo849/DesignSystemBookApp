@@ -8,4 +8,7 @@
 import Foundation
 
 protocol ToastFigureTheme {
+    func rounded() -> RoundedOffset
+    func shape() -> AnyShape
+    func imageName() -> ImageName?
 }

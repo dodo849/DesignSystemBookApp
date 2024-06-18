@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ToastVariant {
+public enum ToastVariant: String, CaseIterable {
     case success
     case warning
     case error

@@ -9,12 +9,35 @@ import SwiftUI
 
 struct Toast: View {
     var message: String
+    var colorTheme: ToastColorTheme
+    var figureTheme: ToastFigureTheme
     
     var body: some View {
-        Text(message)
-            .padding()
-            .background(Color.black.opacity(0.8))
-            .foregroundColor(.white)
-            .cornerRadius(8)
+        HStack {
+            image()
+            Text(message)
+                .typo(.body1b)
+                .foregroundStyle(colorTheme.foregroundColor().color)
+        }
+        .padding(.vertical, 16)
+        .padding(.horizontal, 20)
+        .foregroundStyle(colorTheme.foregroundColor().color)
+        .background(colorTheme.backgroundColor().color)
+        .clipShape(figureTheme.shape())
+    }
+    
+    @ViewBuilder
+    func image() -> some View {
+        if let imageName = figureTheme.imageName() {
+            switch imageName {
+            case .system(let name):
+                Image(systemName: name)
+            case .asset(let name):
+                Image(name)
+                    .renderingMode(.template)
+            }
+        } else {
+            EmptyView()
+        }
     }
 }
