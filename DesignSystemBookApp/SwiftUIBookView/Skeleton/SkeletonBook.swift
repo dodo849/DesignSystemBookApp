@@ -71,7 +71,7 @@ struct SkeletonBook: View {
                             state: selectedState,
                             shape: .circle
                         )
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 10) {
                         Text("User name")
                             .font(.system(size: 16, weight: .semibold))
                             .frame(maxWidth: .infinity, alignment: .leading)

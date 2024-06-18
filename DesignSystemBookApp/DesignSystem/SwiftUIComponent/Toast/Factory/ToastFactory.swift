@@ -15,6 +15,8 @@ public class ToastManager: ObservableObject {
     
     public static let shared = ToastManager()
     
+    private var currentWorkItem: DispatchWorkItem?
+    
     private init() {
         self.colorTheme = BasicToastColorTheme(variant: .info)
         self.figureTheme = BasicToastFigureTheme(
@@ -27,8 +29,10 @@ public class ToastManager: ObservableObject {
         message: String,
         variant: ToastVariant = .info,
         shape: ToastShape = .round,
-        openTime: Double = 4
+        duration: Double = 4
     ) {
+        currentWorkItem?.cancel()
+        
         self.colorTheme = BasicToastColorTheme(variant: variant)
         self.figureTheme = BasicToastFigureTheme(
             variant: variant,
@@ -40,15 +44,22 @@ public class ToastManager: ObservableObject {
             isOpen = true
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + openTime) { [weak self] in
+        let workItem = DispatchWorkItem { [weak self] in
             withAnimation(.bouncy(duration: 0.35)) {
                 self?.isOpen = false
             }
         }
+        
+        currentWorkItem = workItem
+        
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + duration,
+            execute: workItem
+        )
     }
 }
 
-public struct ToastRoot<Content: View>: View {
+public struct ToastFactory<Content: View>: View {
     @StateObject private var toastManager = ToastManager.shared
     private let content: () -> Content
     

@@ -16,5 +16,4 @@ extension RoundedOffset {
     static let large = RoundedOffset(all: 16)
     static let xlarge = RoundedOffset(all: 20)
     static let infinity = RoundedOffset(all: .infinity)
-
 }

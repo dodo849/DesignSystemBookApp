@@ -25,27 +25,26 @@ struct SkeletonBlinkStyleFactory: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        content
-            .frame(minHeight: figureTheme.rounded().max * 2)
-            .overlay(backgroundOverlay())
-            .overlay(shapeOverlay().opacity(isActive && animatingTrigger ? 0.3 : 1))
-            .animation(
-                isActive
-                ? .easeInOut(duration: 1).repeatForever(autoreverses: true)
-                : nil,
-                value: animatingTrigger
-            )
-            .id(isActive) // For stop animation
-            .onAppear {
-                if isActive {
-                    animatingTrigger.toggle()
+            content
+                .overlay(backgroundOverlay())
+                .overlay(shapeOverlay().opacity(isActive && animatingTrigger ? 0.3 : 1))
+                .animation(
+                    isActive
+                    ? .easeInOut(duration: 1).repeatForever(autoreverses: true)
+                    : nil,
+                    value: animatingTrigger
+                )
+                .id(isActive) // For stop animation
+                .onAppear {
+                    if isActive {
+                        animatingTrigger.toggle()
+                    }
                 }
-            }
-            .onChange(of: isActive) { isActiveValue in
-                if isActiveValue {
-                    animatingTrigger.toggle()
+                .onChange(of: isActive) { isActiveValue in
+                    if isActiveValue {
+                        animatingTrigger.toggle()
+                    }
                 }
-            }
     }
 }
 

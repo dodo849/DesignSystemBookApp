@@ -11,7 +11,7 @@ import SwiftUI
 struct DesignSystemApp: App {
     var body: some Scene {
         WindowGroup {
-            ToastRoot {
+            ToastFactory {
                 ContentView()
                     .foregroundStyle(.basicText) // For set default text color
             }

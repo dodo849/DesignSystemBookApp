@@ -20,12 +20,11 @@ struct BasicSkeletonFigureTheme: SkeletonFigureTheme {
     
     func rounded() -> RoundedOffset {
         switch _shape {
-            
         case .none: return .zero
         case .round: return .large
         case .square: return .extraSmall
-        case .pill: return .infinity
-        case .circle: return .infinity
+        case .pill: return .zero
+        case .circle: return .zero
         }
     }
     

@@ -11,6 +11,7 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50)
+                        .padding(.bottom, 20)
                     
                     sectionHeader(title: "Button")
                     
