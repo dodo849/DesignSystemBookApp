@@ -8,21 +8,32 @@
 import UIKit
 
 import Then
+import RxSwift
 
 class DSButton: UIControl {
     // MARK: Theme
     var colorTheme: ButtonColorTheme? {
         didSet {
-            setupTheme()
+            updateTheme()
             updateLayout()
         }
     }
     var figureTheme: ButtonFigureTheme? {
         didSet {
-            setupTheme()
+            updateTheme()
             updateLayout()
         }
     }
+    
+    // MARK: Override button state
+    override var isEnabled: Bool {
+        didSet {
+            updateTheme()
+        }
+    }
+    
+    // MARK: DisposeBag
+    private let disposeBag = DisposeBag()
     
     // MARK: UI Components
     private let stackView = UIStackView().then {
@@ -41,31 +52,21 @@ class DSButton: UIControl {
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupTheme()
+        updateTheme()
         setupHierachy()
         setupLayout()
+        setupBind()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        updateTheme()
+        setupHierachy()
+        setupLayout()
+        setupBind()
     }
     
     // MARK: Setup
-    private func setupTheme() {
-        guard let colorTheme = colorTheme, let figureTheme = figureTheme
-        else { return }
-        
-        backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
-        clipsToBounds = true
-        layer.borderColor = colorTheme.borderColor(state: .enabled).cgColor
-        layer.borderWidth = figureTheme.borderWidth()
-        
-        titleLabel.setTypo(figureTheme.typo())
-        titleLabel.textColor = colorTheme.foregroundColor(state: .enabled).uiColor
-        
-        updateCornerRadius()
-    }
-    
     private func setupHierachy() {
         addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
@@ -85,10 +86,24 @@ class DSButton: UIControl {
     }
     
     private func setupBind() {
-        
     }
     
     // MARK: Update
+    private func updateTheme() {
+        guard let colorTheme = colorTheme, let figureTheme = figureTheme
+        else { return }
+        
+        backgroundColor = colorTheme.backgroundColor(state: getState(.enabled)).uiColor
+        clipsToBounds = true
+        layer.borderColor = colorTheme.borderColor(state: getState(.enabled)).cgColor
+        layer.borderWidth = figureTheme.borderWidth()
+        
+        titleLabel.setTypo(figureTheme.typo())
+        titleLabel.textColor = colorTheme.foregroundColor(state: getState(.enabled)).uiColor
+        
+        updateCornerRadius()
+    }
+    
     private func updateCornerRadius() {
         guard let figureTheme = figureTheme
         else { return }
@@ -126,25 +141,32 @@ class DSButton: UIControl {
     
     // MARK: UIControl handling
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        guard let colorTheme = colorTheme, let figureTheme = figureTheme
-        else { return true }
-        
-        UIView.transition(with: self, duration: 0.2, options: [.transitionCrossDissolve], animations: {
-            self.backgroundColor = colorTheme.backgroundColor(state: .pressed).uiColor
-            self.transform = .init(scaleX: 0.9, y: 0.9)
-        })
-        
+        UIView.transition(
+            with: self,
+            duration: 0.2,
+            options: [.transitionCrossDissolve],
+            animations: { [weak self] in
+                guard let self = self else { return }
+                guard let colorTheme = colorTheme else { return }
+                self.backgroundColor = colorTheme.backgroundColor(state: self.getState(.pressed)).uiColor
+                self.transform = .init(scaleX: 0.9, y: 0.9)
+            }
+        )
         return true
     }
     
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-        guard let colorTheme = colorTheme, let figureTheme = figureTheme
-        else { return }
-        
-        UIView.transition(with: self, duration: 0.2, options: [.curveEaseOut], animations: {
-           self.backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
-            self.transform = .identity
-           })
+        UIView.transition(
+            with: self,
+            duration: 0.2,
+            options: [.curveEaseOut],
+            animations: { [weak self] in
+                guard let self = self else { return }
+                guard let colorTheme = colorTheme else { return }
+                self.backgroundColor = colorTheme.backgroundColor(state: self.getState(.enabled)).uiColor
+                self.transform = .identity
+            }
+        )
         sendActions(for: .touchUpInside)
     }
     
@@ -152,6 +174,16 @@ class DSButton: UIControl {
         guard let colorTheme = colorTheme
         else { return }
         
-        backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
+        backgroundColor = colorTheme.backgroundColor(state: getState(.enabled)).uiColor
+    }
+    
+    // MARK: Inner token
+    /// Determine the state considering isEnabled
+    func getState(_ state: ButtonState) -> ButtonState {
+        if isEnabled == true {
+            return state
+        } else {
+            return .disabled
+        }
     }
 }

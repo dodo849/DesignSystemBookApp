@@ -22,11 +22,11 @@ final class ButtonBookViewController: BaseViewController {
         $0.axis = .vertical
         $0.alignment = .center
         $0.distribution = .fill
-        $0.spacing = 15
+        $0.spacing = 16
     }
     
     let variantControlLabel = UILabel().then {
-        $0.text = "Variant"
+        $0.text = "variant"
         $0.setTypo(.body1b)
     }
     
@@ -37,7 +37,7 @@ final class ButtonBookViewController: BaseViewController {
     }
     
     let sizeControlLabel = UILabel().then {
-        $0.text = "Size"
+        $0.text = "size"
         $0.setTypo(.body1b)
     }
     
@@ -48,12 +48,23 @@ final class ButtonBookViewController: BaseViewController {
     }
     
     let shapeControlLabel = UILabel().then {
-        $0.text = "Shape"
+        $0.text = "shape"
         $0.setTypo(.body1b)
     }
     
     let shapeControl = UISegmentedControl(
         items: Array(BasicButtonShape.allCases).map { $0.rawValue }
+    ).then {
+        $0.selectedSegmentIndex = 0
+    }
+    
+    let stateControlLabel = UILabel().then {
+        $0.text = "state"
+        $0.setTypo(.body1b)
+    }
+    
+    let stateControl = UISegmentedControl(
+        items: ["enabled", "disabled"]
     ).then {
         $0.selectedSegmentIndex = 0
     }
@@ -91,7 +102,10 @@ final class ButtonBookViewController: BaseViewController {
         stackContainer.addArrangedSubview(variantControl)
         stackContainer.addArrangedSubview(shapeControlLabel)
         stackContainer.addArrangedSubview(shapeControl)
+        stackContainer.addArrangedSubview(stateControlLabel)
+        stackContainer.addArrangedSubview(stateControl)
         stackContainer.addArrangedSubview(divider)
+        
         buttons.enumerated().forEach { index, button in
             stackContainer.addArrangedSubview(colorLabels[index])
             stackContainer.addArrangedSubview(button)
@@ -128,6 +142,10 @@ final class ButtonBookViewController: BaseViewController {
             $0.width.equalTo(stackContainer.snp.width)
         }
         
+        stateControl.snp.makeConstraints {
+            $0.width.equalTo(stackContainer.snp.width)
+        }
+        
         divider.snp.makeConstraints {
             $0.height.equalTo(1)
             $0.width.equalTo(stackContainer.snp.width)
@@ -158,7 +176,8 @@ final class ButtonBookViewController: BaseViewController {
         Observable.combineLatest(
             variantControl.rx.selectedSegmentIndex,
             sizeControl.rx.selectedSegmentIndex,
-            shapeControl.rx.selectedSegmentIndex
+            shapeControl.rx.selectedSegmentIndex,
+            stateControl.rx.selectedSegmentIndex
         )
         .observe(on: MainScheduler.instance)
         .withUnretained(self)
@@ -170,6 +189,8 @@ final class ButtonBookViewController: BaseViewController {
                     size: BasicButtonSize.allCases[value.1],
                     shape: BasicButtonShape.allCases[value.2]
                 )
+                print("value.3 == 0 \(value.3 == 0)")
+                button.isEnabled = value.3 == 0
             }
             owner.updateLayout()
         })
