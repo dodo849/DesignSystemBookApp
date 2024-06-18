@@ -24,7 +24,6 @@ struct ButtonStyleFactory: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         let state = makeState(configuration: configuration)
         let padding = figureTheme.padding()
-        let typo = figureTheme.typo()
         let frame = figureTheme.frame()
         
         configuration.label

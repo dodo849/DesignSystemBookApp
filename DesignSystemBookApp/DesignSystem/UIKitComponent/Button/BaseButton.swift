@@ -40,7 +40,7 @@ public class BaseButton: UIControl {
         $0.axis = .horizontal
         $0.spacing = 8
         $0.alignment = .center
-        $0.distribution = .fillProportionally
+        $0.distribution = .fill
         $0.isUserInteractionEnabled = false
     }
     

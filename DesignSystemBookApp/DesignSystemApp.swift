@@ -11,7 +11,9 @@ import SwiftUI
 struct DesignSystemApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ToastRoot {
+                ContentView()
+            }
         }
     }
 }

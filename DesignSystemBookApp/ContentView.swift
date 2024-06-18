@@ -12,8 +12,6 @@ struct ContentView: View {
                         .scaledToFit()
                         .frame(width: 50)
                     
-                    Spacer().frame(height: 20)
-                    
                     sectionHeader(title: "Button")
                     
                     exampleSection(
@@ -25,16 +23,12 @@ struct ContentView: View {
                         swiftuiDestination: BasicButtonBook()
                     )
                     
-                    Spacer().frame(height: 10)
-                    
                     exampleSection(
                         title: "Gray Button",
                         colorTheme: "Gray",
                         figureTheme: "Basic",
                         swiftuiDestination: GrayButtonBook()
                     )
-                    
-                    Spacer().frame(height: 20)
                     
                     sectionHeader(title: "ToggleButton")
                     
@@ -45,16 +39,12 @@ struct ContentView: View {
                         swiftuiDestination: CheckButtonBook()
                     )
                     
-                    Spacer().frame(height: 20)
-                    
                     exampleSection(
                         title: "RadioButton",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
                         swiftuiDestination: RadioButtonBook()
                     )
-                    
-                    Spacer().frame(height: 20)
                     
                     sectionHeader(title: "TextField")
                     
@@ -65,8 +55,6 @@ struct ContentView: View {
                         swiftuiDestination: TextFieldBook()
                     )
                     
-                    Spacer().frame(height: 20)
-                    
                     sectionHeader(title: "Skeleton")
                     
                     exampleSection(
@@ -74,6 +62,15 @@ struct ContentView: View {
                         colorTheme: "Basic",
                         figureTheme: "Basic",
                         swiftuiDestination: SkeletonBook()
+                    )
+                    
+                    sectionHeader(title: "Toast")
+                    
+                    exampleSection(
+                        title: "Basic Toast",
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        swiftuiDestination: ToastBook()
                     )
                     
                     Spacer().frame(height: 100)
@@ -88,7 +85,7 @@ struct ContentView: View {
     @ViewBuilder
     private func sectionHeader(title: String) -> some View {
         Text(title)
-            .font(.system(size: 24, weight: .bold))
+            .typo(.heading3)
     }
     
     @ViewBuilder
@@ -101,7 +98,7 @@ struct ContentView: View {
     ) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
-                .font(.system(size: 18, weight: .semibold))
+                .typo(.body0b)
             Text("Color theme **\(colorTheme)** | Figure theme **\(figureTheme)**")
                 .font(.system(size: 14))
                 .foregroundStyle(.gray)
@@ -111,6 +108,7 @@ struct ContentView: View {
             NavigationLink(destination: swiftuiDestination) {
                 Text("SwiftUI example")
             }
+            .padding(.bottom, 20)
         }
     }
 }

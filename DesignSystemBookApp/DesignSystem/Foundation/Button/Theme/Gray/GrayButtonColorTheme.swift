@@ -32,7 +32,7 @@ struct GrayButtonColorTheme: ButtonColorTheme {
     func foregroundColor(state: ButtonState) -> ColorOffset {
         switch variant {
         case .fill:
-            return .init(.white)
+            return .init(.basicBackground)
         case .outline:
             return .init(outlineForegroundColor(state: state, color: color))
         case .translucent:
