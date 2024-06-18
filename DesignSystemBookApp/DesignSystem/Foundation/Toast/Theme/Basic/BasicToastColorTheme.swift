@@ -19,7 +19,7 @@ struct BasicToastColorTheme: ToastColorTheme {
         case .success: return .init(.success.opacity(0.2))
         case .warning: return .init(.basicYellow.opacity(0.2))
         case .error: return .init(.destructive.opacity(0.2))
-        case .info: return .init(.basicText.opacity(0.4))
+        case .info: return .init(.basicText.opacity(0.1))
         }
     }
     
@@ -28,7 +28,7 @@ struct BasicToastColorTheme: ToastColorTheme {
         case .success: return .init(.success)
         case .warning: return .init(.basicYellow)
         case .error: return .init(.destructive)
-        case .info: return .init(.basicBackground)
+        case .info: return .init(.basicText)
         }
     }
 }

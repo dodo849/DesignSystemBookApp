@@ -23,6 +23,7 @@ struct Toast: View {
         .padding(.horizontal, 20)
         .foregroundStyle(colorTheme.foregroundColor().color)
         .background(colorTheme.backgroundColor().color)
+        .background(.ultraThinMaterial)
         .clipShape(figureTheme.shape())
     }
     

@@ -12,6 +12,8 @@ struct ToastBook: View {
     @State private var variants: [ToastVariant] = ToastVariant.allCases
     @State private var selectedShape: ToastShape = .round
     @State private var shapes: [ToastShape] = ToastShape.allCases
+    @State private var selectedAlignment: ToastAlignment = .bottom
+    @State private var alignments: [ToastAlignment] = ToastAlignment.allCases
     
     var body: some View {
         ScrollView {
@@ -34,13 +36,25 @@ struct ToastBook: View {
                 }
                 .pickerStyle(.segmented)
                 
+                Text("alignment")
+                    .typo(.body1b)
+                Picker("Toast Shape", selection: $selectedAlignment) {
+                    ForEach(alignments, id: \.self) { state in
+                        Text(state.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                
                 Divider()
                     .padding()
                 Button {
                     ToastManager.shared.showToast(
                         message: "Toast test",
                         variant: selectedVariant,
-                        shape: selectedShape
+                        shape: selectedShape,
+                        alignment: selectedAlignment,
+                        duration: 2
                     )
                 } label: {
                     Text("show toast")

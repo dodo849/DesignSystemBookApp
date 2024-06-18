@@ -12,6 +12,7 @@ public class ToastManager: ObservableObject {
     @Published fileprivate var toastMessage: String = ""
     @Published fileprivate var colorTheme: ToastColorTheme
     @Published fileprivate var figureTheme: ToastFigureTheme
+    @Published fileprivate var alignment: ToastAlignment = .bottom
     
     public static let shared = ToastManager()
     
@@ -29,6 +30,7 @@ public class ToastManager: ObservableObject {
         message: String,
         variant: ToastVariant = .info,
         shape: ToastShape = .round,
+        alignment: ToastAlignment = .bottom,
         duration: Double = 4
     ) {
         currentWorkItem?.cancel()
@@ -38,6 +40,7 @@ public class ToastManager: ObservableObject {
             variant: variant,
             shape: shape
         )
+        self.alignment = alignment
         
         toastMessage = message
         withAnimation(.bouncy(duration: 0.35)) {
@@ -74,17 +77,32 @@ public struct ToastFactory<Content: View>: View {
             content()
             
             VStack {
-                Spacer()
+                if toastManager.alignment == .bottom {
+                    Spacer()
+                }
                 if toastManager.isOpen {
                     Toast(
                         message: toastManager.toastMessage,
                         colorTheme: toastManager.colorTheme,
                         figureTheme: toastManager.figureTheme
                     )
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .transition(animation.combined(with: .opacity))
                     .padding(.bottom, 30)
+                    .padding(.top, 30)
+                }
+                if toastManager.alignment == .top {
+                    Spacer()
                 }
             }
+        }
+    }
+    
+    private var animation: AnyTransition {
+        switch toastManager.alignment {
+        case .top:
+            return .move(edge: .top)
+        case .bottom:
+            return .move(edge: .bottom)
         }
     }
 }
