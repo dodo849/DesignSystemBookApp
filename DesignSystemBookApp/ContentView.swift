@@ -20,7 +20,8 @@ struct ContentView: View {
                         title: "Basic Button",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
-                        uikitDestination: ButtonBookRepresentable(),
+                        uikitDestination: ButtonBookRepresentable()
+                            .ignoresSafeArea(),
                         swiftuiDestination: BasicButtonBook()
                     )
                     
@@ -80,6 +81,7 @@ struct ContentView: View {
                 .padding(.horizontal)
                 .frameMax([.width], alignment: .leading)
             }
+            .background(.basicBackground)
         }
     }
     

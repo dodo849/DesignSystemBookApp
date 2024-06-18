@@ -9,37 +9,15 @@ import UIKit
 
 import Then
 
-extension DSButton {
-    func styled(
-        variant: BasicButtonVariant = .fill,
-        color: BasicButtonColor = .primary,
-        size: BasicButtonSize = .large,
-        shape: BasicButtonShape = .round
-    ) {
-        let colorTheme = BasicButtonColorTheme(
-            variant: variant,
-            color: color
-        )
-        
-        let figureTheme = BasicButtonFigureTheme(
-            size: size,
-            shape: shape
-        )
-        
-        self.colorTheme = colorTheme
-        self.figureTheme = figureTheme
-    }
-}
-
 class DSButton: UIControl {
     // MARK: Theme
-    private var colorTheme: ButtonColorTheme? {
+    var colorTheme: ButtonColorTheme? {
         didSet {
             setupTheme()
             updateLayout()
         }
     }
-    private var figureTheme: ButtonFigureTheme? {
+    var figureTheme: ButtonFigureTheme? {
         didSet {
             setupTheme()
             updateLayout()
@@ -47,12 +25,20 @@ class DSButton: UIControl {
     }
     
     // MARK: UI Components
+    private let stackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 8
+        $0.alignment = .center
+        $0.distribution = .fillProportionally
+    }
+    
     private let titleLabel = UILabel().then {
         $0.text = "Button"
         $0.setTypo(.body1)
         $0.textAlignment = .center
     }
     
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupTheme()
@@ -69,19 +55,20 @@ class DSButton: UIControl {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return }
         
-        // Setup default style
         backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
         clipsToBounds = true
-        layer.cornerRadius = figureTheme.rounded().max
         layer.borderColor = colorTheme.borderColor(state: .enabled).cgColor
         layer.borderWidth = figureTheme.borderWidth()
         
         titleLabel.setTypo(figureTheme.typo())
         titleLabel.textColor = colorTheme.foregroundColor(state: .enabled).uiColor
+        
+        updateCornerRadius()
     }
     
     private func setupHierachy() {
-        addSubview(titleLabel)
+        addSubview(stackView)
+        stackView.addArrangedSubview(titleLabel)
     }
     
     private func setupLayout() {
@@ -89,11 +76,11 @@ class DSButton: UIControl {
         else { return }
         
         let padding = figureTheme.padding()
-        titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(padding.vertical ?? 0)
-            $0.bottom.equalToSuperview().inset(padding.vertical ?? 0)
-            $0.leading.equalToSuperview().offset(padding.horizontal ?? 0)
-            $0.trailing.equalToSuperview().offset(-(padding.horizontal ?? 0))
+        
+        stackView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
+            $0.width.lessThanOrEqualToSuperview().inset(padding.horizontal ?? 0)
+            $0.centerX.equalToSuperview()
         }
     }
     
@@ -101,30 +88,40 @@ class DSButton: UIControl {
         
     }
     
+    // MARK: Update
+    private func updateCornerRadius() {
+        guard let figureTheme = figureTheme
+        else { return }
+        
+        let rounded = figureTheme.rounded().max == .infinity
+        ? bounds.height / 2 : figureTheme.rounded().max
+        
+        layer.cornerRadius = rounded
+    }
+    
     private func updateLayout() {
         guard let figureTheme = figureTheme
         else { return }
         
         let padding = figureTheme.padding()
-        titleLabel.snp.removeConstraints()
-        titleLabel.snp.updateConstraints {
-            $0.top.equalToSuperview().inset(padding.vertical ?? 0)
-            $0.bottom.equalToSuperview().inset(padding.vertical ?? 0)
-            $0.leading.equalToSuperview().offset(padding.horizontal ?? 0)
-            $0.trailing.equalToSuperview().offset(-(padding.horizontal ?? 0))
+        
+        stackView.snp.removeConstraints()
+        stackView.snp.updateConstraints {
+            $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
+            $0.width.lessThanOrEqualToSuperview().inset(padding.horizontal ?? 0)
+            $0.centerX.equalToSuperview()
         }
     }
     
     // MARK: Life cycle
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupLayout()
+        updateLayout()
+        updateCornerRadius()
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        print("언제 호출되는거지")
-        // 필요 시 추가적인 그리기 코드 작성
     }
     
     // MARK: UIControl handling
@@ -132,16 +129,31 @@ class DSButton: UIControl {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return true }
         
-        self.animationWithColor { [weak self] in
-            guard let self = self else { return }
-            
-            if let colorTheme = self.colorTheme {
-                self.transform = .init(scaleX: 0.9, y: 0.9)
-                self.backgroundColor = colorTheme
-                    .backgroundColor(state: .pressed).uiColor
-            }
-            self.layoutIfNeeded()
+//        self.animationWithColor(
+//            fromColor: colorTheme.backgroundColor(state: .enabled).cgColor,
+//            toColor: colorTheme.backgroundColor(state: .pressed).cgColor
+//        ) { [weak self] in
+//            guard let self = self else { return }
+//            
+//            if let colorTheme = self.colorTheme {
+//                self.transform = .init(scaleX: 0.9, y: 0.9)
+//            }
+//        }
+        
+        UIView.transition(with: self, duration: 0.2, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
+            self.backgroundColor = colorTheme.backgroundColor(state: .pressed).uiColor
+            self.transform = .init(scaleX: 0.9, y: 0.9)
+        }) { (finish) in
         }
+        
+        return true
+    }
+    
+    override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        guard let colorTheme = colorTheme, let figureTheme = figureTheme
+        else { return true }
+        print("continue")
+        
         return true
     }
     
@@ -149,26 +161,36 @@ class DSButton: UIControl {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return }
         
-        self.animationWithColor { [weak self] in
+        self.animationWithColor(
+            fromColor: colorTheme.backgroundColor(state: .pressed).cgColor,
+            toColor: colorTheme.backgroundColor(state: .enabled).cgColor
+        ) { [weak self] in
             guard let self = self else { return }
             
             if let colorTheme = self.colorTheme {
                 self.transform = .identity
-                self.backgroundColor = colorTheme
-                    .backgroundColor(state: .enabled).uiColor
             }
-            self.layoutIfNeeded()
         }
+        UIView.transition(with: self, duration: 0.4, options: .curveEaseOut, animations: {
+               self.backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
+           }) { (finish) in
+           }
+        
+        
         sendActions(for: .touchUpInside)
     }
     
     override func cancelTracking(with event: UIEvent?) {
-        // 터치 취소
-        backgroundColor = .systemBlue
+        guard let colorTheme = colorTheme
+        else { return }
+        
+        backgroundColor = colorTheme.backgroundColor(state: .enabled).uiColor
     }
     
     // MARK: Animation
     private func animationWithColor(
+        fromColor: CGColor,
+        toColor: CGColor,
         _ completion: @escaping () -> Void
     ) {
 //        let caLayer = CALayer()
@@ -178,25 +200,40 @@ class DSButton: UIControl {
 //
 //        let colorAnimation = CABasicAnimation(keyPath: "backgroundColor")
 //        colorAnimation.duration = 0.35
+//        colorAnimation.fromValue = fromColor
 //        colorAnimation.toValue = toColor
 //        colorAnimation.isRemovedOnCompletion = false
 //        colorAnimation.fillMode = .forwards
 //        colorAnimation.repeatCount = 1
+//        colorAnimation.delegate = LayerRemover(for: caLayer)
 //        caLayer.add(colorAnimation, forKey: "backgroundColorChange")
-//
-//        // 업데이트된 색상을 유지하도록 설정
-//        caLayer.backgroundColor = toColor
         
         UIView.animate(
             withDuration: 0.35,
             delay: 0,
             usingSpringWithDamping: 0.8,
             initialSpringVelocity: 0.8,
-            options: []
+            options: [.layoutSubviews]
         ) {
             completion()
-        } completion: { _ in
-            print("Animation Completed")
         }
+    }
+}
+
+class LayerRemover: NSObject, CAAnimationDelegate {
+    private weak var layer: CALayer?
+
+    init(for layer: CALayer) {
+        self.layer = layer
+        super.init()
+    }
+    
+    func animationDidStart(_ anim: CAAnimation) {
+        print("start")
+    }
+
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        print("stop")
+        layer?.removeFromSuperlayer()
     }
 }

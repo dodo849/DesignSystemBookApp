@@ -86,6 +86,7 @@ struct BasicButtonBook: View {
             }
             .padding()
         }
+        .background(.basicBackground)
     }
     
     private func generateCode(_ color: String) -> String {

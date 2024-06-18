@@ -58,6 +58,9 @@
 		BC05D44C2C204F96006C599B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D44B2C204F96006C599B /* WebViewController.swift */; };
 		BC05D44F2C20562F006C599B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D44E2C20562F006C599B /* SnapKit */; };
 		BC05D4512C205AA2006C599B /* ColorOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4502C205AA2006C599B /* ColorOffset.swift */; };
+		BC05D4542C20AE2B006C599B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4532C20AE2B006C599B /* Constant.swift */; };
+		BC05D4572C213609006C599B /* DSSapcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4562C213609006C599B /* DSSapcer.swift */; };
+		BC05D4592C2144F2006C599B /* DSButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4582C2144F2006C599B /* DSButton+Extension.swift */; };
 		BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */; };
 		BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */; };
 		BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */; };
@@ -160,6 +163,9 @@
 		BC05D43D2C204DC0006C599B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BC05D44B2C204F96006C599B /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		BC05D4502C205AA2006C599B /* ColorOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOffset.swift; sourceTree = "<group>"; };
+		BC05D4532C20AE2B006C599B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		BC05D4562C213609006C599B /* DSSapcer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSapcer.swift; sourceTree = "<group>"; };
+		BC05D4582C2144F2006C599B /* DSButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DSButton+Extension.swift"; sourceTree = "<group>"; };
 		BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonThemeType.swift; sourceTree = "<group>"; };
@@ -394,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				BC05D43E2C204DC0006C599B /* Base */,
+				BC05D4552C2135FF006C599B /* Spacer */,
 				BC05D4252C204854006C599B /* Button */,
 			);
 			path = UIKitComponent;
@@ -402,6 +409,7 @@
 		BC05D4162C203FD5006C599B /* DesignSystemFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				BC05D4522C20AE20006C599B /* Constant */,
 				BC05D4242C20480F006C599B /* Rounded */,
 				BC05D4212C204174006C599B /* Typo */,
 				BC05D41A2C204037006C599B /* Skeleton */,
@@ -499,6 +507,7 @@
 			isa = PBXGroup;
 			children = (
 				BC05D4262C204877006C599B /* DSButton.swift */,
+				BC05D4582C2144F2006C599B /* DSButton+Extension.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -531,6 +540,22 @@
 				BC05D43D2C204DC0006C599B /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		BC05D4522C20AE20006C599B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D4532C20AE2B006C599B /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		BC05D4552C2135FF006C599B /* Spacer */ = {
+			isa = PBXGroup;
+			children = (
+				BC05D4562C213609006C599B /* DSSapcer.swift */,
+			);
+			path = Spacer;
 			sourceTree = "<group>";
 		};
 		BC09324F2C1A8F5200D3F8CB /* Basic */ = {
@@ -1002,6 +1027,7 @@
 				BC05D3C42C1DD4D2006C599B /* BasicTextFieldColorTheme.swift in Sources */,
 				BC18EC872C1DAFA50061599B /* TextFieldBook.swift in Sources */,
 				BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */,
+				BC05D4592C2144F2006C599B /* DSButton+Extension.swift in Sources */,
 				BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */,
 				BC0933E92C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift in Sources */,
 				BC05D4432C204DC0006C599B /* BaseViewController.swift in Sources */,
@@ -1049,6 +1075,7 @@
 				BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift in Sources */,
 				BC05D3ED2C200AEC006C599B /* SkeletonBlinkStyleFactory.swift in Sources */,
 				BCFD545C2C1BE7E900191F34 /* BasicButtonSize.swift in Sources */,
+				BC05D4542C20AE2B006C599B /* Constant.swift in Sources */,
 				BC05D3DC2C1F41AE006C599B /* TextFieldContainer.swift in Sources */,
 				BC05D3B92C1DCEB1006C599B /* TextFieldFigureTheme.swift in Sources */,
 				BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */,
@@ -1056,6 +1083,7 @@
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
 				BC05D4402C204DC0006C599B /* BaseCollectionViewCell.swift in Sources */,
 				BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */,
+				BC05D4572C213609006C599B /* DSSapcer.swift in Sources */,
 				BC05D42D2C2049B5006C599B /* ButtonBookRepresentable.swift in Sources */,
 				BCFD545F2C1BECA900191F34 /* BasicButtonBook.swift in Sources */,
 				BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */,

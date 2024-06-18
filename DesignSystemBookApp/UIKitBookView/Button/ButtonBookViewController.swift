@@ -20,7 +20,7 @@ final class ButtonBookViewController: BaseViewController {
     
     let stackContainer = UIStackView().then {
         $0.axis = .vertical
-        $0.alignment = .fill
+        $0.alignment = .center
         $0.distribution = .fill
         $0.spacing = 15
     }
@@ -78,16 +78,19 @@ final class ButtonBookViewController: BaseViewController {
     
     // MARK: Setup methods
     override func setupHierarchy() {
+        view.backgroundColor = .basicBackground
+        
         view.addSubview(scrollView)
+        
         scrollView.addSubview(contentView)
         contentView.addSubview(stackContainer)
+        
         stackContainer.addArrangedSubview(sizeControlLabel)
         stackContainer.addArrangedSubview(sizeControl)
         stackContainer.addArrangedSubview(variantControlLabel)
         stackContainer.addArrangedSubview(variantControl)
         stackContainer.addArrangedSubview(shapeControlLabel)
         stackContainer.addArrangedSubview(shapeControl)
-        stackContainer.addArrangedSubview(divider)
         stackContainer.addArrangedSubview(divider)
         buttons.enumerated().forEach { index, button in
             stackContainer.addArrangedSubview(colorLabels[index])
@@ -107,22 +110,48 @@ final class ButtonBookViewController: BaseViewController {
         }
         
         stackContainer.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(15)
-            $0.leading.equalToSuperview().inset(15)
-            $0.trailing.equalToSuperview().inset(15)
+            $0.top.equalTo(contentView.safeAreaLayoutGuide.snp.top)
+            $0.left.greaterThanOrEqualTo(view.snp.left).inset(pagePadding)
+            $0.right.lessThanOrEqualTo(view.snp.right).inset(pagePadding)
+            $0.centerX.equalTo(view.snp.centerX)
+        }
+        
+        sizeControl.snp.makeConstraints {
+            $0.width.equalTo(stackContainer.snp.width)
+        }
+        
+        variantControl.snp.makeConstraints {
+            $0.width.equalTo(stackContainer.snp.width)
+        }
+        
+        shapeControl.snp.makeConstraints {
+            $0.width.equalTo(stackContainer.snp.width)
         }
         
         divider.snp.makeConstraints {
             $0.height.equalTo(1)
+            $0.width.equalTo(stackContainer.snp.width)
         }
         
-        // Set label to expand to maximum width
-        sizeControlLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        sizeControlLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        
-        // Button to take minimal space
-        buttons[0].setContentHuggingPriority(.defaultLow, for: .horizontal)
-        buttons[0].setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        buttons.forEach { button in
+            button.snp.makeConstraints {
+                $0.width.equalToSuperview()
+            }
+        }
+    }
+    
+    func updateLayout() {
+        if sizeControl.selectedSegmentIndex == 0 {
+            buttons.forEach { button in
+                button.snp.updateConstraints {
+                    $0.width.equalToSuperview()
+                }
+            }
+        } else {
+            buttons.forEach { button in
+                button.snp.removeConstraints()
+            }
+        }
     }
     
     override func setupBind() {
@@ -142,6 +171,7 @@ final class ButtonBookViewController: BaseViewController {
                     shape: BasicButtonShape.allCases[value.2]
                 )
             }
+            owner.updateLayout()
         })
         .disposed(by: disposeBag)
     }

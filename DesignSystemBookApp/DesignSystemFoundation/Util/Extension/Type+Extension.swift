@@ -7,75 +7,84 @@
 
 import SwiftUI
 
-extension String {
+public extension String {
     static var empty: String {
         return ""
     }
 }
 
-extension Int {
+public extension Int {
     static var zero: Int {
         return 0
     }
 }
 
-extension Double {
+public extension Double {
     static var zero: Double {
         return 0
     }
 }
 
-extension CGFloat {
+public extension CGFloat {
     static var zero: CGFloat {
         return 0
     }
+    
+    /// A component can have a maximum width, which is the screen width.
+    static var infinityWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    
+    /// A component can have a maximum height, which is the screen height.
+    static var infinityHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
 }
 
-extension Bool {
+public extension Bool {
     static var `false`: Bool {
         return false
     }
 }
 
-extension Float {
+public extension Float {
     static var zero: Float {
         return 0
     }
 }
 
-extension Date {
+public extension Date {
     static var now: Date {
         return Date()
     }
 }
 
-extension CGSize {
+public extension CGSize {
     static var zero: CGSize {
         return CGSize(width: 0, height: 0)
     }
 }
 
-extension CGPoint {
+public extension CGPoint {
     static var zero: CGPoint {
         return CGPoint(x: 0, y: 0)
     }
 }
 
-
 // MARK: - SwiftUI
-extension Color {
+public extension Color {
     static var none: Color {
         return .basicBackground.opacity(0)
     }
 }
 
-extension Shape {
+public extension Shape {
     static var empty: any Shape {
         return EmptyShape()
     }
 }
 
-extension View {
+public extension View {
     var empty: any View {
         return EmptyView().asAnyView()
     }
