@@ -51,7 +51,7 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
     
     func rounded() -> RoundedOffset {
         if _shape == .square {
-            return .init(all: 0)
+            return .extraSmall
         }
         
         if _shape == .pill {
@@ -59,10 +59,10 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
         }
         
         switch size {
-        case .large: return .init(all: 16)
-        case .medium: return .init(all: 12)
-        case .small: return .init(all: 10)
-        case .xsmall: return .init(all: 8)
+        case .large: return .large
+        case .medium: return .medium
+        case .small: return .small
+        case .xsmall: return .xsmall
         }
     }
     func borderWidth() -> CGFloat {
@@ -78,9 +78,7 @@ struct BasicButtonFigureTheme: ButtonFigureTheme {
     
     func shape() -> AnyShape {
         switch _shape {
-        case .square:
-            return Rectangle().asAnyShape()
-        case .round:
+        case .square, .round:
             let offset = rounded()
             return IndividualRoundedRectangle(
                 topLeftRadius: offset.topLeftRadius,

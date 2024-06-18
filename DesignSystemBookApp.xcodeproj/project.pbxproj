@@ -66,6 +66,8 @@
 		BC05D5052C21B76A006C599B /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5042C21B76A006C599B /* Toast.swift */; };
 		BC05D5092C21C1CD006C599B /* ToastColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5082C21C1CD006C599B /* ToastColorTheme.swift */; };
 		BC05D50B2C21C1D4006C599B /* ToastFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D50A2C21C1D4006C599B /* ToastFigureTheme.swift */; };
+		BC05D50F2C21D822006C599B /* ToastVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D50E2C21D822006C599B /* ToastVariant.swift */; };
+		BC05D5112C21D849006C599B /* ToastShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5102C21D849006C599B /* ToastShape.swift */; };
 		BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */; };
 		BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */; };
 		BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */; };
@@ -176,6 +178,8 @@
 		BC05D5042C21B76A006C599B /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		BC05D5082C21C1CD006C599B /* ToastColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastColorTheme.swift; sourceTree = "<group>"; };
 		BC05D50A2C21C1D4006C599B /* ToastFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastFigureTheme.swift; sourceTree = "<group>"; };
+		BC05D50E2C21D822006C599B /* ToastVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastVariant.swift; sourceTree = "<group>"; };
+		BC05D5102C21D849006C599B /* ToastShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastShape.swift; sourceTree = "<group>"; };
 		BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonThemeType.swift; sourceTree = "<group>"; };
@@ -617,6 +621,8 @@
 		BC05D50C2C21C1D9006C599B /* Token */ = {
 			isa = PBXGroup;
 			children = (
+				BC05D50E2C21D822006C599B /* ToastVariant.swift */,
+				BC05D5102C21D849006C599B /* ToastShape.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -1116,6 +1122,7 @@
 				BCFD538D2C1B725600191F34 /* FrameOffset.swift in Sources */,
 				BCFD538B2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift in Sources */,
 				BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */,
+				BC05D5112C21D849006C599B /* ToastShape.swift in Sources */,
 				BC05D3AE2C1DCC67006C599B /* BasicTextFieldVariant.swift in Sources */,
 				BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */,
 				BC05D3FE2C20128D006C599B /* SkeletonShape.swift in Sources */,
@@ -1169,6 +1176,7 @@
 				BC05D42F2C204AE4006C599B /* ButtonBookViewController.swift in Sources */,
 				BC0933E22C1B2C1A00D3F8CB /* CheckButton.swift in Sources */,
 				BC0933E62C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift in Sources */,
+				BC05D50F2C21D822006C599B /* ToastVariant.swift in Sources */,
 				BC05D3C22C1DD3FF006C599B /* BasicTextFieldColor.swift in Sources */,
 				BC05D3E82C1FEB69006C599B /* SkeletonBook.swift in Sources */,
 				BC0933EB2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift in Sources */,

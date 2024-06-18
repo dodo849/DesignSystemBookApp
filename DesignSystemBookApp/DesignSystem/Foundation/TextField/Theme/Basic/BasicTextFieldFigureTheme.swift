@@ -40,7 +40,19 @@ struct BasicTextFieldFigureTheme: TextFieldFigureTheme {
     }
     
     func rounded() -> RoundedOffset {
-        return .init(all: 16)
+        if _shape == .square {
+            return .extraSmall
+        }
+        
+        if _shape == .pill {
+            return .init(all: .infinity)
+        }
+        
+        switch size {
+        case .large: return .large
+        case .medium: return .medium
+        case .small: return .small
+        }
     }
     
     func borderWidth() -> CGFloat {
@@ -54,9 +66,7 @@ struct BasicTextFieldFigureTheme: TextFieldFigureTheme {
     func shape() -> AnyShape {
         let offset = rounded()
         switch _shape {
-        case .square:
-            return RoundedRectangle(cornerRadius: 0).asAnyShape()
-        case .round:
+        case .square, .round:
             return IndividualRoundedRectangle(
                 topLeftRadius: offset.topLeftRadius,
                 topRightRadius: offset.topRightRadius,

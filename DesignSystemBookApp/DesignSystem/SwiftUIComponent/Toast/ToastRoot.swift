@@ -20,12 +20,12 @@ public class ToastManager: ObservableObject {
         openTime: Double = 3
     ) {
         toastMessage = message
-        withAnimation {
+        withAnimation(.bouncy(duration: 0.35)) {
             isOpen = true
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + openTime) { [weak self] in
-            withAnimation {
+            withAnimation(.bouncy(duration: 0.35)) {
                 self?.isOpen = false
             }
         }
@@ -50,8 +50,7 @@ public struct ToastRoot<Content: View>: View {
                 Spacer()
                 if toastManager.isOpen {
                     Toast(message: toastManager.toastMessage)
-                        .transition(.move(edge: .bottom))
-                        .animation(.easeInOut(duration: 0.1), value: toastManager.isOpen)
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
                         .padding(.bottom, 30)
                 }
             }

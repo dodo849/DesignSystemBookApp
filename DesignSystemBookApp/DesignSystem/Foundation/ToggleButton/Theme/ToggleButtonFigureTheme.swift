@@ -10,5 +10,6 @@ import Foundation
 protocol ToggleButtonFigureTheme {
     func innnerImageSize() -> FrameOffset
     func padding() -> GapOffset
+    func rounded() -> RoundedOffset
     func shape() -> AnyShape
 }

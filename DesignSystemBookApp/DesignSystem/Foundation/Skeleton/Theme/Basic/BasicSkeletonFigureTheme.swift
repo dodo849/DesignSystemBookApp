@@ -19,7 +19,14 @@ struct BasicSkeletonFigureTheme: SkeletonFigureTheme {
     }
     
     func rounded() -> RoundedOffset {
-        return .small
+        switch _shape {
+            
+        case .none: return .zero
+        case .round: return .large
+        case .square: return .extraSmall
+        case .pill: return .infinity
+        case .circle: return .infinity
+        }
     }
     
     func shape() -> AnyShape? {
@@ -30,16 +37,9 @@ struct BasicSkeletonFigureTheme: SkeletonFigureTheme {
         switch _shape {
         case .none:
             return nil
-        case .square:
-            return Rectangle().asAnyShape()
-        case .round:
+        case .round, .square:
             let offset = rounded()
-            return IndividualRoundedRectangle(
-                topLeftRadius: offset.topLeftRadius,
-                topRightRadius: offset.topRightRadius,
-                bottomLeftRadius: offset.bottomLeftRadius,
-                bottomRightRadius: offset.bottomRightRadius
-            ).asAnyShape()
+            return RoundedRectangle(cornerRadius: offset.max).asAnyShape()
         case .pill:
             return Capsule().asAnyShape()
         case .circle:
