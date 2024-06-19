@@ -18,7 +18,7 @@ struct CheckButtonBook: View {
         ScrollView {
             VStack(spacing: 12) {
                 Text("Shape")
-                    .font(.system(size: 16, weight: .semibold))
+                    .typo(.body1b)
                 Picker("Choose a shape", selection: $selectedShape) {
                     ForEach(shapes, id: \.self) {
                         Text($0.rawValue)

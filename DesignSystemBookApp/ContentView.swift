@@ -74,6 +74,15 @@ struct ContentView: View {
                         swiftuiDestination: ToastBook()
                     )
                     
+                    sectionHeader(title: "Picker")
+                    
+                    exampleSection(
+                        title: "Basic Segment",
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        swiftuiDestination: SegmentBook()
+                    )
+                    
                     Spacer().frame(height: 100)
                 }
                 .padding(.horizontal)

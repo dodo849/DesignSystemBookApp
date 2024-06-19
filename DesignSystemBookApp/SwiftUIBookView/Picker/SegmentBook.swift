@@ -13,23 +13,37 @@ struct TempOption: Identifiable, Equatable {
 
 struct SegmentBook: View {
     
-    @State private var selection: TempOption = TempOption(id: 0)
+    @State private var selectedShape =  SegmentShape.allCases.first!
+    private var shapes = SegmentShape.allCases
 
+    @State private var selection = TempOption(id: 0)
     fileprivate var options = [
         TempOption(id: 0),
         TempOption(id: 1),
-        TempOption(id: 2)
+        TempOption(id: 2),
+        TempOption(id: 3),
+        TempOption(id: 4)
     ]
     
     var body: some View {
-        VStack {
-            SegmentGroup(selection: $selection) {
-                ForEach (options, id: \.id) { option in
+        ScrollView {
+            VStack {
+                Text("Shape")
+                    .typo(.body1b)
+                Picker("Choose a shape", selection: $selectedShape) {
+                    ForEach(shapes, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                SegmentGroup(options, selection: $selection) { option in
                     SegmentOption(value: option) {
                         Text("\(option.id)")
                     }
-                }
+                }.styled()
             }
+            .padding(pagePadding)
         }
     }
 }
