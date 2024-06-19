@@ -31,7 +31,7 @@ public class ToastManager: ObservableObject {
         variant: ToastVariant = .info,
         shape: ToastShape = .round,
         alignment: ToastAlignment = .bottom,
-        duration: Double = 4
+        duration: TimeInterval = 4.0
     ) {
         currentWorkItem?.cancel()
         
