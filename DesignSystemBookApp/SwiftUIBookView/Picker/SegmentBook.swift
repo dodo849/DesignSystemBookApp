@@ -13,6 +13,8 @@ struct TempOption: Identifiable, Equatable {
 
 struct SegmentBook: View {
     
+    @State private var selectedColor =  SegmentColor.allCases.first!
+    private var colors = SegmentColor.allCases
     @State private var selectedShape =  SegmentShape.allCases.first!
     private var shapes = SegmentShape.allCases
 
@@ -28,6 +30,17 @@ struct SegmentBook: View {
     var body: some View {
         ScrollView {
             VStack {
+                Text("Color")
+                    .typo(.body1b)
+                Picker("Choose a color", selection: $selectedColor) {
+                    ForEach(colors, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                Text("color \(selectedColor)")
+                
                 Text("Shape")
                     .typo(.body1b)
                 Picker("Choose a shape", selection: $selectedShape) {
@@ -37,11 +50,13 @@ struct SegmentBook: View {
                 }
                 .pickerStyle(.segmented)
                 
-                SegmentGroup(options, selection: $selection) { option in
-                    SegmentOption(value: option) {
-                        Text("\(option.id)")
-                    }
-                }.styled()
+                Segment(options, selection: $selection) { option in
+                    Text("\(option.id)")
+                }.styled(
+                    color: selectedColor,
+                    shape: selectedShape
+                )
+
             }
             .padding(pagePadding)
         }

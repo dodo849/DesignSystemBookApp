@@ -14,7 +14,7 @@ struct BasicSegmentColorTheme: PickerColorTheme {
         self.color = color
     }
     
-    func backgroundColor(state: PickerState) -> ColorOffset {
+    func itemBackgroundColor(state: PickerState) -> ColorOffset {
         switch (color, state) {
         case (.primary, .selected): return .init(.basicYellow)
         case (.primary, .unselected): return .init(.gray02)
@@ -25,13 +25,17 @@ struct BasicSegmentColorTheme: PickerColorTheme {
         }
     }
     
-    func foregroundColor(state: PickerState) -> ColorOffset {
-        return .init(.basicText)
-//        switch color {
-//        case .success: return .init(.success)
-//        case .warning: return .init(.basicYellow)
-//        case .error: return .init(.destructive)
-//        case .info: return .init(.basicText)
-//        }
+    func itemForegroundColor(state: PickerState) -> ColorOffset {
+        switch (color, state) {
+        case (_, .unselected): return .init(.gray04)
+        case (_, .selected): return .init(.white)
+//        case (.primary, .selected): return .init(.basicYellow)
+//        case (.secondary, .selected): return .init(.basicGreen)
+//        case (.tertiary, .selected): return .init(.basicPink)
+        }
+    }
+    
+    func containerBackgroundColor() -> ColorOffset {
+        return .init(.gray01)
     }
 }

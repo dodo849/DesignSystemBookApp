@@ -8,6 +8,7 @@
 import Foundation
 
 protocol PickerColorTheme {
-    func backgroundColor(state: PickerState) -> ColorOffset
-    func foregroundColor(state: PickerState) -> ColorOffset
+    func itemBackgroundColor(state: PickerState) -> ColorOffset
+    func itemForegroundColor(state: PickerState) -> ColorOffset
+    func containerBackgroundColor() -> ColorOffset
 }

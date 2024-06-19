@@ -10,12 +10,9 @@ import SwiftUI
 struct BasicSegmentFigureTheme: PickerFigureTheme {
     private let _shape: SegmentShape
     
-    init(
-        shape: SegmentShape
-    ) {
+    init(shape: SegmentShape) {
         self._shape = shape
     }
-    
     
     func shape() -> AnyShape {
         switch _shape {
