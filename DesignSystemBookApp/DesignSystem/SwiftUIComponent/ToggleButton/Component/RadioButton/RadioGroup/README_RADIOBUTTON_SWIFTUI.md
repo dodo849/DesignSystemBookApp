@@ -15,7 +15,7 @@ SingleRadioButton(
     shape: .circle
 )
 ```
-
+![Jun-20-2024 17-54-07](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/5d2ac62a-6163-49d6-ae4a-fa310bb63f8e)
 `SingleRadioButton` functions similarly to `CheckboxButton` by default. 
 To ensure only one radio button is selected among multiple options, you need to implement this functionality manually.
 ```swift
@@ -41,7 +41,7 @@ ForEach(0..<3) { index in
     .styled()
 }
 ```
-
+![Jun-20-2024 17-53-12](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/3164e462-bb8f-4754-a98f-584eb1d60092)
 ## Radio Group
 Using the `RadioGroup` component makes it easy to ensure only one radio button is selected among multiple options.
 ```swift 
