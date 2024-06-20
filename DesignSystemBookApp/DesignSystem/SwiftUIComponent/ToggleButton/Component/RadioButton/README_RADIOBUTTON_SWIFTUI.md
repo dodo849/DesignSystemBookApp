@@ -45,6 +45,7 @@ ForEach(0..<3) { index in
 ![Jun-20-2024 17-53-12](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/3164e462-bb8f-4754-a98f-584eb1d60092)
 ## Radio Group
 Using the `RadioGroup` component makes it easy to ensure only one radio button is selected among multiple options.
+> ⚠️ The `RadioOption` component must be used within a `RadioGroup`.
 ```swift 
 @State private var selection: AnyEnum = .first
 
