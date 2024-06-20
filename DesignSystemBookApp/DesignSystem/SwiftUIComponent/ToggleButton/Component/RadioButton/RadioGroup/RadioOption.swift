@@ -36,7 +36,6 @@ public struct RadioOption<Label: View, Option: Identifiable & Equatable>: View, 
         value: Option,
         @ViewBuilder label: @escaping () -> Label
     ) {
-        print("radio button init")
         self.value = value
         self.label = label
     }

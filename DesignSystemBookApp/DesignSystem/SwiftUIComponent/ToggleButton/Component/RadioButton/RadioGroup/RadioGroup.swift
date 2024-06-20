@@ -6,31 +6,31 @@
 //
 
 import SwiftUI
+import Combine
 
 final class RadioOptionStore<Option: Identifiable & Equatable>: ObservableObject {
     @Published var selectedOption: Option?
-
-    init(selectedOption: Option? = nil) {
-        self.selectedOption = selectedOption
+    
+    init(selectedOption: Binding<Option?>) {
+        self.selectedOption = selectedOption.wrappedValue
     }
 }
 
-/// A group that contains radio options as internal views, 
+/// A group that contains radio options as internal views,
 /// ensuring that only one option can be selected at a time.
 ///
 /// ```swift
-/// let defaultColor: BasicToggleButtonColor? = nil // Use this if you want no initial selection
+/// let selection: BasicToggleButtonColor = .primary
 ///
 /// RadioGroup(
-///     defaultValue: defaultColor,
-///     onChange: { _ in }
+///     selection: $selection
 /// ) {
-///     ForEach(colors, id: \.self) { (option: BasicToggleButtonColor) in
-///         RadioOption(value: option) {
-///             Text(option.rawValue)
+///     ForEach(BasicToggleButtonColor.allCases, id: \.self) { color in
+///         RadioOption(value: color) {
+///             Text(color.rawValue)
 ///         }
 ///         .styled(
-///             color: .primary,
+///             color: color,
 ///             shape: .circle
 ///         )
 ///     }
@@ -40,13 +40,11 @@ final class RadioOptionStore<Option: Identifiable & Equatable>: ObservableObject
 /// - Important: `RadioOption` must be used as an internal view of `RadioGroup`.
 public struct RadioGroup<Content: View, Option: Identifiable & Equatable>: View {
     @StateObject private var store: RadioOptionStore<Option>
-//    private var sources: [Option]
-//    @Binding private var selection: Option?
+    @Binding var selection: Option?
     let content: () -> Content
-
+    
     public init(
-//        sources: [Option],
-        selection: Option?,
+        selection: Binding<Option?>,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self._store = StateObject(
@@ -55,16 +53,13 @@ public struct RadioGroup<Content: View, Option: Identifiable & Equatable>: View 
                     selectedOption: selection
                 )
         )
-//        self.sources = sources
-//        self._selection = selection
+        self._selection = selection
         self.content = content
     }
     
     public var body: some View {
         Group {
-//            ForEach(sources, id: \.id) { option in
-                content()
-//            }
+            content()
         }
         .environmentObject(store)
     }

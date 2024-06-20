@@ -125,6 +125,8 @@
 		BCEBC82C2C23EC940040FCE0 /* BasicSegmentVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */; };
 		BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENT_KR.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENT_KR.md */; };
 		BCEBC8302C23F61E0040FCE0 /* README_SEGMENT.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82F2C23F61E0040FCE0 /* README_SEGMENT.md */; };
+		BCEBC8322C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC8312C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md */; };
+		BCEBC8342C2422370040FCE0 /* README_RADIOBUTTON_SWIFTUI.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC8332C2422370040FCE0 /* README_RADIOBUTTON_SWIFTUI.md */; };
 		BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */; };
 		BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */; };
 		BCFD537F2C1B5F9D00191F34 /* GapOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */; };
@@ -257,6 +259,8 @@
 		BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSegmentVariant.swift; sourceTree = "<group>"; };
 		BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENT_KR.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENT_KR.md; sourceTree = "<group>"; };
 		BCEBC82F2C23F61E0040FCE0 /* README_SEGMENT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENT.md; sourceTree = "<group>"; };
+		BCEBC8312C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README_RADIOBUTTON_SWIFTUI(KR).md"; sourceTree = "<group>"; };
+		BCEBC8332C2422370040FCE0 /* README_RADIOBUTTON_SWIFTUI.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_RADIOBUTTON_SWIFTUI.md; sourceTree = "<group>"; };
 		BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFigureTheme.swift; sourceTree = "<group>"; };
 		BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButtonFigureTheme.swift; sourceTree = "<group>"; };
 		BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapOffset.swift; sourceTree = "<group>"; };
@@ -886,8 +890,10 @@
 		BC0933CF2C1B2C1A00D3F8CB /* RadioGroup */ = {
 			isa = PBXGroup;
 			children = (
+				BCEBC8312C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md */,
 				BC0933CE2C1B2C1A00D3F8CB /* RadioGroup.swift */,
 				BC0934102C1B2E1300D3F8CB /* RadioOption.swift */,
+				BCEBC8332C2422370040FCE0 /* README_RADIOBUTTON_SWIFTUI.md */,
 			);
 			path = RadioGroup;
 			sourceTree = "<group>";
@@ -1209,9 +1215,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC05D3DE2C1F4D73006C599B /* README_TEXTFIELD.md in Resources */,
+				BCEBC8342C2422370040FCE0 /* README_RADIOBUTTON_SWIFTUI.md in Resources */,
 				BC09328F2C1AA13D00D3F8CB /* .gitignore in Resources */,
 				BC09328C2C1A9C1A00D3F8CB /* .swiftlint.yml in Resources */,
 				BC18EC912C1DC39B0061599B /* README_BUTTON.md in Resources */,
+				BCEBC8322C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md in Resources */,
 				BC0932882C1A8F7900D3F8CB /* Assets.xcassets in Resources */,
 				BCEBC8302C23F61E0040FCE0 /* README_SEGMENT.md in Resources */,
 				BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENT_KR.md in Resources */,

@@ -81,10 +81,9 @@ struct RadioButtonBook: View {
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(.black)
                 RadioGroup(
-//                    sources: selections,
-                    selection: selection
+                    selection: $selection
                 ) {
-                    ForEach(selections, id: \.id) { color in
+                    ForEach(BasicToggleButtonColor.allCases, id: \.self) { color in
                         RadioOption(value: color) {
                             Text("\(color.rawValue)")
                         }
