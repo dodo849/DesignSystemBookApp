@@ -46,7 +46,8 @@ ForEach(0..<3) { index in
 
 
 ## RadioGroup
-`RadioGroup` 컴포넌트를 사용하면 간단하게 여러 라디오 버튼 중 하나만 선택되도록 할 수 있습니다.
+`RadioGroup`과 `RadioOption`컴포넌트를 사용하면 간단하게 여러 라디오 버튼 중 하나만 선택되도록 할 수 있습니다.
+> ⚠️ `RadioOption`컴포넌트는 반드시 `RadioGroup` 내에서 사용되어야합니다.
 
 ```swift 
 @State private var selection: AnyEnum = .first
