@@ -77,6 +77,34 @@ struct SegmentBook: View {
                     color: selectedColor,
                     shape: selectedShape
                 )
+                
+                // MARK: With others
+                Divider()
+                    .padding(.vertical)
+                
+                Text("With others")
+                    .font(.system(size: 16, weight: .semibold))
+                
+                Segment(
+                    SegmentOption.factory(Array(0..<optionCount)),
+                    selection: $selection
+                ) { option in
+                    HStack {
+                        Text("\(option.id)")
+                        if option.id == 1 {
+                            Text("N")
+                                .typo(.detail)
+                                .padding(6)
+                                .foregroundStyle(.white)
+                                .background(.destructive)
+                                .clipShape(Circle())
+                        }
+                    }
+                }.styled(
+                    variant: selectedVariant,
+                    color: selectedColor,
+                    shape: selectedShape
+                )
             }
             .padding(pagePadding)
         }

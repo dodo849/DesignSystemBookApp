@@ -96,7 +96,7 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
                     .clipShape(store.figureTheme.shape())
                     .shadow(
                         color: store.colorTheme.itemShadowColor(state: .selected).color,
-                        radius: 4
+                        radius: 8
                     )
                     .offset(x: offsetForIndicator(in: geometry.size.width))
             }
