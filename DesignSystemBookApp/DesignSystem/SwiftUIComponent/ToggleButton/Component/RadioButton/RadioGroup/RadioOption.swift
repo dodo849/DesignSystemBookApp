@@ -10,16 +10,17 @@ import SwiftUI
 /// A radio button used with `RadioGroup`.
 ///
 /// ```swift
+/// let selection: BasicToggleButtonColor = .primary
+///
 /// RadioGroup(
-///     defaultValue: defaultColor,
-///     onChange: { print($0) }
+///     selection: $selection
 /// ) {
-///     ForEach(colors, id: \.self) { (option: BasicToggleButtonColor) in
-///         RadioOption(value: option) {
-///             Text(option.rawValue)
+///     ForEach(BasicToggleButtonColor.allCases, id: \.self) { color in
+///         RadioOption(value: color) {
+///             Text(color.rawValue)
 ///         }
 ///         .styled(
-///             color: .primary,
+///             color: color,
 ///             shape: .circle
 ///         )
 ///     }
