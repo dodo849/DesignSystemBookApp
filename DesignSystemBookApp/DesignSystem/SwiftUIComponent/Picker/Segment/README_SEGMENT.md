@@ -18,6 +18,8 @@ Segment(
     shape: .round
 )
 ```
+![Jun-20-2024 14-35-35](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/da4a5e60-7877-4d78-8124-103324132432)
+
 
 ## Composition
 In the content closure, you can composit multiple components.
@@ -46,3 +48,4 @@ Segment(
     shape: .round
 )
 ```
+![Jun-20-2024 14-36-17](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/704a4537-ad73-481a-a7f7-f68d57bcc7d6)
