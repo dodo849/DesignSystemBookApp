@@ -32,7 +32,7 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
     @ObservedObject var store: SegmentThemeStore
     
     // State
-    @State private var selectedValue: Value
+    @Binding private var selection: Value
     
     // Constant
     private let itemSpacing: CGFloat = 8
@@ -40,14 +40,14 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
     // Cancelable
     private var cancelable = Set<AnyCancellable>()
     
-    init(
+    public init(
         _ sources: [Value],
         selection: Binding<Value>,
         color: BasicSegmentColor = .primary,
         @ViewBuilder content: @escaping (Value) -> Content
     ) {
         self.sources = sources
-        self.selectedValue = sources[0]
+        self._selection = selection
         self.content = content
         
         self._store = ObservedObject(wrappedValue: SegmentThemeStore())
@@ -63,7 +63,7 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
                     .typo(.body1b)
                     .foregroundStyle(
                         store.colorTheme.itemForegroundColor(
-                            state: selectedValue == value
+                            state: selection == value
                             ? .selected
                             : .unselected
                         ).color
@@ -72,7 +72,7 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
                     .background( // For touch hit area
                         Color.white.opacity(0.01)
                             .onTapGesture {
-                                selectedValue = value
+                                selection = value
                             }
                     )
             }
@@ -107,12 +107,12 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
         .padding(.horizontal, itemSpacing)
         .background(store.colorTheme.containerBackgroundColor().color)
         .clipShape(store.figureTheme.shape())
-        .animation(.spring(response: 0.25), value: selectedValue)
+        .animation(.spring(response: 0.25), value: selection)
         
     }
     
     private func offsetForIndicator(in totalWidth: CGFloat) -> CGFloat {
-        let index = contentIndex(for: selectedValue)
+        let index = contentIndex(for: selection)
         let itemWidth = (totalWidth - itemSpacing * CGFloat(sources.count - 1)) / CGFloat(sources.count)
         //        let maxLeftOffset = -CGFloat(sources.count) / 2 + 0.5
         //        return (itemWidth + itemSpacing) * (maxLeftOffset + CGFloat(index))
@@ -120,6 +120,6 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
     }
     
     private func contentIndex(for option: Value) -> Int {
-        return sources.firstIndex(where: { $0 == selectedValue }) ?? 0
+        return sources.firstIndex(where: { $0 == selection }) ?? 0
     }
 }

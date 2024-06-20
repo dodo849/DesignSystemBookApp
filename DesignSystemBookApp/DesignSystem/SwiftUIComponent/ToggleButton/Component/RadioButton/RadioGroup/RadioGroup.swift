@@ -8,19 +8,10 @@
 import SwiftUI
 
 final class RadioOptionStore<Option: Identifiable & Equatable>: ObservableObject {
-    @Published var selectedOption: Option? {
-        didSet {
-            if let selectedOption = selectedOption {
-                onChange?(selectedOption)
-            }
-        }
-    }
-    
-    var onChange: ((Option) -> Void)?
+    @Published var selectedOption: Option?
 
-    init(selectedOption: Option? = nil, onChange: ((Option) -> Void)? = nil) {
+    init(selectedOption: Option? = nil) {
         self.selectedOption = selectedOption
-        self.onChange = onChange
     }
 }
 
@@ -48,27 +39,33 @@ final class RadioOptionStore<Option: Identifiable & Equatable>: ObservableObject
 ///
 /// - Important: `RadioOption` must be used as an internal view of `RadioGroup`.
 public struct RadioGroup<Content: View, Option: Identifiable & Equatable>: View {
-    @StateObject var store: RadioOptionStore<Option>
+    @StateObject private var store: RadioOptionStore<Option>
+//    private var sources: [Option]
+//    @Binding private var selection: Option?
     let content: () -> Content
 
     public init(
-        defaultValue: Option? = nil,
-        onChange: @escaping (Option) -> Void,
+//        sources: [Option],
+        selection: Option?,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self._store = StateObject(
             wrappedValue:
                 RadioOptionStore(
-                    selectedOption: defaultValue,
-                    onChange: onChange
+                    selectedOption: selection
                 )
         )
+//        self.sources = sources
+//        self._selection = selection
         self.content = content
     }
     
     public var body: some View {
         Group {
-            content()
-        }.environmentObject(store)
+//            ForEach(sources, id: \.id) { option in
+                content()
+//            }
+        }
+        .environmentObject(store)
     }
 }

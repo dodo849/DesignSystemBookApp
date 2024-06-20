@@ -7,13 +7,21 @@
 
 import SwiftUI
 
+extension Int: Identifiable {
+    public var id: Int { self }
+}
+
 struct RadioButtonBook: View {
-    @State private var isOn: [Bool] = [false, false, false]
     @State private var selectedColor = BasicToggleButtonColor.allCases.first!
     private var colors = BasicToggleButtonColor.allCases
-    private var defaultColor: BasicToggleButtonColor?
-    @State private var selectedShape = BasicToggleButtonShape.allCases.first!
+    @State private var selectedShape = BasicToggleButtonShape.circle
     private var shapes = BasicToggleButtonShape.allCases
+    
+    // single
+    @State private var isOn: [Bool] = [false, false, false]
+    // group
+    @State private var selections = BasicToggleButtonColor.allCases
+    @State private var selection: BasicToggleButtonColor? = .primary
     
     var body: some View {
         ScrollView {
@@ -36,7 +44,20 @@ struct RadioButtonBook: View {
                         .font(.system(size: 12))
                         .foregroundStyle(.gray)
                     
-                    SingleRadioButton(isOn: $isOn[index]) {
+                    SingleRadioButton(
+                        isOn: Binding<Bool>(
+                            get: { self.isOn[index] },
+                            set: { newValue in
+                                if newValue {
+                                    for isOnIndex in isOn.indices {
+                                        isOn[isOnIndex] = (isOnIndex == index)
+                                    }
+                                } else {
+                                    isOn[index] = false
+                                }
+                            }
+                        )
+                    ) {
                         Text("Click me")
                     }
                     .styled(
@@ -60,22 +81,22 @@ struct RadioButtonBook: View {
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(.black)
                 RadioGroup(
-                    defaultValue: defaultColor,
-                    onChange: { print($0) }
+//                    sources: selections,
+                    selection: selection
                 ) {
-                    ForEach(colors, id: \.self) { (option: BasicToggleButtonColor) in
-                        RadioOption(value: option) {
-                            Text(option.rawValue)
+                    ForEach(selections, id: \.id) { color in
+                        RadioOption(value: color) {
+                            Text("\(color.rawValue)")
                         }
                         .styled(
-                            color: option,
+                            color: .primary,
                             shape: selectedShape
                         )
                         .simultaneousGesture(
                             TapGesture()
                                 .onEnded {
                                     let generatedCode = generateGroupRadioCode(
-                                        option.rawValue,
+                                        color.rawValue,
                                         isOn: !isOn.contains(true)
                                     )
                                     ClipboardHelper.copyToClipboard(text: generatedCode)
@@ -84,6 +105,7 @@ struct RadioButtonBook: View {
                         )
                     }
                 }
+                
                 Spacer()
             }
             .padding()
