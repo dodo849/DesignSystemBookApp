@@ -8,34 +8,32 @@
 import Foundation
 
 struct BasicSegmentColorTheme: PickerColorTheme {
-    private let color: SegmentColor
+    private let color: BasicSegmentColor
     
-    init(color: SegmentColor) {
+    init(color: BasicSegmentColor) {
         self.color = color
     }
     
     func itemBackgroundColor(state: PickerState) -> ColorOffset {
         switch (color, state) {
+        case (_, .unselected): return .init(.gray03)
         case (.primary, .selected): return .init(.basicYellow)
-        case (.primary, .unselected): return .init(.gray02)
         case (.secondary, .selected): return .init(.basicGreen)
-        case (.secondary, .unselected): return .init(.gray02)
         case (.tertiary, .selected): return .init(.basicPink)
-        case (.tertiary, .unselected): return .init(.gray02)
+        case (.soft, .selected): return .init(.basicBackground)
+        case (.stone, .selected): return .init(.gray05)
         }
     }
     
     func itemForegroundColor(state: PickerState) -> ColorOffset {
         switch (color, state) {
         case (_, .unselected): return .init(.gray04)
+        case (.soft, .selected): return .init(.basicText)
         case (_, .selected): return .init(.white)
-//        case (.primary, .selected): return .init(.basicYellow)
-//        case (.secondary, .selected): return .init(.basicGreen)
-//        case (.tertiary, .selected): return .init(.basicPink)
         }
     }
     
     func containerBackgroundColor() -> ColorOffset {
-        return .init(.gray01)
+        return .init(.gray02)
     }
 }

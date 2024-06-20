@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// SkeletonBlinkStyleFactory
 struct SkeletonBlinkStyleFactory: ViewModifier {
     var isActive: Bool = false
     private var figureTheme: SkeletonFigureTheme

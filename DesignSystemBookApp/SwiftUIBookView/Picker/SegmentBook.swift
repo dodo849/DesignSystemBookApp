@@ -13,11 +13,11 @@ struct TempOption: Identifiable, Equatable {
 
 struct SegmentBook: View {
     
-    @State private var selectedColor =  SegmentColor.allCases.first!
-    private var colors = SegmentColor.allCases
-    @State private var selectedShape =  SegmentShape.allCases.first!
-    private var shapes = SegmentShape.allCases
-
+    @State private var selectedColor =  BasicSegmentColor.allCases.first!
+    private var colors = BasicSegmentColor.allCases
+    @State private var selectedShape =  BasicSegmentShape.allCases.first!
+    private var shapes = BasicSegmentShape.allCases
+    
     @State private var selection = TempOption(id: 0)
     fileprivate var options = [
         TempOption(id: 0),
@@ -26,6 +26,8 @@ struct SegmentBook: View {
         TempOption(id: 3),
         TempOption(id: 4)
     ]
+    
+    @State var state: Bool = false
     
     var body: some View {
         ScrollView {
@@ -38,8 +40,6 @@ struct SegmentBook: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                
-                Text("color \(selectedColor)")
                 
                 Text("Shape")
                     .typo(.body1b)
@@ -56,7 +56,13 @@ struct SegmentBook: View {
                     color: selectedColor,
                     shape: selectedShape
                 )
-
+                Text("\(state)")
+                
+                Button {
+                    state.toggle()
+                } label: {
+                    Text("Change")
+                }
             }
             .padding(pagePadding)
         }

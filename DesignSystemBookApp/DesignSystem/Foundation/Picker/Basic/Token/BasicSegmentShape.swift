@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum SegmentShape: String, CaseIterable {
+public enum BasicSegmentShape: String, CaseIterable {
     case round
     case square
     case pill

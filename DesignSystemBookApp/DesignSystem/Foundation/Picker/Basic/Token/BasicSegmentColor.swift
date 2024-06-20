@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum SegmentColor: String, CaseIterable {
-    case primary, secondary, tertiary
+public enum BasicSegmentColor: String, CaseIterable {
+    case primary, secondary, tertiary, soft, stone
 }
