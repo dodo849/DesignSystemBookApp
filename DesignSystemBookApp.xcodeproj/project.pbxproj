@@ -122,6 +122,7 @@
 		BC18EC872C1DAFA50061599B /* TextFieldBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC862C1DAFA50061599B /* TextFieldBook.swift */; };
 		BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */; };
 		BC18EC912C1DC39B0061599B /* README_BUTTON.md in Resources */ = {isa = PBXBuildFile; fileRef = BC18EC902C1DC39B0061599B /* README_BUTTON.md */; };
+		BCEBC82C2C23EC940040FCE0 /* BasicSegmentVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */; };
 		BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */; };
 		BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */; };
 		BCFD537F2C1B5F9D00191F34 /* GapOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */; };
@@ -251,6 +252,7 @@
 		BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyleFactory.swift; sourceTree = "<group>"; };
 		BC18EC902C1DC39B0061599B /* README_BUTTON.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_BUTTON.md; sourceTree = "<group>"; };
 		BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSegmentVariant.swift; sourceTree = "<group>"; };
 		BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFigureTheme.swift; sourceTree = "<group>"; };
 		BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButtonFigureTheme.swift; sourceTree = "<group>"; };
 		BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapOffset.swift; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 			children = (
 				BC05D54D2C2325FB006C599B /* BasicSegmentShape.swift */,
 				BC05D54E2C2325FB006C599B /* BasicSegmentColor.swift */,
+				BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -1271,6 +1274,7 @@
 				BC09327A2C1A8F5200D3F8CB /* BackButton+Extension.swift in Sources */,
 				BCFD538D2C1B725600191F34 /* FrameOffset.swift in Sources */,
 				BC05D5582C2325FB006C599B /* BasicSegmentColorTheme.swift in Sources */,
+				BCEBC82C2C23EC940040FCE0 /* BasicSegmentVariant.swift in Sources */,
 				BCFD538B2C1B71BF00191F34 /* ToggleButtonFigureTheme.swift in Sources */,
 				BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */,
 				BC05D5112C21D849006C599B /* ToastShape.swift in Sources */,

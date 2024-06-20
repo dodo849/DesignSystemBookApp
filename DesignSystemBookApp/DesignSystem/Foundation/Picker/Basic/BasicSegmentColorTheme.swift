@@ -8,9 +8,14 @@
 import Foundation
 
 struct BasicSegmentColorTheme: PickerColorTheme {
+    private let variant: BasicSegmentVariant
     private let color: BasicSegmentColor
     
-    init(color: BasicSegmentColor) {
+    init(
+        variant: BasicSegmentVariant,
+        color: BasicSegmentColor
+    ) {
+        self.variant = variant
         self.color = color
     }
     
@@ -35,5 +40,13 @@ struct BasicSegmentColorTheme: PickerColorTheme {
     
     func containerBackgroundColor() -> ColorOffset {
         return .init(.gray02)
+    }
+    
+    func itemShadowColor(state: PickerState) -> ColorOffset {
+        switch (variant, state) {
+        case (.flat, _): return .init(.clear)
+        case (.shadow, .selected): return .init(.black.opacity(0.2))
+        case (.shadow, .unselected): return .init(.clear)
+        }
     }
 }

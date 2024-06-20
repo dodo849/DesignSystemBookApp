@@ -9,10 +9,14 @@ import SwiftUI
 
 public extension Segment {
     func styled(
+        variant: BasicSegmentVariant = .flat,
         color: BasicSegmentColor = .primary,
         shape: BasicSegmentShape = .round
     ) -> some View {
-        self.store.colorTheme = BasicSegmentColorTheme(color: color)
+        self.store.colorTheme = BasicSegmentColorTheme(
+            variant: variant,
+            color: color
+        )
         self.store.figureTheme = BasicSegmentFigureTheme(shape: shape)
         return self
     }

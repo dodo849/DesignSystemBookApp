@@ -6,32 +6,46 @@
 //
 
 import SwiftUI
-
-struct TempOption: Identifiable, Equatable {
-    let id: Int
-}
-
 struct SegmentBook: View {
-    
+    fileprivate struct SegmentOption: Identifiable, Equatable {
+        let id: Int
+        
+        static func factory(_ options: [Int]) -> [SegmentOption] {
+            return options.map { SegmentOption(id: $0) }
+        }
+    }
+    @State private var selectedVariant =  BasicSegmentVariant.allCases.first!
+    private var variants = BasicSegmentVariant.allCases
     @State private var selectedColor =  BasicSegmentColor.allCases.first!
     private var colors = BasicSegmentColor.allCases
     @State private var selectedShape =  BasicSegmentShape.allCases.first!
     private var shapes = BasicSegmentShape.allCases
     
-    @State private var selection = TempOption(id: 0)
-    fileprivate var options = [
-        TempOption(id: 0),
-        TempOption(id: 1),
-        TempOption(id: 2),
-        TempOption(id: 3),
-        TempOption(id: 4)
-    ]
+    @State private var selection = SegmentOption(id: 0)
+    @State private var optionCount = 3
     
     @State var state: Bool = false
     
     var body: some View {
         ScrollView {
             VStack {
+                Stepper(value: $optionCount, in: 1...10) {
+                    Text("Option count \(optionCount)")
+                        .typo(.body1b)
+                }
+                .padding()
+                .background(.gray01)
+                .cornerRadius(12)
+                
+                Text("Variant")
+                    .typo(.body1b)
+                Picker("Choose a variant", selection: $selectedVariant) {
+                    ForEach(variants, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
                 Text("Color")
                     .typo(.body1b)
                 Picker("Choose a color", selection: $selectedColor) {
@@ -50,19 +64,19 @@ struct SegmentBook: View {
                 }
                 .pickerStyle(.segmented)
                 
-                Segment(options, selection: $selection) { option in
+                Divider()
+                    .padding(.vertical)
+                
+                Segment(
+                    SegmentOption.factory(Array(0..<optionCount)),
+                    selection: $selection
+                ) { option in
                     Text("\(option.id)")
                 }.styled(
+                    variant: selectedVariant,
                     color: selectedColor,
                     shape: selectedShape
                 )
-                Text("\(state)")
-                
-                Button {
-                    state.toggle()
-                } label: {
-                    Text("Change")
-                }
             }
             .padding(pagePadding)
         }
