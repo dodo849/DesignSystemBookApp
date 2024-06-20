@@ -15,6 +15,7 @@ SingleRadioButton(
     shape: .circle
 )
 ```
+![Jun-20-2024 17-54-07](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/5d2ac62a-6163-49d6-ae4a-fa310bb63f8e)
 
 SingleRadioButton은 기본적으로 CheckboxButton과 동일하게 동작하므로, 여러 개의 라디오 버튼 중 하나만 선택되도록 하려면 직접 해당 기능을 구현해야 합니다.
 ```swift
@@ -40,6 +41,9 @@ ForEach(0..<3) { index in
     .styled()
 }
 ```
+![Jun-20-2024 17-53-12](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/3164e462-bb8f-4754-a98f-584eb1d60092)
+
+
 
 ## RadioGroup
 `RadioGroup` 컴포넌트를 사용하면 간단하게 여러 라디오 버튼 중 하나만 선택되도록 할 수 있습니다.
