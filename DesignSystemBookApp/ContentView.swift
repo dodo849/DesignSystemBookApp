@@ -104,7 +104,7 @@ struct ContentView: View {
         title: String,
         colorTheme: String,
         figureTheme: String,
-        uikitDestination: UIKitDestination = EmptyView(),
+        uikitDestination: UIKitDestination = Text("준비중입니다 🙇"),
         swiftuiDestination: SwiftUIDestination
     ) -> some View {
         VStack(alignment: .leading, spacing: 4) {

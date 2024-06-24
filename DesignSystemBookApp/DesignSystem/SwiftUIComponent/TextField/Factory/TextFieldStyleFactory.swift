@@ -69,9 +69,9 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
             
             VStack {
                 Spacer()
-                Divider()
+                Rectangle()
+                    .fill(colorTheme.bottomBorderColor(state: allState).color)
                     .frame(height: 2)
-                    .background(colorTheme.bottomBorderColor(state: allState).color)
                     .animation(animation, value: allState)
             }
             
