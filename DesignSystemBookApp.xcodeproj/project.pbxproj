@@ -60,7 +60,6 @@
 		BC05D4512C205AA2006C599B /* ColorOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4502C205AA2006C599B /* ColorOffset.swift */; };
 		BC05D4542C20AE2B006C599B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4532C20AE2B006C599B /* Constant.swift */; };
 		BC05D4572C213609006C599B /* DSSapcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4562C213609006C599B /* DSSapcer.swift */; };
-		BC05D4592C2144F2006C599B /* BaseButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4582C2144F2006C599B /* BaseButton+Extension.swift */; };
 		BC05D5002C21B39D006C599B /* ToastBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4FF2C21B39D006C599B /* ToastBook.swift */; };
 		BC05D5022C21B677006C599B /* ToastFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5012C21B677006C599B /* ToastFactory.swift */; };
 		BC05D5052C21B76A006C599B /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5042C21B76A006C599B /* Toast.swift */; };
@@ -133,7 +132,6 @@
 		BCF03A732C29506B006D102E /* TextFieldBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF03A722C29506B006D102E /* TextFieldBookView.swift */; };
 		BCF03A752C295087006D102E /* TextFieldBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF03A742C295087006D102E /* TextFieldBookViewController.swift */; };
 		BCF03A782C2950AA006D102E /* TextFieldBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF03A772C2950AA006D102E /* TextFieldBookRepresentable.swift */; };
-		BCF03A7A2C2957C8006D102E /* BaseTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF03A792C2957C8006D102E /* BaseTextField+Extension.swift */; };
 		BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */; };
 		BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */; };
 		BCFD537F2C1B5F9D00191F34 /* GapOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */; };
@@ -200,7 +198,6 @@
 		BC05D4502C205AA2006C599B /* ColorOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOffset.swift; sourceTree = "<group>"; };
 		BC05D4532C20AE2B006C599B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		BC05D4562C213609006C599B /* DSSapcer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSapcer.swift; sourceTree = "<group>"; };
-		BC05D4582C2144F2006C599B /* BaseButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseButton+Extension.swift"; sourceTree = "<group>"; };
 		BC05D4FF2C21B39D006C599B /* ToastBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastBook.swift; sourceTree = "<group>"; };
 		BC05D5012C21B677006C599B /* ToastFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastFactory.swift; sourceTree = "<group>"; };
 		BC05D5042C21B76A006C599B /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -274,7 +271,6 @@
 		BCF03A722C29506B006D102E /* TextFieldBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBookView.swift; sourceTree = "<group>"; };
 		BCF03A742C295087006D102E /* TextFieldBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBookViewController.swift; sourceTree = "<group>"; };
 		BCF03A772C2950AA006D102E /* TextFieldBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBookRepresentable.swift; sourceTree = "<group>"; };
-		BCF03A792C2957C8006D102E /* BaseTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseTextField+Extension.swift"; sourceTree = "<group>"; };
 		BCFD53792C1B5DCD00191F34 /* ButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFigureTheme.swift; sourceTree = "<group>"; };
 		BCFD537B2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButtonFigureTheme.swift; sourceTree = "<group>"; };
 		BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapOffset.swift; sourceTree = "<group>"; };
@@ -582,7 +578,6 @@
 			isa = PBXGroup;
 			children = (
 				BC05D4262C204877006C599B /* BaseButton.swift */,
-				BC05D4582C2144F2006C599B /* BaseButton+Extension.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -1080,7 +1075,6 @@
 			isa = PBXGroup;
 			children = (
 				BCF03A6F2C294DAA006D102E /* BaseTextField.swift */,
-				BCF03A792C2957C8006D102E /* BaseTextField+Extension.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -1309,7 +1303,6 @@
 				BC05D5532C2325FB006C599B /* PickerColorTheme.swift in Sources */,
 				BC18EC872C1DAFA50061599B /* TextFieldBook.swift in Sources */,
 				BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */,
-				BC05D4592C2144F2006C599B /* BaseButton+Extension.swift in Sources */,
 				BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */,
 				BC0933E92C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift in Sources */,
 				BC05D4432C204DC0006C599B /* BaseViewController.swift in Sources */,
@@ -1371,7 +1364,6 @@
 				BC05D3EB2C200AC6006C599B /* SkeletonShiningStyleFactory.swift in Sources */,
 				BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift in Sources */,
 				BC05D3ED2C200AEC006C599B /* SkeletonBlinkStyleFactory.swift in Sources */,
-				BCF03A7A2C2957C8006D102E /* BaseTextField+Extension.swift in Sources */,
 				BC05D55D2C2329E8006C599B /* PickerState.swift in Sources */,
 				BCF03A752C295087006D102E /* TextFieldBookViewController.swift in Sources */,
 				BCF03A6E2C2939D2006D102E /* ButtonBookView.swift in Sources */,

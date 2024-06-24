@@ -10,18 +10,103 @@ import UIKit
 import Then
 import RxSwift
 
+public extension BaseButton {
+    func styled(
+        variant: BasicButtonVariant = .fill,
+        color: BasicButtonColor = .primary,
+        size: BasicButtonSize = .large,
+        shape: BasicButtonShape = .round
+    ) {
+        let colorTheme = BasicButtonColorTheme(
+            variant: variant,
+            color: color
+        )
+        
+        let figureTheme = BasicButtonFigureTheme(
+            size: size,
+            shape: shape
+        )
+        
+        self.colorTheme = colorTheme
+        self.figureTheme = figureTheme
+    }
+}
+
+public extension BaseButton {
+    // MARK: Set label
+    func setLabel(_ text: String) {
+        titleLabel.text = text
+    }
+    
+    // MARK: Set Image
+    func setImage(
+        imageView: UIView,
+        alignment: BaseButtonImageAlignment = .leading
+    ) {
+        _setImage(imageView: imageView)
+    }
+    
+    func setImage(
+        systemName: String,
+        alignment: BaseButtonImageAlignment = .leading
+    ) {
+        let image = UIImage(systemName: systemName)
+        let imageView = UIImageView(image: image)
+        
+        _setImage(imageView: imageView)
+    }
+    
+    func setImage(
+        assetName: String,
+        alignment: BaseButtonImageAlignment = .leading
+    ) {
+        guard let image = UIImage(named: assetName) else {
+            print("Image not found")
+            return
+        }
+        
+        let imageView = UIImageView(image: image)
+        
+        _setImage(imageView: imageView)
+    }
+    
+    private func _setImage(
+        imageView: UIView,
+        alignment: BaseButtonImageAlignment = .leading
+    ) {
+        stackView.arrangedSubviews
+            .filter { $0 is UIImageView }
+            .forEach { $0.removeFromSuperview() }
+        
+        switch alignment {
+        case .leading:
+            stackView.insertArrangedSubview(imageView, at: 0)
+        case .trailing:
+            stackView.addArrangedSubview(imageView)
+        }
+        
+        updateTheme()
+    }
+}
+
+public enum BaseButtonImageAlignment {
+    case leading
+    case trailing
+}
+
+
 public class BaseButton: UIControl {
     // MARK: Event emitter
     public var onTap: PublishSubject<Void> = PublishSubject()
     
     // MARK: Theme
-    var colorTheme: ButtonColorTheme? {
+    private var colorTheme: ButtonColorTheme? {
         didSet {
             updateTheme()
             updateLayout()
         }
     }
-    var figureTheme: ButtonFigureTheme? {
+    private var figureTheme: ButtonFigureTheme? {
         didSet {
             updateTheme()
             updateLayout()
@@ -39,7 +124,7 @@ public class BaseButton: UIControl {
     private let disposeBag = DisposeBag()
     
     // MARK: UI Components
-    let stackView = UIStackView().then {
+    private let stackView = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 8
         $0.alignment = .center
@@ -47,7 +132,7 @@ public class BaseButton: UIControl {
         $0.isUserInteractionEnabled = false
     }
     
-    let titleLabel = UILabel().then {
+    private let titleLabel = UILabel().then {
         $0.text = ""
         $0.setTypo(.body1)
         $0.textAlignment = .center
@@ -61,16 +146,16 @@ public class BaseButton: UIControl {
         super.init(frame: frame)
         updateTheme()
         setupHierachy()
-        setupLayout()
         setupBind()
+        updateLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         updateTheme()
         setupHierachy()
-        setupLayout()
         setupBind()
+        updateLayout()
     }
     
     // MARK: Life cycle
@@ -90,24 +175,7 @@ public class BaseButton: UIControl {
         stackView.addArrangedSubview(titleLabel)
     }
     
-    // TODO: 삭제해도 될까?
-    private func setupLayout() {
-        guard let figureTheme = figureTheme
-        else { return }
-        
-        let padding = figureTheme.padding()
-        
-//        stackView.snp.makeConstraints {
-//            $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
-//            $0.centerX.equalToSuperview()
-//            $0.leading.trailing.equalToSuperview()
-//                .inset(padding.horizontal ?? 0)
-//                .priority(isFullWidth ? .low : .required)
-//        }
-    }
-    
-    private func setupBind() {
-    }
+    private func setupBind() { }
     
     // MARK: Update
     func updateTheme() {
