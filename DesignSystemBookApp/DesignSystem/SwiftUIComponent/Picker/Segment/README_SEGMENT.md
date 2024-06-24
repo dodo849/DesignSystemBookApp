@@ -4,7 +4,7 @@
 You can create a segmented picker using the `Segment` component and `styled()`. 
 The content closure allows you to add the content and components for each segment.
 ```swift
-private options = ["0", "1", "2"] // 실제로는 Equatable & Identifiable 채택 필요
+private options = ["0", "1", "2"] // Implementing `Equatable` and `Identifiable` is required.
 @State var selection: Int = 0
 
 Segment(
@@ -24,7 +24,7 @@ Segment(
 ## Composition
 In the content closure, you can composit multiple components.
 ```swift
-private options = ["0", "1", "2"] // 실제로는 Equatable & Identifiable 채택 필요
+private options = ["0", "1", "2"] // Implementing `Equatable` and `Identifiable` is required.
 @State var selection: Int = 0
 
 Segment(
