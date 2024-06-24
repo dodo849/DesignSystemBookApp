@@ -1,5 +1,5 @@
 //
-//  BaseButtonView.swift
+//  ButtonBookView.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/24/24.
@@ -13,7 +13,7 @@ final class ButtonBookView: BaseView {
     
     let contentView = UIView()
     
-    let stackContainer = UIStackView().then {
+    let stackView = UIStackView().then {
         $0.axis = .vertical
         $0.alignment = .center
         $0.distribution = .fill
@@ -79,6 +79,7 @@ final class ButtonBookView: BaseView {
     let buttons: [BaseButton] = BasicButtonColor.allCases.map { _ in
         BaseButton().then {
             $0.styled()
+            $0.setLabel("Button")
             $0.setImage(systemName: "square.and.arrow.up")
         }
     }
@@ -90,21 +91,21 @@ final class ButtonBookView: BaseView {
         addSubview(scrollView)
         
         scrollView.addSubview(contentView)
-        contentView.addSubview(stackContainer)
+        contentView.addSubview(stackView)
         
-        stackContainer.addArrangedSubview(variantControlLabel)
-        stackContainer.addArrangedSubview(variantControl)
-        stackContainer.addArrangedSubview(sizeControlLabel)
-        stackContainer.addArrangedSubview(sizeControl)
-        stackContainer.addArrangedSubview(shapeControlLabel)
-        stackContainer.addArrangedSubview(shapeControl)
-        stackContainer.addArrangedSubview(stateControlLabel)
-        stackContainer.addArrangedSubview(stateControl)
-        stackContainer.addArrangedSubview(divider)
+        stackView.addArrangedSubview(variantControlLabel)
+        stackView.addArrangedSubview(variantControl)
+        stackView.addArrangedSubview(sizeControlLabel)
+        stackView.addArrangedSubview(sizeControl)
+        stackView.addArrangedSubview(shapeControlLabel)
+        stackView.addArrangedSubview(shapeControl)
+        stackView.addArrangedSubview(stateControlLabel)
+        stackView.addArrangedSubview(stateControl)
+        stackView.addArrangedSubview(divider)
         
         buttons.enumerated().forEach { index, button in
-            stackContainer.addArrangedSubview(colorLabels[index])
-            stackContainer.addArrangedSubview(button)
+            stackView.addArrangedSubview(colorLabels[index])
+            stackView.addArrangedSubview(button)
         }
     }
     
@@ -121,51 +122,36 @@ final class ButtonBookView: BaseView {
             $0.height.equalTo(1000)
         }
         
-        stackContainer.snp.makeConstraints {
+        stackView.snp.makeConstraints {
             $0.top.equalTo(contentView.safeAreaLayoutGuide.snp.top)
-            $0.left.greaterThanOrEqualTo(snp.left).inset(pagePadding)
-            $0.right.lessThanOrEqualTo(snp.right).inset(pagePadding)
+            $0.left.right.equalToSuperview().inset(pagePadding)
             $0.centerX.equalTo(snp.centerX)
         }
         
         sizeControl.snp.makeConstraints {
-            $0.width.equalTo(stackContainer.snp.width)
+            $0.width.equalTo(stackView.snp.width)
         }
         
         variantControl.snp.makeConstraints {
-            $0.width.equalTo(stackContainer.snp.width)
+            $0.width.equalTo(stackView.snp.width)
         }
         
         shapeControl.snp.makeConstraints {
-            $0.width.equalTo(stackContainer.snp.width)
+            $0.width.equalTo(stackView.snp.width)
         }
         
         stateControl.snp.makeConstraints {
-            $0.width.equalTo(stackContainer.snp.width)
+            $0.width.equalTo(stackView.snp.width)
         }
         
         divider.snp.makeConstraints {
             $0.height.equalTo(1)
-            $0.width.equalTo(stackContainer.snp.width)
+            $0.width.equalTo(stackView.snp.width)
         }
         
         buttons.forEach { button in
             button.snp.makeConstraints {
                 $0.width.equalToSuperview()
-            }
-        }
-    }
-    
-    func updateLayout() {
-        if sizeControl.selectedSegmentIndex == 0 {
-            buttons.forEach { button in
-                button.snp.updateConstraints {
-                    $0.width.equalToSuperview()
-                }
-            }
-        } else {
-            buttons.forEach { button in
-                button.snp.removeConstraints()
             }
         }
     }

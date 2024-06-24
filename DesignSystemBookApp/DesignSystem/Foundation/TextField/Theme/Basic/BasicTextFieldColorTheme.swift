@@ -16,30 +16,30 @@ struct BasicTextFieldColorTheme: TextFieldColorTheme {
     let variant: BasicTextFieldVariant
     let color: BasicTextFieldColor
     
-    func foregroundColor(state: TextFieldAllState) -> Color {
+    func foregroundColor(state: TextFieldAllState) -> ColorOffset {
         switch state {
         case .disabled:
-            return .gray04
+            return .init(.gray04)
         default:
-            return .basicText
+            return .init(.basicText)
         }
     }
     
-    func backgroundColor(state: TextFieldAllState) -> Color {
+    func backgroundColor(state: TextFieldAllState) -> ColorOffset {
         switch variant {
         case .plain:
-            return plainBackgroundColor(color, state)
+            return .init(plainBackgroundColor(color, state))
         default:
-            return .none
+            return .init(.none)
         }
     }
     
-    func borderColor(state: TextFieldAllState) -> Color {
+    func borderColor(state: TextFieldAllState) -> ColorOffset {
         switch variant {
         case .outlined, .underlined:
-            return borderColorWithLineVariant(color, state)
+            return .init(borderColorWithLineVariant(color, state))
         default:
-            return .none
+            return .init(.none)
         }
     }
 }

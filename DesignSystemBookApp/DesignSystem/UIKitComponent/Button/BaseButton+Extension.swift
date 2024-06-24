@@ -30,6 +30,12 @@ public extension BaseButton {
 }
 
 public extension BaseButton {
+    // MARK: Set label
+    func setLabel(_ text: String) {
+        titleLabel.text = text
+    }
+    
+    // MARK: Set Image
     func setImage(
         imageView: UIView,
         alignment: BaseButtonImageAlignment = .leading
@@ -65,10 +71,6 @@ public extension BaseButton {
         imageView: UIView,
         alignment: BaseButtonImageAlignment = .leading
     ) {
-//        imageView.tintColor = colorTheme?
-//            .foregroundColor(state: getState(.enabled)).uiColor
-//        imageView.contentMode = .scaleAspectFit
-        
         stackView.arrangedSubviews
             .filter { $0 is UIImageView }
             .forEach { $0.removeFromSuperview() }

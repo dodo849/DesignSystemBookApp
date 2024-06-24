@@ -65,10 +65,10 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
             configuration
                 .padding(.vertical, padding.vertical)
                 .padding(.horizontal, isUnderlined ? 0 : padding.horizontal)
-                .background(colorTheme.backgroundColor(state: allState))
+                .background(colorTheme.backgroundColor(state: allState).color)
                 .clipShape(figureTheme.shape())
                 .overlay(overlay(allState))
-                .foregroundColor(colorTheme.foregroundColor(state: allState))
+                .foregroundColor(colorTheme.foregroundColor(state: allState).color)
                 .font(.system(size: figureTheme.textSize()))
                 .fontWeight(figureTheme.textWeight())
                 .focused($isFocused)
@@ -79,7 +79,7 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
                     Spacer()
                     Divider()
                         .frame(height: 1)
-                        .background(colorTheme.borderColor(state: allState))
+                        .background(colorTheme.borderColor(state: allState).color)
                 }
             }
             
@@ -128,7 +128,7 @@ private extension _TextFieldStyleMaker {
     ) -> some View {
         figureTheme.shape()
             .stroke(
-                colorTheme.borderColor(state: state),
+                colorTheme.borderColor(state: state).color,
                 lineWidth: figureTheme.borderWidth()
             )
             .padding(figureTheme.borderWidth())

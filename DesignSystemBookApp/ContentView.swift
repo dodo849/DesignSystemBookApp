@@ -53,6 +53,7 @@ struct ContentView: View {
                         title: "Basic TextField",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
+                        uikitDestination: TextFieldBookRepresentable(),
                         swiftuiDestination: TextFieldBook()
                     )
                     

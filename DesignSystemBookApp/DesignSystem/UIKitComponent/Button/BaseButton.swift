@@ -11,13 +11,8 @@ import Then
 import RxSwift
 
 public class BaseButton: UIControl {
-    static func builder(_ view: UIView) -> UIView {
-        // 여기서 서브 뷰 후 제약 결구
-        // 밖에서는 y축 걸고
-        // 여기서 설정
-        
-        return BaseButton()
-    }
+    // MARK: Event emitter
+    public var onTap: PublishSubject<Void> = PublishSubject()
     
     // MARK: Theme
     var colorTheme: ButtonColorTheme? {
@@ -52,8 +47,8 @@ public class BaseButton: UIControl {
         $0.isUserInteractionEnabled = false
     }
     
-    private let titleLabel = UILabel().then {
-        $0.text = "Button"
+    let titleLabel = UILabel().then {
+        $0.text = ""
         $0.setTypo(.body1)
         $0.textAlignment = .center
         $0.isUserInteractionEnabled = false
@@ -95,17 +90,20 @@ public class BaseButton: UIControl {
         stackView.addArrangedSubview(titleLabel)
     }
     
+    // TODO: 삭제해도 될까?
     private func setupLayout() {
         guard let figureTheme = figureTheme
         else { return }
         
         let padding = figureTheme.padding()
         
-        stackView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
-            $0.width.lessThanOrEqualToSuperview().inset(padding.horizontal ?? 0)
-            $0.centerX.equalToSuperview()
-        }
+//        stackView.snp.makeConstraints {
+//            $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
+//            $0.centerX.equalToSuperview()
+//            $0.leading.trailing.equalToSuperview()
+//                .inset(padding.horizontal ?? 0)
+//                .priority(isFullWidth ? .low : .required)
+//        }
     }
     
     private func setupBind() {
@@ -147,21 +145,30 @@ public class BaseButton: UIControl {
     private func updateLayout() {
         guard let figureTheme = figureTheme
         else { return }
-        stackView.snp.removeConstraints()
+        
+        if superview != nil, isFullWidth {
+            self.snp.remakeConstraints {
+                $0.leading.trailing.equalToSuperview()
+            }
+        } else {
+            self.snp.removeConstraints()
+        }
         
         let padding = figureTheme.padding()
-        stackView.snp.updateConstraints {
-            // TODO: self 걸기...무무 코드 참고
+        stackView.snp.remakeConstraints {
             $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
-            $0.width.lessThanOrEqualToSuperview().inset(padding.horizontal ?? 0)
             $0.centerX.equalToSuperview()
+            // stackView가 button 양 옆을 당겨주는 레이아웃 full width일때는 self 제약을 우선하도록 설정
+            $0.leading.trailing.equalToSuperview()
+                .inset(padding.horizontal ?? 0)
+                .priority(isFullWidth ? .low : .required)
         }
         
         let size = figureTheme.iconSize()
         stackView.arrangedSubviews
             .filter { $0 is UIImageView }
             .forEach { image in
-                image.snp.updateConstraints {
+                image.snp.remakeConstraints {
                     $0.width.equalTo(size.width ?? 0)
                     $0.height.equalTo(size.height ?? 0)
                 }
@@ -197,6 +204,7 @@ public class BaseButton: UIControl {
                 self.transform = .identity
             }
         )
+        onTap.onNext(())
         sendActions(for: .touchUpInside)
     }
     
@@ -215,5 +223,9 @@ public class BaseButton: UIControl {
         } else {
             return .disabled
         }
+    }
+    
+    var isFullWidth: Bool {
+        figureTheme?.frame().width == .infinity
     }
 }

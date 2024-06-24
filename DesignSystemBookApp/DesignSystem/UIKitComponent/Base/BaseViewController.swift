@@ -15,7 +15,7 @@ protocol BaseViewControllerProtocol: AnyObject {
     func setupBind()
 }
 
-open class BaseViewController<View: UIView>: UIViewController, BaseViewControllerProtocol {
+open class BaseViewController<View: BaseView>: UIViewController, BaseViewControllerProtocol {
     public var disposeBag = DisposeBag()
     
     public var baseView: View {
@@ -48,11 +48,17 @@ open class BaseViewController<View: UIView>: UIViewController, BaseViewControlle
     
     open func setupDelegate() { }
     
-    open func setupHierarchy() { }
+    open func setupHierarchy() {
+        baseView.setupHierarchy()
+    }
     
-    open func setupLayout() { }
+    open func setupLayout() { 
+        baseView.setupLayout()
+    }
     
-    open func setupBind() { }
+    open func setupBind() { 
+        baseView.setupBind()
+    }
 }
 
 public extension BaseViewController {

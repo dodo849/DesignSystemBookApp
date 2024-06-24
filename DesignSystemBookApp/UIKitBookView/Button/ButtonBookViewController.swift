@@ -9,21 +9,9 @@ import UIKit
 
 import RxSwift
 import RxCocoa
-import Then
-import SnapKit
 
 final class ButtonBookViewController: BaseViewController<ButtonBookView> {
     // MARK: Setup methods
-    override func setupHierarchy() {
-        super.setupHierarchy()
-        baseView.setupHierarchy()
-    }
-    
-    override func setupLayout() {
-        super.setupLayout()
-        baseView.setupLayout()
-    }
-    
     override func setupBind() {
         super.setupBind()
         baseView.setupBind()
@@ -46,7 +34,6 @@ final class ButtonBookViewController: BaseViewController<ButtonBookView> {
                 )
                 button.isEnabled = value.3 == 0
             }
-            owner.baseView.updateLayout()
         })
         .disposed(by: disposeBag)
     }
