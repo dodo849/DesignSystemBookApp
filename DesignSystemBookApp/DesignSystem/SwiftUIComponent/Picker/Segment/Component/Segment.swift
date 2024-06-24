@@ -114,8 +114,6 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
     private func offsetForIndicator(in totalWidth: CGFloat) -> CGFloat {
         let index = contentIndex(for: selection)
         let itemWidth = (totalWidth - itemSpacing * CGFloat(sources.count - 1)) / CGFloat(sources.count)
-        //        let maxLeftOffset = -CGFloat(sources.count) / 2 + 0.5
-        //        return (itemWidth + itemSpacing) * (maxLeftOffset + CGFloat(index))
         return (itemWidth + itemSpacing) * (CGFloat(index))
     }
     

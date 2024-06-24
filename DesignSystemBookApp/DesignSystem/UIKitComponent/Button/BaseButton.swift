@@ -11,6 +11,14 @@ import Then
 import RxSwift
 
 public class BaseButton: UIControl {
+    static func builder(_ view: UIView) -> UIView {
+        // 여기서 서브 뷰 후 제약 결구
+        // 밖에서는 y축 걸고
+        // 여기서 설정
+        
+        return BaseButton()
+    }
+    
     // MARK: Theme
     var colorTheme: ButtonColorTheme? {
         didSet {
@@ -143,6 +151,7 @@ public class BaseButton: UIControl {
         
         let padding = figureTheme.padding()
         stackView.snp.updateConstraints {
+            // TODO: self 걸기...무무 코드 참고
             $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
             $0.width.lessThanOrEqualToSuperview().inset(padding.horizontal ?? 0)
             $0.centerX.equalToSuperview()
@@ -155,7 +164,6 @@ public class BaseButton: UIControl {
                 image.snp.updateConstraints {
                     $0.width.equalTo(size.width ?? 0)
                     $0.height.equalTo(size.height ?? 0)
-                    
                 }
                 image.setContentHuggingPriority(.defaultLow, for: .horizontal)
             }

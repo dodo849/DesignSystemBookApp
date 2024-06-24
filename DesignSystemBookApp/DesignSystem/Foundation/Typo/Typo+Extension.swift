@@ -90,7 +90,7 @@ public enum Typo {
     case detail
 }
 
-public extension UILabel {
+public extension UILabel { // TODO: line height 추가
     /// Set the default font of the text.
     ///
     /// ```swift
