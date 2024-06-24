@@ -20,6 +20,10 @@ struct BasicTextFieldColorTheme: TextFieldColorTheme {
         switch state {
         case .disabled:
             return .init(.gray04)
+        case .normal:
+            return .init(.gray05)
+        case .focused:
+            return .init(.basicText)
         default:
             return .init(.basicText)
         }
@@ -36,12 +40,22 @@ struct BasicTextFieldColorTheme: TextFieldColorTheme {
     
     func borderColor(state: TextFieldAllState) -> ColorOffset {
         switch variant {
-        case .outlined, .underlined:
+        case .outlined:
             return .init(borderColorWithLineVariant(color, state))
         default:
             return .init(.none)
         }
     }
+    
+    func bottomBorderColor(state: TextFieldAllState) -> ColorOffset {
+        switch variant {
+        case .underlined:
+            return .init(borderColorWithLineVariant(color, state))
+        default:
+            return .init(.none)
+        }
+    }
+    
 }
 
 extension BasicTextFieldColorTheme {

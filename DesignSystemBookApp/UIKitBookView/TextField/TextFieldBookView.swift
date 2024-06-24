@@ -83,28 +83,25 @@ final class TextFieldBookView: BaseView {
     
     let textFieldWithAffixLabel = UILabel().then {
         $0.text = "With Affix"
-        $0.setTypo(.body0b)
+        $0.setTypo(.body1b)
     }
     
     let textFieldSuffix = UILabel().then {
         $0.text = "0/10"
         $0.setTypo(.body1)
-        $0.textColor = .gray05
     }
     
     let textFieldWithAffix = BaseTextField().then {
         let prefix = UIImageView(
             image: UIImage(systemName: "square.and.pencil")
-        ).then {
-            $0.tintColor = .gray05
-        }
+        )
         $0.addPrefix(prefix)
         $0.styled()
     }
     
     let textFieldWithOthersLabel = UILabel().then {
         $0.text = "With Others"
-        $0.setTypo(.body0b)
+        $0.setTypo(.body1b)
     }
     
     let textFieldWithOthers = BaseTextField().then {

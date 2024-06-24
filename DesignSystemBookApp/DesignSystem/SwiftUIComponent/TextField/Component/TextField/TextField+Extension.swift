@@ -21,14 +21,14 @@ public extension TextField {
         )
         
         let figureTheme = BasicTextFieldFigureTheme(
+            variant: variant,
             size: size,
             shape: shape
         )
         
         let textFieldStyle = TextFieldStyleFactory(
             colorTheme: colorTheme,
-            figureTheme: figureTheme,
-            variant: variant
+            figureTheme: figureTheme
         )
         
         return self.textFieldStyle(textFieldStyle)

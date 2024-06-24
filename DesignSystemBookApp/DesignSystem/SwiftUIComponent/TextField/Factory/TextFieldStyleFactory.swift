@@ -10,24 +10,20 @@ import SwiftUI
 struct TextFieldStyleFactory: TextFieldStyle {
     private let colorTheme: TextFieldColorTheme
     private let figureTheme: TextFieldFigureTheme
-    private let variant: BasicTextFieldVariant
     
     init(
         colorTheme: TextFieldColorTheme,
-        figureTheme: TextFieldFigureTheme,
-        variant: BasicTextFieldVariant
+        figureTheme: TextFieldFigureTheme
     ) {
         self.colorTheme = colorTheme
         self.figureTheme = figureTheme
-        self.variant = variant // Injection for underline
     }
     
     func _body(configuration: TextField<_Label>) -> some View {
         _TextFieldStyleMaker(
             configuration: configuration,
             colorTheme: colorTheme,
-            figureTheme: figureTheme,
-            variant: variant
+            figureTheme: figureTheme
         )
     }
 }
@@ -42,18 +38,15 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
     private let configuration: Configuration
     private let colorTheme: TextFieldColorTheme
     private let figureTheme: TextFieldFigureTheme
-    private let variant: BasicTextFieldVariant
     
     fileprivate init(
         configuration: TextField<Label>,
         colorTheme: TextFieldColorTheme,
-        figureTheme: TextFieldFigureTheme,
-        variant: BasicTextFieldVariant
+        figureTheme: TextFieldFigureTheme
     ) {
         self.configuration = configuration
         self.colorTheme = colorTheme
         self.figureTheme = figureTheme
-        self.variant = variant // Injection for underline
     }
     
     var body: some View {
@@ -64,7 +57,7 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
         ZStack {
             configuration
                 .padding(.vertical, padding.vertical)
-                .padding(.horizontal, isUnderlined ? 0 : padding.horizontal)
+                .padding(.horizontal, padding.horizontal)
                 .background(colorTheme.backgroundColor(state: allState).color)
                 .clipShape(figureTheme.shape())
                 .overlay(overlay(allState))
@@ -74,13 +67,12 @@ private struct _TextFieldStyleMaker<Label>: View where Label: View {
                 .focused($isFocused)
                 .animation(animation, value: allState)
             
-            if isUnderlined {
-                VStack {
-                    Spacer()
-                    Divider()
-                        .frame(height: 1)
-                        .background(colorTheme.borderColor(state: allState).color)
-                }
+            VStack {
+                Spacer()
+                Divider()
+                    .frame(height: 2)
+                    .background(colorTheme.bottomBorderColor(state: allState).color)
+                    .animation(animation, value: allState)
             }
             
             // Designate the padding area of the text field as a touch target
@@ -115,9 +107,7 @@ private extension  _TextFieldStyleMaker {
         _ state: TextFieldAllState
     ) -> some View {
         Group {
-            if !isUnderlined {
-                border(state).padding(1)
-            }
+            border(state).padding(1)
         }
     }
 }
@@ -132,11 +122,5 @@ private extension _TextFieldStyleMaker {
                 lineWidth: figureTheme.borderWidth()
             )
             .padding(figureTheme.borderWidth())
-    }
-}
-
-private extension _TextFieldStyleMaker {
-    private var isUnderlined: Bool {
-        return variant == .underlined
     }
 }

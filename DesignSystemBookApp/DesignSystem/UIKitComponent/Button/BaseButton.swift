@@ -94,7 +94,6 @@ public enum BaseButtonImageAlignment {
     case trailing
 }
 
-
 public class BaseButton: UIControl {
     // MARK: Event emitter
     public var onTap: PublishSubject<Void> = PublishSubject()

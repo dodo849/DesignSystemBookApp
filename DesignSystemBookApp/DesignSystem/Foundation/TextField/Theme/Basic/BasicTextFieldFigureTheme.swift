@@ -8,22 +8,33 @@
 import SwiftUI
 
 struct BasicTextFieldFigureTheme: TextFieldFigureTheme {
+    private let variant: BasicTextFieldVariant
     private let size: BasicTextFieldSize
     private let _shape: BasicTextFieldShape
     
     init(
+        variant: BasicTextFieldVariant,
         size: BasicTextFieldSize,
         shape: BasicTextFieldShape
     ) {
+        self.variant = variant
         self.size = size
         self._shape = shape
     }
     
     func padding() -> GapOffset {
+        if variant == .underlined {
+            switch size {
+            case .large: return .init(16, 0)
+            case .medium: return .init(10, 0)
+            case .small: return .init(8, 0)
+            }
+        }
+        
         switch size {
-        case .large: .init(16, 24)
-        case .medium: .init(10, 20)
-        case .small: .init(8, 16)
+        case .large: return .init(16, 24)
+        case .medium: return .init(10, 20)
+        case .small: return .init(8, 16)
         }
     }
     

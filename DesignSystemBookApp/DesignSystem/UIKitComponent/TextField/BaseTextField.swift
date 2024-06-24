@@ -25,6 +25,7 @@ public extension BaseTextField {
         )
         
         let figureTheme = BasicTextFieldFigureTheme(
+            variant: variant,
             size: size,
             shape: shape
         )
@@ -37,25 +38,33 @@ public extension BaseTextField {
 
 public extension BaseTextField {
     func addTitle(_ view: UIView) {
-        titleContainer.addArrangedSubview(view)
-        layoutIfNeeded()
+        titleStack.addArrangedSubview(view)
+        
+        updateTheme()
+        updateLayout()
     }
     
     func addPrefix(_ view: UIView) {
         view.setContentHuggingPriority(.required, for: .horizontal)
         view.setContentCompressionResistancePriority(.required, for: .horizontal)
-        textFieldContainer.insertArrangedSubview(view, at: 0)
-        layoutIfNeeded()
+        textFieldStack.insertArrangedSubview(view, at: 0)
+        
+        updateTheme()
+        updateLayout()
     }
     
     func addSuffix(_ view: UIView) {
-        textFieldContainer.addArrangedSubview(view)
-        layoutIfNeeded()
+        textFieldStack.addArrangedSubview(view)
+        
+        updateTheme()
+        updateLayout()
     }
     
     func addDescription(_ view: UIView) {
-        descriptionContainer.addArrangedSubview(view)
-        layoutIfNeeded()
+        descriptionStack.addArrangedSubview(view)
+        
+        updateTheme()
+        updateLayout()
     }
 }
 
@@ -98,14 +107,14 @@ public class BaseTextField: UIView {
     private let disposeBag = DisposeBag()
     
     // MARK: UI Components
-    private let titleContainer = UIStackView().then {
+    private let titleStack = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 4
         $0.alignment = .center
         $0.distribution = .fill
     }
     
-    private let descriptionContainer = UIStackView().then {
+    private let descriptionStack = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 4
         $0.alignment = .center
@@ -114,7 +123,13 @@ public class BaseTextField: UIView {
     
     private let textFieldBackground = UIView()
     
-    private let textFieldContainer = UIStackView().then {
+    private let bottomBorder = UIView().then {
+        $0.snp.makeConstraints {
+            $0.height.equalTo(1)
+        }
+    }
+    
+    private let textFieldStack = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 4
         $0.alignment = .center
@@ -156,14 +171,16 @@ public class BaseTextField: UIView {
     
     // MARK: Setup
     private func setupHierachy() {
-        addSubview(titleContainer)
+        addSubview(titleStack)
         addSubview(textFieldBackground)
-        textFieldBackground.addSubview(textFieldContainer)
-        textFieldContainer.addArrangedSubview(textField)
-        addSubview(descriptionContainer)
+        textFieldBackground.addSubview(textFieldStack)
+        textFieldStack.addArrangedSubview(textField)
+        addSubview(bottomBorder)
+        addSubview(descriptionStack)
     }
     
     private func setupBind() {
+        // Binding textfield event
         textField.rx.controlEvent(.editingDidBegin)
             .map { UIControl.Event.editingDidBegin }
             .bind(to: textFieldEvent)
@@ -195,6 +212,7 @@ public class BaseTextField: UIView {
             })
             .disposed(by: disposeBag)
         
+        // Set padding as the touch target
         let textFieldPaddingTapGesture = UITapGestureRecognizer()
         textFieldBackground.addGestureRecognizer(textFieldPaddingTapGesture)
         
@@ -213,25 +231,39 @@ public class BaseTextField: UIView {
         updateCornerRadius()
         
         self.textFieldBackground.layer.borderColor = UIColor.clear.cgColor
+        let foregroundColor = colorTheme
+            .foregroundColor(state: allState).uiColor
+        
         UIView.animate(withDuration: 0.15) { [weak self] in
             guard let self = self else { return }
             self.textFieldBackground.backgroundColor = colorTheme
-                .backgroundColor(state: getState(state)).uiColor
+                .backgroundColor(state: allState).uiColor
             self.textFieldBackground.layer.borderColor = colorTheme
-                .borderColor(state: getState(state)).cgColor
+                .borderColor(state: allState).cgColor
             self.textFieldBackground.layer.borderWidth = figureTheme.borderWidth()
             
-            self.titleContainer.subviews.forEach { [weak self] in
-                guard let self = self else { return }
-                let color = colorTheme.foregroundColor(state: self.getState(self.state)).uiColor
+            self.textField.textColor = foregroundColor
+            
+            self.titleStack.subviews.forEach {
                 if let label = $0 as? UILabel {
-                    label.textColor = color
+                    label.textColor = foregroundColor
                 } else if let imageView = $0 as? UIImageView {
-                    imageView.tintColor = color
+                    imageView.tintColor = foregroundColor
                 }
             }
             
-            self.descriptionContainer.subviews.forEach { [weak self] in
+            self.textFieldStack.subviews.forEach {
+                if let label = $0 as? UILabel {
+                    label.textColor = foregroundColor.withAlphaComponent(0.6)
+                } else if let imageView = $0 as? UIImageView {
+                    imageView.tintColor = foregroundColor.withAlphaComponent(0.6)
+                }
+            }
+            
+            self.bottomBorder.backgroundColor = colorTheme
+                .bottomBorderColor(state: allState).uiColor
+            
+            self.descriptionStack.subviews.forEach { [weak self] in
                 guard let self = self else { return }
                 if let label = $0 as? UILabel {
                     label.textColor = descriptionColor
@@ -266,22 +298,28 @@ public class BaseTextField: UIView {
         
         let padding = figureTheme.padding()
         
-        titleContainer.snp.remakeConstraints {
+        titleStack.snp.remakeConstraints {
             $0.top.equalToSuperview()
             $0.left.right.equalToSuperview()
         }
         
         textFieldBackground.snp.remakeConstraints {
-            $0.top.equalTo(titleContainer.snp.bottom).offset(8)
+            $0.top.equalTo(titleStack.snp.bottom).offset(8)
             $0.left.right.equalToSuperview()
         }
         
-        textFieldContainer.snp.remakeConstraints {
+        textFieldStack.snp.remakeConstraints {
             $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
             $0.left.right.equalToSuperview().inset(padding.horizontal ?? 0)
         }
         
-        descriptionContainer.snp.remakeConstraints {
+        bottomBorder.snp.remakeConstraints {
+            $0.height.equalTo(2)
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalTo(textFieldBackground.snp.bottom)
+        }
+        
+        descriptionStack.snp.remakeConstraints {
             $0.top.equalTo(textFieldBackground.snp.bottom).offset(4)
             $0.left.right.equalToSuperview()
             $0.bottom.equalToSuperview()
@@ -294,7 +332,7 @@ public class BaseTextField: UIView {
     }
     
     // MARK: Inner token
-    private func getState(_ state: TextFieldState) -> TextFieldAllState {
+    private var allState: TextFieldAllState {
         if state == .error {
             return .error
         }
