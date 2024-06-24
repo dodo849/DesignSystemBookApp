@@ -11,26 +11,84 @@ import Then
 import RxSwift
 import RxCocoa
 
+public extension BaseTextField {
+    func styled(
+        variant: BasicTextFieldVariant = .plain,
+        color: BasicTextFieldColor = .primary,
+        size: BasicTextFieldSize = .large,
+        shape: BasicTextFieldShape = .round,
+        state: TextFieldState = .normal
+    ) {
+        let colorTheme = BasicTextFieldColorTheme(
+            variant: variant,
+            color: color
+        )
+        
+        let figureTheme = BasicTextFieldFigureTheme(
+            size: size,
+            shape: shape
+        )
+        
+        self.colorTheme = colorTheme
+        self.figureTheme = figureTheme
+        self.state = state
+    }
+}
+
+public extension BaseTextField {
+    func addTitle(_ view: UIView) {
+        titleContainer.addArrangedSubview(view)
+        layoutIfNeeded()
+    }
+    
+    func addPrefix(_ view: UIView) {
+        view.setContentHuggingPriority(.required, for: .horizontal)
+        view.setContentCompressionResistancePriority(.required, for: .horizontal)
+        textFieldContainer.insertArrangedSubview(view, at: 0)
+        layoutIfNeeded()
+    }
+    
+    func addSuffix(_ view: UIView) {
+        textFieldContainer.addArrangedSubview(view)
+        layoutIfNeeded()
+    }
+    
+    func addDescription(_ view: UIView) {
+        descriptionContainer.addArrangedSubview(view)
+        layoutIfNeeded()
+    }
+}
+
 public class BaseTextField: UIView {
     // MARK: Event emitter
+    public let textFieldEvent = PublishSubject<UIControl.Event>()
+    public let onChange = PublishSubject<String?>()
     
     // MARK: Theme
-    var colorTheme: TextFieldColorTheme? {
+    private var colorTheme: TextFieldColorTheme? {
         didSet {
             updateTheme()
             updateLayout()
         }
     }
     
-    var figureTheme: TextFieldFigureTheme? {
+    private var figureTheme: TextFieldFigureTheme? {
         didSet {
             updateTheme()
             updateLayout()
         }
     }
     
-    var state: TextFieldState = .normal {
+    private var state: TextFieldState = .normal {
         didSet {
+            updateTheme()
+            updateLayout()
+        }
+    }
+    
+    var disabled: Bool = false {
+        didSet {
+            textField.isEnabled = !disabled
             updateTheme()
             updateLayout()
         }
@@ -40,21 +98,34 @@ public class BaseTextField: UIView {
     private let disposeBag = DisposeBag()
     
     // MARK: UI Components
-    private let titleLabel = UILabel().then {
-        $0.text = "Title"
-        $0.setTypo(.body1)
-        $0.textAlignment = .center
-        $0.setContentHuggingPriority(.required, for: .horizontal)
-        $0.setContentCompressionResistancePriority(.required, for: .horizontal)
+    private let titleContainer = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 4
+        $0.alignment = .center
+        $0.distribution = .fill
     }
     
-    private let textFieldContainer = UIView()
+    private let descriptionContainer = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 4
+        $0.alignment = .center
+        $0.distribution = .fill
+    }
+    
+    private let textFieldBackground = UIView()
+    
+    private let textFieldContainer = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 4
+        $0.alignment = .center
+        $0.distribution = .fill
+    }
     
     private let textField = UITextField().then {
         $0.placeholder = "TextField"
         $0.textAlignment = .left
-        $0.setContentHuggingPriority(.required, for: .horizontal)
-        $0.setContentCompressionResistancePriority(.required, for: .horizontal)
+        $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
     // MARK: Initializers
@@ -85,22 +156,47 @@ public class BaseTextField: UIView {
     
     // MARK: Setup
     private func setupHierachy() {
-        addSubview(titleLabel)
-        addSubview(textFieldContainer)
-        textFieldContainer.addSubview(textField)
+        addSubview(titleContainer)
+        addSubview(textFieldBackground)
+        textFieldBackground.addSubview(textFieldContainer)
+        textFieldContainer.addArrangedSubview(textField)
+        addSubview(descriptionContainer)
     }
     
     private func setupBind() {
+        textField.rx.controlEvent(.editingDidBegin)
+            .map { UIControl.Event.editingDidBegin }
+            .bind(to: textFieldEvent)
+            .disposed(by: disposeBag)
+        
+        textField.rx.controlEvent(.editingChanged)
+            .map { UIControl.Event.editingChanged }
+            .bind(to: textFieldEvent)
+            .disposed(by: disposeBag)
+        
+        textField.rx.controlEvent(.editingChanged)
+            .map { [weak self] in self?.textField.text }
+            .bind(to: onChange)
+            .disposed(by: disposeBag)
+        
+        textField.rx.controlEvent(.editingDidEnd)
+            .map { UIControl.Event.editingDidEnd }
+            .bind(to: textFieldEvent)
+            .disposed(by: disposeBag)
+        
+        textField.rx.controlEvent(.editingDidEndOnExit)
+            .map { UIControl.Event.editingDidEndOnExit }
+            .bind(to: textFieldEvent)
+            .disposed(by: disposeBag)
+        
         textField.rx.controlEvent(.allEvents)
-            .subscribe(
-                onNext: { [weak self] in
-                    self?.updateTheme()
-                }
-            )
+            .subscribe(onNext: { [weak self] in
+                self?.updateTheme()
+            })
             .disposed(by: disposeBag)
         
         let textFieldPaddingTapGesture = UITapGestureRecognizer()
-        textFieldContainer.addGestureRecognizer(textFieldPaddingTapGesture)
+        textFieldBackground.addGestureRecognizer(textFieldPaddingTapGesture)
         
         textFieldPaddingTapGesture.rx.event
             .bind { [weak self] _ in
@@ -114,18 +210,37 @@ public class BaseTextField: UIView {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return }
         
-        UIView.animate(withDuration: 0.15) { [weak self] in
-            guard let self = self else { return }
-            self.textFieldContainer.backgroundColor = colorTheme
-                .backgroundColor(state: getState(.normal)).uiColor
-            self.textFieldContainer.layer.borderColor = colorTheme
-                .borderColor(state: getState(.normal)).cgColor
-        }
-        textFieldContainer.layer.borderWidth = figureTheme.borderWidth()
         updateCornerRadius()
         
-        titleLabel.setTypo(.body1b)
-        titleLabel.textColor = colorTheme.foregroundColor(state: getState(.normal)).uiColor
+        self.textFieldBackground.layer.borderColor = UIColor.clear.cgColor
+        UIView.animate(withDuration: 0.15) { [weak self] in
+            guard let self = self else { return }
+            self.textFieldBackground.backgroundColor = colorTheme
+                .backgroundColor(state: getState(state)).uiColor
+            self.textFieldBackground.layer.borderColor = colorTheme
+                .borderColor(state: getState(state)).cgColor
+            self.textFieldBackground.layer.borderWidth = figureTheme.borderWidth()
+            
+            self.titleContainer.subviews.forEach { [weak self] in
+                guard let self = self else { return }
+                let color = colorTheme.foregroundColor(state: self.getState(self.state)).uiColor
+                if let label = $0 as? UILabel {
+                    label.textColor = color
+                } else if let imageView = $0 as? UIImageView {
+                    imageView.tintColor = color
+                }
+            }
+            
+            self.descriptionContainer.subviews.forEach { [weak self] in
+                guard let self = self else { return }
+                if let label = $0 as? UILabel {
+                    label.textColor = descriptionColor
+                } else if let imageView = $0 as? UIImageView {
+                    imageView.tintColor = descriptionColor
+                }
+            }
+            
+        }
     }
     
     private func updateCornerRadius() {
@@ -133,10 +248,10 @@ public class BaseTextField: UIView {
         else { return }
         
         let rounded = figureTheme.rounded().max == .infinity
-        ? textFieldContainer.bounds.height / 2 : figureTheme.rounded().max
+        ? textFieldBackground.bounds.height / 2 : figureTheme.rounded().max
         
-        textFieldContainer.clipsToBounds = true
-        textFieldContainer.layer.cornerRadius = rounded
+        textFieldBackground.clipsToBounds = true
+        textFieldBackground.layer.cornerRadius = rounded
     }
     
     private func updateLayout() {
@@ -151,35 +266,45 @@ public class BaseTextField: UIView {
         
         let padding = figureTheme.padding()
         
-        titleLabel.snp.remakeConstraints {
-            $0.top.left.equalToSuperview()
+        titleContainer.snp.remakeConstraints {
+            $0.top.equalToSuperview()
+            $0.left.right.equalToSuperview()
+        }
+        
+        textFieldBackground.snp.remakeConstraints {
+            $0.top.equalTo(titleContainer.snp.bottom).offset(8)
+            $0.left.right.equalToSuperview()
         }
         
         textFieldContainer.snp.remakeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
-            $0.left.right.equalToSuperview()
-            $0.bottom.equalToSuperview()
-        }
-        
-        textField.snp.remakeConstraints {
             $0.top.bottom.equalToSuperview().inset(padding.vertical ?? 0)
             $0.left.right.equalToSuperview().inset(padding.horizontal ?? 0)
+        }
+        
+        descriptionContainer.snp.remakeConstraints {
+            $0.top.equalTo(textFieldBackground.snp.bottom).offset(4)
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     
     // MARK: Delegate
-    func focusTextField() {
+    private func focusTextField() {
         textField.becomeFirstResponder()
     }
     
     // MARK: Inner token
-    func getState(_ state: TextFieldState) -> TextFieldAllState {
+    private func getState(_ state: TextFieldState) -> TextFieldAllState {
         if state == .error {
             return .error
         }
         
         if state == .success {
             return .success
+        }
+        
+        if disabled {
+            return .disabled
         }
         
         if textField.isEditing {
@@ -189,7 +314,19 @@ public class BaseTextField: UIView {
         }
     }
     
-    var isFullWidth: Bool {
+    private var isFullWidth: Bool {
         figureTheme?.frame().width == .infinity
+    }
+    
+    private var descriptionColor: UIColor {
+        if state == .error {
+            return .destructive
+        }
+        
+        if state == .success {
+            return .success
+        }
+        
+        return .basicText.withAlphaComponent(0)
     }
 }

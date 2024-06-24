@@ -122,6 +122,7 @@
 		BC18EC872C1DAFA50061599B /* TextFieldBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC862C1DAFA50061599B /* TextFieldBook.swift */; };
 		BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */; };
 		BC18EC912C1DC39B0061599B /* README_BUTTON.md in Resources */ = {isa = PBXBuildFile; fileRef = BC18EC902C1DC39B0061599B /* README_BUTTON.md */; };
+		BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9799E22C2985F400A2AC95 /* Divider+View.swift */; };
 		BCEBC82C2C23EC940040FCE0 /* BasicSegmentVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */; };
 		BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENT_KR.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENT_KR.md */; };
 		BCEBC8302C23F61E0040FCE0 /* README_SEGMENT.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82F2C23F61E0040FCE0 /* README_SEGMENT.md */; };
@@ -262,6 +263,7 @@
 		BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyleFactory.swift; sourceTree = "<group>"; };
 		BC18EC902C1DC39B0061599B /* README_BUTTON.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_BUTTON.md; sourceTree = "<group>"; };
 		BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC9799E22C2985F400A2AC95 /* Divider+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Divider+View.swift"; sourceTree = "<group>"; };
 		BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSegmentVariant.swift; sourceTree = "<group>"; };
 		BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENT_KR.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENT_KR.md; sourceTree = "<group>"; };
 		BCEBC82F2C23F61E0040FCE0 /* README_SEGMENT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENT.md; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 			children = (
 				BC05D43E2C204DC0006C599B /* Base */,
 				BC05D4552C2135FF006C599B /* Spacer */,
+				BC9799E12C2985E800A2AC95 /* Divider */,
 				BC05D4252C204854006C599B /* Button */,
 				BCF03A6A2C292996006D102E /* TextField */,
 			);
@@ -1056,6 +1059,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BC9799E12C2985E800A2AC95 /* Divider */ = {
+			isa = PBXGroup;
+			children = (
+				BC9799E22C2985F400A2AC95 /* Divider+View.swift */,
+			);
+			path = Divider;
+			sourceTree = "<group>";
+		};
 		BCEBC8282C23DF370040FCE0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -1334,6 +1345,7 @@
 				BC05D3FE2C20128D006C599B /* SkeletonShape.swift in Sources */,
 				BCFD54582C1BE7E900191F34 /* GrayButtonColorTheme.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
+				BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */,
 				BC05D3CA2C1DFB15006C599B /* SwiftUIAnimationFactory.swift in Sources */,
 				BC05D5542C2325FB006C599B /* PickerFigureTheme.swift in Sources */,
 				BC05D4422C204DC0006C599B /* BaseView.swift in Sources */,

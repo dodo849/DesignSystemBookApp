@@ -8,5 +8,5 @@
 import SwiftUI
 
 public enum TextFieldState: String, CaseIterable {
-    case normal, success, error
+    case normal, error, success
 }

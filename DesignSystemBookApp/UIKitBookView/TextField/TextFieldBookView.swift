@@ -62,13 +62,9 @@ final class TextFieldBookView: BaseView {
     }
     
     let stateControl = UISegmentedControl(
-        items: ["enabled", "disabled", "error", "success"]
+        items: ["normal", "disabled", "error", "success"]
     ).then {
         $0.selectedSegmentIndex = 0
-    }
-    
-    let divider = UIView().then {
-        $0.backgroundColor = .gray02
     }
     
     let colorLabels: [UILabel] = BasicTextFieldColor.allCases.map { color in
@@ -85,6 +81,48 @@ final class TextFieldBookView: BaseView {
         }
     }
     
+    let textFieldWithAffixLabel = UILabel().then {
+        $0.text = "With Affix"
+        $0.setTypo(.body0b)
+    }
+    
+    let textFieldSuffix = UILabel().then {
+        $0.text = "0/10"
+        $0.setTypo(.body1)
+        $0.textColor = .gray05
+    }
+    
+    let textFieldWithAffix = BaseTextField().then {
+        let prefix = UIImageView(
+            image: UIImage(systemName: "square.and.pencil")
+        ).then {
+            $0.tintColor = .gray05
+        }
+        $0.addPrefix(prefix)
+        $0.styled()
+    }
+    
+    let textFieldWithOthersLabel = UILabel().then {
+        $0.text = "With Others"
+        $0.setTypo(.body0b)
+    }
+    
+    let textFieldWithOthers = BaseTextField().then {
+        let title = UILabel().then {
+            $0.text = "Title"
+            $0.setTypo(.body1b)
+            $0.textColor = .basicText
+        }
+        let description = UILabel().then {
+            $0.text = "Description"
+            $0.setTypo(.body3)
+            $0.textColor = .gray04
+        }
+        $0.addTitle(title)
+        $0.addDescription(description)
+        $0.styled()
+    }
+
     override func setupBind() {
         let tapGesture = UITapGestureRecognizer()
         addGestureRecognizer(tapGesture)
@@ -111,12 +149,19 @@ final class TextFieldBookView: BaseView {
         stackView.addArrangedSubview(shapeControl)
         stackView.addArrangedSubview(stateControlLabel)
         stackView.addArrangedSubview(stateControl)
-        stackView.addArrangedSubview(divider)
+        stackView.addArrangedSubview(UIView.makeDivider())
         
         textFields.enumerated().forEach { index, textField in
             stackView.addArrangedSubview(colorLabels[index])
             stackView.addArrangedSubview(textField)
         }
+        stackView.addArrangedSubview(UIView.makeDivider())
+        stackView.addArrangedSubview(textFieldWithAffixLabel)
+        stackView.addArrangedSubview(textFieldWithAffix)
+        stackView.addArrangedSubview(textFieldWithOthersLabel)
+        stackView.addArrangedSubview(textFieldWithOthers)
+        
+        textFieldWithAffix.addSuffix(textFieldSuffix)
     }
     
     override func setupLayout() {
@@ -129,7 +174,7 @@ final class TextFieldBookView: BaseView {
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
             $0.width.equalTo(scrollView)
-            $0.height.equalTo(800)
+            $0.height.equalTo(stackView.snp.height).offset(30)
         }
         
         stackView.snp.makeConstraints {
@@ -151,11 +196,6 @@ final class TextFieldBookView: BaseView {
         }
         
         stateControl.snp.makeConstraints {
-            $0.width.equalTo(stackView.snp.width)
-        }
-        
-        divider.snp.makeConstraints {
-            $0.height.equalTo(1)
             $0.width.equalTo(stackView.snp.width)
         }
     }
