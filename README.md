@@ -6,6 +6,10 @@ This project is an example project based on an extendable design system, rather 
 
 It also includes an app target where you can see the actual components in action. Clone the project and build it to check them out.
 
+### System detail
+![image](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/fcb5a1c4-7151-4e3f-a276-ff8cc11836c9)
+
+
 # How to Import
 > This project is intended to be used as a template that you can modify according to your needs. However, it can also be used as is if desired.
 1. Copy the [DesignSystem > Foundation] folder from this project and paste it into your desired project. Alternatively, you can copy only the component folders you need. Note that the Util, Rounded, and Typo folders contain essential properties that all components depend on, so they must be included.
