@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ChipControlBook: View {
     fileprivate struct ChipOption: Identifiable, Equatable {
-        let id: Int
+        let id = UUID()
+        let text: String
         
-        static func factory(_ options: [Int]) -> [ChipOption] {
-            return options.map { ChipOption(id: $0) }
+        static func factory(_ options: [String]) -> [ChipOption] {
+            return options.map { ChipOption(text: $0) }
         }
     }
     
@@ -22,16 +23,23 @@ struct ChipControlBook: View {
     private var colors = BasicChipColor.allCases
     @State private var selectedShape =  BasicChipShape.allCases.first!
     private var shapes = BasicChipShape.allCases
+    @State private var selectedOverflow =  ChipControlOverflow.allCases.first!
+    private var overflows = ChipControlOverflow.allCases
     
     @State private var selections: [ChipOption] = []
-    @State private var optionCount = 3
+    @State private var optionCount = 5
+    
+    @State private var options = ChipOption.factory([
+        "Swift", "Long description", "Short", "Very long description chip",
+        "Chip"
+    ])
     
     @State var state: Bool = false
     
     var body: some View {
         ScrollView {
             VStack {
-                Stepper(value: $optionCount, in: 1...10) {
+                Stepper(value: $optionCount, in: 1...20) {
                     Text("Option count \(optionCount)")
                         .typo(.body1b)
                 }
@@ -66,47 +74,58 @@ struct ChipControlBook: View {
                 }
                 .pickerStyle(.segmented)
                 
-                Divider()
-                    .padding(.vertical)
-                
-                ChipControl(
-                    ChipOption.factory(Array(0..<optionCount)),
-                    selections: $selections
-                ) { option in
-                    Text("\(option.id)")
-                }.styled(
-                    variant: selectedVariant,
-                    color: selectedColor,
-                    shape: selectedShape
-                )
-                
-                // MARK: With others
-                Divider()
-                    .padding(.vertical)
-                
-                Text("With others")
-                    .font(.system(size: 16, weight: .semibold))
-                
-                ChipControl(
-                    ChipOption.factory(Array(0..<optionCount)),
-                    selections: $selections
-                ) { option in
-                    HStack {
-                        Text("\(option.id)")
-                        if option.id == 1 {
-                            Text("N")
-                                .typo(.detail)
-                                .padding(6)
-                                .foregroundStyle(.white)
-                                .background(.destructive)
-                                .clipShape(Circle())
-                        }
+                Text("Overflow")
+                    .typo(.body1b)
+                Picker("Choose a shape", selection: $selectedOverflow) {
+                    ForEach(overflows, id: \.self) {
+                        Text($0.rawValue)
                     }
+                }
+                .pickerStyle(.segmented)
+                
+                Divider()
+                    .padding(.vertical)
+                
+                ChipControl(
+                    options,
+                    selections: $selections,
+                    overflow: selectedOverflow
+                ) { option in
+                    Text("\(option.text)")
                 }.styled(
                     variant: selectedVariant,
                     color: selectedColor,
                     shape: selectedShape
                 )
+//                
+//                // MARK: With others
+//                Divider()
+//                    .padding(.vertical)
+//                
+//                Text("With others")
+//                    .font(.system(size: 16, weight: .semibold))
+//                
+//                ChipControl(
+//                    options,
+//                    selections: $selections,
+//                    overflow: selectedOverflow
+//                ) { option in
+//                    HStack {
+//                        Text("\(option.id)")
+//                        if option.id == 1 {
+//                            Text("N")
+//                                .typo(.detail)
+//                                .padding(6)
+//                                .foregroundStyle(.white)
+//                                .background(.destructive)
+//                                .clipShape(Circle())
+//                        }
+//                    }
+//                }.styled(
+//                    variant: selectedVariant,
+//                    color: selectedColor,
+//                    shape: selectedShape
+//                )
             }
             .padding(pagePadding)
         }

@@ -41,10 +41,11 @@ struct BasicChipColorTheme: PickerColorTheme {
         if variant == .deepAndSoft { return .init(.clear) }
         
         switch (color, state) {
-        case (.primary, _): return .init(.basicYellow)
-        case (.secondary, _): return .init(.basicGreen)
-        case (.tertiary, _): return .init(.basicPink)
-        case (.stone, _): return .init(.gray05)
+        case (_, .selected): return .init(.none)
+        case (.primary, .unselected): return .init(.basicYellow.opacity(0.4))
+        case (.secondary, .unselected): return .init(.basicGreen.opacity(0.4))
+        case (.tertiary, .unselected): return .init(.basicPink.opacity(0.4))
+        case (.stone, .unselected): return .init(.gray03)
         }
     }
     

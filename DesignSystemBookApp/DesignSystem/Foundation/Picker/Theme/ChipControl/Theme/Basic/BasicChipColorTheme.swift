@@ -27,16 +27,14 @@ struct BasicChipFigureTheme: PickerFigureTheme {
         }
     }
     
+    /// Not used
     func containerRounded() -> RoundedOffset {
-        switch _shape {
-        case .round: return .xlarge
-        case .square: return .medium
-        case .pill: return .infinity
-        }
+        return .init(all: 0)
     }
     
+    /// Not used
     func containerPadding() -> GapOffset {
-        return .init(6, 12)
+        return .init(all: 0)
     }
     
     func itemRounded() -> RoundedOffset {
