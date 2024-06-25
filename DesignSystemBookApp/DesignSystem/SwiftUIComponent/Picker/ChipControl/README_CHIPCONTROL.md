@@ -16,14 +16,16 @@ ChipControl(
 ) { option in
     Text("\(option.id)")
 }.styled(
-    variant: .shadow,
-    color: .soft,
+    variant: .fillAndOutline,
+    color: .stone,
     shape: .round
 )
 ```
+![chip-control-basic](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/31b1fca6-8151-40c3-83b3-269171ae6f0a)
+
 
 ## Options
-The `multipleSelectio`n option enables or disables multiple selection. The default value is '.allow'.
+The `multipleSelection` option enables or disables multiple selection. The default value is '.allow'.
 
 The `overflow` option specifies the strategy for handling chip overflow beyond screen width. 
 The default option, `.wrap`, wraps the chip to the next line. 
@@ -38,12 +40,17 @@ private options = [
 
 ChipControl(
     options,
-    selection: $selections
+    selection: $selections,
+    multipleSelection: false, // Now only one item can be selected
+    overflow: .scroll
 ) { option in
     Text("\(option.id)")
 }.styled(
-    variant: .shadow,
-    color: .soft,
+    variant: .fillAndOutline,
+    color: .stone,
     shape: .round
 )
 ```
+![chip-control-options](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/123809d2-ac88-405e-878e-f37bd7bd69ff)
+
+
