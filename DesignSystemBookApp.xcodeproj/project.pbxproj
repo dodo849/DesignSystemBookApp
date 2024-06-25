@@ -131,6 +131,7 @@
 		BC979B2B2C2AA9DD00A2AC95 /* PickerThemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B2A2C2AA9DD00A2AC95 /* PickerThemeStore.swift */; };
 		BC979B2E2C2AAA5A00A2AC95 /* ChipControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B2D2C2AAA5A00A2AC95 /* ChipControl+Extension.swift */; };
 		BC979B302C2AAA9900A2AC95 /* ChipControlBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B2F2C2AAA9900A2AC95 /* ChipControlBook.swift */; };
+		BC979B322C2ABD5D00A2AC95 /* README_CHIPCONTROL.md in Resources */ = {isa = PBXBuildFile; fileRef = BC979B312C2ABD5D00A2AC95 /* README_CHIPCONTROL.md */; };
 		BCEBC82C2C23EC940040FCE0 /* BasicSegmentVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */; };
 		BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md */; };
 		BCEBC8302C23F61E0040FCE0 /* README_SEGMENTCONTROL.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82F2C23F61E0040FCE0 /* README_SEGMENTCONTROL.md */; };
@@ -279,6 +280,7 @@
 		BC979B2A2C2AA9DD00A2AC95 /* PickerThemeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerThemeStore.swift; sourceTree = "<group>"; };
 		BC979B2D2C2AAA5A00A2AC95 /* ChipControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChipControl+Extension.swift"; sourceTree = "<group>"; };
 		BC979B2F2C2AAA9900A2AC95 /* ChipControlBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipControlBook.swift; sourceTree = "<group>"; };
+		BC979B312C2ABD5D00A2AC95 /* README_CHIPCONTROL.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_CHIPCONTROL.md; sourceTree = "<group>"; };
 		BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSegmentVariant.swift; sourceTree = "<group>"; };
 		BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENTCONTROL_KR.md; sourceTree = "<group>"; };
 		BCEBC82F2C23F61E0040FCE0 /* README_SEGMENTCONTROL.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENTCONTROL.md; sourceTree = "<group>"; };
@@ -1083,6 +1085,7 @@
 		BC979B132C2AA34A00A2AC95 /* ChipControl */ = {
 			isa = PBXGroup;
 			children = (
+				BC979B312C2ABD5D00A2AC95 /* README_CHIPCONTROL.md */,
 				BC979B142C2AA35500A2AC95 /* Component */,
 			);
 			path = ChipControl;
@@ -1360,6 +1363,7 @@
 				BCEBC8322C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md in Resources */,
 				BC0932882C1A8F7900D3F8CB /* Assets.xcassets in Resources */,
 				BCEBC8302C23F61E0040FCE0 /* README_SEGMENTCONTROL.md in Resources */,
+				BC979B322C2ABD5D00A2AC95 /* README_CHIPCONTROL.md in Resources */,
 				BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md in Resources */,
 				BC05D40E2C202C91006C599B /* README_SKELETON_KR.md in Resources */,
 				BC05D5202C21F88F006C599B /* README_TOAST_KR.md in Resources */,

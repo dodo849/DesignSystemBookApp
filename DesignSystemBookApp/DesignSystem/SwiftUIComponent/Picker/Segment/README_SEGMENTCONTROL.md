@@ -1,4 +1,4 @@
-# Segment
+# SegmentControl
 ## Basic Usage
 
 You can create a segmented picker using the `Segment` component and `styled()`. 
