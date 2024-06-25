@@ -36,7 +36,7 @@ struct BasicSegmentFigureTheme: PickerFigureTheme {
     }
     
     func containerPadding() -> GapOffset {
-        return .init(6, 12)
+        return .init(8, 12)
     }
     
     func itemRounded() -> RoundedOffset {
@@ -54,5 +54,4 @@ struct BasicSegmentFigureTheme: PickerFigureTheme {
     func itemSpacing() -> GapOffset {
         return .init(all: 8)
     }
-    
 }

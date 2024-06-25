@@ -1,12 +1,13 @@
 //
-//  TabViewBook.swift
+//  SegmentControlBook.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/19/24.
 //
 
 import SwiftUI
-struct SegmentBook: View {
+
+struct SegmentControlBook: View {
     fileprivate struct SegmentOption: Identifiable, Equatable {
         let id: Int
         
@@ -111,30 +112,6 @@ struct SegmentBook: View {
     }
 }
 
-struct FirstView: View {
-    var body: some View {
-        Text("First View")
-            .font(.largeTitle)
-            .foregroundColor(.blue)
-    }
-}
-
-struct SecondView: View {
-    var body: some View {
-        Text("Second View")
-            .font(.largeTitle)
-            .foregroundColor(.green)
-    }
-}
-
-struct ThirdView: View {
-    var body: some View {
-        Text("Third View")
-            .font(.largeTitle)
-            .foregroundColor(.red)
-    }
-}
-
 #Preview {
-    SegmentBook()
+    SegmentControlBook()
 }

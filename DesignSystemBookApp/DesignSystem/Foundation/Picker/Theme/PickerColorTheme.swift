@@ -12,5 +12,6 @@ protocol PickerColorTheme {
     func itemBackgroundColor(state: PickerState) -> ColorOffset
     func itemForegroundColor(state: PickerState) -> ColorOffset
     func itemShadowColor(state: PickerState) -> ColorOffset
+    func itemBorderColor(state: PickerState) -> ColorOffset
     func containerBackgroundColor() -> ColorOffset
 }

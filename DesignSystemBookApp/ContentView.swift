@@ -81,7 +81,14 @@ struct ContentView: View {
                         title: "Basic Segment",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
-                        swiftuiDestination: SegmentBook()
+                        swiftuiDestination: SegmentControlBook()
+                    )
+                    
+                    exampleSection(
+                        title: "Basic Chip",
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        swiftuiDestination: ChipControlBook()
                     )
                     
                     Spacer().frame(height: 100)

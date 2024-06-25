@@ -38,8 +38,8 @@ struct BasicSegmentColorTheme: PickerColorTheme {
         }
     }
     
-    func containerBackgroundColor() -> ColorOffset {
-        return .init(.gray02)
+    func itemBorderColor(state: PickerState) -> ColorOffset {
+        return .init(.clear)
     }
     
     func itemShadowColor(state: PickerState) -> ColorOffset {
@@ -48,5 +48,9 @@ struct BasicSegmentColorTheme: PickerColorTheme {
         case (.shadow, .selected): return .init(.black.opacity(0.2))
         case (.shadow, .unselected): return .init(.clear)
         }
+    }
+    
+    func containerBackgroundColor() -> ColorOffset {
+        return .init(.gray02)
     }
 }

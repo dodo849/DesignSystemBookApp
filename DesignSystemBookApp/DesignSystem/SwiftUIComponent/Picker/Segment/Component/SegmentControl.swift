@@ -6,20 +6,6 @@
 //
 
 import SwiftUI
-import Combine
-
-class SegmentThemeStore: ObservableObject {
-    @Published var colorTheme: PickerColorTheme
-    @Published var figureTheme: PickerFigureTheme
-    
-    init() {
-        self.colorTheme = BasicSegmentColorTheme(
-            variant: .flat,
-            color: .primary
-        )
-        self.figureTheme = BasicSegmentFigureTheme(shape: .round)
-    }
-}
 
 // 세그먼트는 PickerStyle 커스텀이 어려운 관계로 스타일팩토리 없이 완전한 커스텀 뷰로 구성되었습니다.
 // 테마 정보는 styeld 메서드를 통해 store(ObservedObject)로 전달되고 반영됩니다.
@@ -29,25 +15,21 @@ public struct SegmentControl<Content, Value>: View where Content: View, Value: I
     private var content: (Value) -> Content
     
     // Theme
-    @ObservedObject var store: SegmentThemeStore
+    @ObservedObject var store: PickerThemeStore
     
     // State
     @Binding private var selection: Value
     
-    // Cancelable
-    private var cancelable = Set<AnyCancellable>()
-    
     public init(
         _ sources: [Value],
         selection: Binding<Value>,
-        color: BasicSegmentColor = .primary,
         @ViewBuilder content: @escaping (Value) -> Content
     ) {
         self.sources = sources
         self._selection = selection
         self.content = content
         
-        self._store = ObservedObject(wrappedValue: SegmentThemeStore())
+        self._store = ObservedObject(wrappedValue: PickerThemeStore())
     }
     
     public var body: some View {
@@ -102,7 +84,7 @@ public struct SegmentControl<Content, Value>: View where Content: View, Value: I
         .frame(maxWidth: .infinity)
         .frame(maxHeight: .infinity)
         .padding(.vertical, padding.vertical)
-        .padding(.horizontal, spacing)
+        .padding(.horizontal, padding.horizontal)
         .background(store.colorTheme.containerBackgroundColor().color)
         .clipShape(store.figureTheme.shape())
         .animation(.spring(response: 0.25), value: selection)
