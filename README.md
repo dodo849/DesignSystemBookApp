@@ -1,5 +1,10 @@
+
+![image](https://github.com/dodo849/DesignSystemBookApp/assets/71880682/c0b8e062-a2ba-4ee2-901f-444f75cc13a9)
+
 # Project Description
 This project is an example project based on an extendable design system, rather than a static design system package. It is built on the Theme protocol and Token enum, allowing for expansion into various designs and facilitating easy identification and handling of changes. Additionally, it includes a design system compatible with both UIKit and SwiftUI.
+
+It also includes an app target where you can see the actual components in action. Clone the project and build it to check them out.
 
 # How to Import
 > This project is intended to be used as a template that you can modify according to your needs. However, it can also be used as is if desired.
