@@ -34,7 +34,7 @@ public extension Button {
     }
     
     // gray
-    func styled(
+    func grayStyled(
         variant: BasicButtonVariant = .fill,
         color: GrayButtonColor = .mute,
         size: BasicButtonSize = .large,

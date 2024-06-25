@@ -60,7 +60,7 @@ struct ToastBook: View {
                     Text("show toast")
                         .typo(.body1b)
                 }
-                .styled(
+                .grayStyled(
                     variant: .outline,
                     color: .stone,
                     size: .medium

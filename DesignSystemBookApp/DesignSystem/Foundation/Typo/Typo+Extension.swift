@@ -8,6 +8,8 @@
 import UIKit
 import SwiftUI
 
+let lineHeightMultiplier: CGFloat = 0.2
+
 public enum FontWeight: String {
     case thin, extraLight, light, regular, medium
     case semibold, bold, extraBold, black
@@ -62,10 +64,8 @@ extension FontWeight {
 }
 
 public enum Typo {
-    /// Font size: 32, weight: medium
-    case heading1
     /// Font size: 32, weight: bold
-    case heading1b
+    case heading1
     /// Font size: 28, weight: bold
     case heading2
     /// Font size: 22, weight: bold
@@ -78,11 +78,11 @@ public enum Typo {
     case body1
     /// Font size: 16, weight: semibold
     case body1b
-    /// Font size: 14, weight: medium
+    /// Font size: 14, weight: regular
     case body2
     /// Font size: 14, weight: semibold
     case body2b
-    /// Font size: 12, weight: medium
+    /// Font size: 12, weight: regular
     case body3
     /// Font size: 12, weight: semibold
     case body3b
@@ -103,30 +103,58 @@ public extension UILabel { // TODO: line height 추가
         weight: FontWeight = .regular
     ) {
         /*
-        switch weight {
-        case .black:
-            self.font = UIFont(name: "NotoSansKR-Black", size: size)
-        case .extraBold:
-            self.font = UIFont(name: "NotoSansKR-ExtraBold", size: size)
-        case .bold:
-            self.font = UIFont(name: "NotoSansKR-Bold", size: size)
-        case .semiBold:
-            self.font = UIFont(name: "NotoSansKR-SemiBold", size: size)
-        case .medium:
-            self.font = UIFont(name: "NotoSansKR-Medium", size: size)
-        case .regular:
-            self.font = UIFont(name: "NotoSansKR-Regular", size: size)
-        case .light:
-            self.font = UIFont(name: "NotoSansKR-Light", size: size)
-        case .extraLight:
-            self.font = UIFont(name: "NotoSansKR-ExtraLight", size: size)
-        case .thin:
-            self.font = UIFont(name: "NotoSansKR-Thin", size: size)
-        }
+         switch weight {
+         case .black:
+         self.font = UIFont(name: "NotoSansKR-Black", size: size)
+         case .extraBold:
+         self.font = UIFont(name: "NotoSansKR-ExtraBold", size: size)
+         case .bold:
+         self.font = UIFont(name: "NotoSansKR-Bold", size: size)
+         case .semiBold:
+         self.font = UIFont(name: "NotoSansKR-SemiBold", size: size)
+         case .medium:
+         self.font = UIFont(name: "NotoSansKR-Medium", size: size)
+         case .regular:
+         self.font = UIFont(name: "NotoSansKR-Regular", size: size)
+         case .light:
+         self.font = UIFont(name: "NotoSansKR-Light", size: size)
+         case .extraLight:
+         self.font = UIFont(name: "NotoSansKR-ExtraLight", size: size)
+         case .thin:
+         self.font = UIFont(name: "NotoSansKR-Thin", size: size)
+         }
          */
         self.font = .systemFont(ofSize: size, weight: weight.uikitWeight)
         self.textColor = .basicText
+        self.setLineHeight(multiplier: lineHeightMultiplier)
     }
+    
+    func setLineHeight(multiplier: CGFloat) {
+        guard let labelText = self.text else { return }
+        
+        let fontSize = self.font.pointSize
+        let lineHeight = fontSize * multiplier
+        let baselineOffset = (lineHeight - fontSize) / 4
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.minimumLineHeight = lineHeight
+        paragraphStyle.maximumLineHeight = lineHeight
+        
+        let attributedString = NSMutableAttributedString(string: labelText)
+        attributedString.addAttribute(
+            .paragraphStyle,
+            value: paragraphStyle,
+            range: NSMakeRange(0, attributedString.length)
+        )
+        attributedString.addAttribute(
+            .baselineOffset,
+            value: baselineOffset,
+            range: NSMakeRange(0, attributedString.length)
+        )
+        
+        self.attributedText = attributedString
+    }
+
     
     // swiftlint:disable:next orphaned_doc_comment
     /// Set the typography of the text.
@@ -140,8 +168,6 @@ public extension UILabel { // TODO: line height 추가
     func setTypo(_ typo: Typo) {
         switch typo {
         case .heading1:
-            self.setDefaultFont(size: 32, weight: .medium)
-        case .heading1b:
             self.setDefaultFont(size: 32, weight: .bold)
         case .heading2:
             self.setDefaultFont(size: 28, weight: .bold)
@@ -156,11 +182,11 @@ public extension UILabel { // TODO: line height 추가
         case .body1b:
             self.setDefaultFont(size: 16, weight: .semibold)
         case .body2:
-            self.setDefaultFont(size: 14, weight: .medium)
+            self.setDefaultFont(size: 14, weight: .regular)
         case .body2b:
             self.setDefaultFont(size: 14, weight: .semibold)
         case .body3:
-            self.setDefaultFont(size: 12, weight: .medium)
+            self.setDefaultFont(size: 12, weight: .regular)
         case .body3b:
             self.setDefaultFont(size: 12, weight: .semibold)
         case .detail:
@@ -202,6 +228,7 @@ public extension View {
          return self.font(.custom(fontName, size: size))
          */
         return self.font(.system(size: size, weight: weight.swiftuiWeight))
+            .lineSpacing(size * lineHeightMultiplier)
             .asAnyView()
     }
     
@@ -216,8 +243,6 @@ public extension View {
     func typo(_ typo: Typo) -> some View {
         switch typo {
         case .heading1:
-            return self.defaultFont(size: 32, weight: .medium)
-        case .heading1b:
             return self.defaultFont(size: 32, weight: .bold)
         case .heading2:
             return self.defaultFont(size: 28, weight: .bold)
@@ -232,11 +257,11 @@ public extension View {
         case .body1b:
             return self.defaultFont(size: 16, weight: .semibold)
         case .body2:
-            return self.defaultFont(size: 14, weight: .medium)
+            return self.defaultFont(size: 14, weight: .regular)
         case .body2b:
             return self.defaultFont(size: 14, weight: .semibold)
         case .body3:
-            return self.defaultFont(size: 12, weight: .medium)
+            return self.defaultFont(size: 12, weight: .regular)
         case .body3b:
             return self.defaultFont(size: 12, weight: .semibold)
         case .detail:

@@ -72,7 +72,7 @@ struct GrayButtonBook: View {
                             Text("Button")
                         }
                     }
-                    .styled(
+                    .grayStyled(
                         variant: selectedVariant,
                         color: color,
                         size: selectedSize,
