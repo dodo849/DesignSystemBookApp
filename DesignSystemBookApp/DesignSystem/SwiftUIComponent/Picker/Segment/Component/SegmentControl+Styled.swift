@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public extension Segment {
+public extension SegmentControl {
     func styled(
         variant: BasicSegmentVariant = .flat,
         color: BasicSegmentColor = .primary,

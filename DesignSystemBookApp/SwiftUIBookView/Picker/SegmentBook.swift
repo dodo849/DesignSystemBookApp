@@ -67,7 +67,7 @@ struct SegmentBook: View {
                 Divider()
                     .padding(.vertical)
                 
-                Segment(
+                SegmentControl(
                     SegmentOption.factory(Array(0..<optionCount)),
                     selection: $selection
                 ) { option in
@@ -85,7 +85,7 @@ struct SegmentBook: View {
                 Text("With others")
                     .font(.system(size: 16, weight: .semibold))
                 
-                Segment(
+                SegmentControl(
                     SegmentOption.factory(Array(0..<optionCount)),
                     selection: $selection
                 ) { option in

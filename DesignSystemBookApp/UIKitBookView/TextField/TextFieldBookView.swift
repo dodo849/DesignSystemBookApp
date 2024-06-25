@@ -110,11 +110,19 @@ final class TextFieldBookView: BaseView {
             $0.setTypo(.body1b)
             $0.textColor = .basicText
         }
+        let titleIcon = UIImageView(
+            image: UIImage(systemName: "checkmark.circle")
+        ).then {
+            $0.snp.makeConstraints {
+                $0.width.equalTo(20)
+            }
+        }
         let description = UILabel().then {
             $0.text = "Description"
             $0.setTypo(.body3)
             $0.textColor = .gray04
         }
+        $0.addTitle(titleIcon)
         $0.addTitle(title)
         $0.addDescription(description)
         $0.styled()
@@ -171,7 +179,7 @@ final class TextFieldBookView: BaseView {
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
             $0.width.equalTo(scrollView)
-            $0.height.equalTo(stackView.snp.height).offset(30)
+            $0.height.equalTo(stackView.snp.bottom).offset(32)
         }
         
         stackView.snp.makeConstraints {

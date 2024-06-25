@@ -8,7 +8,8 @@
 import UIKit
 import SwiftUI
 
-let lineHeightMultiplier: CGFloat = 0.2
+/// System default is 0.0
+let lineSpacingMultiplier: CGFloat = 0.2
 
 public enum FontWeight: String {
     case thin, extraLight, light, regular, medium
@@ -90,7 +91,7 @@ public enum Typo {
     case detail
 }
 
-public extension UILabel { // TODO: line height 추가
+public extension UILabel {
     /// Set the default font of the text.
     ///
     /// ```swift
@@ -126,7 +127,7 @@ public extension UILabel { // TODO: line height 추가
          */
         self.font = .systemFont(ofSize: size, weight: weight.uikitWeight)
         self.textColor = .basicText
-        self.setLineHeight(multiplier: lineHeightMultiplier)
+        self.setLineHeight(multiplier: lineSpacingMultiplier)
     }
     
     func setLineHeight(multiplier: CGFloat) {
@@ -134,11 +135,12 @@ public extension UILabel { // TODO: line height 추가
         
         let fontSize = self.font.pointSize
         let lineHeight = fontSize * multiplier
+        let lineSpacing = lineHeight - fontSize
         let baselineOffset = (lineHeight - fontSize) / 4
         
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.minimumLineHeight = lineHeight
-        paragraphStyle.maximumLineHeight = lineHeight
+        paragraphStyle.lineSpacing = lineSpacing
+//        paragraphStyle.maximumLineHeight = lineHeight
         
         let attributedString = NSMutableAttributedString(string: labelText)
         attributedString.addAttribute(
@@ -146,16 +148,15 @@ public extension UILabel { // TODO: line height 추가
             value: paragraphStyle,
             range: NSMakeRange(0, attributedString.length)
         )
-        attributedString.addAttribute(
-            .baselineOffset,
-            value: baselineOffset,
-            range: NSMakeRange(0, attributedString.length)
-        )
+//        attributedString.addAttribute(
+//            .baselineOffset,
+//            value: baselineOffset,
+//            range: NSMakeRange(0, attributedString.length)
+//        )
         
         self.attributedText = attributedString
     }
 
-    
     // swiftlint:disable:next orphaned_doc_comment
     /// Set the typography of the text.
     ///
@@ -228,7 +229,7 @@ public extension View {
          return self.font(.custom(fontName, size: size))
          */
         return self.font(.system(size: size, weight: weight.swiftuiWeight))
-            .lineSpacing(size * lineHeightMultiplier)
+            .lineSpacing(size * lineSpacingMultiplier)
             .asAnyView()
     }
     

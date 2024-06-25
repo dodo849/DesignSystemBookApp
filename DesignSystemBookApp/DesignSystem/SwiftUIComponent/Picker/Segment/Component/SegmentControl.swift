@@ -23,7 +23,7 @@ class SegmentThemeStore: ObservableObject {
 
 // 세그먼트는 PickerStyle 커스텀이 어려운 관계로 스타일팩토리 없이 완전한 커스텀 뷰로 구성되었습니다.
 // 테마 정보는 styeld 메서드를 통해 store(ObservedObject)로 전달되고 반영됩니다.
-public struct Segment<Content, Value>: View where Content: View, Value: Identifiable & Equatable {
+public struct SegmentControl<Content, Value>: View where Content: View, Value: Identifiable & Equatable {
     // Initial
     private var sources: [Value]
     private var content: (Value) -> Content
@@ -33,9 +33,6 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
     
     // State
     @Binding private var selection: Value
-    
-    // Constant
-    private let itemSpacing: CGFloat = 8
     
     // Cancelable
     private var cancelable = Set<AnyCancellable>()
@@ -55,7 +52,8 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
     
     public var body: some View {
         let padding = store.figureTheme.containerPadding()
-        HStack(spacing: itemSpacing) {
+        let spacing = store.figureTheme.itemSpacing().horizontal ?? 0
+        HStack(spacing: spacing) {
             ForEach(sources, id: \.id) { value in
                 content(value)
                     .frame(maxWidth: .infinity)
@@ -88,7 +86,7 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
                     .frame(
                         maxWidth: max(
                             (geometry.size.width
-                             - itemSpacing * CGFloat(sources.count - 1))
+                             - spacing * CGFloat(sources.count - 1))
                             / CGFloat(sources.count),
                             0
                         )
@@ -104,7 +102,7 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
         .frame(maxWidth: .infinity)
         .frame(maxHeight: .infinity)
         .padding(.vertical, padding.vertical)
-        .padding(.horizontal, itemSpacing)
+        .padding(.horizontal, spacing)
         .background(store.colorTheme.containerBackgroundColor().color)
         .clipShape(store.figureTheme.shape())
         .animation(.spring(response: 0.25), value: selection)
@@ -112,9 +110,10 @@ public struct Segment<Content, Value>: View where Content: View, Value: Identifi
     }
     
     private func offsetForIndicator(in totalWidth: CGFloat) -> CGFloat {
+        let spacing = store.figureTheme.itemSpacing().horizontal ?? 0
         let index = contentIndex(for: selection)
-        let itemWidth = (totalWidth - itemSpacing * CGFloat(sources.count - 1)) / CGFloat(sources.count)
-        return (itemWidth + itemSpacing) * (CGFloat(index))
+        let itemWidth = (totalWidth - spacing * CGFloat(sources.count - 1)) / CGFloat(sources.count)
+        return (itemWidth + spacing) * (CGFloat(index))
     }
     
     private func contentIndex(for option: Value) -> Int {

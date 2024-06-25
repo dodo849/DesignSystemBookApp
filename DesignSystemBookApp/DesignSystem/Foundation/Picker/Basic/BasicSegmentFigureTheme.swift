@@ -51,4 +51,8 @@ struct BasicSegmentFigureTheme: PickerFigureTheme {
         return .init(10, 28)
     }
     
+    func itemSpacing() -> GapOffset {
+        return .init(all: 8)
+    }
+    
 }

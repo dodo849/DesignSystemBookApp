@@ -13,4 +13,5 @@ protocol PickerFigureTheme {
     func containerPadding() -> GapOffset
     func itemRounded() -> RoundedOffset
     func itemPadding() -> GapOffset
+    func itemSpacing() -> GapOffset
 }

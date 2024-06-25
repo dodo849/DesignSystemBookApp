@@ -80,9 +80,9 @@
 		BC05D5572C2325FB006C599B /* BasicSegmentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D54E2C2325FB006C599B /* BasicSegmentColor.swift */; };
 		BC05D5582C2325FB006C599B /* BasicSegmentColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5502C2325FB006C599B /* BasicSegmentColorTheme.swift */; };
 		BC05D5592C2325FB006C599B /* BasicSegmentFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5512C2325FB006C599B /* BasicSegmentFigureTheme.swift */; };
-		BC05D55B2C23276A006C599B /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D55A2C23276A006C599B /* Segment.swift */; };
+		BC05D55B2C23276A006C599B /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D55A2C23276A006C599B /* SegmentControl.swift */; };
 		BC05D55D2C2329E8006C599B /* PickerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D55C2C2329E8006C599B /* PickerState.swift */; };
-		BC05D5622C235E81006C599B /* Segment+Styled.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5612C235E81006C599B /* Segment+Styled.swift */; };
+		BC05D5622C235E81006C599B /* SegmentControl+Styled.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5612C235E81006C599B /* SegmentControl+Styled.swift */; };
 		BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */; };
 		BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */; };
 		BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */; };
@@ -123,8 +123,8 @@
 		BC18EC912C1DC39B0061599B /* README_BUTTON.md in Resources */ = {isa = PBXBuildFile; fileRef = BC18EC902C1DC39B0061599B /* README_BUTTON.md */; };
 		BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9799E22C2985F400A2AC95 /* Divider+View.swift */; };
 		BCEBC82C2C23EC940040FCE0 /* BasicSegmentVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */; };
-		BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENT_KR.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENT_KR.md */; };
-		BCEBC8302C23F61E0040FCE0 /* README_SEGMENT.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82F2C23F61E0040FCE0 /* README_SEGMENT.md */; };
+		BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md */; };
+		BCEBC8302C23F61E0040FCE0 /* README_SEGMENTCONTROL.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82F2C23F61E0040FCE0 /* README_SEGMENTCONTROL.md */; };
 		BCEBC8322C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC8312C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md */; };
 		BCEBC8342C2422370040FCE0 /* README_RADIOBUTTON_SWIFTUI.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC8332C2422370040FCE0 /* README_RADIOBUTTON_SWIFTUI.md */; };
 		BCF03A6E2C2939D2006D102E /* ButtonBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF03A6D2C2939D2006D102E /* ButtonBookView.swift */; };
@@ -218,9 +218,9 @@
 		BC05D54E2C2325FB006C599B /* BasicSegmentColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSegmentColor.swift; sourceTree = "<group>"; };
 		BC05D5502C2325FB006C599B /* BasicSegmentColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSegmentColorTheme.swift; sourceTree = "<group>"; };
 		BC05D5512C2325FB006C599B /* BasicSegmentFigureTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSegmentFigureTheme.swift; sourceTree = "<group>"; };
-		BC05D55A2C23276A006C599B /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
+		BC05D55A2C23276A006C599B /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 		BC05D55C2C2329E8006C599B /* PickerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerState.swift; sourceTree = "<group>"; };
-		BC05D5612C235E81006C599B /* Segment+Styled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Segment+Styled.swift"; sourceTree = "<group>"; };
+		BC05D5612C235E81006C599B /* SegmentControl+Styled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentControl+Styled.swift"; sourceTree = "<group>"; };
 		BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932512C1A8F5200D3F8CB /* ButtonThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonThemeType.swift; sourceTree = "<group>"; };
@@ -262,8 +262,8 @@
 		BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9799E22C2985F400A2AC95 /* Divider+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Divider+View.swift"; sourceTree = "<group>"; };
 		BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSegmentVariant.swift; sourceTree = "<group>"; };
-		BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENT_KR.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENT_KR.md; sourceTree = "<group>"; };
-		BCEBC82F2C23F61E0040FCE0 /* README_SEGMENT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENT.md; sourceTree = "<group>"; };
+		BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENTCONTROL_KR.md; sourceTree = "<group>"; };
+		BCEBC82F2C23F61E0040FCE0 /* README_SEGMENTCONTROL.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENTCONTROL.md; sourceTree = "<group>"; };
 		BCEBC8312C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README_RADIOBUTTON_SWIFTUI(KR).md"; sourceTree = "<group>"; };
 		BCEBC8332C2422370040FCE0 /* README_RADIOBUTTON_SWIFTUI.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_RADIOBUTTON_SWIFTUI.md; sourceTree = "<group>"; };
 		BCF03A6D2C2939D2006D102E /* ButtonBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBookView.swift; sourceTree = "<group>"; };
@@ -735,6 +735,7 @@
 		BC05D5462C2318E8006C599B /* Picker */ = {
 			isa = PBXGroup;
 			children = (
+				BC979B132C2AA34A00A2AC95 /* ChipControl */,
 				BC05D5472C231B53006C599B /* Segment */,
 			);
 			path = Picker;
@@ -743,8 +744,8 @@
 		BC05D5472C231B53006C599B /* Segment */ = {
 			isa = PBXGroup;
 			children = (
-				BCEBC82F2C23F61E0040FCE0 /* README_SEGMENT.md */,
-				BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENT_KR.md */,
+				BCEBC82F2C23F61E0040FCE0 /* README_SEGMENTCONTROL.md */,
+				BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md */,
 				BCEBC8282C23DF370040FCE0 /* Component */,
 			);
 			path = Segment;
@@ -1062,11 +1063,26 @@
 			path = Divider;
 			sourceTree = "<group>";
 		};
+		BC979B132C2AA34A00A2AC95 /* ChipControl */ = {
+			isa = PBXGroup;
+			children = (
+				BC979B142C2AA35500A2AC95 /* Component */,
+			);
+			path = ChipControl;
+			sourceTree = "<group>";
+		};
+		BC979B142C2AA35500A2AC95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		BCEBC8282C23DF370040FCE0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				BC05D55A2C23276A006C599B /* Segment.swift */,
-				BC05D5612C235E81006C599B /* Segment+Styled.swift */,
+				BC05D55A2C23276A006C599B /* SegmentControl.swift */,
+				BC05D5612C235E81006C599B /* SegmentControl+Styled.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1260,8 +1276,8 @@
 				BC18EC912C1DC39B0061599B /* README_BUTTON.md in Resources */,
 				BCEBC8322C2420500040FCE0 /* README_RADIOBUTTON_SWIFTUI(KR).md in Resources */,
 				BC0932882C1A8F7900D3F8CB /* Assets.xcassets in Resources */,
-				BCEBC8302C23F61E0040FCE0 /* README_SEGMENT.md in Resources */,
-				BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENT_KR.md in Resources */,
+				BCEBC8302C23F61E0040FCE0 /* README_SEGMENTCONTROL.md in Resources */,
+				BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md in Resources */,
 				BC05D40E2C202C91006C599B /* README_SKELETON_KR.md in Resources */,
 				BC05D5202C21F88F006C599B /* README_TOAST_KR.md in Resources */,
 				BC05D51E2C21F7B1006C599B /* README_TOAST.md in Resources */,
@@ -1379,7 +1395,7 @@
 				BC05D4572C213609006C599B /* DSSapcer.swift in Sources */,
 				BC05D42D2C2049B5006C599B /* ButtonBookRepresentable.swift in Sources */,
 				BCF03A702C294DAA006D102E /* BaseTextField.swift in Sources */,
-				BC05D5622C235E81006C599B /* Segment+Styled.swift in Sources */,
+				BC05D5622C235E81006C599B /* SegmentControl+Styled.swift in Sources */,
 				BCFD545F2C1BECA900191F34 /* BasicButtonBook.swift in Sources */,
 				BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */,
 				BC05D3D62C1F3094006C599B /* EmptyShape.swift in Sources */,
@@ -1411,7 +1427,7 @@
 				BCFD545B2C1BE7E900191F34 /* BasicButtonShape.swift in Sources */,
 				BC05D3E22C1FD83D006C599B /* TextFieldAffixStyleFactory.swift in Sources */,
 				BC05D3F02C200B0E006C599B /* SkeletonVariant.swift in Sources */,
-				BC05D55B2C23276A006C599B /* Segment.swift in Sources */,
+				BC05D55B2C23276A006C599B /* SegmentControl.swift in Sources */,
 				BC05D4002C20136D006C599B /* SkeletonFigureTheme.swift in Sources */,
 				BC0933E42C1B2C1A00D3F8CB /* SingleRadioButton.swift in Sources */,
 				BC0933EA2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift in Sources */,
