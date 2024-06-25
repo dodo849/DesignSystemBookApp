@@ -25,9 +25,10 @@ struct ChipControlBook: View {
     private var shapes = BasicChipShape.allCases
     @State private var selectedOverflow =  ChipControlOverflow.allCases.first!
     private var overflows = ChipControlOverflow.allCases
+    @State private var selectedMultiple =  ChipControlMultipleSelection.allCases.first!
+    private var multiples = ChipControlMultipleSelection.allCases
     
     @State private var selections: [ChipOption] = []
-    @State private var optionCount = 5
     
     @State private var options = ChipOption.factory([
         "Swift", "Long description", "Short", "Very long description chip",
@@ -39,14 +40,6 @@ struct ChipControlBook: View {
     var body: some View {
         ScrollView {
             VStack {
-                Stepper(value: $optionCount, in: 1...20) {
-                    Text("Option count \(optionCount)")
-                        .typo(.body1b)
-                }
-                .padding()
-                .background(.gray01)
-                .cornerRadius(12)
-                
                 Text("Variant")
                     .typo(.body1b)
                 Picker("Choose a variant", selection: $selectedVariant) {
@@ -76,8 +69,17 @@ struct ChipControlBook: View {
                 
                 Text("Overflow")
                     .typo(.body1b)
-                Picker("Choose a shape", selection: $selectedOverflow) {
+                Picker("Choose a overflow", selection: $selectedOverflow) {
                     ForEach(overflows, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                Text("Multiple selection")
+                    .typo(.body1b)
+                Picker("Choose a multiple", selection: $selectedMultiple) {
+                    ForEach(multiples, id: \.self) {
                         Text($0.rawValue)
                     }
                 }
@@ -89,7 +91,8 @@ struct ChipControlBook: View {
                 ChipControl(
                     options,
                     selections: $selections,
-                    overflow: selectedOverflow
+                    overflow: selectedOverflow,
+                    multipleSelection: selectedMultiple
                 ) { option in
                     Text("\(option.text)")
                 }.styled(
@@ -97,35 +100,6 @@ struct ChipControlBook: View {
                     color: selectedColor,
                     shape: selectedShape
                 )
-//                
-//                // MARK: With others
-//                Divider()
-//                    .padding(.vertical)
-//                
-//                Text("With others")
-//                    .font(.system(size: 16, weight: .semibold))
-//                
-//                ChipControl(
-//                    options,
-//                    selections: $selections,
-//                    overflow: selectedOverflow
-//                ) { option in
-//                    HStack {
-//                        Text("\(option.id)")
-//                        if option.id == 1 {
-//                            Text("N")
-//                                .typo(.detail)
-//                                .padding(6)
-//                                .foregroundStyle(.white)
-//                                .background(.destructive)
-//                                .clipShape(Circle())
-//                        }
-//                    }
-//                }.styled(
-//                    variant: selectedVariant,
-//                    color: selectedColor,
-//                    shape: selectedShape
-//                )
             }
             .padding(pagePadding)
         }

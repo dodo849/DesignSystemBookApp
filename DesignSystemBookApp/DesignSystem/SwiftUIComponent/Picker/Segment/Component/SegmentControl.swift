@@ -40,7 +40,7 @@ public struct SegmentControl<Content, Value>: View where Content: View, Value: I
                 content(value)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
-                    .typo(.body1b)
+                    .typo(.body2b)
                     .foregroundStyle(
                         store.colorTheme.itemForegroundColor(
                             state: selection == value

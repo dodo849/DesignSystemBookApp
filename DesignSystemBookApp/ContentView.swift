@@ -78,14 +78,14 @@ struct ContentView: View {
                     sectionHeader(title: "Picker")
                     
                     exampleSection(
-                        title: "Basic Segment",
+                        title: "Basic SegmentControl",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
                         swiftuiDestination: SegmentControlBook()
                     )
                     
                     exampleSection(
-                        title: "Basic Chip",
+                        title: "Basic ChipControl",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
                         swiftuiDestination: ChipControlBook()

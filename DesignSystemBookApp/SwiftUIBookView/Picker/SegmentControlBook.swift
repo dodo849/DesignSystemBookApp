@@ -15,6 +15,7 @@ struct SegmentControlBook: View {
             return options.map { SegmentOption(id: $0) }
         }
     }
+    
     @State private var selectedVariant =  BasicSegmentVariant.allCases.first!
     private var variants = BasicSegmentVariant.allCases
     @State private var selectedColor =  BasicSegmentColor.allCases.first!

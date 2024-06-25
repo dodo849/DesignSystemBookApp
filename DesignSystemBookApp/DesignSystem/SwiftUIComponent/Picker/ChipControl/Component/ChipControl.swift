@@ -75,7 +75,7 @@ public struct ChipControl<Content, Value>: View where Content: View, Value: Iden
             content(value)
                 .padding(.vertical, padding.vertical)
                 .padding(.horizontal, padding.horizontal)
-                .typo(.body1b)
+                .typo(selectState == .selected ? .body2b : .body2)
                 .foregroundStyle(
                     store.colorTheme.itemForegroundColor(
                         state: selectState

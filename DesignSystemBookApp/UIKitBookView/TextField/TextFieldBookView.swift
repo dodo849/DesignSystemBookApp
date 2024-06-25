@@ -179,7 +179,7 @@ final class TextFieldBookView: BaseView {
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
             $0.width.equalTo(scrollView)
-            $0.height.equalTo(stackView.snp.bottom).offset(32)
+            $0.height.equalTo(stackView.snp.height).offset(32)
         }
         
         stackView.snp.makeConstraints {

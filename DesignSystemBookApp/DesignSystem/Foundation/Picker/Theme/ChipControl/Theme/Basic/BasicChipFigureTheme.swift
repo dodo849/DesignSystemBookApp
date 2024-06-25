@@ -42,10 +42,7 @@ struct BasicChipColorTheme: PickerColorTheme {
         
         switch (color, state) {
         case (_, .selected): return .init(.none)
-        case (.primary, .unselected): return .init(.basicYellow.opacity(0.4))
-        case (.secondary, .unselected): return .init(.basicGreen.opacity(0.4))
-        case (.tertiary, .unselected): return .init(.basicPink.opacity(0.4))
-        case (.stone, .unselected): return .init(.gray03)
+        case (_, .unselected): return .init(.gray03)
         }
     }
     
@@ -67,7 +64,7 @@ extension BasicChipColorTheme {
         case (.primary, .selected): return .init(.basicYellow)
         case (.secondary, .selected): return .init(.basicGreen)
         case (.tertiary, .selected): return .init(.basicPink)
-        case (.stone, .selected): return .init(.gray05)
+        case (.stone, .selected): return .init(.gray06)
         }
     }
     
@@ -76,20 +73,17 @@ extension BasicChipColorTheme {
         case (.primary, .unselected): return .init(.basicYellowSoft)
         case (.secondary, .unselected): return .init(.basicGreenSoft)
         case (.tertiary, .unselected): return .init(.basicPinkSoft)
-        case (.stone, .unselected): return .init(.gray02)
+        case (.stone, .unselected): return .init(.gray01)
         case (.primary, .selected): return .init(.basicYellow)
         case (.secondary, .selected): return .init(.basicGreen)
         case (.tertiary, .selected): return .init(.basicPink)
-        case (.stone, .selected): return .init(.gray05)
+        case (.stone, .selected): return .init(.gray06)
         }
     }
     
     private func fillAndOutlineItemForegroundColor(state: PickerState) -> Color {
         switch (color, state) {
-        case (.primary, .unselected): return .init(.basicYellow)
-        case (.secondary, .unselected): return .init(.basicGreen)
-        case (.tertiary, .unselected): return .init(.basicPink)
-        case (.stone, .unselected): return .init(.gray05)
+        case (_, .unselected): return .init(.gray05)
         case (_, .selected): return .init(.white)
         }
     }
