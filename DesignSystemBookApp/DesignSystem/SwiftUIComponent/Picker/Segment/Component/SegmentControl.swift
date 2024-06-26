@@ -9,25 +9,25 @@ import SwiftUI
 
 // 세그먼트는 PickerStyle 커스텀이 어려운 관계로 스타일팩토리 없이 완전한 커스텀 뷰로 구성되었습니다.
 // 테마 정보는 styeld 메서드를 통해 store(ObservedObject)로 전달되고 반영됩니다.
-public struct SegmentControl<Content, Value>: View where Content: View, Value: Identifiable & Equatable {
+public struct SegmentControl<Content, Option>: View where Content: View, Option: Identifiable & Equatable {
     // Initial
-    private var sources: [Value]
-    private var content: (Value) -> Content
+    private var sources: [Option]
+    private var itemBuilder: (Option) -> Content
     
     // Theme
     @ObservedObject var store: PickerThemeStore
     
     // State
-    @Binding private var selection: Value
+    @Binding private var selection: Option
     
     public init(
-        _ sources: [Value],
-        selection: Binding<Value>,
-        @ViewBuilder content: @escaping (Value) -> Content
+        _ sources: [Option],
+        selection: Binding<Option>,
+        @ViewBuilder itemBuilder: @escaping (Option) -> Content
     ) {
         self.sources = sources
         self._selection = selection
-        self.content = content
+        self.itemBuilder = itemBuilder
         
         self._store = ObservedObject(wrappedValue: PickerThemeStore())
     }
@@ -37,7 +37,7 @@ public struct SegmentControl<Content, Value>: View where Content: View, Value: I
         let spacing = store.figureTheme.itemSpacing().horizontal ?? 0
         HStack(spacing: spacing) {
             ForEach(sources, id: \.id) { value in
-                content(value)
+                itemBuilder(value)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
                     .typo(.body2b)
@@ -98,7 +98,7 @@ public struct SegmentControl<Content, Value>: View where Content: View, Value: I
         return (itemWidth + spacing) * (CGFloat(index))
     }
     
-    private func contentIndex(for option: Value) -> Int {
+    private func contentIndex(for option: Option) -> Int {
         return sources.firstIndex(where: { $0 == selection }) ?? 0
     }
 }

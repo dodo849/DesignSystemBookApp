@@ -69,7 +69,7 @@ public extension BaseTextField {
 }
 
 public class BaseTextField: UIView {
-    // MARK: Event emitter
+    // MARK: Event
     public let textFieldEvent = PublishSubject<UIControl.Event>()
     public let onChange = PublishSubject<String?>()
     
@@ -106,7 +106,7 @@ public class BaseTextField: UIView {
     // MARK: DisposeBag
     private let disposeBag = DisposeBag()
     
-    // MARK: UI Components
+    // MARK: UI Component
     private let titleStack = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 4
@@ -143,19 +143,21 @@ public class BaseTextField: UIView {
         $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
-    // MARK: Initializers
+    // MARK: Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
-        updateTheme()
         setupHierachy()
         setupBind()
+        updateTheme()
+        updateLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        updateTheme()
         setupHierachy()
         setupBind()
+        updateTheme()
+        updateLayout()
     }
     
     // MARK: Life cycle
@@ -230,20 +232,24 @@ public class BaseTextField: UIView {
         
         updateCornerRadius()
         
+        // Default set for animation
         self.textFieldBackground.layer.borderColor = UIColor.clear.cgColor
         let foregroundColor = colorTheme
             .foregroundColor(state: allState).uiColor
         
         UIView.animate(withDuration: 0.15) { [weak self] in
             guard let self = self else { return }
+            // textFieldBackground
             self.textFieldBackground.backgroundColor = colorTheme
                 .backgroundColor(state: allState).uiColor
             self.textFieldBackground.layer.borderColor = colorTheme
                 .borderColor(state: allState).cgColor
             self.textFieldBackground.layer.borderWidth = figureTheme.borderWidth()
             
+            // textField
             self.textField.textColor = foregroundColor
             
+            // titleStack
             self.titleStack.subviews.forEach {
                 if let label = $0 as? UILabel {
                     label.textColor = foregroundColor
@@ -252,6 +258,7 @@ public class BaseTextField: UIView {
                 }
             }
             
+            // textFieldStack
             self.textFieldStack.subviews.forEach {
                 if let label = $0 as? UILabel {
                     label.textColor = foregroundColor.withAlphaComponent(0.6)
@@ -260,9 +267,11 @@ public class BaseTextField: UIView {
                 }
             }
             
+            // bottomBorder
             self.bottomBorder.backgroundColor = colorTheme
                 .bottomBorderColor(state: allState).uiColor
             
+            // descriptionStack
             self.descriptionStack.subviews.forEach { [weak self] in
                 guard let self = self else { return }
                 if let label = $0 as? UILabel {

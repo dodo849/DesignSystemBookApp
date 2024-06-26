@@ -121,6 +121,10 @@
 		BC18EC872C1DAFA50061599B /* TextFieldBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC862C1DAFA50061599B /* TextFieldBook.swift */; };
 		BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */; };
 		BC18EC912C1DC39B0061599B /* README_BUTTON.md in Resources */ = {isa = PBXBuildFile; fileRef = BC18EC902C1DC39B0061599B /* README_BUTTON.md */; };
+		BC765C0C2C2BB65900C28766 /* BaseSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */; };
+		BC765C0E2C2BB72100C28766 /* SegmentControlBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */; };
+		BC765C102C2BB72A00C28766 /* SegmentControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0F2C2BB72A00C28766 /* SegmentControlViewController.swift */; };
+		BC765C122C2BB73500C28766 /* SegmentControlBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C112C2BB73500C28766 /* SegmentControlBookView.swift */; };
 		BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9799E22C2985F400A2AC95 /* Divider+View.swift */; };
 		BC979B172C2AA41D00A2AC95 /* ChipControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B162C2AA41D00A2AC95 /* ChipControl.swift */; };
 		BC979B1E2C2AA4A100A2AC95 /* BasicChipShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B1D2C2AA4A100A2AC95 /* BasicChipShape.swift */; };
@@ -269,6 +273,10 @@
 		BC18EC862C1DAFA50061599B /* TextFieldBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBook.swift; sourceTree = "<group>"; };
 		BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyleFactory.swift; sourceTree = "<group>"; };
 		BC18EC902C1DC39B0061599B /* README_BUTTON.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_BUTTON.md; sourceTree = "<group>"; };
+		BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSegmentControl.swift; sourceTree = "<group>"; };
+		BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookRepresentable.swift; sourceTree = "<group>"; };
+		BC765C0F2C2BB72A00C28766 /* SegmentControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlViewController.swift; sourceTree = "<group>"; };
+		BC765C112C2BB73500C28766 /* SegmentControlBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookView.swift; sourceTree = "<group>"; };
 		BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9799E22C2985F400A2AC95 /* Divider+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Divider+View.swift"; sourceTree = "<group>"; };
 		BC979B162C2AA41D00A2AC95 /* ChipControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipControl.swift; sourceTree = "<group>"; };
@@ -491,6 +499,7 @@
 				BC9799E12C2985E800A2AC95 /* Divider */,
 				BC05D4252C204854006C599B /* Button */,
 				BCF03A6A2C292996006D102E /* TextField */,
+				BC765C0A2C2BB62800C28766 /* Picker */,
 			);
 			path = UIKitComponent;
 			sourceTree = "<group>";
@@ -605,6 +614,7 @@
 		BC05D4282C2048F2006C599B /* UIKitBookView */ = {
 			isa = PBXGroup;
 			children = (
+				BC765C092C2BB61000C28766 /* Picker */,
 				BCF03A712C295057006D102E /* TextField */,
 				BC05D42B2C20496C006C599B /* Button */,
 			);
@@ -1056,6 +1066,32 @@
 			path = Token;
 			sourceTree = "<group>";
 		};
+		BC765C092C2BB61000C28766 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				BC765C132C2BBC4800C28766 /* SegmentControl */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		BC765C0A2C2BB62800C28766 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		BC765C132C2BBC4800C28766 /* SegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */,
+				BC765C0F2C2BB72A00C28766 /* SegmentControlViewController.swift */,
+				BC765C112C2BB73500C28766 /* SegmentControlBookView.swift */,
+			);
+			path = SegmentControl;
+			sourceTree = "<group>";
+		};
 		BC9046AC2C1A8EA40038970D = {
 			isa = PBXGroup;
 			children = (
@@ -1410,6 +1446,7 @@
 				BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */,
 				BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */,
 				BC0933E92C1B2C1A00D3F8CB /* ToggleButtonThemeType.swift in Sources */,
+				BC765C0C2C2BB65900C28766 /* BaseSegmentControl.swift in Sources */,
 				BC05D4432C204DC0006C599B /* BaseViewController.swift in Sources */,
 				BC05D3BE2C1DCF7B006C599B /* TextField+Extension.swift in Sources */,
 				BC05D3B72C1DCE2F006C599B /* BasicTextFieldShape.swift in Sources */,
@@ -1429,6 +1466,7 @@
 				BC979B222C2AA4D700A2AC95 /* BasicChipFigureTheme.swift in Sources */,
 				BC0933ED2C1B2C1A00D3F8CB /* ToggleButtonStyleFactory.swift in Sources */,
 				BC05D5562C2325FB006C599B /* BasicSegmentShape.swift in Sources */,
+				BC765C122C2BB73500C28766 /* SegmentControlBookView.swift in Sources */,
 				BCF03A732C29506B006D102E /* TextFieldBookView.swift in Sources */,
 				BC05D4412C204DC0006C599B /* BaseTableViewCell.swift in Sources */,
 				BC0932742C1A8F5200D3F8CB /* ButtonState.swift in Sources */,
@@ -1447,6 +1485,7 @@
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
 				BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */,
 				BC979B272C2AA58C00A2AC95 /* BasicChipVariant.swift in Sources */,
+				BC765C0E2C2BB72100C28766 /* SegmentControlBookRepresentable.swift in Sources */,
 				BC05D3CA2C1DFB15006C599B /* SwiftUIAnimationFactory.swift in Sources */,
 				BC05D5542C2325FB006C599B /* PickerFigureTheme.swift in Sources */,
 				BC05D4422C204DC0006C599B /* BaseView.swift in Sources */,
@@ -1454,6 +1493,7 @@
 				BC0932852C1A8F5200D3F8CB /* DesignSystemApp.swift in Sources */,
 				BC05D5022C21B677006C599B /* ToastFactory.swift in Sources */,
 				BC05D5162C21DCB0006C599B /* BasicToastFigureTheme.swift in Sources */,
+				BC765C102C2BB72A00C28766 /* SegmentControlViewController.swift in Sources */,
 				BC0932832C1A8F5200D3F8CB /* ContentView.swift in Sources */,
 				BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */,
 				BC05D3F22C200B15006C599B /* SkeletonState.swift in Sources */,

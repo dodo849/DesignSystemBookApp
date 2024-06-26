@@ -15,10 +15,10 @@ public enum ChipControlMultipleSelection: String, CaseIterable {
     case allow, deny
 }
 
-public struct ChipControl<Content, Value>: View where Content: View, Value: Identifiable & Equatable {
+public struct ChipControl<Content, Option>: View where Content: View, Option: Identifiable & Equatable {
     // Initial
-    private var sources: [Value]
-    private var content: (Value) -> Content
+    private var sources: [Option]
+    private var itemBuilder: (Option) -> Content
     private var overflow: ChipControlOverflow
     private var multipleSelection: ChipControlMultipleSelection
     
@@ -26,18 +26,18 @@ public struct ChipControl<Content, Value>: View where Content: View, Value: Iden
     @ObservedObject var store: PickerThemeStore
     
     // State
-    @Binding private var selections: [Value]
+    @Binding private var selections: [Option]
     
     public init(
-        _ sources: [Value],
-        selections: Binding<[Value]>,
+        _ sources: [Option],
+        selections: Binding<[Option]>,
         overflow: ChipControlOverflow = .wrap,
         multipleSelection: ChipControlMultipleSelection = .allow,
-        @ViewBuilder content: @escaping (Value) -> Content
+        @ViewBuilder itemBuilder: @escaping (Option) -> Content
     ) {
         self.sources = sources
         self._selections = selections
-        self.content = content
+        self.itemBuilder = itemBuilder
         self.overflow = overflow
         self.multipleSelection = multipleSelection
         
@@ -72,7 +72,7 @@ public struct ChipControl<Content, Value>: View where Content: View, Value: Iden
             ? .selected : .unselected
             let padding = store.figureTheme.itemPadding()
             
-            content(value)
+            itemBuilder(value)
                 .padding(.vertical, padding.vertical)
                 .padding(.horizontal, padding.horizontal)
                 .typo(selectState == .selected ? .body2b : .body2)
@@ -162,7 +162,14 @@ public struct OverflowGrid: Layout {
         subviews.indices.forEach { index in
             let subView = subviews[index]
             x += subView.dimensions(in: proposal).width/2
-            subviews[index].place(at: CGPoint(x: x, y: y), anchor: .center, proposal: ProposedViewSize(width: subView.dimensions(in: proposal).width, height: subView.dimensions(in: proposal).height))
+            subviews[index].place(
+                at: CGPoint(x: x, y: y),
+                anchor: .center,
+                proposal: ProposedViewSize(
+                    width: subView.dimensions(in: proposal).width,
+                    height: subView.dimensions(in: proposal).height
+                )
+            )
             x += horizontalSpacing + subView.dimensions(in: proposal).width/2
             if x > bounds.width {
                 x = bounds.minX

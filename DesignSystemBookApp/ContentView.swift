@@ -81,6 +81,7 @@ struct ContentView: View {
                         title: "Basic SegmentControl",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
+                        uikitDestination: SegmentControlBookRepresentable(),
                         swiftuiDestination: SegmentControlBook()
                     )
                     

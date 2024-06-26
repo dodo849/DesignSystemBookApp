@@ -105,16 +105,23 @@ final class TextFieldBookView: BaseView {
     }
     
     let textFieldWithOthers = BaseTextField().then {
-        let title = UILabel().then {
-            $0.text = "Title"
-            $0.setTypo(.body1b)
-            $0.textColor = .basicText
-        }
         let titleIcon = UIImageView(
             image: UIImage(systemName: "checkmark.circle")
         ).then {
             $0.snp.makeConstraints {
                 $0.width.equalTo(20)
+            }
+        }
+        let title = UILabel().then {
+            $0.text = "Title"
+            $0.setTypo(.body1b)
+            $0.textColor = .basicText
+        }
+        let descriptionIcon = UIImageView(
+            image: UIImage(systemName: "exclamationmark.circle.fill")
+        ).then {
+            $0.snp.makeConstraints {
+                $0.width.height.equalTo(15)
             }
         }
         let description = UILabel().then {
@@ -124,6 +131,7 @@ final class TextFieldBookView: BaseView {
         }
         $0.addTitle(titleIcon)
         $0.addTitle(title)
+        $0.addDescription(descriptionIcon)
         $0.addDescription(description)
         $0.styled()
     }

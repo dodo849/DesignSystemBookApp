@@ -8,7 +8,7 @@ private options = [
         "Swift", "Long description", "Short", "Very long description chip",
         "Chip"
     ] // Implementing `Equatable` and `Identifiable` is required.
-@State var selections: [Int] = []
+@State var selections: [String] = []
 
 ChipControl(
     options,
@@ -36,7 +36,7 @@ private options = [
         "Swift", "Long description", "Short", "Very long description chip",
         "Chip"
     ] // Implementing `Equatable` and `Identifiable` is required.
-@State var selections: [Int] = []
+@State var selections: [String] = []
 
 ChipControl(
     options,

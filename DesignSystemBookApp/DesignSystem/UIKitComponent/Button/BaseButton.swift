@@ -143,17 +143,17 @@ public class BaseButton: UIControl {
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        updateTheme()
         setupHierachy()
         setupBind()
+        updateTheme()
         updateLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        updateTheme()
         setupHierachy()
         setupBind()
+        updateTheme()
         updateLayout()
     }
     
