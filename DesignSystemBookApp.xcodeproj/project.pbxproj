@@ -475,7 +475,6 @@
 		BC05D4112C203864006C599B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BC09326E2C1A8F5200D3F8CB /* Type+Extension.swift */,
 				BC09325D2C1A8F5200D3F8CB /* BackButton+Extension.swift */,
 				BC09325E2C1A8F5200D3F8CB /* Frame+Extension.swift */,
 				BC09325F2C1A8F5200D3F8CB /* Keyboard+Extension.swift */,
@@ -507,6 +506,7 @@
 		BC05D4162C203FD5006C599B /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				BC765C142C31AE8400C28766 /* Base */,
 				BC05D4522C20AE20006C599B /* Constant */,
 				BC05D4242C20480F006C599B /* Rounded */,
 				BC05D4212C204174006C599B /* Typo */,
@@ -865,10 +865,6 @@
 			children = (
 				BC05D4122C20387C006C599B /* Helper */,
 				BC05D4112C203864006C599B /* Extension */,
-				BC05D3D02C1F18EC006C599B /* Animation */,
-				BC05D3CF2C1F18DB006C599B /* Shape */,
-				BC05D3CE2C1F18D7006C599B /* Any */,
-				BC05D3CD2C1F18D1006C599B /* Offset */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1090,6 +1086,18 @@
 				BC765C112C2BB73500C28766 /* SegmentControlBookView.swift */,
 			);
 			path = SegmentControl;
+			sourceTree = "<group>";
+		};
+		BC765C142C31AE8400C28766 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BC09326E2C1A8F5200D3F8CB /* Type+Extension.swift */,
+				BC05D3CE2C1F18D7006C599B /* Any */,
+				BC05D3CD2C1F18D1006C599B /* Offset */,
+				BC05D3CF2C1F18DB006C599B /* Shape */,
+				BC05D3D02C1F18EC006C599B /* Animation */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		BC9046AC2C1A8EA40038970D = {
