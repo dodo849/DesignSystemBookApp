@@ -40,7 +40,6 @@ public struct ChipControl<Content, Option>: View where Content: View, Option: Id
         self.itemBuilder = itemBuilder
         self.overflow = overflow
         self.multipleSelection = multipleSelection
-        
         self._store = ObservedObject(wrappedValue: PickerThemeStore())
     }
     
@@ -71,29 +70,27 @@ public struct ChipControl<Content, Option>: View where Content: View, Option: Id
             let selectState: PickerState = selections.contains(value)
             ? .selected : .unselected
             let padding = store.figureTheme.itemPadding()
+            let itemForegroundColor = store.colorTheme.itemForegroundColor(
+                state: selectState
+            ).color
+            let itemBackgroundColor = store.colorTheme.itemBackgroundColor(
+                state: selectState
+            ).color
+            let shape = store.figureTheme.shape()
+            let borderShape = store.figureTheme.shape()
+                .stroke(
+                    store.colorTheme.itemBorderColor(state: selectState).color,
+                    lineWidth: 1
+                )
             
             itemBuilder(value)
                 .padding(.vertical, padding.vertical)
                 .padding(.horizontal, padding.horizontal)
-                .typo(selectState == .selected ? .body2b : .body2)
-                .foregroundStyle(
-                    store.colorTheme.itemForegroundColor(
-                        state: selectState
-                    ).color
-                )
-                .background(
-                    store.colorTheme.itemBackgroundColor(
-                        state: selectState
-                    ).color
-                )
-                .clipShape(store.figureTheme.shape())
-                .overlay {
-                    store.figureTheme.shape()
-                        .stroke(
-                            store.colorTheme.itemBorderColor(state: selectState).color,
-                            lineWidth: 1
-                        )
-                }
+                .typo(.body2)
+                .foregroundStyle(itemForegroundColor)
+                .background(itemBackgroundColor)
+                .clipShape(shape)
+                .overlay {borderShape}
                 .onTapGesture {
                     if selections.contains(value) {
                         selections.removeAll { $0 == value }

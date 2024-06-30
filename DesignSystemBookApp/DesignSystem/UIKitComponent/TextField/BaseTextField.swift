@@ -239,17 +239,17 @@ public class BaseTextField: UIView {
         
         UIView.animate(withDuration: 0.15) { [weak self] in
             guard let self = self else { return }
-            // textFieldBackground
+            // TextField background
             self.textFieldBackground.backgroundColor = colorTheme
                 .backgroundColor(state: allState).uiColor
             self.textFieldBackground.layer.borderColor = colorTheme
                 .borderColor(state: allState).cgColor
             self.textFieldBackground.layer.borderWidth = figureTheme.borderWidth()
             
-            // textField
+            // TextField
             self.textField.textColor = foregroundColor
             
-            // titleStack
+            // Title stack
             self.titleStack.subviews.forEach {
                 if let label = $0 as? UILabel {
                     label.textColor = foregroundColor
@@ -258,7 +258,7 @@ public class BaseTextField: UIView {
                 }
             }
             
-            // textFieldStack
+            // TextField stack
             self.textFieldStack.subviews.forEach {
                 if let label = $0 as? UILabel {
                     label.textColor = foregroundColor.withAlphaComponent(0.6)
@@ -267,7 +267,7 @@ public class BaseTextField: UIView {
                 }
             }
             
-            // bottomBorder
+            // Bottom border
             self.bottomBorder.backgroundColor = colorTheme
                 .bottomBorderColor(state: allState).uiColor
             

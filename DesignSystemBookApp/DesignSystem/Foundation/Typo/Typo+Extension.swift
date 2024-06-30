@@ -126,7 +126,6 @@ public extension UILabel {
          }
          */
         self.font = .systemFont(ofSize: size, weight: weight.uikitWeight)
-        self.textColor = .basicText
         self.setLineHeight(multiplier: lineSpacingMultiplier)
     }
     

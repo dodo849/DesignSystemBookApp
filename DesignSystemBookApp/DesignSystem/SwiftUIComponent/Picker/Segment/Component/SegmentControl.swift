@@ -33,22 +33,25 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
     }
     
     public var body: some View {
-        let padding = store.figureTheme.containerPadding()
+        let containerPadding = store.figureTheme.containerPadding()
+        let itemPadding = store.figureTheme.itemPadding()
         let spacing = store.figureTheme.itemSpacing().horizontal ?? 0
+        let shape = store.figureTheme.shape()
+        
         HStack(spacing: spacing) {
             ForEach(sources, id: \.id) { value in
+                let itemForegroundColor = store.colorTheme.itemForegroundColor(
+                    state: selection == value
+                    ? .selected
+                    : .unselected
+                ).color
+                
                 itemBuilder(value)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 8)
+                    .padding(.vertical, itemPadding.vertical)
                     .typo(.body2b)
-                    .foregroundStyle(
-                        store.colorTheme.itemForegroundColor(
-                            state: selection == value
-                            ? .selected
-                            : .unselected
-                        ).color
-                    )
-                    .clipShape(store.figureTheme.shape())
+                    .foregroundStyle(itemForegroundColor)
+                    .clipShape(shape)
                     .background( // For touch hit area
                         Color.white.opacity(0.01)
                             .onTapGesture {
@@ -73,7 +76,7 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
                             0
                         )
                     )
-                    .clipShape(store.figureTheme.shape())
+                    .clipShape(shape)
                     .shadow(
                         color: store.colorTheme.itemShadowColor(state: .selected).color,
                         radius: 8
@@ -83,8 +86,8 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
         )
         .frame(maxWidth: .infinity)
         .frame(maxHeight: .infinity)
-        .padding(.vertical, padding.vertical)
-        .padding(.horizontal, padding.horizontal)
+        .padding(.vertical, containerPadding.vertical)
+        .padding(.horizontal, containerPadding.horizontal)
         .background(store.colorTheme.containerBackgroundColor().color)
         .clipShape(store.figureTheme.shape())
         .animation(.spring(response: 0.25), value: selection)

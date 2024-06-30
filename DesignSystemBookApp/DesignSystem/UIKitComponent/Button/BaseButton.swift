@@ -103,12 +103,14 @@ public class BaseButton: UIControl {
         didSet {
             updateTheme()
             updateLayout()
+            updateCornerRadius()
         }
     }
     private var figureTheme: ButtonFigureTheme? {
         didSet {
             updateTheme()
             updateLayout()
+            updateCornerRadius()
         }
     }
     
@@ -147,6 +149,7 @@ public class BaseButton: UIControl {
         setupBind()
         updateTheme()
         updateLayout()
+        updateCornerRadius()
     }
     
     required init?(coder: NSCoder) {
@@ -155,6 +158,7 @@ public class BaseButton: UIControl {
         setupBind()
         updateTheme()
         updateLayout()
+        updateCornerRadius()
     }
     
     // MARK: Life cycle
@@ -181,15 +185,17 @@ public class BaseButton: UIControl {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return }
         
+        // Background
         backgroundColor = colorTheme.backgroundColor(state: getState(.enabled)).uiColor
         clipsToBounds = true
         layer.borderColor = colorTheme.borderColor(state: getState(.enabled)).cgColor
         layer.borderWidth = figureTheme.borderWidth()
-        updateCornerRadius()
         
+        // Title label
         titleLabel.setTypo(figureTheme.typo())
         titleLabel.textColor = colorTheme.foregroundColor(state: getState(.enabled)).uiColor
         
+        // Stack
         stackView.arrangedSubviews
             .filter { $0 is UIImageView }
             .forEach {
