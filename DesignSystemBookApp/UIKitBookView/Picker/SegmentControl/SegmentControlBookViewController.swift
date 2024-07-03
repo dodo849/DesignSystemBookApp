@@ -7,7 +7,7 @@
 
 import RxSwift
 
-final class SegmentControlViewController: BaseViewController<SegmentControlBookView> {
+final class SegmentControlBookViewController: BaseViewController<SegmentControlBookView> {
     override func setupBind() {
         super.setupBind()
         baseView.setupBind()

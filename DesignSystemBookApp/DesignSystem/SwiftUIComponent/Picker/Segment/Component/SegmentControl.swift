@@ -85,7 +85,6 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
             }
         )
         .frame(maxWidth: .infinity)
-        .frame(maxHeight: .infinity)
         .padding(.vertical, containerPadding.vertical)
         .padding(.horizontal, containerPadding.horizontal)
         .background(store.colorTheme.containerBackgroundColor().color)

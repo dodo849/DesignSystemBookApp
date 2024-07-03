@@ -21,12 +21,12 @@ struct SegmentControlBookRepresentable: UIViewControllerRepresentable {
         Coordinator(parent: self)
     }
 
-    func makeUIViewController(context: Context) -> SegmentControlViewController {
-        return SegmentControlViewController()
+    func makeUIViewController(context: Context) -> SegmentControlBookViewController {
+        return SegmentControlBookViewController()
     }
     
     func updateUIViewController(
-        _ uiViewController: SegmentControlViewController,
+        _ uiViewController: SegmentControlBookViewController,
         context: Context
     ) {
         // Update the view here if needed

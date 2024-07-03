@@ -92,6 +92,16 @@ struct ContentView: View {
                         swiftuiDestination: ChipControlBook()
                     )
                     
+                    sectionHeader(title: "Dialog")
+                    
+                    exampleSection(
+                        title: "Basic Dialog",
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        uikitDestination: DialogBookRepresentable()
+                            .ignoresSafeArea()
+                    )
+                    
                     Spacer().frame(height: 100)
                 }
                 .padding(.horizontal)
@@ -113,7 +123,7 @@ struct ContentView: View {
         colorTheme: String,
         figureTheme: String,
         uikitDestination: UIKitDestination = Text("준비중입니다 🙇"),
-        swiftuiDestination: SwiftUIDestination
+        swiftuiDestination: SwiftUIDestination = Text("준비중입니다 🙇")
     ) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)

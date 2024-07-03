@@ -121,10 +121,16 @@
 		BC18EC872C1DAFA50061599B /* TextFieldBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC862C1DAFA50061599B /* TextFieldBook.swift */; };
 		BC18EC8D2C1DB1810061599B /* TextFieldStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */; };
 		BC18EC912C1DC39B0061599B /* README_BUTTON.md in Resources */ = {isa = PBXBuildFile; fileRef = BC18EC902C1DC39B0061599B /* README_BUTTON.md */; };
+		BC2B469E2C3510E90057CE6B /* BasicDialogVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B469D2C3510E90057CE6B /* BasicDialogVariant.swift */; };
+		BC2B46A12C3511150057CE6B /* BasicDialogShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A02C3511150057CE6B /* BasicDialogShape.swift */; };
 		BC765C0C2C2BB65900C28766 /* BaseSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */; };
 		BC765C0E2C2BB72100C28766 /* SegmentControlBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */; };
-		BC765C102C2BB72A00C28766 /* SegmentControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0F2C2BB72A00C28766 /* SegmentControlViewController.swift */; };
+		BC765C102C2BB72A00C28766 /* SegmentControlBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */; };
 		BC765C122C2BB73500C28766 /* SegmentControlBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C112C2BB73500C28766 /* SegmentControlBookView.swift */; };
+		BC765C182C31B10300C28766 /* BaseDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C172C31B10300C28766 /* BaseDialog.swift */; };
+		BC765C1C2C31B12900C28766 /* DialogBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C1B2C31B12900C28766 /* DialogBookView.swift */; };
+		BC765C1E2C31B13500C28766 /* DialogBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C1D2C31B13500C28766 /* DialogBookViewController.swift */; };
+		BC765C202C31B14300C28766 /* DialogBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C1F2C31B14300C28766 /* DialogBookRepresentable.swift */; };
 		BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9799E22C2985F400A2AC95 /* Divider+View.swift */; };
 		BC979B172C2AA41D00A2AC95 /* ChipControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B162C2AA41D00A2AC95 /* ChipControl.swift */; };
 		BC979B1E2C2AA4A100A2AC95 /* BasicChipShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B1D2C2AA4A100A2AC95 /* BasicChipShape.swift */; };
@@ -273,10 +279,16 @@
 		BC18EC862C1DAFA50061599B /* TextFieldBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBook.swift; sourceTree = "<group>"; };
 		BC18EC8C2C1DB1810061599B /* TextFieldStyleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyleFactory.swift; sourceTree = "<group>"; };
 		BC18EC902C1DC39B0061599B /* README_BUTTON.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_BUTTON.md; sourceTree = "<group>"; };
+		BC2B469D2C3510E90057CE6B /* BasicDialogVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDialogVariant.swift; sourceTree = "<group>"; };
+		BC2B46A02C3511150057CE6B /* BasicDialogShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDialogShape.swift; sourceTree = "<group>"; };
 		BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSegmentControl.swift; sourceTree = "<group>"; };
 		BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookRepresentable.swift; sourceTree = "<group>"; };
-		BC765C0F2C2BB72A00C28766 /* SegmentControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlViewController.swift; sourceTree = "<group>"; };
+		BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookViewController.swift; sourceTree = "<group>"; };
 		BC765C112C2BB73500C28766 /* SegmentControlBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookView.swift; sourceTree = "<group>"; };
+		BC765C172C31B10300C28766 /* BaseDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDialog.swift; sourceTree = "<group>"; };
+		BC765C1B2C31B12900C28766 /* DialogBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBookView.swift; sourceTree = "<group>"; };
+		BC765C1D2C31B13500C28766 /* DialogBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBookViewController.swift; sourceTree = "<group>"; };
+		BC765C1F2C31B14300C28766 /* DialogBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBookRepresentable.swift; sourceTree = "<group>"; };
 		BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9799E22C2985F400A2AC95 /* Divider+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Divider+View.swift"; sourceTree = "<group>"; };
 		BC979B162C2AA41D00A2AC95 /* ChipControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipControl.swift; sourceTree = "<group>"; };
@@ -499,6 +511,7 @@
 				BC05D4252C204854006C599B /* Button */,
 				BCF03A6A2C292996006D102E /* TextField */,
 				BC765C0A2C2BB62800C28766 /* Picker */,
+				BC765C152C31B0EC00C28766 /* Dialog */,
 			);
 			path = UIKitComponent;
 			sourceTree = "<group>";
@@ -510,6 +523,7 @@
 				BC05D4522C20AE20006C599B /* Constant */,
 				BC05D4242C20480F006C599B /* Rounded */,
 				BC05D4212C204174006C599B /* Typo */,
+				BC2B46982C3510BE0057CE6B /* Dialog */,
 				BC05D53F2C2318A1006C599B /* Picker */,
 				BC05D5062C21C1A6006C599B /* Toast */,
 				BC05D41A2C204037006C599B /* Skeleton */,
@@ -614,6 +628,7 @@
 		BC05D4282C2048F2006C599B /* UIKitBookView */ = {
 			isa = PBXGroup;
 			children = (
+				BC765C192C31B11300C28766 /* Dialog */,
 				BC765C092C2BB61000C28766 /* Picker */,
 				BCF03A712C295057006D102E /* TextField */,
 				BC05D42B2C20496C006C599B /* Button */,
@@ -1062,6 +1077,39 @@
 			path = Token;
 			sourceTree = "<group>";
 		};
+		BC2B46982C3510BE0057CE6B /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				BC2B46992C3510CA0057CE6B /* Theme */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
+		BC2B46992C3510CA0057CE6B /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				BC2B469A2C3510D30057CE6B /* Basic */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		BC2B469A2C3510D30057CE6B /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				BC2B469B2C3510D50057CE6B /* Token */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		BC2B469B2C3510D50057CE6B /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				BC2B469D2C3510E90057CE6B /* BasicDialogVariant.swift */,
+				BC2B46A02C3511150057CE6B /* BasicDialogShape.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
 		BC765C092C2BB61000C28766 /* Picker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1082,7 +1130,7 @@
 			isa = PBXGroup;
 			children = (
 				BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */,
-				BC765C0F2C2BB72A00C28766 /* SegmentControlViewController.swift */,
+				BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */,
 				BC765C112C2BB73500C28766 /* SegmentControlBookView.swift */,
 			);
 			path = SegmentControl;
@@ -1098,6 +1146,24 @@
 				BC05D3D02C1F18EC006C599B /* Animation */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		BC765C152C31B0EC00C28766 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				BC765C172C31B10300C28766 /* BaseDialog.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
+		BC765C192C31B11300C28766 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				BC765C1F2C31B14300C28766 /* DialogBookRepresentable.swift */,
+				BC765C1D2C31B13500C28766 /* DialogBookViewController.swift */,
+				BC765C1B2C31B12900C28766 /* DialogBookView.swift */,
+			);
+			path = Dialog;
 			sourceTree = "<group>";
 		};
 		BC9046AC2C1A8EA40038970D = {
@@ -1462,6 +1528,7 @@
 				BC0932792C1A8F5200D3F8CB /* Button+Styled.swift in Sources */,
 				BC09327C2C1A8F5200D3F8CB /* Keyboard+Extension.swift in Sources */,
 				BC05D44C2C204F96006C599B /* WebViewController.swift in Sources */,
+				BC2B469E2C3510E90057CE6B /* BasicDialogVariant.swift in Sources */,
 				BCFD537F2C1B5F9D00191F34 /* GapOffset.swift in Sources */,
 				BC05D3BB2C1DCEF9006C599B /* TextFieldThemeType.swift in Sources */,
 				BC05D5092C21C1CD006C599B /* ToastColorTheme.swift in Sources */,
@@ -1477,6 +1544,7 @@
 				BC765C122C2BB73500C28766 /* SegmentControlBookView.swift in Sources */,
 				BCF03A732C29506B006D102E /* TextFieldBookView.swift in Sources */,
 				BC05D4412C204DC0006C599B /* BaseTableViewCell.swift in Sources */,
+				BC2B46A12C3511150057CE6B /* BasicDialogShape.swift in Sources */,
 				BC0932742C1A8F5200D3F8CB /* ButtonState.swift in Sources */,
 				BC05D4042C2013FC006C599B /* BasicSkeletonColorTheme.swift in Sources */,
 				BC09327A2C1A8F5200D3F8CB /* BackButton+Extension.swift in Sources */,
@@ -1490,6 +1558,7 @@
 				BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */,
 				BC05D3FE2C20128D006C599B /* SkeletonShape.swift in Sources */,
 				BCFD54582C1BE7E900191F34 /* GrayButtonColorTheme.swift in Sources */,
+				BC765C182C31B10300C28766 /* BaseDialog.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
 				BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */,
 				BC979B272C2AA58C00A2AC95 /* BasicChipVariant.swift in Sources */,
@@ -1501,7 +1570,7 @@
 				BC0932852C1A8F5200D3F8CB /* DesignSystemApp.swift in Sources */,
 				BC05D5022C21B677006C599B /* ToastFactory.swift in Sources */,
 				BC05D5162C21DCB0006C599B /* BasicToastFigureTheme.swift in Sources */,
-				BC765C102C2BB72A00C28766 /* SegmentControlViewController.swift in Sources */,
+				BC765C102C2BB72A00C28766 /* SegmentControlBookViewController.swift in Sources */,
 				BC0932832C1A8F5200D3F8CB /* ContentView.swift in Sources */,
 				BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */,
 				BC05D3F22C200B15006C599B /* SkeletonState.swift in Sources */,
@@ -1549,6 +1618,7 @@
 				BC05D3FC2C200E8A006C599B /* SkeletonThemeType.swift in Sources */,
 				BC05D3D42C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift in Sources */,
 				BC05D4272C204877006C599B /* BaseButton.swift in Sources */,
+				BC765C1C2C31B12900C28766 /* DialogBookView.swift in Sources */,
 				BC05D4202C204171006C599B /* Typo+Extension.swift in Sources */,
 				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */,
 				BC05D42F2C204AE4006C599B /* ButtonBookViewController.swift in Sources */,
@@ -1570,9 +1640,11 @@
 				BC05D3B32C1DCD37006C599B /* TextFieldColorTheme.swift in Sources */,
 				BCFD545B2C1BE7E900191F34 /* BasicButtonShape.swift in Sources */,
 				BC05D3E22C1FD83D006C599B /* TextFieldAffixStyleFactory.swift in Sources */,
+				BC765C1E2C31B13500C28766 /* DialogBookViewController.swift in Sources */,
 				BC05D3F02C200B0E006C599B /* SkeletonVariant.swift in Sources */,
 				BC05D55B2C23276A006C599B /* SegmentControl.swift in Sources */,
 				BC05D4002C20136D006C599B /* SkeletonFigureTheme.swift in Sources */,
+				BC765C202C31B14300C28766 /* DialogBookRepresentable.swift in Sources */,
 				BC0933E42C1B2C1A00D3F8CB /* SingleRadioButton.swift in Sources */,
 				BC0933EA2C1B2C1A00D3F8CB /* BasicToggleButtonColor.swift in Sources */,
 				BCF03A782C2950AA006D102E /* TextFieldBookRepresentable.swift in Sources */,

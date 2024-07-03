@@ -144,7 +144,7 @@ public class BaseTextField: UIView {
     }
     
     // MARK: Initializer
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setupHierachy()
         setupBind()
@@ -152,7 +152,7 @@ public class BaseTextField: UIView {
         updateLayout()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupHierachy()
         setupBind()
@@ -161,13 +161,13 @@ public class BaseTextField: UIView {
     }
     
     // MARK: Life cycle
-    override public func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         updateLayout()
         updateCornerRadius()
     }
     
-    override public func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         super.draw(rect)
     }
     

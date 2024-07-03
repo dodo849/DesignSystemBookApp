@@ -70,7 +70,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
     private let disposeBag = DisposeBag()
     
     // MARK: Initializer
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setupHierachy()
         setupBind()
@@ -79,7 +79,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         updateLayout()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupHierachy()
         setupBind()
@@ -88,7 +88,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         updateLayout()
     }
     
-    convenience init(
+    public convenience init(
         source: [Option],
         itemBuilder: @escaping (Option) -> UIView
     ) {
@@ -104,7 +104,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
     }
     
     // MARK: Life cycle
-    override public func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         layoutIfNeeded()
         updateLayout()
