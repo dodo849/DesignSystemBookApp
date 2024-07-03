@@ -67,7 +67,6 @@ final class DialogBookView: BaseView {
     }
     
     override func setupHierarchy() {
-        print(#function)
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(stackView)
@@ -82,9 +81,7 @@ final class DialogBookView: BaseView {
         stackView.addArrangedSubview(BaseSpacer())
         
         stackView.addArrangedSubview(dialogOpenButton)
-        
-        addSubview(dialog)
-        
+
         dialog.addContent(dialogCloseButton)
     }
     
@@ -110,11 +107,6 @@ final class DialogBookView: BaseView {
         
         shapeControl.snp.makeConstraints {
             $0.width.equalTo(stackView.snp.width)
-        }
-        
-        dialog.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.centerX.centerY.equalToSuperview()
         }
     }
 }

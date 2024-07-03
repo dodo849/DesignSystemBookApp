@@ -32,6 +32,17 @@ public extension BaseDialog {
     }
     
     func open() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        else { return }
+        guard let window = windowScene.windows.first
+        else { return }
+        
+        // Add overlayView to UIWindow
+        window.addSubview(self)
+        self.snp.makeConstraints { make in
+            make.edges.equalTo(window)
+        }
+        
         let duration = 0.3
         self.isHidden = false
         self.overlayView.alpha = 0
@@ -130,6 +141,7 @@ public class BaseDialog: UIView {
         self.subTitleLabel.text = subTitle
         
         self.isHidden = true
+        self.layer.zPosition = 1000
     }
     
     // MARK: Life cycle
