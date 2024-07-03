@@ -67,6 +67,7 @@ final class DialogBookView: BaseView {
     }
     
     override func setupHierarchy() {
+        print(#function)
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(stackView)
@@ -75,6 +76,11 @@ final class DialogBookView: BaseView {
         stackView.addArrangedSubview(variantControl)
         stackView.addArrangedSubview(shapeControlLabel)
         stackView.addArrangedSubview(shapeControl)
+        
+        stackView.addArrangedSubview(BaseSpacer())
+        stackView.addArrangedSubview(BaseDivider())
+        stackView.addArrangedSubview(BaseSpacer())
+        
         stackView.addArrangedSubview(dialogOpenButton)
         
         addSubview(dialog)

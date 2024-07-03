@@ -162,13 +162,12 @@ final class TextFieldBookView: BaseView {
         stackView.addArrangedSubview(shapeControl)
         stackView.addArrangedSubview(stateControlLabel)
         stackView.addArrangedSubview(stateControl)
-        stackView.addArrangedSubview(UIView.makeDivider())
         
         textFields.enumerated().forEach { index, textField in
             stackView.addArrangedSubview(colorLabels[index])
             stackView.addArrangedSubview(textField)
         }
-        stackView.addArrangedSubview(UIView.makeDivider())
+//        stackView.addArrangedSubview(UIView.makeDivider())
         stackView.addArrangedSubview(textFieldWithAffixLabel)
         stackView.addArrangedSubview(textFieldWithAffix)
         stackView.addArrangedSubview(textFieldWithOthersLabel)

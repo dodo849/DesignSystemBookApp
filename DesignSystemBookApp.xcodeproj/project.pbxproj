@@ -59,7 +59,7 @@
 		BC05D44F2C20562F006C599B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D44E2C20562F006C599B /* SnapKit */; };
 		BC05D4512C205AA2006C599B /* ColorOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4502C205AA2006C599B /* ColorOffset.swift */; };
 		BC05D4542C20AE2B006C599B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4532C20AE2B006C599B /* Constant.swift */; };
-		BC05D4572C213609006C599B /* DSSapcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4562C213609006C599B /* DSSapcer.swift */; };
+		BC05D4572C213609006C599B /* BaseSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4562C213609006C599B /* BaseSpacer.swift */; };
 		BC05D5002C21B39D006C599B /* ToastBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4FF2C21B39D006C599B /* ToastBook.swift */; };
 		BC05D5022C21B677006C599B /* ToastFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5012C21B677006C599B /* ToastFactory.swift */; };
 		BC05D5052C21B76A006C599B /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5042C21B76A006C599B /* Toast.swift */; };
@@ -135,7 +135,7 @@
 		BC765C1C2C31B12900C28766 /* DialogBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C1B2C31B12900C28766 /* DialogBookView.swift */; };
 		BC765C1E2C31B13500C28766 /* DialogBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C1D2C31B13500C28766 /* DialogBookViewController.swift */; };
 		BC765C202C31B14300C28766 /* DialogBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C1F2C31B14300C28766 /* DialogBookRepresentable.swift */; };
-		BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9799E22C2985F400A2AC95 /* Divider+View.swift */; };
+		BC9799E32C2985F400A2AC95 /* BaseDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9799E22C2985F400A2AC95 /* BaseDivider.swift */; };
 		BC979B172C2AA41D00A2AC95 /* ChipControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B162C2AA41D00A2AC95 /* ChipControl.swift */; };
 		BC979B1E2C2AA4A100A2AC95 /* BasicChipShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B1D2C2AA4A100A2AC95 /* BasicChipShape.swift */; };
 		BC979B202C2AA4CE00A2AC95 /* BasicChipColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B1F2C2AA4CE00A2AC95 /* BasicChipColorTheme.swift */; };
@@ -221,7 +221,7 @@
 		BC05D44B2C204F96006C599B /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		BC05D4502C205AA2006C599B /* ColorOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOffset.swift; sourceTree = "<group>"; };
 		BC05D4532C20AE2B006C599B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		BC05D4562C213609006C599B /* DSSapcer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSapcer.swift; sourceTree = "<group>"; };
+		BC05D4562C213609006C599B /* BaseSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSpacer.swift; sourceTree = "<group>"; };
 		BC05D4FF2C21B39D006C599B /* ToastBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastBook.swift; sourceTree = "<group>"; };
 		BC05D5012C21B677006C599B /* ToastFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastFactory.swift; sourceTree = "<group>"; };
 		BC05D5042C21B76A006C599B /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 		BC765C1D2C31B13500C28766 /* DialogBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBookViewController.swift; sourceTree = "<group>"; };
 		BC765C1F2C31B14300C28766 /* DialogBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBookRepresentable.swift; sourceTree = "<group>"; };
 		BC9046B52C1A8EA40038970D /* DesignSystemBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC9799E22C2985F400A2AC95 /* Divider+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Divider+View.swift"; sourceTree = "<group>"; };
+		BC9799E22C2985F400A2AC95 /* BaseDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDivider.swift; sourceTree = "<group>"; };
 		BC979B162C2AA41D00A2AC95 /* ChipControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipControl.swift; sourceTree = "<group>"; };
 		BC979B1D2C2AA4A100A2AC95 /* BasicChipShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicChipShape.swift; sourceTree = "<group>"; };
 		BC979B1F2C2AA4CE00A2AC95 /* BasicChipColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicChipColorTheme.swift; sourceTree = "<group>"; };
@@ -678,7 +678,7 @@
 		BC05D4552C2135FF006C599B /* Spacer */ = {
 			isa = PBXGroup;
 			children = (
-				BC05D4562C213609006C599B /* DSSapcer.swift */,
+				BC05D4562C213609006C599B /* BaseSpacer.swift */,
 			);
 			path = Spacer;
 			sourceTree = "<group>";
@@ -1199,7 +1199,7 @@
 		BC9799E12C2985E800A2AC95 /* Divider */ = {
 			isa = PBXGroup;
 			children = (
-				BC9799E22C2985F400A2AC95 /* Divider+View.swift */,
+				BC9799E22C2985F400A2AC95 /* BaseDivider.swift */,
 			);
 			path = Divider;
 			sourceTree = "<group>";
@@ -1573,7 +1573,7 @@
 				BC2B46A32C3548370057CE6B /* BasicDialogColorTheme.swift in Sources */,
 				BC765C182C31B10300C28766 /* BaseDialog.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
-				BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */,
+				BC9799E32C2985F400A2AC95 /* BaseDivider.swift in Sources */,
 				BC979B272C2AA58C00A2AC95 /* BasicChipVariant.swift in Sources */,
 				BC765C0E2C2BB72100C28766 /* SegmentControlBookRepresentable.swift in Sources */,
 				BC05D3CA2C1DFB15006C599B /* SwiftUIAnimationFactory.swift in Sources */,
@@ -1614,7 +1614,7 @@
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
 				BC05D4402C204DC0006C599B /* BaseCollectionViewCell.swift in Sources */,
 				BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */,
-				BC05D4572C213609006C599B /* DSSapcer.swift in Sources */,
+				BC05D4572C213609006C599B /* BaseSpacer.swift in Sources */,
 				BC05D42D2C2049B5006C599B /* ButtonBookRepresentable.swift in Sources */,
 				BCF03A702C294DAA006D102E /* BaseTextField.swift in Sources */,
 				BC05D5622C235E81006C599B /* SegmentControl+Styled.swift in Sources */,

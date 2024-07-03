@@ -9,9 +9,6 @@ import UIKit
 import RxSwift
 
 protocol BaseViewControllerProtocol: AnyObject {
-    func setupDelegate()
-    func setupHierarchy()
-    func setupLayout()
     func setupBind()
 }
 
@@ -36,29 +33,13 @@ open class BaseViewController<View: BaseView>: UIViewController, BaseViewControl
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        loadView()
         
         view.backgroundColor = .basicBackground
-        
-        setupDelegate()
-        setupHierarchy()
-        setupLayout()
+
         setupBind()
     }
     
-    open func setupDelegate() { }
-    
-    open func setupHierarchy() {
-        baseView.setupHierarchy()
-    }
-    
-    open func setupLayout() { 
-        baseView.setupLayout()
-    }
-    
-    open func setupBind() { 
-        baseView.setupBind()
-    }
+    open func setupBind() { }
 }
 
 public extension BaseViewController {
