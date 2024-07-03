@@ -123,6 +123,10 @@
 		BC18EC912C1DC39B0061599B /* README_BUTTON.md in Resources */ = {isa = PBXBuildFile; fileRef = BC18EC902C1DC39B0061599B /* README_BUTTON.md */; };
 		BC2B469E2C3510E90057CE6B /* BasicDialogVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B469D2C3510E90057CE6B /* BasicDialogVariant.swift */; };
 		BC2B46A12C3511150057CE6B /* BasicDialogShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A02C3511150057CE6B /* BasicDialogShape.swift */; };
+		BC2B46A32C3548370057CE6B /* BasicDialogColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A22C3548370057CE6B /* BasicDialogColorTheme.swift */; };
+		BC2B46A52C3549730057CE6B /* BasicDialogFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A42C3549730057CE6B /* BasicDialogFigureTheme.swift */; };
+		BC2B46A72C354A110057CE6B /* DialogColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A62C354A110057CE6B /* DialogColorTheme.swift */; };
+		BC2B46A92C354A170057CE6B /* DialogFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */; };
 		BC765C0C2C2BB65900C28766 /* BaseSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */; };
 		BC765C0E2C2BB72100C28766 /* SegmentControlBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */; };
 		BC765C102C2BB72A00C28766 /* SegmentControlBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */; };
@@ -281,6 +285,10 @@
 		BC18EC902C1DC39B0061599B /* README_BUTTON.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_BUTTON.md; sourceTree = "<group>"; };
 		BC2B469D2C3510E90057CE6B /* BasicDialogVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDialogVariant.swift; sourceTree = "<group>"; };
 		BC2B46A02C3511150057CE6B /* BasicDialogShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDialogShape.swift; sourceTree = "<group>"; };
+		BC2B46A22C3548370057CE6B /* BasicDialogColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDialogColorTheme.swift; sourceTree = "<group>"; };
+		BC2B46A42C3549730057CE6B /* BasicDialogFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDialogFigureTheme.swift; sourceTree = "<group>"; };
+		BC2B46A62C354A110057CE6B /* DialogColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogColorTheme.swift; sourceTree = "<group>"; };
+		BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogFigureTheme.swift; sourceTree = "<group>"; };
 		BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSegmentControl.swift; sourceTree = "<group>"; };
 		BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookRepresentable.swift; sourceTree = "<group>"; };
 		BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookViewController.swift; sourceTree = "<group>"; };
@@ -1088,6 +1096,8 @@
 		BC2B46992C3510CA0057CE6B /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				BC2B46A62C354A110057CE6B /* DialogColorTheme.swift */,
+				BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */,
 				BC2B469A2C3510D30057CE6B /* Basic */,
 			);
 			path = Theme;
@@ -1096,6 +1106,8 @@
 		BC2B469A2C3510D30057CE6B /* Basic */ = {
 			isa = PBXGroup;
 			children = (
+				BC2B46A42C3549730057CE6B /* BasicDialogFigureTheme.swift */,
+				BC2B46A22C3548370057CE6B /* BasicDialogColorTheme.swift */,
 				BC2B469B2C3510D50057CE6B /* Token */,
 			);
 			path = Basic;
@@ -1558,6 +1570,7 @@
 				BC0932722C1A8F5200D3F8CB /* ButtonThemeType.swift in Sources */,
 				BC05D3FE2C20128D006C599B /* SkeletonShape.swift in Sources */,
 				BCFD54582C1BE7E900191F34 /* GrayButtonColorTheme.swift in Sources */,
+				BC2B46A32C3548370057CE6B /* BasicDialogColorTheme.swift in Sources */,
 				BC765C182C31B10300C28766 /* BaseDialog.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
 				BC9799E32C2985F400A2AC95 /* Divider+View.swift in Sources */,
@@ -1613,16 +1626,19 @@
 				BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */,
 				BCFD53832C1B628200191F34 /* RoundedOffset.swift in Sources */,
 				BC05D5052C21B76A006C599B /* Toast.swift in Sources */,
+				BC2B46A92C354A170057CE6B /* DialogFigureTheme.swift in Sources */,
 				BC0932862C1A8F5200D3F8CB /* Type+Extension.swift in Sources */,
 				BC0932732C1A8F5200D3F8CB /* BasicButtonColor.swift in Sources */,
 				BC05D3FC2C200E8A006C599B /* SkeletonThemeType.swift in Sources */,
 				BC05D3D42C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift in Sources */,
 				BC05D4272C204877006C599B /* BaseButton.swift in Sources */,
 				BC765C1C2C31B12900C28766 /* DialogBookView.swift in Sources */,
+				BC2B46A52C3549730057CE6B /* BasicDialogFigureTheme.swift in Sources */,
 				BC05D4202C204171006C599B /* Typo+Extension.swift in Sources */,
 				BC0933E82C1B2C1A00D3F8CB /* ToggleButtonColorTheme.swift in Sources */,
 				BC05D42F2C204AE4006C599B /* ButtonBookViewController.swift in Sources */,
 				BC0933E22C1B2C1A00D3F8CB /* CheckButton.swift in Sources */,
+				BC2B46A72C354A110057CE6B /* DialogColorTheme.swift in Sources */,
 				BC0933E62C1B2C1A00D3F8CB /* BasicCheckButtonColorTheme.swift in Sources */,
 				BC05D50F2C21D822006C599B /* ToastVariant.swift in Sources */,
 				BC05D3C22C1DD3FF006C599B /* BasicTextFieldColor.swift in Sources */,

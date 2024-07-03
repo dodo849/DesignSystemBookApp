@@ -11,6 +11,7 @@ import Then
 import RxSwift
 import RxCocoa
 
+/// Extension for set theme
 public extension BaseTextField {
     func styled(
         variant: BasicTextFieldVariant = .plain,
@@ -36,6 +37,7 @@ public extension BaseTextField {
     }
 }
 
+/// Extension for set content
 public extension BaseTextField {
     func addTitle(_ view: UIView) {
         titleStack.addArrangedSubview(view)

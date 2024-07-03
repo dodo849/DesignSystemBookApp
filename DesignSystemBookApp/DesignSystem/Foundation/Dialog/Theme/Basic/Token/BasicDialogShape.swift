@@ -8,5 +8,5 @@
 import Foundation
 
 public enum BasicDialogShape: String, CaseIterable {
-    case round, square, pill
+    case round, square
 }

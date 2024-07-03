@@ -11,6 +11,21 @@ import RxSwift
 import Then
 import SnapKit
 
+/// Extension for set theme
+public extension BaseDialog {
+    func styled(
+        variant: BasicDialogVariant = .shadow,
+        shape: BasicDialogShape = .round
+    ) {
+        let colorTheme = BasicDialogColorTheme(variant: variant)
+        let figureTheme = BasicDialogFigureTheme(shape: shape)
+        
+        self.colorTheme = colorTheme
+        self.figureTheme = figureTheme
+    }
+}
+
+/// Extension for set content
 public extension BaseDialog {
     func addContent(_ content: UIView) {
         self.contentStackView.addArrangedSubview(content)
@@ -20,11 +35,11 @@ public extension BaseDialog {
         let duration = 0.3
         self.isHidden = false
         self.overlayView.alpha = 0
-        self.dialogBackground.alpha = 0
+        self.backgroundView.alpha = 0
         
         UIView.animate(withDuration: duration) {
             self.overlayView.alpha = 1
-            self.dialogBackground.alpha = 1
+            self.backgroundView.alpha = 1
         }
     }
     
@@ -32,7 +47,7 @@ public extension BaseDialog {
         let duration = 0.3
         UIView.animate(withDuration: duration) {
             self.overlayView.alpha = 0
-            self.dialogBackground.alpha = 0
+            self.backgroundView.alpha = 0
             
             DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
                 self.isHidden = true
@@ -43,17 +58,30 @@ public extension BaseDialog {
 
 public class BaseDialog: UIView {
     // MARK: Theme
+    private var colorTheme: BasicDialogColorTheme? {
+        didSet {
+            updateCornerRadius()
+            updateTheme()
+            updateLayout()
+        }
+    }
+    
+    private var figureTheme: BasicDialogFigureTheme? {
+        didSet {
+            updateCornerRadius()
+            updateTheme()
+            updateLayout()
+        }
+    }
     
     // MARK: UIConstant
     private let backgroundPadding: CGFloat = 16
     private let pagePadding: CGFloat = 24
     
     // MARK: UI Component
-    private let overlayView = UIView().then {
-        $0.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-    }
+    private let overlayView = UIView()
     
-    private let dialogBackground = UIView().then {
+    private let backgroundView = UIView().then {
         $0.backgroundColor = .basicBackground
     }
     
@@ -70,8 +98,6 @@ public class BaseDialog: UIView {
         $0.setTypo(.body1)
         $0.textColor = .gray06
     }
-    
-//    public var content: [BaseDialogContent<UIView>] = []
     
     // MARK: DisposeBag
     private let disposeBag = DisposeBag()
@@ -111,8 +137,8 @@ public class BaseDialog: UIView {
     // MARK: Setup
     private func setupHierachy() { 
         addSubview(overlayView)
-        addSubview(dialogBackground)
-        dialogBackground.addSubview(contentStackView)
+        addSubview(backgroundView)
+        backgroundView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(titleLabel)
         contentStackView.addArrangedSubview(subTitleLabel)
     }
@@ -121,10 +147,28 @@ public class BaseDialog: UIView {
     
     // MARK: Update
     private func updateCornerRadius() {
-        dialogBackground.layer.cornerRadius = 16
+        guard let figureTheme = figureTheme else { return }
+        
+        let rounded = figureTheme.rounded().max
+        
+        backgroundView.layer.cornerRadius = rounded
     }
     
-    private func updateTheme() { }
+    private func updateTheme() { 
+        guard let colorTheme = colorTheme else { return }
+        
+        // overaly
+        let overlayColor = colorTheme.overlayColor().uiColor
+        overlayView.backgroundColor = overlayColor
+        
+        // shadow
+        let shadowColor = colorTheme.shadowColor().cgColor
+        backgroundView.layer.shadowColor = shadowColor
+        backgroundView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        backgroundView.layer.shadowOpacity = 0.5
+        backgroundView.layer.shadowRadius = 12
+        
+    }
     
     private func updateLayout() { 
         overlayView.snp.makeConstraints {
@@ -134,14 +178,14 @@ public class BaseDialog: UIView {
             $0.edges.equalToSuperview()
         }
         
-        dialogBackground.snp.makeConstraints {
+        backgroundView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.left.right.equalToSuperview().inset(pagePadding)
         }
         
         contentStackView.snp.makeConstraints {
             $0.left.right.top.equalToSuperview().inset(backgroundPadding)
-            $0.bottom.equalTo(dialogBackground.snp.bottom).inset(backgroundPadding)
+            $0.bottom.equalTo(backgroundView.snp.bottom).inset(backgroundPadding)
         }
     }
 }

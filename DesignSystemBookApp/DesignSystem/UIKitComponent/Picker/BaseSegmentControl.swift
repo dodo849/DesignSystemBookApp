@@ -12,6 +12,7 @@ import RxCocoa
 import Then
 import SnapKit
 
+/// Extension for set theme
 public extension BaseSegmentControl {
     func styled(
         variant: BasicSegmentVariant = .flat,

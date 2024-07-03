@@ -10,6 +10,7 @@ import UIKit
 import Then
 import RxSwift
 
+/// Extension for set theme
 public extension BaseButton {
     func styled(
         variant: BasicButtonVariant = .fill,
@@ -32,6 +33,7 @@ public extension BaseButton {
     }
 }
 
+/// Extension for set content
 public extension BaseButton {
     // MARK: Set label
     func setLabel(_ text: String) {

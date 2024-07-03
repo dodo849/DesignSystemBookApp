@@ -30,18 +30,7 @@ final class DialogBookView: BaseView {
     }
     
     let variantControl = UISegmentedControl(
-        items: Array(BasicSegmentVariant.allCases).map { $0.rawValue }
-    ).then {
-        $0.selectedSegmentIndex = 0
-    }
-    
-    let colorControlLabel = UILabel().then {
-        $0.text = "color"
-        $0.setTypo(.body1b)
-    }
-    
-    let colorControl = UISegmentedControl(
-        items: Array(BasicSegmentColor.allCases).map { $0.rawValue }
+        items: Array(BasicDialogVariant.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
@@ -52,7 +41,7 @@ final class DialogBookView: BaseView {
     }
     
     let shapeControl = UISegmentedControl(
-        items: Array(BasicSegmentShape.allCases).map { $0.rawValue }
+        items: Array(BasicDialogShape.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
@@ -84,8 +73,6 @@ final class DialogBookView: BaseView {
         
         stackView.addArrangedSubview(variantControlLabel)
         stackView.addArrangedSubview(variantControl)
-        stackView.addArrangedSubview(colorControlLabel)
-        stackView.addArrangedSubview(colorControl)
         stackView.addArrangedSubview(shapeControlLabel)
         stackView.addArrangedSubview(shapeControl)
         stackView.addArrangedSubview(dialogOpenButton)
