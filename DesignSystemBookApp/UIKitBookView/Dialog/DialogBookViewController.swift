@@ -5,6 +5,8 @@
 //  Created by DOYEON LEE on 7/1/24.
 //
 
+import UIKit
+
 import RxSwift
 
 final class DialogBookViewController: BaseViewController<DialogBookView> {

@@ -141,7 +141,6 @@ public class BaseDialog: UIView {
         self.subTitleLabel.text = subTitle
         
         self.isHidden = true
-        self.layer.zPosition = 1000
     }
     
     // MARK: Life cycle

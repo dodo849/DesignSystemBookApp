@@ -127,6 +127,7 @@
 		BC2B46A52C3549730057CE6B /* BasicDialogFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A42C3549730057CE6B /* BasicDialogFigureTheme.swift */; };
 		BC2B46A72C354A110057CE6B /* DialogColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A62C354A110057CE6B /* DialogColorTheme.swift */; };
 		BC2B46A92C354A170057CE6B /* DialogFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */; };
+		BC3AE3562C365E4300972A51 /* PageViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3AE3552C365E4300972A51 /* PageViewController+Rx.swift */; };
 		BC765C0C2C2BB65900C28766 /* BaseSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */; };
 		BC765C0E2C2BB72100C28766 /* SegmentControlBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */; };
 		BC765C102C2BB72A00C28766 /* SegmentControlBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */; };
@@ -289,6 +290,7 @@
 		BC2B46A42C3549730057CE6B /* BasicDialogFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDialogFigureTheme.swift; sourceTree = "<group>"; };
 		BC2B46A62C354A110057CE6B /* DialogColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogColorTheme.swift; sourceTree = "<group>"; };
 		BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogFigureTheme.swift; sourceTree = "<group>"; };
+		BC3AE3552C365E4300972A51 /* PageViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Rx.swift"; sourceTree = "<group>"; };
 		BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSegmentControl.swift; sourceTree = "<group>"; };
 		BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookRepresentable.swift; sourceTree = "<group>"; };
 		BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookViewController.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 				BC05D43B2C204DC0006C599B /* BaseTableViewCell.swift */,
 				BC05D43C2C204DC0006C599B /* BaseView.swift */,
 				BC05D43D2C204DC0006C599B /* BaseViewController.swift */,
+				BC3AE3552C365E4300972A51 /* PageViewController+Rx.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1571,6 +1574,7 @@
 				BC05D3FE2C20128D006C599B /* SkeletonShape.swift in Sources */,
 				BCFD54582C1BE7E900191F34 /* GrayButtonColorTheme.swift in Sources */,
 				BC2B46A32C3548370057CE6B /* BasicDialogColorTheme.swift in Sources */,
+				BC3AE3562C365E4300972A51 /* PageViewController+Rx.swift in Sources */,
 				BC765C182C31B10300C28766 /* BaseDialog.swift in Sources */,
 				BCFD53852C1B656B00191F34 /* IndividualRoundedRectangle.swift in Sources */,
 				BC9799E32C2985F400A2AC95 /* BaseDivider.swift in Sources */,

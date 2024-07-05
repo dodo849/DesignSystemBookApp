@@ -4,6 +4,7 @@ disabled_rules:
   - missing_docs
   - unneeded_override
   - cyclomatic_complexity
+  - large_tuple
 opt_in_rules:
   - empty_count
   - missing_docs
