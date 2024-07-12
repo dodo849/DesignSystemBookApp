@@ -20,7 +20,7 @@
 		BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C52C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift */; };
 		BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C72C1DD855006C599B /* TextFieldState.swift */; };
 		BC05D3CA2C1DFB15006C599B /* SwiftUIAnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C92C1DFB15006C599B /* SwiftUIAnimationFactory.swift */; };
-		BC05D3D22C1F1BA0006C599B /* BottomBorderShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D12C1F1BA0006C599B /* BottomBorderShape.swift */; };
+		BC05D3D22C1F1BA0006C599B /* IndividualBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D12C1F1BA0006C599B /* IndividualBorderView.swift */; };
 		BC05D3D42C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D32C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift */; };
 		BC05D3D62C1F3094006C599B /* EmptyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D52C1F3094006C599B /* EmptyShape.swift */; };
 		BC05D3DA2C1F408C006C599B /* TextFieldCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D92C1F408C006C599B /* TextFieldCaption.swift */; };
@@ -57,7 +57,7 @@
 		BC05D44A2C204F10006C599B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D4492C204F10006C599B /* RxSwift */; };
 		BC05D44C2C204F96006C599B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D44B2C204F96006C599B /* WebViewController.swift */; };
 		BC05D44F2C20562F006C599B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC05D44E2C20562F006C599B /* SnapKit */; };
-		BC05D4512C205AA2006C599B /* ColorOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4502C205AA2006C599B /* ColorOffset.swift */; };
+		BC05D4512C205AA2006C599B /* UniversalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4502C205AA2006C599B /* UniversalColor.swift */; };
 		BC05D4542C20AE2B006C599B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4532C20AE2B006C599B /* Constant.swift */; };
 		BC05D4572C213609006C599B /* BaseSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4562C213609006C599B /* BaseSpacer.swift */; };
 		BC05D5002C21B39D006C599B /* ToastBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D4FF2C21B39D006C599B /* ToastBook.swift */; };
@@ -128,6 +128,8 @@
 		BC2B46A72C354A110057CE6B /* DialogColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A62C354A110057CE6B /* DialogColorTheme.swift */; };
 		BC2B46A92C354A170057CE6B /* DialogFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */; };
 		BC3AE3562C365E4300972A51 /* PageViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3AE3552C365E4300972A51 /* PageViewController+Rx.swift */; };
+		BC6D6E412C41697100C6FB7D /* Shape+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E402C41697100C6FB7D /* Shape+Extension.swift */; };
+		BC6D6E472C416E9A00C6FB7D /* BorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E462C416E9A00C6FB7D /* BorderColor.swift */; };
 		BC765C0C2C2BB65900C28766 /* BaseSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */; };
 		BC765C0E2C2BB72100C28766 /* SegmentControlBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */; };
 		BC765C102C2BB72A00C28766 /* SegmentControlBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */; };
@@ -188,7 +190,7 @@
 		BC05D3C52C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFieldFigureTheme.swift; sourceTree = "<group>"; };
 		BC05D3C72C1DD855006C599B /* TextFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldState.swift; sourceTree = "<group>"; };
 		BC05D3C92C1DFB15006C599B /* SwiftUIAnimationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIAnimationFactory.swift; sourceTree = "<group>"; };
-		BC05D3D12C1F1BA0006C599B /* BottomBorderShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderShape.swift; sourceTree = "<group>"; };
+		BC05D3D12C1F1BA0006C599B /* IndividualBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualBorderView.swift; sourceTree = "<group>"; };
 		BC05D3D32C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualRoundedRectangleCanvas.swift; sourceTree = "<group>"; };
 		BC05D3D52C1F3094006C599B /* EmptyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyShape.swift; sourceTree = "<group>"; };
 		BC05D3D92C1F408C006C599B /* TextFieldCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCaption.swift; sourceTree = "<group>"; };
@@ -220,7 +222,7 @@
 		BC05D43C2C204DC0006C599B /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		BC05D43D2C204DC0006C599B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BC05D44B2C204F96006C599B /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		BC05D4502C205AA2006C599B /* ColorOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOffset.swift; sourceTree = "<group>"; };
+		BC05D4502C205AA2006C599B /* UniversalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalColor.swift; sourceTree = "<group>"; };
 		BC05D4532C20AE2B006C599B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		BC05D4562C213609006C599B /* BaseSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSpacer.swift; sourceTree = "<group>"; };
 		BC05D4FF2C21B39D006C599B /* ToastBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastBook.swift; sourceTree = "<group>"; };
@@ -291,6 +293,8 @@
 		BC2B46A62C354A110057CE6B /* DialogColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogColorTheme.swift; sourceTree = "<group>"; };
 		BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogFigureTheme.swift; sourceTree = "<group>"; };
 		BC3AE3552C365E4300972A51 /* PageViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Rx.swift"; sourceTree = "<group>"; };
+		BC6D6E402C41697100C6FB7D /* Shape+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+Extension.swift"; sourceTree = "<group>"; };
+		BC6D6E462C416E9A00C6FB7D /* BorderColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderColor.swift; sourceTree = "<group>"; };
 		BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSegmentControl.swift; sourceTree = "<group>"; };
 		BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookRepresentable.swift; sourceTree = "<group>"; };
 		BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookViewController.swift; sourceTree = "<group>"; };
@@ -386,8 +390,9 @@
 				BCFD537E2C1B5F9D00191F34 /* GapOffset.swift */,
 				BCFD538C2C1B725600191F34 /* FrameOffset.swift */,
 				BCFD53822C1B628200191F34 /* RoundedOffset.swift */,
-				BC05D4502C205AA2006C599B /* ColorOffset.swift */,
+				BC05D4502C205AA2006C599B /* UniversalColor.swift */,
 				BC05D5172C21E119006C599B /* ImageName.swift */,
+				BC6D6E462C416E9A00C6FB7D /* BorderColor.swift */,
 			);
 			path = Offset;
 			sourceTree = "<group>";
@@ -405,7 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				BCFD53842C1B656B00191F34 /* IndividualRoundedRectangle.swift */,
-				BC05D3D12C1F1BA0006C599B /* BottomBorderShape.swift */,
+				BC05D3D12C1F1BA0006C599B /* IndividualBorderView.swift */,
 				BC05D3D32C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift */,
 				BC05D3D52C1F3094006C599B /* EmptyShape.swift */,
 			);
@@ -659,6 +664,7 @@
 		BC05D43E2C204DC0006C599B /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				BC6D6E422C41698500C6FB7D /* Extension */,
 				BC05D44B2C204F96006C599B /* WebViewController.swift */,
 				BC05D4392C204DC0006C599B /* BaseCollectionView.swift */,
 				BC05D43A2C204DC0006C599B /* BaseCollectionViewCell.swift */,
@@ -1125,6 +1131,22 @@
 			path = Token;
 			sourceTree = "<group>";
 		};
+		BC6D6E3E2C41693400C6FB7D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BC09326E2C1A8F5200D3F8CB /* Type+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BC6D6E422C41698500C6FB7D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D6E402C41697100C6FB7D /* Shape+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		BC765C092C2BB61000C28766 /* Picker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1154,7 +1176,7 @@
 		BC765C142C31AE8400C28766 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				BC09326E2C1A8F5200D3F8CB /* Type+Extension.swift */,
+				BC6D6E3E2C41693400C6FB7D /* Extension */,
 				BC05D3CE2C1F18D7006C599B /* Any */,
 				BC05D3CD2C1F18D1006C599B /* Offset */,
 				BC05D3CF2C1F18DB006C599B /* Shape */,
@@ -1539,7 +1561,7 @@
 				BC05D4432C204DC0006C599B /* BaseViewController.swift in Sources */,
 				BC05D3BE2C1DCF7B006C599B /* TextField+Extension.swift in Sources */,
 				BC05D3B72C1DCE2F006C599B /* BasicTextFieldShape.swift in Sources */,
-				BC05D3D22C1F1BA0006C599B /* BottomBorderShape.swift in Sources */,
+				BC05D3D22C1F1BA0006C599B /* IndividualBorderView.swift in Sources */,
 				BC0932792C1A8F5200D3F8CB /* Button+Styled.swift in Sources */,
 				BC09327C2C1A8F5200D3F8CB /* Keyboard+Extension.swift in Sources */,
 				BC05D44C2C204F96006C599B /* WebViewController.swift in Sources */,
@@ -1592,7 +1614,7 @@
 				BC0932912C1AA4B300D3F8CB /* AnyShape.swift in Sources */,
 				BC05D3F22C200B15006C599B /* SkeletonState.swift in Sources */,
 				BC05D4232C20428A006C599B /* Rounded+Extension.swift in Sources */,
-				BC05D4512C205AA2006C599B /* ColorOffset.swift in Sources */,
+				BC05D4512C205AA2006C599B /* UniversalColor.swift in Sources */,
 				BCFD545D2C1BE7E900191F34 /* BasicButtonVariant.swift in Sources */,
 				BCFD54652C1BEFAC00191F34 /* GrayButtonBook.swift in Sources */,
 				BC05D4062C201405006C599B /* BasicSkeletonFigureTheme.swift in Sources */,
@@ -1616,10 +1638,12 @@
 				BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */,
 				BC05D4022C2013D2006C599B /* SkeletonColorTheme.swift in Sources */,
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
+				BC6D6E412C41697100C6FB7D /* Shape+Extension.swift in Sources */,
 				BC05D4402C204DC0006C599B /* BaseCollectionViewCell.swift in Sources */,
 				BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */,
 				BC05D4572C213609006C599B /* BaseSpacer.swift in Sources */,
 				BC05D42D2C2049B5006C599B /* ButtonBookRepresentable.swift in Sources */,
+				BC6D6E472C416E9A00C6FB7D /* BorderColor.swift in Sources */,
 				BCF03A702C294DAA006D102E /* BaseTextField.swift in Sources */,
 				BC05D5622C235E81006C599B /* SegmentControl+Styled.swift in Sources */,
 				BC979B252C2AA57900A2AC95 /* BasicChipColor.swift in Sources */,

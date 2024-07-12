@@ -14,14 +14,14 @@ struct BasicDialogColorTheme: DialogColorTheme {
         self.variant = variant
     }
     
-    func shadowColor() -> ColorOffset {
+    func shadowColor() -> UniversalColor {
         switch variant {
         case .overlay: return .init(.clear)
         case .shadow: return .init(.black.opacity(0.2))
         }
     }
     
-    func overlayColor() -> ColorOffset {
+    func overlayColor() -> UniversalColor {
         switch variant {
         case .overlay: return .init(.black.opacity(0.2))
         case .shadow: return .init(.clear)

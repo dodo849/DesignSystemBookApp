@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-struct ColorOffset {
+struct UniversalColor {
     private let _color: UIColor
     
     init(_ color: Color) {

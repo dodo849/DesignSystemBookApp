@@ -23,7 +23,10 @@ public extension BaseSegmentControl {
             variant: variant,
             color: color
         )
-        self.figureTheme = BasicSegmentFigureTheme(shape: shape)
+        self.figureTheme = BasicSegmentFigureTheme(
+            variant: variant,
+            shape: shape
+        )
     }
 }
 
@@ -225,6 +228,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         guard let figureTheme = figureTheme else { return }
         let containerPadding = figureTheme.containerPadding()
         let itemPadding = figureTheme.itemPadding()
+        let indicatorHeight = figureTheme.indicatorHeight()
         
         if indicatorLeadingOffset <= 0 {
             indicatorLeadingOffset = containerPadding.horizontal ?? 0
@@ -235,7 +239,13 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         }
         
         indicator.snp.remakeConstraints {
-            $0.top.bottom.equalToSuperview().inset(containerPadding.vertical ?? 0)
+            if let indicatorHeight = indicatorHeight {
+                $0.height.equalTo(indicatorHeight)
+                $0.bottom.equalToSuperview().inset(containerPadding.vertical ?? 0)
+            } else {
+                $0.top.bottom.equalToSuperview().inset(containerPadding.vertical ?? 0)
+            }
+            
             $0.left.equalToSuperview().inset(containerPadding.horizontal ?? 0)
             if let firstItem = itemStack.subviews.first {
                 $0.width.equalTo(firstItem.bounds.width)

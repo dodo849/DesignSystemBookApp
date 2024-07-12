@@ -16,7 +16,7 @@ struct BasicButtonColorTheme: ButtonColorTheme {
         self.color = color
     }
     
-    func backgroundColor(state: ButtonState) -> ColorOffset {
+    func backgroundColor(state: ButtonState) -> UniversalColor {
         switch variant {
         case .fill:
             return .init(fillBackgroundColor(state: state, color: color))
@@ -29,7 +29,7 @@ struct BasicButtonColorTheme: ButtonColorTheme {
         }
     }
     
-    func foregroundColor(state: ButtonState) -> ColorOffset {
+    func foregroundColor(state: ButtonState) -> UniversalColor {
         switch variant {
         case .fill:
             return .init(.white)
@@ -42,7 +42,7 @@ struct BasicButtonColorTheme: ButtonColorTheme {
         }
     }
     
-    func borderColor(state: ButtonState) -> ColorOffset {
+    func borderColor(state: ButtonState) -> UniversalColor {
         switch variant {
         case .fill, .translucent:
             return .init(.none)

@@ -8,8 +8,8 @@
 import SwiftUI
 
 protocol TextFieldColorTheme {
-    func foregroundColor(state: TextFieldAllState) -> ColorOffset
-    func backgroundColor(state: TextFieldAllState) -> ColorOffset
-    func borderColor(state: TextFieldAllState) -> ColorOffset
-    func bottomBorderColor(state: TextFieldAllState) -> ColorOffset
+    func foregroundColor(state: TextFieldAllState) -> UniversalColor
+    func backgroundColor(state: TextFieldAllState) -> UniversalColor
+    func borderColor(state: TextFieldAllState) -> UniversalColor
+    func bottomBorderColor(state: TextFieldAllState) -> UniversalColor
 }

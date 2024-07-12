@@ -14,4 +14,11 @@ protocol PickerFigureTheme {
     func itemRounded() -> RoundedOffset
     func itemPadding() -> GapOffset
     func itemSpacing() -> GapOffset
+    func indicatorHeight() -> CGFloat? // for underline
+}
+
+extension PickerFigureTheme {
+    func indicatorHeight() -> CGFloat? {
+        return nil
+    }
 }

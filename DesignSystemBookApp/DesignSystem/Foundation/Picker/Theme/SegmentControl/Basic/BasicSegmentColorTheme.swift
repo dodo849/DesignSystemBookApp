@@ -19,7 +19,7 @@ struct BasicSegmentColorTheme: PickerColorTheme {
         self.color = color
     }
     
-    func itemBackgroundColor(state: PickerState) -> ColorOffset {
+    func itemBackgroundColor(state: PickerState) -> UniversalColor {
         switch (color, state) {
         case (_, .unselected): return .init(.gray03)
         case (.primary, .selected): return .init(.basicYellow)
@@ -30,27 +30,53 @@ struct BasicSegmentColorTheme: PickerColorTheme {
         }
     }
     
-    func itemForegroundColor(state: PickerState) -> ColorOffset {
+    func itemForegroundColor(state: PickerState) -> UniversalColor {
+        // for underline
+        switch (variant, state) {
+        case (.underline, .selected):
+            switch color {
+            case .primary: return .init(.basicYellow)
+            case .secondary: return .init(.basicGreen)
+            case .tertiary: return .init(.basicPink)
+            case .soft: return .init(.basicText)
+            case .stone: return .init(.basicText)
+            }
+        case (.underline, .unselected):
+            return .init(.gray04)
+        default:
+            break
+        }
+        
+        // for flat, shadow
         switch (color, state) {
-        case (_, .unselected): return .init(.gray04)
-        case (.soft, .selected): return .init(.basicText)
-        case (_, .selected): return .init(.white)
+        case (_, .unselected):
+            return .init(.gray04)
+        case (.soft, .selected):
+            return .init(.basicText)
+        case (_, .selected):
+            return .init(.white)
         }
     }
     
-    func itemBorderColor(state: PickerState) -> ColorOffset {
+    func itemBorderColor(state: PickerState) -> UniversalColor {
         return .init(.clear)
     }
     
-    func itemShadowColor(state: PickerState) -> ColorOffset {
+    func itemShadowColor(state: PickerState) -> UniversalColor {
         switch (variant, state) {
         case (.flat, _): return .init(.clear)
         case (.shadow, .selected): return .init(.black.opacity(0.2))
         case (.shadow, .unselected): return .init(.clear)
+        case (.underline, _): return .init(.clear)
         }
     }
     
-    func containerBackgroundColor() -> ColorOffset {
-        return .init(.gray02)
+    func containerBackgroundColor() -> UniversalColor {
+        switch variant {
+        case .flat, .shadow:
+            return .init(.gray02)
+        case .underline:
+            return .init(.basicBackground)
+        }
     }
 }

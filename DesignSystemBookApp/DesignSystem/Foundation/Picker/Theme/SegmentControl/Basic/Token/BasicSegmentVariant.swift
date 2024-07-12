@@ -8,5 +8,5 @@
 import Foundation
 
 public enum BasicSegmentVariant: String, CaseIterable {
-    case flat, shadow
+    case flat, shadow, underline
 }

@@ -16,6 +16,9 @@ class PickerThemeStore: ObservableObject {
             variant: .flat,
             color: .primary
         )
-        self.figureTheme = BasicSegmentFigureTheme(shape: .round)
+        self.figureTheme = BasicSegmentFigureTheme(
+            variant: .flat,
+            shape: .round
+        )
     }
 }

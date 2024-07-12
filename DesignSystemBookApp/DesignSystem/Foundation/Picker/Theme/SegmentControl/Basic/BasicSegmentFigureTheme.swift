@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct BasicSegmentFigureTheme: PickerFigureTheme {
+    private let variant: BasicSegmentVariant
     private let _shape: BasicSegmentShape
     
-    init(shape: BasicSegmentShape) {
+    init(
+        variant: BasicSegmentVariant,
+        shape: BasicSegmentShape
+    ) {
+        self.variant = variant
         self._shape = shape
     }
     
     func shape() -> AnyShape {
         switch _shape {
-        case .round:
-            let round = itemRounded()
-            return RoundedRectangle(cornerRadius: round.max).asAnyShape()
-        case .square:
+        case .round, .square:
             let round = itemRounded()
             return RoundedRectangle(cornerRadius: round.max).asAnyShape()
         case .pill:
@@ -40,6 +42,10 @@ struct BasicSegmentFigureTheme: PickerFigureTheme {
     }
     
     func itemRounded() -> RoundedOffset {
+        if variant == .underline {
+            return .zero
+        }
+        
         switch _shape {
         case .round: return .medium
         case .square: return .xsmall
@@ -53,5 +59,12 @@ struct BasicSegmentFigureTheme: PickerFigureTheme {
     
     func itemSpacing() -> GapOffset {
         return .init(all: 8)
+    }
+    
+    func indicatorHeight() -> CGFloat? {
+        switch variant {
+        case .underline: return 3
+        default: return nil
+        }
     }
 }

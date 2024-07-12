@@ -40,11 +40,8 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
         
         HStack(spacing: spacing) {
             ForEach(sources, id: \.id) { value in
-                let itemForegroundColor = store.colorTheme.itemForegroundColor(
-                    state: selection == value
-                    ? .selected
-                    : .unselected
-                ).color
+                let state: PickerState = selection == value ? .selected : .unselected
+                let itemForegroundColor = store.colorTheme.itemForegroundColor(state: state).color
                 
                 itemBuilder(value)
                     .frame(maxWidth: .infinity)
@@ -58,30 +55,38 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
                                 selection = value
                             }
                     )
+                
             }
         }
         .background( // indicator
             GeometryReader { geometry in
-                Rectangle()
-                    .fill(
-                        store.colorTheme.itemBackgroundColor(
-                            state: .selected
-                        ).color
-                    )
-                    .frame(
-                        maxWidth: max(
-                            (geometry.size.width
-                             - spacing * CGFloat(sources.count - 1))
-                            / CGFloat(sources.count),
-                            0
+                let indicatorHeight = store.figureTheme.indicatorHeight()
+                VStack {
+                    if indicatorHeight != nil {
+                        Spacer()
+                    }
+                    Rectangle()
+                        .fill(
+                            store.colorTheme.itemBackgroundColor(
+                                state: .selected
+                            ).color
                         )
-                    )
-                    .clipShape(shape)
-                    .shadow(
-                        color: store.colorTheme.itemShadowColor(state: .selected).color,
-                        radius: 8
-                    )
-                    .offset(x: offsetForIndicator(in: geometry.size.width))
+                        .frame(
+                            maxWidth: max(
+                                (geometry.size.width
+                                 - spacing * CGFloat(sources.count - 1))
+                                / CGFloat(sources.count),
+                                0
+                            ),
+                            maxHeight: indicatorHeight
+                        )
+                        .clipShape(shape)
+                        .shadow(
+                            color: store.colorTheme.itemShadowColor(state: .selected).color,
+                            radius: 8
+                        )
+                        .offset(x: offsetForIndicator(in: geometry.size.width))
+                }
             }
         )
         .frame(maxWidth: .infinity)
@@ -90,7 +95,6 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
         .background(store.colorTheme.containerBackgroundColor().color)
         .clipShape(store.figureTheme.shape())
         .animation(.spring(response: 0.25), value: selection)
-        
     }
     
     private func offsetForIndicator(in totalWidth: CGFloat) -> CGFloat {

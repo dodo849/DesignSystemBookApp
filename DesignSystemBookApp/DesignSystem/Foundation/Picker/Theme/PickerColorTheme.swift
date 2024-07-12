@@ -7,11 +7,10 @@
 
 import Foundation
 
-// TODO: itemBackgroundColor보단 indicator color가 맞는데 이게 picker에 제너럴한지 고민
 protocol PickerColorTheme {
-    func itemBackgroundColor(state: PickerState) -> ColorOffset
-    func itemForegroundColor(state: PickerState) -> ColorOffset
-    func itemShadowColor(state: PickerState) -> ColorOffset
-    func itemBorderColor(state: PickerState) -> ColorOffset
-    func containerBackgroundColor() -> ColorOffset
+    func itemBackgroundColor(state: PickerState) -> UniversalColor
+    func itemForegroundColor(state: PickerState) -> UniversalColor
+    func itemShadowColor(state: PickerState) -> UniversalColor
+    func itemBorderColor(state: PickerState) -> UniversalColor
+    func containerBackgroundColor() -> UniversalColor
 }

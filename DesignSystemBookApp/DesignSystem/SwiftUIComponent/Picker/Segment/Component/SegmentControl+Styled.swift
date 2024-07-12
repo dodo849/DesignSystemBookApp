@@ -17,7 +17,10 @@ public extension SegmentControl {
             variant: variant,
             color: color
         )
-        self.store.figureTheme = BasicSegmentFigureTheme(shape: shape)
+        self.store.figureTheme = BasicSegmentFigureTheme(
+            variant: variant,
+            shape: shape
+        )
         return self
     }
 }

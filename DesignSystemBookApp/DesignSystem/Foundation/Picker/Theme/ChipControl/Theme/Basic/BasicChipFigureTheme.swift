@@ -19,7 +19,7 @@ struct BasicChipColorTheme: PickerColorTheme {
         self.color = color
     }
     
-    func itemBackgroundColor(state: PickerState) -> ColorOffset {
+    func itemBackgroundColor(state: PickerState) -> UniversalColor {
         switch variant {
         case .fillAndOutline:
             return .init(fillAndOutlineItemBackgroundColor(state: state))
@@ -28,7 +28,7 @@ struct BasicChipColorTheme: PickerColorTheme {
         }
     }
     
-    func itemForegroundColor(state: PickerState) -> ColorOffset {
+    func itemForegroundColor(state: PickerState) -> UniversalColor {
         switch variant {
         case .fillAndOutline:
             return .init(fillAndOutlineItemForegroundColor(state: state))
@@ -37,7 +37,7 @@ struct BasicChipColorTheme: PickerColorTheme {
         }
     }
     
-    func itemBorderColor(state: PickerState) -> ColorOffset {
+    func itemBorderColor(state: PickerState) -> UniversalColor {
         if variant == .deepAndSoft { return .init(.clear) }
         
         switch (color, state) {
@@ -47,12 +47,12 @@ struct BasicChipColorTheme: PickerColorTheme {
     }
     
     /// Not used
-    func itemShadowColor(state: PickerState) -> ColorOffset {
+    func itemShadowColor(state: PickerState) -> UniversalColor {
         return .init(.clear)
     }
     
     /// Not used
-    func containerBackgroundColor() -> ColorOffset {
+    func containerBackgroundColor() -> UniversalColor {
         return .init(.clear)
     }
 }

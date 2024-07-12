@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ToastColorTheme {
-    func backgroundColor() -> ColorOffset
-    func foregroundColor() -> ColorOffset
+    func backgroundColor() -> UniversalColor
+    func foregroundColor() -> UniversalColor
 }

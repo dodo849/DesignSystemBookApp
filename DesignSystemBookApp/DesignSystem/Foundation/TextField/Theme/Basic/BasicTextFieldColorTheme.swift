@@ -16,7 +16,7 @@ struct BasicTextFieldColorTheme: TextFieldColorTheme {
     let variant: BasicTextFieldVariant
     let color: BasicTextFieldColor
     
-    func foregroundColor(state: TextFieldAllState) -> ColorOffset {
+    func foregroundColor(state: TextFieldAllState) -> UniversalColor {
         switch state {
         case .disabled:
             return .init(.gray04)
@@ -29,7 +29,7 @@ struct BasicTextFieldColorTheme: TextFieldColorTheme {
         }
     }
     
-    func backgroundColor(state: TextFieldAllState) -> ColorOffset {
+    func backgroundColor(state: TextFieldAllState) -> UniversalColor {
         switch variant {
         case .plain:
             return .init(plainBackgroundColor(color, state))
@@ -38,7 +38,7 @@ struct BasicTextFieldColorTheme: TextFieldColorTheme {
         }
     }
     
-    func borderColor(state: TextFieldAllState) -> ColorOffset {
+    func borderColor(state: TextFieldAllState) -> UniversalColor {
         switch variant {
         case .outlined:
             return .init(borderColorWithLineVariant(color, state))
@@ -47,7 +47,7 @@ struct BasicTextFieldColorTheme: TextFieldColorTheme {
         }
     }
     
-    func bottomBorderColor(state: TextFieldAllState) -> ColorOffset {
+    func bottomBorderColor(state: TextFieldAllState) -> UniversalColor {
         switch variant {
         case .underlined:
             return .init(borderColorWithLineVariant(color, state))
