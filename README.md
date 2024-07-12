@@ -12,7 +12,7 @@ It also includes an app target where you can see the actual components in action
 
 # How to Import
 > This project is intended to be used as a template that you can modify according to your needs. However, it can also be used as is if desired.
-1. Copy the [DesignSystem > Foundation] folder from this project and paste it into your desired project. Alternatively, you can copy only the component folders you need. Note that the Util, Rounded, and Typo folders contain essential properties that all components depend on, so they must be included.
+1. Copy the [DesignSystem > Foundation] folder from this project and paste it into your desired project. Alternatively, you can copy only the component folders you need. Note that the Base, Rounded, and Typo folders contain essential properties that all components depend on, so they must be included.
 2. Select and copy the desired framework folder from [DesignSystem > UIKitComponent, SwiftUIComponent] and paste it into your project. Similarly, you can choose to copy only the components you need.
 3. After that, update the Token and Theme to match your project's design system. If necessary, you can also modify the protocol or components.
 

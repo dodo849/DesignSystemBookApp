@@ -45,18 +45,20 @@ public protocol PageType: Hashable {
  }
 ```
  
- Create an RxPageViewController using the defined enumeration and inject the pages to be displayed into the initializer.
+ Create an RxPageViewController using the defined enumeration
+ and inject the pages to be displayed into the initializer.
  - Important: The elements of the page array must not be duplicated.
  ```swift
+ // 1. Create a RxPabeViewCotnroller with pages.
+ let pageViewController = RxPageViewController<TestViewPage>(pages: [.first, .second, third])
  
- let pageViewController = RxPageViewController<TestViewPage>(page: [.first, .second, third])
- pageViewController.setupHirachy(self)
- 
+ // 2. Add the RxPageViewController to the parent view.
+ addSubview(pageViewController.view)
  pageViewController.view.snp.makeConstraints { make in
      make.edges.equalToSuperview()
  }
  
- // You can observe when the page changes by dragging.
+ // 3. Bind the onMove action. You can observe when the page changes by dragging.
  pageViewController.onMove
      .subscribe(onNext: { page in
          print(page) // result: first or second or third
@@ -65,18 +67,19 @@ public protocol PageType: Hashable {
  ```
  
  If you want to change the page configuration at runtime, use the updatePages(_:) method.
-- Note: Even if you remove the current page from the configuration, it will not be removed from the screen immediately. Use this to modify the previous or next page.
+- Note: Even if you remove the current page from the configuration,
+ it will not be removed from the screen immediately. Use this to modify the previous or next page.
  ```swift
  pageViewController.updatePages([.first, .second])
  ```
  */
 open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageViewControllerDataSource {
     // MARK: Event
-    /// 페이지 변경시 변경 완료 후 현재 페이지가 방출되는 subject
+    /// Subject that emits the current page after the page change is completed
     public let onMove = PublishSubject<Page>()
     
     // MARK: Public property
-    /// 페이지 데이터 소스 pageType을 배열로 받는다.
+    /// An array that receives the page data source pageType.
     public var pages: [Page] = [] {
         didSet {
             viewControllersDict.removeAll()
@@ -86,7 +89,7 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
         }
     }
     
-    /// 현재 보여지고 있는 페이지 인덱스
+    /// The index of the currently displayed page
     public var pageIndex: Binder<Page> {
         return Binder(self) { (pageViewController: RxPageViewController, page: Page) in
             guard let pageIndex = pageViewController.pages.firstIndex(of: page) else { return }
@@ -109,7 +112,7 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
     private let disposeBag = DisposeBag()
     
     // MARK: Initializer
-    init(
+    public init(
         pages: [Page],
         firstPage: Page,
         transitionStyle style: UIPageViewController.TransitionStyle = .scroll,
@@ -153,12 +156,6 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
     }
     
     // MARK: Setup
-    public func setupHirachy(_ parent: UIViewController) {
-        parent.addChild(self)
-        parent.view.addSubview(self.view)
-        self.didMove(toParent: parent)
-    }
-    
     private func setupDeleagte() {
         self.dataSource = self
     }
@@ -228,7 +225,7 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
     /// Move to specific page
     private func moveToPage(at index: Int) {
         let selectedPage = pages[index].viewController
-        let direction: UIPageViewController.NavigationDirection = index 
+        let direction: UIPageViewController.NavigationDirection = index
             > (currentPageIndex ?? 0) ? .forward : .reverse
         
         setViewControllers([selectedPage], direction: direction, animated: true, completion: nil)
@@ -302,7 +299,7 @@ final class RxPageViewControllerProxy: DelegateProxy<UIPageViewController, UIPag
     }
 
     static func setCurrentDelegate(
-        _ delegate: UIPageViewControllerDelegate?, 
+        _ delegate: UIPageViewControllerDelegate?,
         to object: UIPageViewController
     ) {
         object.delegate = delegate

@@ -214,10 +214,9 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
                     ).uiColor
                     
                     if let label = $0 as? UILabel {
-                        label.setTypo(.body2b)
                         label.textColor = foregroundColor
-                        label.textAlignment = .center
                     }
+                    
                     $0.tintColor = foregroundColor
                 }
             }

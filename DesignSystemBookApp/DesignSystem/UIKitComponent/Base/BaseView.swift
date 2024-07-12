@@ -9,7 +9,7 @@ import UIKit
 
 import RxSwift
 
-protocol BaseViewProtocol {
+public protocol BaseViewProtocol {
     func setupHierarchy()
     func setupLayout()
     func setupBind()

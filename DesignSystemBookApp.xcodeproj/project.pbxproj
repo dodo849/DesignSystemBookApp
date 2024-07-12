@@ -527,7 +527,7 @@
 				BC9799E12C2985E800A2AC95 /* Divider */,
 				BC05D4252C204854006C599B /* Button */,
 				BCF03A6A2C292996006D102E /* TextField */,
-				BC765C0A2C2BB62800C28766 /* Picker */,
+				BC765C0A2C2BB62800C28766 /* SegmentControl */,
 				BC765C152C31B0EC00C28766 /* Dialog */,
 			);
 			path = UIKitComponent;
@@ -543,7 +543,6 @@
 				BC2B46982C3510BE0057CE6B /* Dialog */,
 				BC6D6E482C417C7800C6FB7D /* SegmentControl */,
 				BC6D6E492C417C8200C6FB7D /* ChipControl */,
-				BC05D53F2C2318A1006C599B /* Picker */,
 				BC05D5062C21C1A6006C599B /* Toast */,
 				BC05D41A2C204037006C599B /* Skeleton */,
 				BC05D4192C20402F006C599B /* ToggleButton */,
@@ -784,13 +783,6 @@
 			children = (
 				BC05D53D2C23159D006C599B /* SegmentControlBook.swift */,
 				BC979B2F2C2AAA9900A2AC95 /* ChipControlBook.swift */,
-			);
-			path = Picker;
-			sourceTree = "<group>";
-		};
-		BC05D53F2C2318A1006C599B /* Picker */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -1181,12 +1173,12 @@
 			path = Picker;
 			sourceTree = "<group>";
 		};
-		BC765C0A2C2BB62800C28766 /* Picker */ = {
+		BC765C0A2C2BB62800C28766 /* SegmentControl */ = {
 			isa = PBXGroup;
 			children = (
 				BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */,
 			);
-			path = Picker;
+			path = SegmentControl;
 			sourceTree = "<group>";
 		};
 		BC765C132C2BBC4800C28766 /* SegmentControl */ = {
