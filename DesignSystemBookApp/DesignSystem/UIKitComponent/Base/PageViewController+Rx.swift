@@ -58,11 +58,16 @@ public protocol PageType: Hashable {
      make.edges.equalToSuperview()
  }
  
- // 3. Bind the onMove action. You can observe when the page changes by dragging.
+ // 3. Subscribe the onMove action. You can observe when the page changes by dragging.
  pageViewController.onMove
      .subscribe(onNext: { page in
          print(page) // result: first or second or third
      })
+     .disposed(by: disposeBag)
+ 
+ // 4. Bind the some subject to moveTo. This allows you to programmatically move to a specific page.
+ someSubject
+     .bind(to: pageViewController.moveTo)
      .disposed(by: disposeBag)
  ```
  
@@ -77,6 +82,7 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
     // MARK: Event
     /// Subject that emits the current page after the page change is completed
     public let onMove = PublishSubject<Page>()
+    public let moveTo = PublishSubject<Page>()
     
     // MARK: Public property
     /// An array that receives the page data source pageType.
@@ -181,6 +187,13 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
                 }
             })
             .disposed(by: disposeBag)
+        
+        self.moveTo.subscribe(onNext: { [weak self] page in
+            guard let self = self else { return }
+            guard let pageIndex = self.pages.firstIndex(of: page) else { return }
+            self.moveToPage(at: pageIndex)
+        })
+        .disposed(by: disposeBag)
     }
     
     // MARK: Data source
