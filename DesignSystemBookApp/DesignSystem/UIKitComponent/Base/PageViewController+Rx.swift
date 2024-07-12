@@ -122,7 +122,7 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
         firstPage: Page,
         transitionStyle style: UIPageViewController.TransitionStyle = .scroll,
         navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal,
-        disabledScrollGesture: Bool = false
+        disabledScrollGesture: Bool = true
     ) {
         super.init(
             transitionStyle: style,
@@ -188,7 +188,6 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
                    }) {
                     self.currentPageIndex = self.pages.firstIndex(of: currentPage)
                     
-                    print("didFinishAnimating \(currentPage)")
                     self._onMove.onNext(currentPage)
                 }
             })
@@ -202,7 +201,6 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
                           self.viewControllersDict[$0] == nextViewController
                       }) else { return }
                 
-                print("willTransitionTo \(nextPage)")
                 self.currentPageIndex = self.pages.firstIndex(of: nextPage)
                 self._onMove.onNext(nextPage)
             })
@@ -219,7 +217,6 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
 
         let destination = pages[currentIndex - 1]
         
-        print("moveto \(currentIndex - 1)")
         currentPageIndex = currentIndex - 1
         
         return findViewController(for: destination)
@@ -233,8 +230,7 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
         else { return nil }
         
         let destination = pages[currentIndex + 1]
-        
-        print("moveto \(currentIndex + 1)")
+
         currentPageIndex = currentIndex + 1
         
         return findViewController(for: destination)
