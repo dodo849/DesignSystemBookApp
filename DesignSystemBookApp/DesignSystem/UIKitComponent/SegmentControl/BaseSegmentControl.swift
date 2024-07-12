@@ -32,8 +32,19 @@ public extension BaseSegmentControl {
 
 public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identifiable {
     // MARK: Event
-    public var onChange: PublishSubject<Option> = PublishSubject()
-    public var changeTo: PublishSubject<Option> = PublishSubject()
+    public var _onChange: PublishSubject<Option> = PublishSubject()
+    public var onChange: Observable<Option> {
+        return _onChange.asObservable()
+    }
+    public var selectedOption: Binder<Option> {
+        return Binder(self) { (view: BaseSegmentControl, option: Option) in
+            guard let index = view.source.firstIndex(where: { $0.id == option.id })
+            else { return }
+            
+            view.selectedIndex = index
+            view.updateIndicatorPosition(selectedIndex: index)
+        }
+    }
     
     // MARK: Theme
     private var colorTheme: SegmentColorTheme? {
@@ -145,18 +156,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
                     
                     return owner.source[index]
                 }
-                .bind(to: onChange)
-                .disposed(by: disposeBag)
-            
-            changeTo
-                .withUnretained(self)
-                .subscribe(onNext: { owner, option in
-                    guard let index = owner.source.firstIndex(where: { $0.id == option.id })
-                    else { return }
-                    
-                    owner.selectedIndex = index
-                    owner.updateIndicatorPosition(selectedIndex: index)
-                })
+                .bind(to: _onChange)
                 .disposed(by: disposeBag)
         }
     }
