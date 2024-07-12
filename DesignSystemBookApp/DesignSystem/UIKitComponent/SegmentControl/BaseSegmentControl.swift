@@ -32,7 +32,8 @@ public extension BaseSegmentControl {
 
 public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identifiable {
     // MARK: Event
-    var onChange: PublishSubject<Option> = PublishSubject()
+    public var onChange: PublishSubject<Option> = PublishSubject()
+    public var changeTo: PublishSubject<Option> = PublishSubject()
     
     // MARK: Theme
     private var colorTheme: SegmentColorTheme? {
@@ -140,24 +141,41 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
                 .map { owner, _ in
                     owner.selectedIndex = index
                     
-                    let containerPadding = owner.figureTheme?.containerPadding()
-                    
-                    owner.indicatorLeadingOffset = (itemView.bounds.width
-                        + owner.itemStack.spacing)
-                        * CGFloat(index)
-                        + (containerPadding?.horizontal ?? 0)
-                    
-                    owner.updateLayout()
-                    owner.updateTheme()
+                    owner.updateIndicatorPosition(selectedIndex: index)
                     
                     return owner.source[index]
                 }
                 .bind(to: onChange)
                 .disposed(by: disposeBag)
+            
+            changeTo
+                .withUnretained(self)
+                .subscribe(onNext: { owner, option in
+                    guard let index = owner.source.firstIndex(where: { $0.id == option.id })
+                    else { return }
+                    
+                    owner.selectedIndex = index
+                    owner.updateIndicatorPosition(selectedIndex: index)
+                })
+                .disposed(by: disposeBag)
         }
     }
     
     // MARK: Update
+    private func updateIndicatorPosition(selectedIndex: Int) {
+        guard let containerPadding = self.figureTheme?.containerPadding(),
+              let itemView = itemStack.subviews.first
+        else { return }
+        
+        self.indicatorLeadingOffset = (itemView.bounds.width
+                                       + self.itemStack.spacing)
+        * CGFloat(selectedIndex)
+        + (containerPadding.horizontal ?? 0)
+        
+        self.updateLayout()
+        self.updateTheme()
+    }
+    
     private func updateCornerRadius() {
         guard let figureTheme = figureTheme else { return }
         let containerRounded = figureTheme.containerRounded().max

@@ -16,7 +16,7 @@ public protocol BaseViewProtocol {
 }
 
 open class BaseView: UIView, BaseViewProtocol {
-    var disposeBag = DisposeBag()
+    public var disposeBag = DisposeBag()
     
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
