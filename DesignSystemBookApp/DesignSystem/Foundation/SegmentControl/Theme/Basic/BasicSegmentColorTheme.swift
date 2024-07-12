@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BasicSegmentColorTheme: PickerColorTheme {
+struct BasicSegmentColorTheme: SegmentColorTheme {
     private let variant: BasicSegmentVariant
     private let color: BasicSegmentColor
     
@@ -19,18 +19,7 @@ struct BasicSegmentColorTheme: PickerColorTheme {
         self.color = color
     }
     
-    func itemBackgroundColor(state: PickerState) -> UniversalColor {
-        switch (color, state) {
-        case (_, .unselected): return .init(.gray03)
-        case (.primary, .selected): return .init(.basicYellow)
-        case (.secondary, .selected): return .init(.basicGreen)
-        case (.tertiary, .selected): return .init(.basicPink)
-        case (.soft, .selected): return .init(.basicBackground)
-        case (.stone, .selected): return .init(.gray05)
-        }
-    }
-    
-    func itemForegroundColor(state: PickerState) -> UniversalColor {
+    func itemForegroundColor(state: SegmentState) -> UniversalColor {
         // for underline
         switch (variant, state) {
         case (.underline, .selected):
@@ -58,16 +47,21 @@ struct BasicSegmentColorTheme: PickerColorTheme {
         }
     }
     
-    func itemBorderColor(state: PickerState) -> UniversalColor {
-        return .init(.clear)
+    func indicatorBackgroundColor() -> UniversalColor {
+        switch color {
+        case .primary: return .init(.basicYellow)
+        case .secondary: return .init(.basicGreen)
+        case .tertiary: return .init(.basicPink)
+        case .soft: return .init(.basicBackground)
+        case .stone: return .init(.gray05)
+        }
     }
     
-    func itemShadowColor(state: PickerState) -> UniversalColor {
-        switch (variant, state) {
-        case (.flat, _): return .init(.clear)
-        case (.shadow, .selected): return .init(.black.opacity(0.2))
-        case (.shadow, .unselected): return .init(.clear)
-        case (.underline, _): return .init(.clear)
+    func indicatorShadow() -> UniversalColor {
+        switch variant {
+        case .flat: return .init(.clear)
+        case .shadow: return .init(.black.opacity(0.2))
+        case .underline: return .init(.clear)
         }
     }
     

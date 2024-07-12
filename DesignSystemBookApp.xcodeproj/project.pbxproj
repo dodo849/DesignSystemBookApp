@@ -20,7 +20,6 @@
 		BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C52C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift */; };
 		BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C72C1DD855006C599B /* TextFieldState.swift */; };
 		BC05D3CA2C1DFB15006C599B /* SwiftUIAnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3C92C1DFB15006C599B /* SwiftUIAnimationFactory.swift */; };
-		BC05D3D22C1F1BA0006C599B /* IndividualBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D12C1F1BA0006C599B /* IndividualBorderView.swift */; };
 		BC05D3D42C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D32C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift */; };
 		BC05D3D62C1F3094006C599B /* EmptyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D52C1F3094006C599B /* EmptyShape.swift */; };
 		BC05D3DA2C1F408C006C599B /* TextFieldCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D3D92C1F408C006C599B /* TextFieldCaption.swift */; };
@@ -74,14 +73,14 @@
 		BC05D5202C21F88F006C599B /* README_TOAST_KR.md in Resources */ = {isa = PBXBuildFile; fileRef = BC05D51F2C21F88F006C599B /* README_TOAST_KR.md */; };
 		BC05D5222C21FA0A006C599B /* ToastAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5212C21FA0A006C599B /* ToastAlignment.swift */; };
 		BC05D53E2C23159D006C599B /* SegmentControlBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D53D2C23159D006C599B /* SegmentControlBook.swift */; };
-		BC05D5532C2325FB006C599B /* PickerColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D54A2C2325FB006C599B /* PickerColorTheme.swift */; };
-		BC05D5542C2325FB006C599B /* PickerFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D54B2C2325FB006C599B /* PickerFigureTheme.swift */; };
+		BC05D5532C2325FB006C599B /* SegmentColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D54A2C2325FB006C599B /* SegmentColorTheme.swift */; };
+		BC05D5542C2325FB006C599B /* SegmentFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D54B2C2325FB006C599B /* SegmentFigureTheme.swift */; };
 		BC05D5562C2325FB006C599B /* BasicSegmentShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D54D2C2325FB006C599B /* BasicSegmentShape.swift */; };
 		BC05D5572C2325FB006C599B /* BasicSegmentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D54E2C2325FB006C599B /* BasicSegmentColor.swift */; };
 		BC05D5582C2325FB006C599B /* BasicSegmentColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5502C2325FB006C599B /* BasicSegmentColorTheme.swift */; };
 		BC05D5592C2325FB006C599B /* BasicSegmentFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5512C2325FB006C599B /* BasicSegmentFigureTheme.swift */; };
 		BC05D55B2C23276A006C599B /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D55A2C23276A006C599B /* SegmentControl.swift */; };
-		BC05D55D2C2329E8006C599B /* PickerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D55C2C2329E8006C599B /* PickerState.swift */; };
+		BC05D55D2C2329E8006C599B /* SegmentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D55C2C2329E8006C599B /* SegmentState.swift */; };
 		BC05D5622C235E81006C599B /* SegmentControl+Styled.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05D5612C235E81006C599B /* SegmentControl+Styled.swift */; };
 		BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */; };
 		BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */; };
@@ -129,7 +128,10 @@
 		BC2B46A92C354A170057CE6B /* DialogFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */; };
 		BC3AE3562C365E4300972A51 /* PageViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3AE3552C365E4300972A51 /* PageViewController+Rx.swift */; };
 		BC6D6E412C41697100C6FB7D /* Shape+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E402C41697100C6FB7D /* Shape+Extension.swift */; };
-		BC6D6E472C416E9A00C6FB7D /* BorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E462C416E9A00C6FB7D /* BorderColor.swift */; };
+		BC6D6E4C2C417D0100C6FB7D /* ChipColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E4B2C417D0100C6FB7D /* ChipColorTheme.swift */; };
+		BC6D6E4F2C417D0E00C6FB7D /* ChipFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E4E2C417D0E00C6FB7D /* ChipFigureTheme.swift */; };
+		BC6D6E532C417D9C00C6FB7D /* ChipState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E522C417D9C00C6FB7D /* ChipState.swift */; };
+		BC6D6E552C417E6F00C6FB7D /* ChipThemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E542C417E6F00C6FB7D /* ChipThemeStore.swift */; };
 		BC765C0C2C2BB65900C28766 /* BaseSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */; };
 		BC765C0E2C2BB72100C28766 /* SegmentControlBookRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */; };
 		BC765C102C2BB72A00C28766 /* SegmentControlBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */; };
@@ -145,7 +147,7 @@
 		BC979B222C2AA4D700A2AC95 /* BasicChipFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B212C2AA4D700A2AC95 /* BasicChipFigureTheme.swift */; };
 		BC979B252C2AA57900A2AC95 /* BasicChipColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B242C2AA57900A2AC95 /* BasicChipColor.swift */; };
 		BC979B272C2AA58C00A2AC95 /* BasicChipVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B262C2AA58C00A2AC95 /* BasicChipVariant.swift */; };
-		BC979B2B2C2AA9DD00A2AC95 /* PickerThemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B2A2C2AA9DD00A2AC95 /* PickerThemeStore.swift */; };
+		BC979B2B2C2AA9DD00A2AC95 /* SegmentThemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B2A2C2AA9DD00A2AC95 /* SegmentThemeStore.swift */; };
 		BC979B2E2C2AAA5A00A2AC95 /* ChipControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B2D2C2AAA5A00A2AC95 /* ChipControl+Extension.swift */; };
 		BC979B302C2AAA9900A2AC95 /* ChipControlBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B2F2C2AAA9900A2AC95 /* ChipControlBook.swift */; };
 		BC979B322C2ABD5D00A2AC95 /* README_CHIPCONTROL.md in Resources */ = {isa = PBXBuildFile; fileRef = BC979B312C2ABD5D00A2AC95 /* README_CHIPCONTROL.md */; };
@@ -190,7 +192,6 @@
 		BC05D3C52C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFieldFigureTheme.swift; sourceTree = "<group>"; };
 		BC05D3C72C1DD855006C599B /* TextFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldState.swift; sourceTree = "<group>"; };
 		BC05D3C92C1DFB15006C599B /* SwiftUIAnimationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIAnimationFactory.swift; sourceTree = "<group>"; };
-		BC05D3D12C1F1BA0006C599B /* IndividualBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualBorderView.swift; sourceTree = "<group>"; };
 		BC05D3D32C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualRoundedRectangleCanvas.swift; sourceTree = "<group>"; };
 		BC05D3D52C1F3094006C599B /* EmptyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyShape.swift; sourceTree = "<group>"; };
 		BC05D3D92C1F408C006C599B /* TextFieldCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCaption.swift; sourceTree = "<group>"; };
@@ -239,14 +240,14 @@
 		BC05D51F2C21F88F006C599B /* README_TOAST_KR.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_TOAST_KR.md; sourceTree = "<group>"; };
 		BC05D5212C21FA0A006C599B /* ToastAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlignment.swift; sourceTree = "<group>"; };
 		BC05D53D2C23159D006C599B /* SegmentControlBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBook.swift; sourceTree = "<group>"; };
-		BC05D54A2C2325FB006C599B /* PickerColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerColorTheme.swift; sourceTree = "<group>"; };
-		BC05D54B2C2325FB006C599B /* PickerFigureTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerFigureTheme.swift; sourceTree = "<group>"; };
+		BC05D54A2C2325FB006C599B /* SegmentColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentColorTheme.swift; sourceTree = "<group>"; };
+		BC05D54B2C2325FB006C599B /* SegmentFigureTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentFigureTheme.swift; sourceTree = "<group>"; };
 		BC05D54D2C2325FB006C599B /* BasicSegmentShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSegmentShape.swift; sourceTree = "<group>"; };
 		BC05D54E2C2325FB006C599B /* BasicSegmentColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSegmentColor.swift; sourceTree = "<group>"; };
 		BC05D5502C2325FB006C599B /* BasicSegmentColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSegmentColorTheme.swift; sourceTree = "<group>"; };
 		BC05D5512C2325FB006C599B /* BasicSegmentFigureTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSegmentFigureTheme.swift; sourceTree = "<group>"; };
 		BC05D55A2C23276A006C599B /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
-		BC05D55C2C2329E8006C599B /* PickerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerState.swift; sourceTree = "<group>"; };
+		BC05D55C2C2329E8006C599B /* SegmentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentState.swift; sourceTree = "<group>"; };
 		BC05D5612C235E81006C599B /* SegmentControl+Styled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentControl+Styled.swift"; sourceTree = "<group>"; };
 		BC09324E2C1A8F5200D3F8CB /* BasicButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicButtonColorTheme.swift; sourceTree = "<group>"; };
 		BC0932502C1A8F5200D3F8CB /* ButtonColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonColorTheme.swift; sourceTree = "<group>"; };
@@ -294,7 +295,10 @@
 		BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogFigureTheme.swift; sourceTree = "<group>"; };
 		BC3AE3552C365E4300972A51 /* PageViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Rx.swift"; sourceTree = "<group>"; };
 		BC6D6E402C41697100C6FB7D /* Shape+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+Extension.swift"; sourceTree = "<group>"; };
-		BC6D6E462C416E9A00C6FB7D /* BorderColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderColor.swift; sourceTree = "<group>"; };
+		BC6D6E4B2C417D0100C6FB7D /* ChipColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipColorTheme.swift; sourceTree = "<group>"; };
+		BC6D6E4E2C417D0E00C6FB7D /* ChipFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipFigureTheme.swift; sourceTree = "<group>"; };
+		BC6D6E522C417D9C00C6FB7D /* ChipState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipState.swift; sourceTree = "<group>"; };
+		BC6D6E542C417E6F00C6FB7D /* ChipThemeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipThemeStore.swift; sourceTree = "<group>"; };
 		BC765C0B2C2BB65900C28766 /* BaseSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSegmentControl.swift; sourceTree = "<group>"; };
 		BC765C0D2C2BB72100C28766 /* SegmentControlBookRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookRepresentable.swift; sourceTree = "<group>"; };
 		BC765C0F2C2BB72A00C28766 /* SegmentControlBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlBookViewController.swift; sourceTree = "<group>"; };
@@ -311,7 +315,7 @@
 		BC979B212C2AA4D700A2AC95 /* BasicChipFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicChipFigureTheme.swift; sourceTree = "<group>"; };
 		BC979B242C2AA57900A2AC95 /* BasicChipColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicChipColor.swift; sourceTree = "<group>"; };
 		BC979B262C2AA58C00A2AC95 /* BasicChipVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicChipVariant.swift; sourceTree = "<group>"; };
-		BC979B2A2C2AA9DD00A2AC95 /* PickerThemeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerThemeStore.swift; sourceTree = "<group>"; };
+		BC979B2A2C2AA9DD00A2AC95 /* SegmentThemeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentThemeStore.swift; sourceTree = "<group>"; };
 		BC979B2D2C2AAA5A00A2AC95 /* ChipControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChipControl+Extension.swift"; sourceTree = "<group>"; };
 		BC979B2F2C2AAA9900A2AC95 /* ChipControlBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipControlBook.swift; sourceTree = "<group>"; };
 		BC979B312C2ABD5D00A2AC95 /* README_CHIPCONTROL.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_CHIPCONTROL.md; sourceTree = "<group>"; };
@@ -392,7 +396,6 @@
 				BCFD53822C1B628200191F34 /* RoundedOffset.swift */,
 				BC05D4502C205AA2006C599B /* UniversalColor.swift */,
 				BC05D5172C21E119006C599B /* ImageName.swift */,
-				BC6D6E462C416E9A00C6FB7D /* BorderColor.swift */,
 			);
 			path = Offset;
 			sourceTree = "<group>";
@@ -410,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 				BCFD53842C1B656B00191F34 /* IndividualRoundedRectangle.swift */,
-				BC05D3D12C1F1BA0006C599B /* IndividualBorderView.swift */,
 				BC05D3D32C1F2486006C599B /* IndividualRoundedRectangleCanvas.swift */,
 				BC05D3D52C1F3094006C599B /* EmptyShape.swift */,
 			);
@@ -539,6 +541,8 @@
 				BC05D4242C20480F006C599B /* Rounded */,
 				BC05D4212C204174006C599B /* Typo */,
 				BC2B46982C3510BE0057CE6B /* Dialog */,
+				BC6D6E482C417C7800C6FB7D /* SegmentControl */,
+				BC6D6E492C417C8200C6FB7D /* ChipControl */,
 				BC05D53F2C2318A1006C599B /* Picker */,
 				BC05D5062C21C1A6006C599B /* Toast */,
 				BC05D41A2C204037006C599B /* Skeleton */,
@@ -787,17 +791,6 @@
 		BC05D53F2C2318A1006C599B /* Picker */ = {
 			isa = PBXGroup;
 			children = (
-				BC979B292C2AA7A700A2AC95 /* Theme */,
-			);
-			path = Picker;
-			sourceTree = "<group>";
-		};
-		BC05D5462C2318E8006C599B /* Picker */ = {
-			isa = PBXGroup;
-			children = (
-				BC979B2C2C2AA9F500A2AC95 /* Common */,
-				BC979B132C2AA34A00A2AC95 /* ChipControl */,
-				BC05D5472C231B53006C599B /* Segment */,
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -843,7 +836,7 @@
 		BC05D55F2C232A2C006C599B /* Token */ = {
 			isa = PBXGroup;
 			children = (
-				BC05D55C2C2329E8006C599B /* PickerState.swift */,
+				BC05D55C2C2329E8006C599B /* SegmentState.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -905,7 +898,8 @@
 			isa = PBXGroup;
 			children = (
 				BCFD537D2C1B5F9100191F34 /* Common */,
-				BC05D5462C2318E8006C599B /* Picker */,
+				BC05D5472C231B53006C599B /* Segment */,
+				BC979B132C2AA34A00A2AC95 /* ChipControl */,
 				BC05D5032C21B74A006C599B /* Toast */,
 				BC05D3E32C1FEB04006C599B /* Skeleton */,
 				BC18EC882C1DB0970061599B /* TextField */,
@@ -1147,6 +1141,38 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		BC6D6E482C417C7800C6FB7D /* SegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				BC979B292C2AA7A700A2AC95 /* Theme */,
+			);
+			path = SegmentControl;
+			sourceTree = "<group>";
+		};
+		BC6D6E492C417C8200C6FB7D /* ChipControl */ = {
+			isa = PBXGroup;
+			children = (
+				BC979B282C2AA73800A2AC95 /* Theme */,
+			);
+			path = ChipControl;
+			sourceTree = "<group>";
+		};
+		BC6D6E502C417D9500C6FB7D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D6E512C417D9700C6FB7D /* Token */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BC6D6E512C417D9700C6FB7D /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D6E522C417D9C00C6FB7D /* ChipState.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
 		BC765C092C2BB61000C28766 /* Picker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1243,24 +1269,9 @@
 			children = (
 				BC979B162C2AA41D00A2AC95 /* ChipControl.swift */,
 				BC979B2D2C2AAA5A00A2AC95 /* ChipControl+Extension.swift */,
+				BC6D6E542C417E6F00C6FB7D /* ChipThemeStore.swift */,
 			);
 			path = Component;
-			sourceTree = "<group>";
-		};
-		BC979B182C2AA43300A2AC95 /* SegmentControl */ = {
-			isa = PBXGroup;
-			children = (
-				BC05D5522C2325FB006C599B /* Basic */,
-			);
-			path = SegmentControl;
-			sourceTree = "<group>";
-		};
-		BC979B192C2AA44000A2AC95 /* ChipControl */ = {
-			isa = PBXGroup;
-			children = (
-				BC979B282C2AA73800A2AC95 /* Theme */,
-			);
-			path = ChipControl;
 			sourceTree = "<group>";
 		};
 		BC979B1A2C2AA47000A2AC95 /* Basic */ = {
@@ -1286,6 +1297,9 @@
 		BC979B282C2AA73800A2AC95 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				BC6D6E4E2C417D0E00C6FB7D /* ChipFigureTheme.swift */,
+				BC6D6E4B2C417D0100C6FB7D /* ChipColorTheme.swift */,
+				BC6D6E502C417D9500C6FB7D /* Common */,
 				BC979B1A2C2AA47000A2AC95 /* Basic */,
 			);
 			path = Theme;
@@ -1294,26 +1308,18 @@
 		BC979B292C2AA7A700A2AC95 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				BC05D54A2C2325FB006C599B /* PickerColorTheme.swift */,
-				BC05D54B2C2325FB006C599B /* PickerFigureTheme.swift */,
+				BC05D54A2C2325FB006C599B /* SegmentColorTheme.swift */,
+				BC05D54B2C2325FB006C599B /* SegmentFigureTheme.swift */,
 				BC05D55E2C232A26006C599B /* Common */,
-				BC979B192C2AA44000A2AC95 /* ChipControl */,
-				BC979B182C2AA43300A2AC95 /* SegmentControl */,
+				BC05D5522C2325FB006C599B /* Basic */,
 			);
 			path = Theme;
-			sourceTree = "<group>";
-		};
-		BC979B2C2C2AA9F500A2AC95 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				BC979B2A2C2AA9DD00A2AC95 /* PickerThemeStore.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		BCEBC8282C23DF370040FCE0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				BC979B2A2C2AA9DD00A2AC95 /* SegmentThemeStore.swift */,
 				BC05D55A2C23276A006C599B /* SegmentControl.swift */,
 				BC05D5612C235E81006C599B /* SegmentControl+Styled.swift */,
 			);
@@ -1549,10 +1555,10 @@
 			files = (
 				BC05D5002C21B39D006C599B /* ToastBook.swift in Sources */,
 				BC05D5572C2325FB006C599B /* BasicSegmentColor.swift in Sources */,
-				BC979B2B2C2AA9DD00A2AC95 /* PickerThemeStore.swift in Sources */,
+				BC979B2B2C2AA9DD00A2AC95 /* SegmentThemeStore.swift in Sources */,
 				BC05D3C42C1DD4D2006C599B /* BasicTextFieldColorTheme.swift in Sources */,
 				BC979B172C2AA41D00A2AC95 /* ChipControl.swift in Sources */,
-				BC05D5532C2325FB006C599B /* PickerColorTheme.swift in Sources */,
+				BC05D5532C2325FB006C599B /* SegmentColorTheme.swift in Sources */,
 				BC18EC872C1DAFA50061599B /* TextFieldBook.swift in Sources */,
 				BC0932712C1A8F5200D3F8CB /* ButtonColorTheme.swift in Sources */,
 				BC05D3C62C1DD4DC006C599B /* BasicTextFieldFigureTheme.swift in Sources */,
@@ -1561,7 +1567,6 @@
 				BC05D4432C204DC0006C599B /* BaseViewController.swift in Sources */,
 				BC05D3BE2C1DCF7B006C599B /* TextField+Extension.swift in Sources */,
 				BC05D3B72C1DCE2F006C599B /* BasicTextFieldShape.swift in Sources */,
-				BC05D3D22C1F1BA0006C599B /* IndividualBorderView.swift in Sources */,
 				BC0932792C1A8F5200D3F8CB /* Button+Styled.swift in Sources */,
 				BC09327C2C1A8F5200D3F8CB /* Keyboard+Extension.swift in Sources */,
 				BC05D44C2C204F96006C599B /* WebViewController.swift in Sources */,
@@ -1603,7 +1608,7 @@
 				BC979B272C2AA58C00A2AC95 /* BasicChipVariant.swift in Sources */,
 				BC765C0E2C2BB72100C28766 /* SegmentControlBookRepresentable.swift in Sources */,
 				BC05D3CA2C1DFB15006C599B /* SwiftUIAnimationFactory.swift in Sources */,
-				BC05D5542C2325FB006C599B /* PickerFigureTheme.swift in Sources */,
+				BC05D5542C2325FB006C599B /* SegmentFigureTheme.swift in Sources */,
 				BC05D4422C204DC0006C599B /* BaseView.swift in Sources */,
 				BC0932BC2C1AED0600D3F8CB /* AnyView.swift in Sources */,
 				BC0932852C1A8F5200D3F8CB /* DesignSystemApp.swift in Sources */,
@@ -1622,13 +1627,14 @@
 				BC05D3B52C1DCD46006C599B /* BasicTextFieldSize.swift in Sources */,
 				BC0932BE2C1AF40200D3F8CB /* RadioButtonBook.swift in Sources */,
 				BC05D5182C21E119006C599B /* ImageName.swift in Sources */,
+				BC6D6E532C417D9C00C6FB7D /* ChipState.swift in Sources */,
 				BC05D3E52C1FEB1A006C599B /* View+Skeleton.swift in Sources */,
 				BC0932702C1A8F5200D3F8CB /* BasicButtonColorTheme.swift in Sources */,
 				BC05D5142C21DCA3006C599B /* BasicToastColorTheme.swift in Sources */,
 				BC05D3EB2C200AC6006C599B /* SkeletonShiningStyleFactory.swift in Sources */,
 				BC0933E72C1B2C1A00D3F8CB /* BasicRadioButtonColorTheme.swift in Sources */,
 				BC05D3ED2C200AEC006C599B /* SkeletonBlinkStyleFactory.swift in Sources */,
-				BC05D55D2C2329E8006C599B /* PickerState.swift in Sources */,
+				BC05D55D2C2329E8006C599B /* SegmentState.swift in Sources */,
 				BCF03A752C295087006D102E /* TextFieldBookViewController.swift in Sources */,
 				BCF03A6E2C2939D2006D102E /* ButtonBookView.swift in Sources */,
 				BCFD545C2C1BE7E900191F34 /* BasicButtonSize.swift in Sources */,
@@ -1637,13 +1643,13 @@
 				BC05D3B92C1DCEB1006C599B /* TextFieldFigureTheme.swift in Sources */,
 				BCFD538F2C1B74BE00191F34 /* BasicToggleButtonFigureTheme.swift in Sources */,
 				BC05D4022C2013D2006C599B /* SkeletonColorTheme.swift in Sources */,
+				BC6D6E4F2C417D0E00C6FB7D /* ChipFigureTheme.swift in Sources */,
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
 				BC6D6E412C41697100C6FB7D /* Shape+Extension.swift in Sources */,
 				BC05D4402C204DC0006C599B /* BaseCollectionViewCell.swift in Sources */,
 				BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */,
 				BC05D4572C213609006C599B /* BaseSpacer.swift in Sources */,
 				BC05D42D2C2049B5006C599B /* ButtonBookRepresentable.swift in Sources */,
-				BC6D6E472C416E9A00C6FB7D /* BorderColor.swift in Sources */,
 				BCF03A702C294DAA006D102E /* BaseTextField.swift in Sources */,
 				BC05D5622C235E81006C599B /* SegmentControl+Styled.swift in Sources */,
 				BC979B252C2AA57900A2AC95 /* BasicChipColor.swift in Sources */,
@@ -1673,6 +1679,7 @@
 				BC05D3E82C1FEB69006C599B /* SkeletonBook.swift in Sources */,
 				BC979B302C2AAA9900A2AC95 /* ChipControlBook.swift in Sources */,
 				BC979B202C2AA4CE00A2AC95 /* BasicChipColorTheme.swift in Sources */,
+				BC6D6E4C2C417D0100C6FB7D /* ChipColorTheme.swift in Sources */,
 				BC0933EB2C1B2C1A00D3F8CB /* BasicToggleButtonShape.swift in Sources */,
 				BC05D53E2C23159D006C599B /* SegmentControlBook.swift in Sources */,
 				BC979B1E2C2AA4A100A2AC95 /* BasicChipShape.swift in Sources */,
@@ -1695,6 +1702,7 @@
 				BCFD537C2C1B5E0A00191F34 /* BasicButtonFigureTheme.swift in Sources */,
 				BC05D3B12C1DCCC6006C599B /* TextFieldAllState.swift in Sources */,
 				BC05D3DA2C1F408C006C599B /* TextFieldCaption.swift in Sources */,
+				BC6D6E552C417E6F00C6FB7D /* ChipThemeStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

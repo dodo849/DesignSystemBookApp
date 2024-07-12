@@ -15,7 +15,7 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
     private var itemBuilder: (Option) -> Content
     
     // Theme
-    @ObservedObject var store: PickerThemeStore
+    @ObservedObject var store: SegmentThemeStore
     
     // State
     @Binding private var selection: Option
@@ -29,7 +29,7 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
         self._selection = selection
         self.itemBuilder = itemBuilder
         
-        self._store = ObservedObject(wrappedValue: PickerThemeStore())
+        self._store = ObservedObject(wrappedValue: SegmentThemeStore())
     }
     
     public var body: some View {
@@ -40,7 +40,7 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
         
         HStack(spacing: spacing) {
             ForEach(sources, id: \.id) { value in
-                let state: PickerState = selection == value ? .selected : .unselected
+                let state: SegmentState = selection == value ? .selected : .unselected
                 let itemForegroundColor = store.colorTheme.itemForegroundColor(state: state).color
                 
                 itemBuilder(value)
@@ -67,9 +67,8 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
                     }
                     Rectangle()
                         .fill(
-                            store.colorTheme.itemBackgroundColor(
-                                state: .selected
-                            ).color
+                            store.colorTheme
+                                .indicatorBackgroundColor().color
                         )
                         .frame(
                             maxWidth: max(
@@ -82,7 +81,7 @@ public struct SegmentControl<Content, Option>: View where Content: View, Option:
                         )
                         .clipShape(shape)
                         .shadow(
-                            color: store.colorTheme.itemShadowColor(state: .selected).color,
+                            color: store.colorTheme.indicatorShadow().color,
                             radius: 8
                         )
                         .offset(x: offsetForIndicator(in: geometry.size.width))

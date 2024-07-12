@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BasicSegmentFigureTheme: PickerFigureTheme {
+struct BasicSegmentFigureTheme: SegmentFigureTheme {
     private let variant: BasicSegmentVariant
     private let _shape: BasicSegmentShape
     

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-class PickerThemeStore: ObservableObject {
-    @Published var colorTheme: PickerColorTheme
-    @Published var figureTheme: PickerFigureTheme
+class SegmentThemeStore: ObservableObject {
+    @Published var colorTheme: SegmentColorTheme
+    @Published var figureTheme: SegmentFigureTheme
     
     init() {
         self.colorTheme = BasicSegmentColorTheme(

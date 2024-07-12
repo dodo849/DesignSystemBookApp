@@ -23,7 +23,7 @@ public struct ChipControl<Content, Option>: View where Content: View, Option: Id
     private var multipleSelection: ChipControlMultipleSelection
     
     // Theme
-    @ObservedObject var store: PickerThemeStore
+    @ObservedObject var store: ChipThemeStore
     
     // State
     @Binding private var selections: [Option]
@@ -40,7 +40,7 @@ public struct ChipControl<Content, Option>: View where Content: View, Option: Id
         self.itemBuilder = itemBuilder
         self.overflow = overflow
         self.multipleSelection = multipleSelection
-        self._store = ObservedObject(wrappedValue: PickerThemeStore())
+        self._store = ObservedObject(wrappedValue: ChipThemeStore())
     }
     
     public var body: some View {
@@ -67,7 +67,7 @@ public struct ChipControl<Content, Option>: View where Content: View, Option: Id
     
     private var chipItems: some View {
         ForEach(sources, id: \.id) { value in
-            let selectState: PickerState = selections.contains(value)
+            let selectState: ChipState = selections.contains(value)
             ? .selected : .unselected
             let padding = store.figureTheme.itemPadding()
             let itemForegroundColor = store.colorTheme.itemForegroundColor(

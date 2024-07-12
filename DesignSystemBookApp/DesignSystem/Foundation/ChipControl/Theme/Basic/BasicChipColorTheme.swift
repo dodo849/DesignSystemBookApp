@@ -1,5 +1,5 @@
 //
-//  BasicChipFigureTheme.swift
+//  BasicChipColorTheme.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/25/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BasicChipColorTheme: PickerColorTheme {
+struct BasicChipColorTheme: ChipColorTheme {
     private let variant: BasicChipVariant
     private let color: BasicChipColor
     
@@ -19,7 +19,7 @@ struct BasicChipColorTheme: PickerColorTheme {
         self.color = color
     }
     
-    func itemBackgroundColor(state: PickerState) -> UniversalColor {
+    func itemBackgroundColor(state: ChipState) -> UniversalColor {
         switch variant {
         case .fillAndOutline:
             return .init(fillAndOutlineItemBackgroundColor(state: state))
@@ -28,7 +28,7 @@ struct BasicChipColorTheme: PickerColorTheme {
         }
     }
     
-    func itemForegroundColor(state: PickerState) -> UniversalColor {
+    func itemForegroundColor(state: ChipState) -> UniversalColor {
         switch variant {
         case .fillAndOutline:
             return .init(fillAndOutlineItemForegroundColor(state: state))
@@ -37,7 +37,7 @@ struct BasicChipColorTheme: PickerColorTheme {
         }
     }
     
-    func itemBorderColor(state: PickerState) -> UniversalColor {
+    func itemBorderColor(state: ChipState) -> UniversalColor {
         if variant == .deepAndSoft { return .init(.clear) }
         
         switch (color, state) {
@@ -47,7 +47,7 @@ struct BasicChipColorTheme: PickerColorTheme {
     }
     
     /// Not used
-    func itemShadowColor(state: PickerState) -> UniversalColor {
+    func itemShadowColor(state: ChipState) -> UniversalColor {
         return .init(.clear)
     }
     
@@ -58,7 +58,7 @@ struct BasicChipColorTheme: PickerColorTheme {
 }
 
 extension BasicChipColorTheme {
-    private func fillAndOutlineItemBackgroundColor(state: PickerState) -> Color {
+    private func fillAndOutlineItemBackgroundColor(state: ChipState) -> Color {
         switch (color, state) {
         case (_, .unselected): return .none
         case (.primary, .selected): return .init(.basicYellow)
@@ -68,7 +68,7 @@ extension BasicChipColorTheme {
         }
     }
     
-    private func deepAndSoftItemBackgroundColor(state: PickerState) -> Color {
+    private func deepAndSoftItemBackgroundColor(state: ChipState) -> Color {
         switch (color, state) {
         case (.primary, .unselected): return .init(.basicYellowSoft)
         case (.secondary, .unselected): return .init(.basicGreenSoft)
@@ -81,14 +81,14 @@ extension BasicChipColorTheme {
         }
     }
     
-    private func fillAndOutlineItemForegroundColor(state: PickerState) -> Color {
+    private func fillAndOutlineItemForegroundColor(state: ChipState) -> Color {
         switch (color, state) {
         case (_, .unselected): return .init(.gray05)
         case (_, .selected): return .init(.white)
         }
     }
     
-    private func deepAndSoftItemForegroundColor(state: PickerState) -> Color {
+    private func deepAndSoftItemForegroundColor(state: ChipState) -> Color {
         switch (color, state) {
         case (_, .selected): return .init(.white)
         case (.primary, .unselected): return .init(.basicYellow)

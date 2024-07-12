@@ -1,5 +1,5 @@
 //
-//  BasicChipColorTheme.swift
+//  BasicChipFigureTheme.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/25/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BasicChipFigureTheme: PickerFigureTheme {
+struct BasicChipFigureTheme: ChipFigureTheme {
     private let _shape: BasicChipShape
     
     init(shape: BasicChipShape) {

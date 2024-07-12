@@ -75,7 +75,7 @@ struct ContentView: View {
                         swiftuiDestination: ToastBook()
                     )
                     
-                    sectionHeader(title: "Picker")
+                    sectionHeader(title: "SegmentControl")
                     
                     exampleSection(
                         title: "Basic SegmentControl",
@@ -84,6 +84,8 @@ struct ContentView: View {
                         uikitDestination: SegmentControlBookRepresentable(),
                         swiftuiDestination: SegmentControlBook()
                     )
+                    
+                    sectionHeader(title: "ChipControl")
                     
                     exampleSection(
                         title: "Basic ChipControl",

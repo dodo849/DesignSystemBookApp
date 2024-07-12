@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum PickerState {
+public enum SegmentState {
     case unselected, selected
 }

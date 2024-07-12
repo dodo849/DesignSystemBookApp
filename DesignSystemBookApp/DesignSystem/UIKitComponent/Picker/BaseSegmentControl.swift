@@ -35,7 +35,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
     var onChange: PublishSubject<Option> = PublishSubject()
     
     // MARK: Theme
-    private var colorTheme: PickerColorTheme? {
+    private var colorTheme: SegmentColorTheme? {
         didSet {
             updateCornerRadius()
             updateTheme()
@@ -43,7 +43,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         }
     }
     
-    private var figureTheme: PickerFigureTheme? {
+    private var figureTheme: SegmentFigureTheme? {
         didSet {
             updateCornerRadius()
             updateTheme()
@@ -183,9 +183,9 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         let containerBackgroundColor = colorTheme
             .containerBackgroundColor().uiColor
         let indicatorBackgroundColor = colorTheme
-            .itemBackgroundColor(state: .selected).uiColor        
+            .indicatorBackgroundColor().uiColor
         let indicatorShadowColor = colorTheme
-            .itemShadowColor(state: .selected).cgColor
+            .indicatorShadow().cgColor
         let itemSpacing = figureTheme.itemSpacing()
         
         // Container
