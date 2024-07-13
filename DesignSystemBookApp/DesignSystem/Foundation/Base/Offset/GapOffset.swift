@@ -23,4 +23,12 @@ struct GapOffset {
         self.vertical = all
         self.horizontal = all
     }
+    
+    var same: CGFloat? {
+        if vertical == horizontal {
+            return vertical
+        } else {
+            fatalError("Vertical and horizontal must be the same")
+        }
+    }
 }

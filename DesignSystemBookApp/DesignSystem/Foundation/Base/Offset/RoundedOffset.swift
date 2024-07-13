@@ -53,4 +53,14 @@ extension RoundedOffset {
         )
         return minValue
     }
+    
+    var same: CGFloat? {
+        if topLeftRadius == bottomLeftRadius &&
+            bottomLeftRadius == bottomRightRadius &&
+            bottomRightRadius == topRightRadius {
+            return topLeftRadius
+        } else {
+            fatalError("")
+        }
+    }
 }

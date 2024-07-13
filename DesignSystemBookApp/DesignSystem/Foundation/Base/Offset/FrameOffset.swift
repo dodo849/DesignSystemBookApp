@@ -23,4 +23,12 @@ struct FrameOffset {
         self.width = all
         self.height = all
     }
+    
+    var same: CGFloat? {
+        if width == height {
+            return width
+        } else {
+            fatalError("Width and height must be the same")
+        }
+    }
 }

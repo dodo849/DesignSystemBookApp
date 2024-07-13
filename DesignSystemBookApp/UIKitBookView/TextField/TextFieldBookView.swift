@@ -12,62 +12,62 @@ import SnapKit
 import RxCocoa
 
 final class TextFieldBookView: BaseView {
-    let scrollView = UIScrollView()
+    lazy var scrollView = UIScrollView()
     
-    let contentView = UIView()
+    lazy var  contentView = UIView()
     
-    let stackView = UIStackView().then {
+    lazy var  stackView = UIStackView().then {
         $0.axis = .vertical
         $0.spacing = 8
         $0.alignment = .center
         $0.distribution = .fill
     }
     
-    let sizeControlLabel = UILabel().then {
+    lazy var sizeControlLabel = UILabel().then {
         $0.text = "size"
         $0.setTypo(.body1b)
     }
     
-    let sizeControl = UISegmentedControl(
+    lazy var sizeControl = UISegmentedControl(
         items: Array(BasicTextFieldSize.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
     
-    let variantControlLabel = UILabel().then {
+    lazy var variantControlLabel = UILabel().then {
         $0.text = "variant"
         $0.setTypo(.body1b)
     }
     
-    let variantControl = UISegmentedControl(
+    lazy var variantControl = UISegmentedControl(
         items: Array(BasicTextFieldVariant.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
 
-    let shapeControlLabel = UILabel().then {
+    lazy var shapeControlLabel = UILabel().then {
         $0.text = "shape"
         $0.setTypo(.body1b)
     }
     
-    let shapeControl = UISegmentedControl(
+    lazy var shapeControl = UISegmentedControl(
         items: Array(BasicTextFieldShape.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
     
-    let stateControlLabel = UILabel().then {
+    lazy var stateControlLabel = UILabel().then {
         $0.text = "state"
         $0.setTypo(.body1b)
     }
     
-    let stateControl = UISegmentedControl(
+    lazy var stateControl = UISegmentedControl(
         items: ["normal", "disabled", "error", "success"]
     ).then {
         $0.selectedSegmentIndex = 0
     }
     
-    let colorLabels: [UILabel] = BasicTextFieldColor.allCases.map { color in
+    lazy var colorLabels: [UILabel] = BasicTextFieldColor.allCases.map { color in
         UILabel().then {
             $0.text = color.rawValue
             $0.setTypo(.body3)
@@ -75,64 +75,82 @@ final class TextFieldBookView: BaseView {
         }
     }
     
-    let textFields: [BaseTextField] = BasicTextFieldColor.allCases.map { _ in
+    lazy var textFields: [BaseTextField] = BasicTextFieldColor.allCases.map { _ in
         BaseTextField().then {
             $0.styled()
         }
     }
     
-    let textFieldWithAffixLabel = UILabel().then {
+    lazy var textFieldWithAffixLabel = UILabel().then {
         $0.text = "With Affix"
         $0.setTypo(.body1b)
     }
     
-    let textFieldSuffix = UILabel().then {
+    lazy var textFieldSuffix = UILabel().then {
         $0.text = "0/10"
         $0.setTypo(.body1)
     }
     
-    let textFieldWithAffix = BaseTextField().then {
-        let prefix = UIImageView(
-            image: UIImage(systemName: "square.and.pencil")
-        )
-        $0.addPrefix(prefix)
+    lazy var textFieldWithAffix = BaseTextField(
+        prefixBuilder: {
+            [
+                UIImageView(
+                    image: UIImage(systemName: "square.and.pencil")
+                ).then {
+                    $0.snp.makeConstraints {
+                        $0.width.equalTo(20)
+                    }
+                }
+            ]
+        },
+        suffixBuilder: { [weak self] in
+            guard let self = self else { return [] }
+            
+            return [self.textFieldSuffix]
+        }
+    ).then {
         $0.styled()
     }
     
-    let textFieldWithOthersLabel = UILabel().then {
+    lazy var textFieldWithOthersLabel = UILabel().then {
         $0.text = "With Others"
         $0.setTypo(.body1b)
     }
     
-    let textFieldWithOthers = BaseTextField().then {
-        let titleIcon = UIImageView(
-            image: UIImage(systemName: "checkmark.circle")
-        ).then {
-            $0.snp.makeConstraints {
-                $0.width.equalTo(20)
-            }
+    lazy var textFieldWithOthers = BaseTextField(
+        titleBuilder: {
+            [
+                UIImageView(
+                    image: UIImage(systemName: "checkmark.circle")
+                ).then {
+                    $0.snp.makeConstraints {
+                        $0.width.equalTo(20)
+                    }
+                },
+                UILabel().then {
+                    $0.text = "Title"
+                    $0.setTypo(.body1b)
+                    $0.textColor = .basicText
+                }
+            ]
+        },
+        descriptionBuilder: {
+            [
+                UIImageView(
+                    image: UIImage(systemName: "exclamationmark.circle.fill")
+                ).then {
+                    $0.snp.makeConstraints {
+                        $0.width.height.equalTo(15)
+                    }
+                },
+                UILabel().then {
+                    $0.text = "Description"
+                    $0.setTypo(.body3)
+                    $0.textColor = .gray04
+                }
+            ]
         }
-        let title = UILabel().then {
-            $0.text = "Title"
-            $0.setTypo(.body1b)
-            $0.textColor = .basicText
-        }
-        let descriptionIcon = UIImageView(
-            image: UIImage(systemName: "exclamationmark.circle.fill")
-        ).then {
-            $0.snp.makeConstraints {
-                $0.width.height.equalTo(15)
-            }
-        }
-        let description = UILabel().then {
-            $0.text = "Description"
-            $0.setTypo(.body3)
-            $0.textColor = .gray04
-        }
-        $0.addTitle(titleIcon)
-        $0.addTitle(title)
-        $0.addDescription(descriptionIcon)
-        $0.addDescription(description)
+    ).then {
         $0.styled()
     }
 
@@ -172,8 +190,6 @@ final class TextFieldBookView: BaseView {
         stackView.addArrangedSubview(textFieldWithAffix)
         stackView.addArrangedSubview(textFieldWithOthersLabel)
         stackView.addArrangedSubview(textFieldWithOthers)
-        
-        textFieldWithAffix.addSuffix(textFieldSuffix)
     }
     
     override func setupLayout() {

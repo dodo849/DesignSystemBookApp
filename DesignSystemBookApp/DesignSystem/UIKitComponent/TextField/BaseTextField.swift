@@ -37,40 +37,9 @@ public extension BaseTextField {
     }
 }
 
-/// Extension for set content
-public extension BaseTextField {
-    func addTitle(_ view: UIView) {
-        titleStack.addArrangedSubview(view)
-        
-        updateTheme()
-        updateLayout()
-    }
-    
-    func addPrefix(_ view: UIView) {
-        view.setContentHuggingPriority(.required, for: .horizontal)
-        view.setContentCompressionResistancePriority(.required, for: .horizontal)
-        textFieldStack.insertArrangedSubview(view, at: 0)
-        
-        updateTheme()
-        updateLayout()
-    }
-    
-    func addSuffix(_ view: UIView) {
-        textFieldStack.addArrangedSubview(view)
-        
-        updateTheme()
-        updateLayout()
-    }
-    
-    func addDescription(_ view: UIView) {
-        descriptionStack.addArrangedSubview(view)
-        
-        updateTheme()
-        updateLayout()
-    }
-}
-
 public class BaseTextField: UIView {
+    public typealias ViewBuilder = () -> [UIView]
+    
     // MARK: Event
     public let textFieldEvent = PublishSubject<UIControl.Event>()
     public let onChange = PublishSubject<String?>()
@@ -145,6 +114,12 @@ public class BaseTextField: UIView {
         $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
+    // MARK: Builder
+    private var titleBuilder: ViewBuilder = { [] }
+    private var prefixBuilder: ViewBuilder = { []}
+    private var suffixBuilder: ViewBuilder = { [] }
+    private var descriptionBuilder: ViewBuilder = { [] }
+    
     // MARK: Initializer
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -169,18 +144,50 @@ public class BaseTextField: UIView {
         updateCornerRadius()
     }
     
-    public override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    public init(
+        titleBuilder: @escaping ViewBuilder = { [] },
+        prefixBuilder: @escaping ViewBuilder = { [] },
+        suffixBuilder: @escaping ViewBuilder = { [] },
+        descriptionBuilder: @escaping ViewBuilder = { [] }
+    ) {
+        super.init(frame: .zero)
+        
+        self.titleBuilder = titleBuilder
+        self.prefixBuilder = prefixBuilder
+        self.suffixBuilder = suffixBuilder
+        self.descriptionBuilder = descriptionBuilder
+        
+        setupHierachy()
+        setupBind()
+        updateTheme()
+        updateLayout()
     }
     
     // MARK: Setup
     private func setupHierachy() {
+        // titleStack
         addSubview(titleStack)
+        titleBuilder().forEach {
+            titleStack.addArrangedSubview($0)
+        }
+        
         addSubview(textFieldBackground)
+        
         textFieldBackground.addSubview(textFieldStack)
+        prefixBuilder().forEach {
+            textFieldStack.addArrangedSubview($0)
+        }
         textFieldStack.addArrangedSubview(textField)
+        suffixBuilder().forEach {
+            textFieldStack.addArrangedSubview($0)
+        }
+        
         addSubview(bottomBorder)
+        
         addSubview(descriptionStack)
+        descriptionBuilder().forEach {
+            descriptionStack.addArrangedSubview($0)
+        }
     }
     
     private func setupBind() {

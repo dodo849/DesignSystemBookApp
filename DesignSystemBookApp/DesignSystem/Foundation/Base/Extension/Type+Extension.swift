@@ -74,7 +74,7 @@ public extension CGPoint {
 // MARK: - SwiftUI
 public extension Color {
     static var none: Color {
-        return .basicBackground.opacity(0)
+        return .white.opacity(0)
     }
 }
 
