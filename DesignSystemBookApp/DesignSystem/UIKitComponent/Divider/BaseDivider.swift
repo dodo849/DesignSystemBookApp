@@ -14,7 +14,7 @@ public final class BaseDivider: UIView {
     }
     
     public init(
-        color: UIColor = .lightGray,
+        color: UIColor = .lightGray.withAlphaComponent(0.3),
         thickness: CGFloat = 1,
         orientation: Orientation = .horizontal
     ) {

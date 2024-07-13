@@ -25,12 +25,8 @@ public extension BaseDialog {
     }
 }
 
-/// Extension for set content
+/// Extension for open and close dialog
 public extension BaseDialog {
-    func addContent(_ content: UIView) {
-        self.contentStackView.addArrangedSubview(content)
-    }
-    
     func open() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         else { return }
@@ -68,6 +64,8 @@ public extension BaseDialog {
 }
 
 public class BaseDialog: UIView {
+    public typealias ViewBuilder = () -> [UIView]
+    
     // MARK: Theme
     private var colorTheme: BasicDialogColorTheme? {
         didSet {
@@ -110,6 +108,9 @@ public class BaseDialog: UIView {
         $0.textColor = .gray06
     }
     
+    // MARK: Builder
+    private var contentBuilder: ViewBuilder = { [] }
+    
     // MARK: DisposeBag
     private let disposeBag = DisposeBag()
     
@@ -132,15 +133,18 @@ public class BaseDialog: UIView {
         updateLayout()
     }
     
-    public convenience init(
-        title: String = "",
-        subTitle: String = ""
+    public init(
+        contentbuilder: @escaping ViewBuilder
     ) {
-        self.init(frame: .zero)
-        self.titleLabel.text = title
-        self.subTitleLabel.text = subTitle
+        super.init(frame: .zero)
         
-        self.isHidden = true
+        self.contentBuilder = contentbuilder
+        
+        setupHierachy()
+        updateCornerRadius()
+        setupBind()
+        updateTheme()
+        updateLayout()
     }
     
     // MARK: Life cycle
@@ -148,10 +152,14 @@ public class BaseDialog: UIView {
     // MARK: Setup
     private func setupHierachy() { 
         addSubview(overlayView)
+        
         addSubview(backgroundView)
+        
         backgroundView.addSubview(contentStackView)
-        contentStackView.addArrangedSubview(titleLabel)
-        contentStackView.addArrangedSubview(subTitleLabel)
+        
+        contentBuilder().forEach { view in
+            contentStackView.addArrangedSubview(view)
+        }
     }
     
     private func setupBind() { }

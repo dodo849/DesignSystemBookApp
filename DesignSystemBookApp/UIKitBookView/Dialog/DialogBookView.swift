@@ -12,41 +12,41 @@ import Then
 import SnapKit
 
 final class DialogBookView: BaseView {
+    // MARK: UI component
+    lazy var scrollView = UIScrollView()
     
-    let scrollView = UIScrollView()
+    lazy var contentView = UIView()
     
-    let contentView = UIView()
-    
-    let stackView = UIStackView().then {
+    lazy var stackView = UIStackView().then {
         $0.axis = .vertical
         $0.spacing = 8
         $0.alignment = .center
         $0.distribution = .fill
     }
     
-    let variantControlLabel = UILabel().then {
+    lazy var variantControlLabel = UILabel().then {
         $0.text = "variant"
         $0.setTypo(.body1b)
     }
     
-    let variantControl = UISegmentedControl(
+    lazy var variantControl = UISegmentedControl(
         items: Array(BasicDialogVariant.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
 
-    let shapeControlLabel = UILabel().then {
+    lazy var shapeControlLabel = UILabel().then {
         $0.text = "shape"
         $0.setTypo(.body1b)
     }
     
-    let shapeControl = UISegmentedControl(
+    lazy var shapeControl = UISegmentedControl(
         items: Array(BasicDialogShape.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
     
-    let dialogOpenButton = BaseButton(
+    lazy var dialogOpenButton = BaseButton(
         itemBuilder: {
             [
                 UILabel().then {
@@ -60,12 +60,7 @@ final class DialogBookView: BaseView {
     }
     
     // dialog
-    let dialog = BaseDialog(
-        title: "Dialog title",
-        subTitle: "This is a sub title"
-    )
-    
-    let dialogCloseButton = BaseButton(
+    lazy var dialogCloseButton = BaseButton(
         itemBuilder: {
             [
                 UILabel().then {
@@ -82,6 +77,25 @@ final class DialogBookView: BaseView {
         )
     }
     
+    lazy var dialog = BaseDialog(
+        contentbuilder: { [weak self] in
+            guard let self = self else { return [] }
+            
+            return [
+                UILabel().then {
+                    $0.text = "Dialog title"
+                    $0.setTypo(.heading3)
+                },
+                UILabel().then {
+                    $0.text = "This is a sub title"
+                    $0.setTypo(.body1)
+                },
+                self.dialogCloseButton
+            ]
+        }
+    )
+    
+    // MARK: Setup
     override func setupHierarchy() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
