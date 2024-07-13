@@ -7,6 +7,9 @@
 
 import UIKit
 
+import Then
+import SnapKit
+
 final class ButtonBookView: BaseView {
     // MARK: UI Components
     let scrollView = UIScrollView()
@@ -77,10 +80,20 @@ final class ButtonBookView: BaseView {
     }
     
     let buttons: [BaseButton] = BasicButtonColor.allCases.map { _ in
-        BaseButton().then {
+        BaseButton(
+            itemBuilder: {
+                [
+                    UIImageView(
+                        image: UIImage(systemName: "square.and.arrow.up")
+                    ),
+                    UILabel().then {
+                        $0.text = "Button"
+                        $0.setTypo(.body0b)
+                    }
+                ]
+            }
+        ).then {
             $0.styled()
-            $0.setLabel("Button")
-            $0.setImage(systemName: "square.and.arrow.up")
         }
     }
     

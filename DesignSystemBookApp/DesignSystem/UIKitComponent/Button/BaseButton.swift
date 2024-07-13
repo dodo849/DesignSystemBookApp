@@ -7,8 +7,9 @@
 
 import UIKit
 
-import Then
 import RxSwift
+import SnapKit
+import Then
 
 /// Extension for set theme
 public extension BaseButton {
@@ -33,64 +34,6 @@ public extension BaseButton {
     }
 }
 
-/// Extension for set content
-public extension BaseButton {
-    // MARK: Set label
-    func setLabel(_ text: String) {
-        titleLabel.text = text
-    }
-    
-    // MARK: Set Image
-    func setImage(
-        imageView: UIView,
-        alignment: BaseButtonImageAlignment = .leading
-    ) {
-        _setImage(imageView: imageView)
-    }
-    
-    func setImage(
-        systemName: String,
-        alignment: BaseButtonImageAlignment = .leading
-    ) {
-        let image = UIImage(systemName: systemName)
-        let imageView = UIImageView(image: image)
-        
-        _setImage(imageView: imageView)
-    }
-    
-    func setImage(
-        assetName: String,
-        alignment: BaseButtonImageAlignment = .leading
-    ) {
-        guard let image = UIImage(named: assetName) else {
-            print("Image not found")
-            return
-        }
-        
-        let imageView = UIImageView(image: image)
-        
-        _setImage(imageView: imageView)
-    }
-    
-    private func _setImage(
-        imageView: UIView,
-        alignment: BaseButtonImageAlignment = .leading
-    ) {
-        stackView.arrangedSubviews
-            .filter { $0 is UIImageView }
-            .forEach { $0.removeFromSuperview() }
-        
-        switch alignment {
-        case .leading:
-            stackView.insertArrangedSubview(imageView, at: 0)
-        case .trailing:
-            stackView.addArrangedSubview(imageView)
-        }
-        
-        updateTheme()
-    }
-}
-
 public enum BaseButtonImageAlignment {
     case leading
     case trailing
@@ -99,6 +42,9 @@ public enum BaseButtonImageAlignment {
 public class BaseButton: UIControl {
     // MARK: Event emitter
     public var onTap: PublishSubject<Void> = PublishSubject()
+    
+    // MARK: Source
+    private var itemBuilder: () -> [UIView] = { [] }
     
     // MARK: Theme
     private var colorTheme: ButtonColorTheme? {
@@ -163,6 +109,19 @@ public class BaseButton: UIControl {
         updateCornerRadius()
     }
     
+    convenience init(
+        itemBuilder: @escaping () -> [UIView]
+    ) {
+        self.init()
+        self.itemBuilder = itemBuilder
+        
+        setupHierachy()
+        setupBind()
+        updateTheme()
+        updateLayout()
+        updateCornerRadius()
+    }
+    
     // MARK: Life cycle
     public override func layoutSubviews() {
         super.layoutSubviews()
@@ -170,14 +129,12 @@ public class BaseButton: UIControl {
         updateCornerRadius()
     }
     
-    public override func draw(_ rect: CGRect) {
-        super.draw(rect)
-    }
-    
     // MARK: Setup
     private func setupHierachy() {
         addSubview(stackView)
-        stackView.addArrangedSubview(titleLabel)
+        itemBuilder().forEach {
+            stackView.addArrangedSubview($0)
+        }
     }
     
     private func setupBind() { }
@@ -187,22 +144,36 @@ public class BaseButton: UIControl {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return }
         
+        // color
+        let backgroundColor = colorTheme.backgroundColor(state: getState(.enabled)).uiColor
+        let borderColor = colorTheme.borderColor(state: getState(.enabled)).cgColor
+        let foregroundColor = colorTheme.foregroundColor(state: getState(.enabled)).uiColor
+        // figure
+        let borderWidth = figureTheme.borderWidth()
+        
         // Background
-        backgroundColor = colorTheme.backgroundColor(state: getState(.enabled)).uiColor
+        self.backgroundColor = backgroundColor
         clipsToBounds = true
-        layer.borderColor = colorTheme.borderColor(state: getState(.enabled)).cgColor
-        layer.borderWidth = figureTheme.borderWidth()
+        layer.borderColor = borderColor
+        layer.borderWidth = borderWidth
         
         // Title label
         titleLabel.setTypo(figureTheme.typo())
-        titleLabel.textColor = colorTheme.foregroundColor(state: getState(.enabled)).uiColor
+        titleLabel.textColor = foregroundColor
         
-        // Stack
+        // Stack (items)
         stackView.arrangedSubviews
             .filter { $0 is UIImageView }
             .forEach {
-                $0.tintColor = colorTheme.foregroundColor(state: getState(.enabled)).uiColor
+                $0.tintColor = foregroundColor
                 $0.contentMode = .scaleAspectFit
+                $0.isUserInteractionEnabled = false
+            }
+        
+        stackView.arrangedSubviews
+            .compactMap { $0 as? UILabel }
+            .forEach {
+                $0.textColor = foregroundColor
                 $0.isUserInteractionEnabled = false
             }
     }

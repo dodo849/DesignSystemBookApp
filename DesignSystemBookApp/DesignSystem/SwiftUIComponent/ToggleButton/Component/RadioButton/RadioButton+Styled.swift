@@ -11,7 +11,6 @@ public protocol RadioButton: View { }
 
 public extension RadioButton {
     func styled(
-        _ theme: ToggleButtonThemeType = .basic,
         color: BasicToggleButtonColor = .primary,
         shape: BasicToggleButtonShape = .round
     ) -> some View {

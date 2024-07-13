@@ -46,9 +46,17 @@ final class DialogBookView: BaseView {
         $0.selectedSegmentIndex = 0
     }
     
-    let dialogOpenButton = BaseButton().then {
+    let dialogOpenButton = BaseButton(
+        itemBuilder: {
+            [
+                UILabel().then {
+                    $0.text = "open dialog"
+                    $0.setTypo(.body1)
+                }
+            ]
+        }
+    ).then {
         $0.styled(variant: .outline, color: .secondary, size: .small)
-        $0.setLabel("open dialog")
     }
     
     // dialog
@@ -57,13 +65,21 @@ final class DialogBookView: BaseView {
         subTitle: "This is a sub title"
     )
     
-    let dialogCloseButton = BaseButton().then {
+    let dialogCloseButton = BaseButton(
+        itemBuilder: {
+            [
+                UILabel().then {
+                    $0.text = "close"
+                    $0.setTypo(.body1)
+                }
+            ]
+        }
+    ).then {
         $0.styled(
             variant: .translucent,
             color: .secondary,
             size: .medium
         )
-        $0.setLabel("close")
     }
     
     override func setupHierarchy() {
