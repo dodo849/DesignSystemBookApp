@@ -1,12 +1,12 @@
 ---
 name: "Issue: Fix"
-about: "어떤 버그가 발생했는지 알려주세요!"
+about: "Please describe the bug that occurred!"
 title: "[Fix]"
 labels: bug
 assignees: ""
 ---
 
-## ❌ Bug explanation
+## ❌ Bug Explanation
 
 Describe the situation in which the bug occurred.
 

@@ -1,6 +1,6 @@
 ---
 name: "Issue: Refactor"
-about: "Refactoring code or architecture"
+about: "Please describe the refactoring of code or architecture!"
 title: "[Refactor]"
 labels: refactor
 assignees: ""
