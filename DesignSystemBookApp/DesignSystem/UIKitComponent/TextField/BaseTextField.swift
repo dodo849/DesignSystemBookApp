@@ -7,9 +7,10 @@
 
 import UIKit
 
-import Then
 import RxSwift
 import RxCocoa
+import SnapKit
+import Then
 
 /// Extension for set theme
 public extension BaseTextField {
@@ -66,7 +67,7 @@ public class BaseTextField: UIView {
         }
     }
     
-    var disabled: Bool = false {
+    public var disabled: Bool = false {
         didSet {
             textField.isEnabled = !disabled
             updateTheme()
@@ -217,7 +218,14 @@ public class BaseTextField: UIView {
             .bind(to: textFieldEvent)
             .disposed(by: disposeBag)
         
-        textField.rx.controlEvent(.allEvents)
+        // Update focus / unfocus theme
+        textField.rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: { [weak self] in
+                self?.updateTheme()
+            })
+            .disposed(by: disposeBag)
+        
+        textField.rx.controlEvent(.editingDidEnd)
             .subscribe(onNext: { [weak self] in
                 self?.updateTheme()
             })

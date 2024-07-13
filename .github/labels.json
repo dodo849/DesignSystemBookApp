@@ -1,0 +1,62 @@
+[
+  {
+    "name": "⚙ Environment",
+    "color": "e3dede",
+    "description": "This task involves setting up the development environment."
+  },
+  {
+    "name": "✨ Feature",
+    "color": "a2eeef",
+    "description": "This task focuses on feature development."
+  },
+  {
+    "name": "🌏 Deploy",
+    "color": "C2E0C6",
+    "description": "This task is related to deployment."
+  },
+  {
+    "name": "🎨 Design",
+    "color": "FEF2C0",
+    "description": "This task involves styling."
+  },
+  {
+    "name": "🐞 Bug",
+    "color": "d73a4a",
+    "description": "This task addresses something that isn't working."
+  },
+  {
+    "name": "✅ Fix",
+    "color": "#52EB7A",
+    "description": "This task addresses something that isn't working."
+  },
+  {
+    "name": "📃 Docs",
+    "color": "1D76DB",
+    "description": "This task involves documentation writing and editing."
+  },
+  {
+    "name": "📬 API",
+    "color": "D4C5F9",
+    "description": "This task involves server API communication."
+  },
+  {
+    "name": "🔨 Refactor",
+    "color": "f29a4e",
+    "description": "This task focuses on code refactoring."
+  },
+  {
+    "name": "🙋‍♂️ Question",
+    "color": "9ED447",
+    "description": "This task requests further information."
+  },
+  {
+    "name": "🥰 Accessibility",
+    "color": "facfcf",
+    "description": "This task is related to accessibility."
+  },
+  {
+    "name": "🧪 Test",
+    "color": "ccffc4",
+    "description": "This task is related to testing."
+  }
+]

@@ -8,14 +8,19 @@
 import UIKit
 
 public final class BaseSpacer: UIView {
-    enum Orientation {
+    public enum Orientation {
         case vertical
         case horizontal
     }
     
-    init(_ size: CGFloat = 0, orientation: Orientation = .vertical) {
+    public init(
+        size: CGFloat,
+        orientation: Orientation = .vertical
+    ) {
         super.init(frame: .zero)
         self.backgroundColor = .clear
+        
+        print(#function)
         
         self.snp.makeConstraints { make in
             switch orientation {
@@ -29,7 +34,14 @@ public final class BaseSpacer: UIView {
         }
     }
     
-    required init?(coder: NSCoder) {
+    /**
+     When used with the StackView’s distribution = .fill property, it occupies an appropriate amount of space.
+     */
+    public init() {
+        super.init(frame: .zero)
+    }
+    
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

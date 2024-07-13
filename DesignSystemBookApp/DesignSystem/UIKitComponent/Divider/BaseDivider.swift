@@ -8,12 +8,16 @@
 import UIKit
 
 public final class BaseDivider: UIView {
-    enum Orientation {
+    public enum Orientation {
         case vertical
         case horizontal
     }
     
-    init(color: UIColor = .gray02, thickness: CGFloat = 1, orientation: Orientation = .horizontal) {
+    public init(
+        color: UIColor = .lightGray,
+        thickness: CGFloat = 1,
+        orientation: Orientation = .horizontal
+    ) {
         super.init(frame: .zero)
         self.backgroundColor = color
         
@@ -31,7 +35,7 @@ public final class BaseDivider: UIView {
         }
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
