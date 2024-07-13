@@ -37,12 +37,21 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         return _onChange.asObservable()
     }
     public var selectedOption: Binder<Option> {
-        return Binder(self) { (view: BaseSegmentControl, option: Option) in
-            guard let index = view.source.firstIndex(where: { $0.id == option.id })
-            else { return }
-            
-            view.selectedIndex = index
-            view.updateIndicatorPosition(selectedIndex: index)
+        let subject = PublishSubject<Option>()
+        
+        subject
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .bind(to: Binder(self) { (view: BaseSegmentControl, option: Option) in
+                guard let index = view.source.firstIndex(where: { $0.id == option.id })
+                else { return }
+                
+                view.selectedIndex = index
+                view.updateIndicatorPosition(selectedIndex: index)
+            })
+            .disposed(by: disposeBag)
+        
+        return Binder(subject) { (subject: PublishSubject<Option>, option: Option) in
+            subject.onNext(option)
         }
     }
     
