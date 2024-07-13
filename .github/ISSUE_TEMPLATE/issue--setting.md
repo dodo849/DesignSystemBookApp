@@ -2,7 +2,7 @@
 name: "Issue: Setting"
 about: "Please describe the environment settings!"
 title: "setting:"
-labels: setting
+labels: ⚙ Environment
 assignees: ""
 ---
 

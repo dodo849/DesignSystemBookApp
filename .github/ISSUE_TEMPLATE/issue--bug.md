@@ -1,8 +1,8 @@
 ---
-name: "Issue: Fix"
+name: "Issue: Bug"
 about: "Please describe the bug that occurred!"
 title: "fix:"
-labels: bug
+labels: 🐞 Bug
 assignees: ""
 ---
 
