@@ -127,7 +127,6 @@
 		BC2B46A72C354A110057CE6B /* DialogColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A62C354A110057CE6B /* DialogColorTheme.swift */; };
 		BC2B46A92C354A170057CE6B /* DialogFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */; };
 		BC3AE3562C365E4300972A51 /* PageViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3AE3552C365E4300972A51 /* PageViewController+Rx.swift */; };
-		BC6D6E412C41697100C6FB7D /* Shape+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E402C41697100C6FB7D /* Shape+Extension.swift */; };
 		BC6D6E4C2C417D0100C6FB7D /* ChipColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E4B2C417D0100C6FB7D /* ChipColorTheme.swift */; };
 		BC6D6E4F2C417D0E00C6FB7D /* ChipFigureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E4E2C417D0E00C6FB7D /* ChipFigureTheme.swift */; };
 		BC6D6E532C417D9C00C6FB7D /* ChipState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D6E522C417D9C00C6FB7D /* ChipState.swift */; };
@@ -151,6 +150,7 @@
 		BC979B2E2C2AAA5A00A2AC95 /* ChipControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B2D2C2AAA5A00A2AC95 /* ChipControl+Extension.swift */; };
 		BC979B302C2AAA9900A2AC95 /* ChipControlBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC979B2F2C2AAA9900A2AC95 /* ChipControlBook.swift */; };
 		BC979B322C2ABD5D00A2AC95 /* README_CHIPCONTROL.md in Resources */ = {isa = PBXBuildFile; fileRef = BC979B312C2ABD5D00A2AC95 /* README_CHIPCONTROL.md */; };
+		BCA6D41D2C424716000C96C0 /* PaginableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6D41C2C424715000C96C0 /* PaginableView.swift */; };
 		BCEBC82C2C23EC940040FCE0 /* BasicSegmentVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */; };
 		BCEBC82E2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md */; };
 		BCEBC8302C23F61E0040FCE0 /* README_SEGMENTCONTROL.md in Resources */ = {isa = PBXBuildFile; fileRef = BCEBC82F2C23F61E0040FCE0 /* README_SEGMENTCONTROL.md */; };
@@ -294,7 +294,6 @@
 		BC2B46A62C354A110057CE6B /* DialogColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogColorTheme.swift; sourceTree = "<group>"; };
 		BC2B46A82C354A170057CE6B /* DialogFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogFigureTheme.swift; sourceTree = "<group>"; };
 		BC3AE3552C365E4300972A51 /* PageViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Rx.swift"; sourceTree = "<group>"; };
-		BC6D6E402C41697100C6FB7D /* Shape+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+Extension.swift"; sourceTree = "<group>"; };
 		BC6D6E4B2C417D0100C6FB7D /* ChipColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipColorTheme.swift; sourceTree = "<group>"; };
 		BC6D6E4E2C417D0E00C6FB7D /* ChipFigureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipFigureTheme.swift; sourceTree = "<group>"; };
 		BC6D6E522C417D9C00C6FB7D /* ChipState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipState.swift; sourceTree = "<group>"; };
@@ -319,6 +318,7 @@
 		BC979B2D2C2AAA5A00A2AC95 /* ChipControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChipControl+Extension.swift"; sourceTree = "<group>"; };
 		BC979B2F2C2AAA9900A2AC95 /* ChipControlBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipControlBook.swift; sourceTree = "<group>"; };
 		BC979B312C2ABD5D00A2AC95 /* README_CHIPCONTROL.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_CHIPCONTROL.md; sourceTree = "<group>"; };
+		BCA6D41C2C424715000C96C0 /* PaginableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginableView.swift; sourceTree = "<group>"; };
 		BCEBC82B2C23EC940040FCE0 /* BasicSegmentVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSegmentVariant.swift; sourceTree = "<group>"; };
 		BCEBC82D2C23F2AA0040FCE0 /* README_SEGMENTCONTROL_KR.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENTCONTROL_KR.md; sourceTree = "<group>"; };
 		BCEBC82F2C23F61E0040FCE0 /* README_SEGMENTCONTROL.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_SEGMENTCONTROL.md; sourceTree = "<group>"; };
@@ -667,7 +667,7 @@
 		BC05D43E2C204DC0006C599B /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				BC6D6E422C41698500C6FB7D /* Extension */,
+				BCA6D41C2C424715000C96C0 /* PaginableView.swift */,
 				BC05D44B2C204F96006C599B /* WebViewController.swift */,
 				BC05D4392C204DC0006C599B /* BaseCollectionView.swift */,
 				BC05D43A2C204DC0006C599B /* BaseCollectionViewCell.swift */,
@@ -1121,14 +1121,6 @@
 			isa = PBXGroup;
 			children = (
 				BC09326E2C1A8F5200D3F8CB /* Type+Extension.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		BC6D6E422C41698500C6FB7D /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				BC6D6E402C41697100C6FB7D /* Shape+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1637,7 +1629,6 @@
 				BC05D4022C2013D2006C599B /* SkeletonColorTheme.swift in Sources */,
 				BC6D6E4F2C417D0E00C6FB7D /* ChipFigureTheme.swift in Sources */,
 				BCFD537A2C1B5DCD00191F34 /* ButtonFigureTheme.swift in Sources */,
-				BC6D6E412C41697100C6FB7D /* Shape+Extension.swift in Sources */,
 				BC05D4402C204DC0006C599B /* BaseCollectionViewCell.swift in Sources */,
 				BC05D3C82C1DD855006C599B /* TextFieldState.swift in Sources */,
 				BC05D4572C213609006C599B /* BaseSpacer.swift in Sources */,
@@ -1649,6 +1640,7 @@
 				BC0933EC2C1B2C1A00D3F8CB /* ToggleButtonState.swift in Sources */,
 				BC05D3D62C1F3094006C599B /* EmptyShape.swift in Sources */,
 				BC05D43F2C204DC0006C599B /* BaseCollectionView.swift in Sources */,
+				BCA6D41D2C424716000C96C0 /* PaginableView.swift in Sources */,
 				BC0934132C1B34C500D3F8CB /* ClipboardHelper.swift in Sources */,
 				BCFD53832C1B628200191F34 /* RoundedOffset.swift in Sources */,
 				BC05D5052C21B76A006C599B /* Toast.swift in Sources */,

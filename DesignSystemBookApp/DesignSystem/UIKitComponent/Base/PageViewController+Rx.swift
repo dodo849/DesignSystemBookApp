@@ -5,14 +5,11 @@
 //  Created by DOYEON LEE on 7/4/24.
 //
 
+import Foundation
 import UIKit
 
 import RxSwift
 import RxCocoa
-
-public protocol PageType: Hashable {
-    var viewController: UIViewController { get }
-}
 
 /**
  RxPageViewController available with RxSwift.
@@ -78,9 +75,10 @@ public protocol PageType: Hashable {
  pageViewController.updatePages([.first, .second])
  ```
  */
+@available(*, deprecated, message: "Use this instead: ``PageniableView.``")
 open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageViewControllerDataSource {
     // MARK: Event
-    public let _onMove = PublishSubject<Page>()
+    private let _onMove = PublishSubject<Page>()
     /// Subject that emits the current page after the page change is completed
     public var onMove: Observable<Page> {
         return _onMove.asObservable()
@@ -122,7 +120,7 @@ open class RxPageViewController<Page: PageType>: UIPageViewController, UIPageVie
         firstPage: Page,
         transitionStyle style: UIPageViewController.TransitionStyle = .scroll,
         navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal,
-        disabledScrollGesture: Bool = true
+        disabledScrollGesture: Bool = false
     ) {
         super.init(
             transitionStyle: style,
