@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol DialogColorTheme {
-    func shadowColor() -> UniversalColor
-    func overlayColor() -> UniversalColor
+protocol DialogFigureTheme {
+    func padding() -> GapOffset
+    func shape() -> AnyShape
+    func rounded() -> RoundedOffset
 }

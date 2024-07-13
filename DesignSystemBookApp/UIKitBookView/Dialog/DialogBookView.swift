@@ -111,8 +111,6 @@ final class DialogBookView: BaseView {
         stackView.addArrangedSubview(BaseSpacer())
         
         stackView.addArrangedSubview(dialogOpenButton)
-
-        dialog.addContent(dialogCloseButton)
     }
     
     override func setupLayout() {

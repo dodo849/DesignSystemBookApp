@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol TextFieldColorTheme {
+protocol TextFieldColorTheme { // TODO: placeholderColor 추가
     func foregroundColor(state: TextFieldAllState) -> UniversalColor
     func backgroundColor(state: TextFieldAllState) -> UniversalColor
     func borderColor(state: TextFieldAllState) -> UniversalColor

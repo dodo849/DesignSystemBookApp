@@ -14,6 +14,10 @@ struct BasicDialogFigureTheme: DialogFigureTheme {
         self._shape = shape
     }
     
+    func padding() -> GapOffset {
+        return .init(28, 24)
+    }
+    
     func shape() -> AnyShape {
         switch _shape {
         case .round:
@@ -27,7 +31,7 @@ struct BasicDialogFigureTheme: DialogFigureTheme {
     
     func rounded() -> RoundedOffset {
         switch _shape {
-        case .round: return .large
+        case .round: return .xlarge
         case .square: return .xsmall
         }
     }

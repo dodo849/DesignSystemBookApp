@@ -84,7 +84,6 @@ public class BaseDialog: UIView {
     }
     
     // MARK: UIConstant
-    private let backgroundPadding: CGFloat = 16
     private let pagePadding: CGFloat = 24
     
     // MARK: UI Component
@@ -141,7 +140,7 @@ public class BaseDialog: UIView {
     // MARK: Life cycle
     
     // MARK: Setup
-    private func setupHierachy() { 
+    private func setupHierachy() {
         addSubview(overlayView)
         
         addSubview(backgroundView)
@@ -164,7 +163,7 @@ public class BaseDialog: UIView {
         backgroundView.layer.cornerRadius = rounded
     }
     
-    private func updateTheme() { 
+    private func updateTheme() {
         guard let colorTheme = colorTheme else { return }
         
         // overaly
@@ -180,7 +179,11 @@ public class BaseDialog: UIView {
         
     }
     
-    private func updateLayout() { 
+    private func updateLayout() {
+        guard let figureTheme = figureTheme else { return }
+        
+        let padding = figureTheme.padding()
+        
         overlayView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
             $0.width.equalTo(UIScreen.main.bounds.width)
@@ -194,8 +197,9 @@ public class BaseDialog: UIView {
         }
         
         contentStackView.snp.makeConstraints {
-            $0.left.right.top.equalToSuperview().inset(backgroundPadding)
-            $0.bottom.equalTo(backgroundView.snp.bottom).inset(backgroundPadding)
+            $0.top.equalToSuperview().inset(padding.vertical ?? 0)
+            $0.left.right.equalToSuperview().inset(padding.horizontal ?? 0)
+            $0.bottom.equalTo(backgroundView.snp.bottom).inset(padding.vertical ?? 0)
         }
     }
 }
