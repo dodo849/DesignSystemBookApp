@@ -54,6 +54,7 @@ public class BaseButton: UIControl {
             updateCornerRadius()
         }
     }
+    
     private var figureTheme: ButtonFigureTheme? {
         didSet {
             updateTheme()
@@ -81,15 +82,6 @@ public class BaseButton: UIControl {
         $0.isUserInteractionEnabled = false
     }
     
-    private let titleLabel = UILabel().then {
-        $0.text = ""
-        $0.setTypo(.body1)
-        $0.textAlignment = .center
-        $0.isUserInteractionEnabled = false
-        $0.setContentHuggingPriority(.required, for: .horizontal)
-        $0.setContentCompressionResistancePriority(.required, for: .horizontal)
-    }
-    
     // MARK: Initializers
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -109,10 +101,10 @@ public class BaseButton: UIControl {
         updateCornerRadius()
     }
     
-    convenience init(
+    public init(
         itemBuilder: @escaping () -> [UIView]
     ) {
-        self.init()
+        super.init(frame: .zero)
         self.itemBuilder = itemBuilder
         
         setupHierachy()
@@ -156,10 +148,6 @@ public class BaseButton: UIControl {
         clipsToBounds = true
         layer.borderColor = borderColor
         layer.borderWidth = borderWidth
-        
-        // Title label
-        titleLabel.setTypo(figureTheme.typo())
-        titleLabel.textColor = foregroundColor
         
         // Stack (items)
         stackView.arrangedSubviews

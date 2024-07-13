@@ -36,22 +36,14 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
     public var onChange: Observable<Option> {
         return _onChange.asObservable()
     }
+    
     public var selectedOption: Binder<Option> {
-        let subject = PublishSubject<Option>()
-        
-        subject
-            .debounce(.milliseconds(150), scheduler: MainScheduler.instance)
-            .bind(to: Binder(self) { (view: BaseSegmentControl, option: Option) in
-                guard let index = view.source.firstIndex(where: { $0.id == option.id })
-                else { return }
-                
-                view.selectedIndex = index
-                view.updateIndicatorPosition(selectedIndex: index)
-            })
-            .disposed(by: disposeBag)
-        
-        return Binder(subject) { (subject: PublishSubject<Option>, option: Option) in
-            subject.onNext(option)
+        return Binder(self) { (view: BaseSegmentControl, option: Option) in
+            guard let index = view.source.firstIndex(where: { $0.id == option.id })
+            else { return }
+            
+            view.selectedIndex = index
+            view.updateIndicatorPosition(selectedIndex: index)
         }
     }
     
@@ -159,6 +151,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
             tapGestureRecognizer.rx.event
                 .withUnretained(self)
                 .map { owner, _ in
+                    
                     owner.selectedIndex = index
                     
                     owner.updateIndicatorPosition(selectedIndex: index)
@@ -231,23 +224,23 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         
         // Item foreground color
         UIView.animate(withDuration: 0.15) { [weak self] in
-            guard let self = self else { return }
-            itemStack.subviews.enumerated().forEach { index, itemContainerView in
-                let isSelected = index == self.selectedIndex
-                
-                itemContainerView.subviews.forEach {
-                    let foregroundColor = colorTheme.itemForegroundColor(
-                        state: isSelected ? .selected : .unselected
-                    ).uiColor
+                guard let self = self else { return }
+                itemStack.subviews.enumerated().forEach { index, itemContainerView in
+                    let isSelected = index == self.selectedIndex
                     
-                    if let label = $0 as? UILabel {
-                        label.textColor = foregroundColor
+                    itemContainerView.subviews.forEach {
+                        let foregroundColor = colorTheme.itemForegroundColor(
+                            state: isSelected ? .selected : .unselected
+                        ).uiColor
+                        
+                        if let label = $0 as? UILabel {
+                            label.textColor = foregroundColor
+                        }
+                        
+                        $0.tintColor = foregroundColor
                     }
-                    
-                    $0.tintColor = foregroundColor
                 }
             }
-        }
     }
 
     private func updateLayout() {

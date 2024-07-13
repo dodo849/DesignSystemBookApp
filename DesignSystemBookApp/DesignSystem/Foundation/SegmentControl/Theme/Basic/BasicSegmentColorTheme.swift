@@ -23,13 +23,7 @@ struct BasicSegmentColorTheme: SegmentColorTheme {
         // for underline
         switch (variant, state) {
         case (.underline, .selected):
-            switch color {
-            case .primary: return .init(.basicYellow)
-            case .secondary: return .init(.basicGreen)
-            case .tertiary: return .init(.basicPink)
-            case .soft: return .init(.basicText)
-            case .stone: return .init(.basicText)
-            }
+            return underlineItemForegroundColor()
         case (.underline, .unselected):
             return .init(.gray04)
         default:
@@ -71,6 +65,18 @@ struct BasicSegmentColorTheme: SegmentColorTheme {
             return .init(.gray02)
         case .underline:
             return .init(.basicBackground)
+        }
+    }
+}
+
+extension BasicSegmentColorTheme {
+    func underlineItemForegroundColor() -> UniversalColor {
+        switch color {
+        case .primary: return .init(.basicYellow)
+        case .secondary: return .init(.basicGreen)
+        case .tertiary: return .init(.basicPink)
+        case .soft: return .init(.basicText)
+        case .stone: return .init(.basicText)
         }
     }
 }
