@@ -1,7 +1,7 @@
 ---
 name: "Issue: Suggest"
 about: Please describe your suggestion!
-title: "[Suggest]"
+title: "suggest:"
 labels: ""
 assignees: ""
 ---

@@ -1,7 +1,7 @@
 ---
 name: "Issue: Setting"
 about: "Please describe the environment settings!"
-title: "[Setting]"
+title: "setting:"
 labels: setting
 assignees: ""
 ---

@@ -1,7 +1,7 @@
 ---
 name: "Issue: Feat"
 about: "Please describe the performance improvement or feature enhancement!"
-title: "[Feat]"
+title: "feat:"
 labels: feat
 assignees: ""
 ---

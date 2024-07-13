@@ -1,7 +1,7 @@
 ---
 name: "Issue: Fix"
 about: "Please describe the bug that occurred!"
-title: "[Fix]"
+title: "fix:"
 labels: bug
 assignees: ""
 ---

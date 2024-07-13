@@ -1,7 +1,7 @@
 ---
 name: "Issue: Share"
 about: "Please describe the content to be shared!"
-title: "[Share]"
+title: "share:"
 labels: ""
 assignees: ""
 ---
