@@ -31,6 +31,8 @@ public extension BaseSegmentControl {
 }
 
 public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identifiable {
+    public typealias ViewBuilder = (Option) -> [UIView]
+    
     // MARK: Event
     public var _onChange: PublishSubject<Option> = PublishSubject()
     public var onChange: Observable<Option> {
@@ -67,7 +69,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
     // MARK: Source
     private var source: [Option] = []
     
-    private var itemBuilder: (Option) -> UIView = { _ in UIView() }
+    private var itemBuilder: ViewBuilder = { _ in [] }
     
     // MARK: UI Component
     private let containerView = UIView()
@@ -107,7 +109,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
     
     public convenience init(
         source: [Option],
-        itemBuilder: @escaping (Option) -> UIView
+        itemBuilder: @escaping ViewBuilder
     ) {
         self.init(frame: .zero)
         self.source = source
@@ -135,9 +137,12 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         containerView.addSubview(itemStack)
         
         source.forEach { option in
-            let itemView = itemBuilder(option)
+            let itemViews = itemBuilder(option)
             let itemContainerView = UIView()
-            itemContainerView.addSubview(itemView)
+            
+            itemViews.forEach { itemView in
+                itemContainerView.addSubview(itemView)
+            }
             itemStack.addArrangedSubview(itemContainerView)
         }
     }

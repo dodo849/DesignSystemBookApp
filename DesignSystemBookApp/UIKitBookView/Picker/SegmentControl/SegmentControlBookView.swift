@@ -66,10 +66,12 @@ final class SegmentControlBookView: BaseView {
     let segmentControl = BaseSegmentControl(
         source: SegmentOption.factory(Array(0...3)),
         itemBuilder: { option in
-            UILabel().then {
-                $0.text = "\(option.id)"
-                $0.textAlignment = .center
-            }
+            [
+                UILabel().then {
+                    $0.text = "\(option.id)"
+                    $0.textAlignment = .center
+                }
+            ]
         }
     ).then {
         $0.styled()
