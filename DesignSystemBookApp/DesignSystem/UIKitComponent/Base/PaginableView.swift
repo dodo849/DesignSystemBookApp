@@ -6,8 +6,10 @@
 //
 
 import UIKit
+
 import RxSwift
 import RxCocoa
+import SnapKit
 
 public protocol PageType: Hashable {
     var viewController: UIViewController { get }

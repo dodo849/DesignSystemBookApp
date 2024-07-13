@@ -40,7 +40,7 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         let subject = PublishSubject<Option>()
         
         subject
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(150), scheduler: MainScheduler.instance)
             .bind(to: Binder(self) { (view: BaseSegmentControl, option: Option) in
                 guard let index = view.source.firstIndex(where: { $0.id == option.id })
                 else { return }
