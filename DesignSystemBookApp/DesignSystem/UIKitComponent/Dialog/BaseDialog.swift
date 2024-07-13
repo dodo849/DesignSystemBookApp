@@ -99,15 +99,6 @@ public class BaseDialog: UIView {
         $0.spacing = 8
     }
     
-    private let titleLabel = UILabel().then {
-        $0.setTypo(.body0b)
-    }
-    
-    private let subTitleLabel = UILabel().then {
-        $0.setTypo(.body1)
-        $0.textColor = .gray06
-    }
-    
     // MARK: Builder
     private var contentBuilder: ViewBuilder = { [] }
     

@@ -195,6 +195,79 @@ public extension UILabel {
     }
 }
 
+public extension UITextField {
+    /// Set the default font of the text.
+    ///
+    /// ```swift
+    /// let textField = UITextField()
+    /// textField.setDefaultFont(size: 18, weight: .bold)
+    /// ```
+    ///
+    func setDefaultFont(
+        size: CGFloat = 16,
+        weight: FontWeight = .regular
+    ) {
+        self.font = .systemFont(ofSize: size, weight: weight.uikitWeight)
+        self.setLineHeight(multiplier: lineSpacingMultiplier)
+    }
+    
+    func setLineHeight(multiplier: CGFloat) {
+        guard let text = self.text else { return }
+        
+        let fontSize = self.font?.pointSize ?? 16
+        let lineHeight = fontSize * multiplier
+        let lineSpacing = lineHeight - fontSize
+        let baselineOffset = (lineHeight - fontSize) / 4
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttribute(
+            .paragraphStyle,
+            value: paragraphStyle,
+            range: NSRange(location: 0, length: attributedString.length)
+        )
+        self.attributedText = attributedString
+    }
+
+    /// Set the typography of the text.
+    ///
+    /// ```swift
+    /// let textField = UITextField()
+    /// textField.setTypo(.heading1)
+    /// ```
+    ///
+    func setTypo(_ typo: Typo) {
+        switch typo {
+        case .heading1:
+            self.setDefaultFont(size: 32, weight: .bold)
+        case .heading2:
+            self.setDefaultFont(size: 28, weight: .bold)
+        case .heading3:
+            self.setDefaultFont(size: 22, weight: .bold)
+        case .body0:
+            self.setDefaultFont(size: 18, weight: .regular)
+        case .body0b:
+            self.setDefaultFont(size: 18, weight: .semibold)
+        case .body1:
+            self.setDefaultFont(size: 16, weight: .regular)
+        case .body1b:
+            self.setDefaultFont(size: 16, weight: .semibold)
+        case .body2:
+            self.setDefaultFont(size: 14, weight: .regular)
+        case .body2b:
+            self.setDefaultFont(size: 14, weight: .semibold)
+        case .body3:
+            self.setDefaultFont(size: 12, weight: .regular)
+        case .body3b:
+            self.setDefaultFont(size: 12, weight: .semibold)
+        case .detail:
+            self.setDefaultFont(size: 10, weight: .regular)
+        }
+    }
+}
+
 public extension View {
     /// Set the default font of the text.
     ///

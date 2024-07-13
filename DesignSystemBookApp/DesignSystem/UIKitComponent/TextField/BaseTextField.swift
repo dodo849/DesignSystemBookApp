@@ -75,6 +75,12 @@ public class BaseTextField: UIView {
         }
     }
     
+    public var placeholder: String? {
+        didSet {
+            textField.placeholder = placeholder
+        }
+    }
+    
     // MARK: DisposeBag
     private let disposeBag = DisposeBag()
     
@@ -255,7 +261,6 @@ public class BaseTextField: UIView {
         
         // figure
         let borderWidth = figureTheme.borderWidth()
-        
         
         updateCornerRadius()
         

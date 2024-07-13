@@ -9,8 +9,8 @@ import SwiftUI
 
 protocol TextFieldFigureTheme {
     func padding() -> GapOffset
-    func textSize() -> CGFloat
-    func textWeight() -> Font.Weight
+    func textSize() -> CGFloat // TODO: Typo로 묶기
+    func textWeight() -> Font.Weight // TODO: Typo로 묶기
     func rounded() -> RoundedOffset
     func borderWidth() -> CGFloat
     func frame() -> FrameOffset
