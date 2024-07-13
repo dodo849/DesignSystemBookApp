@@ -34,11 +34,6 @@ public extension BaseButton {
     }
 }
 
-public enum BaseButtonImageAlignment {
-    case leading
-    case trailing
-}
-
 public class BaseButton: UIControl {
     public typealias ViewBuilder = () -> [UIView]
     

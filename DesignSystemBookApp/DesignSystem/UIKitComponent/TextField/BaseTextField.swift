@@ -239,21 +239,27 @@ public class BaseTextField: UIView {
         guard let colorTheme = colorTheme, let figureTheme = figureTheme
         else { return }
         
+        // color
+        let foregroundColor = colorTheme.foregroundColor(state: allState).uiColor
+        let backgroundColor = colorTheme.backgroundColor(state: allState).uiColor
+        let borderColor = colorTheme.borderColor(state: allState).cgColor
+        let descriptionColor = colorTheme.descriptionColor(state: allState).uiColor
+        
+        // figure
+        let borderWidth = figureTheme.borderWidth()
+        
+        
         updateCornerRadius()
         
         // Default set for animation
         self.textFieldBackground.layer.borderColor = UIColor.clear.cgColor
-        let foregroundColor = colorTheme
-            .foregroundColor(state: allState).uiColor
         
         UIView.animate(withDuration: 0.15) { [weak self] in
             guard let self = self else { return }
             // TextField background
-            self.textFieldBackground.backgroundColor = colorTheme
-                .backgroundColor(state: allState).uiColor
-            self.textFieldBackground.layer.borderColor = colorTheme
-                .borderColor(state: allState).cgColor
-            self.textFieldBackground.layer.borderWidth = figureTheme.borderWidth()
+            self.textFieldBackground.backgroundColor = backgroundColor
+            self.textFieldBackground.layer.borderColor = borderColor
+            self.textFieldBackground.layer.borderWidth = borderWidth
             
             // TextField
             self.textField.textColor = foregroundColor
@@ -372,17 +378,5 @@ public class BaseTextField: UIView {
     
     private var isFullWidth: Bool {
         figureTheme?.frame().width == .infinity
-    }
-    
-    private var descriptionColor: UIColor {
-        if state == .error {
-            return .destructive
-        }
-        
-        if state == .success {
-            return .success
-        }
-        
-        return .basicText.withAlphaComponent(0)
     }
 }

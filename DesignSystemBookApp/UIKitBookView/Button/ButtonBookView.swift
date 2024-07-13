@@ -12,66 +12,66 @@ import SnapKit
 
 final class ButtonBookView: BaseView {
     // MARK: UI Components
-    let scrollView = UIScrollView()
+    lazy var scrollView = UIScrollView()
     
-    let contentView = UIView()
+    lazy var contentView = UIView()
     
-    let stackView = UIStackView().then {
+    lazy var stackView = UIStackView().then {
         $0.axis = .vertical
         $0.alignment = .center
         $0.distribution = .fill
         $0.spacing = 16
     }
     
-    let sizeControlLabel = UILabel().then {
+    lazy var sizeControlLabel = UILabel().then {
         $0.text = "size"
         $0.setTypo(.body1b)
     }
     
-    let sizeControl = UISegmentedControl(
+    lazy var sizeControl = UISegmentedControl(
         items: Array(BasicButtonSize.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
     
-    let variantControlLabel = UILabel().then {
+    lazy var variantControlLabel = UILabel().then {
         $0.text = "variant"
         $0.setTypo(.body1b)
     }
     
-    let variantControl = UISegmentedControl(
+    lazy var variantControl = UISegmentedControl(
         items: Array(BasicButtonVariant.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
 
-    let shapeControlLabel = UILabel().then {
+    lazy var shapeControlLabel = UILabel().then {
         $0.text = "shape"
         $0.setTypo(.body1b)
     }
     
-    let shapeControl = UISegmentedControl(
+    lazy var shapeControl = UISegmentedControl(
         items: Array(BasicButtonShape.allCases).map { $0.rawValue }
     ).then {
         $0.selectedSegmentIndex = 0
     }
     
-    let stateControlLabel = UILabel().then {
+    lazy var stateControlLabel = UILabel().then {
         $0.text = "state"
         $0.setTypo(.body1b)
     }
     
-    let stateControl = UISegmentedControl(
+    lazy var stateControl = UISegmentedControl(
         items: ["enabled", "disabled"]
     ).then {
         $0.selectedSegmentIndex = 0
     }
     
-    let divider = UIView().then {
+    lazy var divider = UIView().then {
         $0.backgroundColor = .gray02
     }
     
-    let colorLabels: [UILabel] = BasicButtonColor.allCases.map { color in
+    lazy var colorLabels: [UILabel] = BasicButtonColor.allCases.map { color in
         UILabel().then {
             $0.text = color.rawValue
             $0.setTypo(.body3)
@@ -79,7 +79,7 @@ final class ButtonBookView: BaseView {
         }
     }
     
-    let buttons: [BaseButton] = BasicButtonColor.allCases.map { _ in
+    lazy var buttons: [BaseButton] = BasicButtonColor.allCases.map { _ in
         BaseButton(
             itemBuilder: {
                 [

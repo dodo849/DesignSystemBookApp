@@ -12,4 +12,5 @@ protocol TextFieldColorTheme {
     func backgroundColor(state: TextFieldAllState) -> UniversalColor
     func borderColor(state: TextFieldAllState) -> UniversalColor
     func bottomBorderColor(state: TextFieldAllState) -> UniversalColor
+    func descriptionColor(state: TextFieldAllState) -> UniversalColor
 }
