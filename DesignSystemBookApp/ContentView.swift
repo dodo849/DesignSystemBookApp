@@ -104,6 +104,16 @@ struct ContentView: View {
                             .ignoresSafeArea()
                     )
                     
+                    sectionHeader(title: "Card")
+                    
+                    exampleSection(
+                        title: "Basic Card",
+                        colorTheme: "Basic",
+                        figureTheme: "Basic",
+                        uikitDestination: CardBookRepresentable()
+                            .ignoresSafeArea()
+                    )
+                    
                     Spacer().frame(height: 100)
                 }
                 .padding(.horizontal)

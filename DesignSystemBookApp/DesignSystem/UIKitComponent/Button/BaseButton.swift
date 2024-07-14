@@ -32,6 +32,26 @@ public extension BaseButton {
         self.colorTheme = colorTheme
         self.figureTheme = figureTheme
     }
+    
+    func grayStyled(
+        variant: BasicButtonVariant = .fill,
+        color: GrayButtonColor = .ghost,
+        size: BasicButtonSize = .large,
+        shape: BasicButtonShape = .round
+    ) {
+        let colorTheme = GrayButtonColorTheme(
+            variant: variant,
+            color: color
+        )
+        
+        let figureTheme = BasicButtonFigureTheme(
+            size: size,
+            shape: shape
+        )
+        
+        self.colorTheme = colorTheme
+        self.figureTheme = figureTheme
+    }
 }
 
 public class BaseButton: UIControl {

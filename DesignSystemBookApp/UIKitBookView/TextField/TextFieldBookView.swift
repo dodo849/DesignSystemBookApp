@@ -207,6 +207,7 @@ final class TextFieldBookView: BaseView {
         
         stackView.snp.makeConstraints {
             $0.top.equalTo(contentView.safeAreaLayoutGuide.snp.top)
+                .inset(pagePadding)
             $0.left.right.equalToSuperview().inset(pagePadding)
             $0.centerX.equalToSuperview()
         }
