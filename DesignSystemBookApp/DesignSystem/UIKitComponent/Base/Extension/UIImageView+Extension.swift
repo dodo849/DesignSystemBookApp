@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-extension UIImageView {
+public extension UIImageView {
     func setSize(width: CGFloat? = nil, height: CGFloat? = nil) {
         if let width = width {
             self.snp.makeConstraints {

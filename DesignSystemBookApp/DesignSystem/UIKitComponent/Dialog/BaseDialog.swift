@@ -98,8 +98,8 @@ public class BaseDialog: UIView {
         $0.spacing = 8
     }
     
-    // MARK: Builder
-    private var contentBuilder: ViewBuilder = { [] }
+    // MARK: Build component
+    private var contents: [UIView] = []
     
     // MARK: DisposeBag
     private let disposeBag = DisposeBag()
@@ -124,11 +124,11 @@ public class BaseDialog: UIView {
     }
     
     public init(
-        contentbuilder: @escaping ViewBuilder
+        contentsBuilder: ViewBuilder
     ) {
         super.init(frame: .zero)
         
-        self.contentBuilder = contentbuilder
+        contents.append(contentsOf: contentsBuilder())
         
         setupHierachy()
         updateCornerRadius()
@@ -147,8 +147,8 @@ public class BaseDialog: UIView {
         
         backgroundView.addSubview(contentStackView)
         
-        contentBuilder().forEach { view in
-            contentStackView.addArrangedSubview(view)
+        contents.forEach {
+            contentStackView.addArrangedSubview($0)
         }
     }
     

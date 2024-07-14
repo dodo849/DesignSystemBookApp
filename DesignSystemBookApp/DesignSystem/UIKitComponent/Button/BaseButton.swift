@@ -84,9 +84,6 @@ public class BaseButton: UIControl {
         }
     }
     
-    // MARK: DisposeBag
-    private let disposeBag = DisposeBag()
-    
     // MARK: UI Components
     private let stackView = UIStackView().then {
         $0.axis = .horizontal
@@ -96,8 +93,11 @@ public class BaseButton: UIControl {
         $0.isUserInteractionEnabled = false
     }
     
-    // MARK: Builder
-    private var itemBuilder: ViewBuilder = { [] }
+    // MARK: Build component
+    private var contents: [UIView] = []
+    
+    // MARK: DisposeBag
+    private let disposeBag = DisposeBag()
     
     // MARK: Initializers
     public override init(frame: CGRect) {
@@ -119,10 +119,11 @@ public class BaseButton: UIControl {
     }
     
     public init(
-        itemBuilder: @escaping ViewBuilder
+        contentsBuilder: ViewBuilder
     ) {
         super.init(frame: .zero)
-        self.itemBuilder = itemBuilder
+        
+        contents.append(contentsOf: contentsBuilder())
         
         setupHierachy()
         setupBind()
@@ -141,7 +142,8 @@ public class BaseButton: UIControl {
     // MARK: Setup
     private func setupHierachy() {
         addSubview(stackView)
-        itemBuilder().forEach {
+        
+        contents.forEach {
             stackView.addArrangedSubview($0)
         }
     }

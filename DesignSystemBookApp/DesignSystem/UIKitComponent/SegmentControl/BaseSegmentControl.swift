@@ -85,6 +85,9 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
     private var selectedIndex: Int = 0
     private var indicatorLeadingOffset: CGFloat = 0
     
+    // MARK: Build component
+    private var items: [UIView] = []
+    
     // MARK: DisposeBag
     private let disposeBag = DisposeBag()
     
@@ -109,11 +112,22 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
     
     public convenience init(
         source: [Option],
-        itemBuilder: @escaping ViewBuilder
+        itemBuilder: ViewBuilder
     ) {
         self.init(frame: .zero)
+        
         self.source = source
-        self.itemBuilder = itemBuilder
+        
+        source.forEach {
+            let itemViews = itemBuilder($0)
+            let itemContainerView = UIView()
+            
+            itemViews.forEach { itemView in
+                itemContainerView.addSubview(itemView)
+            }
+            
+            items.append(itemContainerView)
+        }
         
         setupHierachy()
         setupBind()
@@ -136,14 +150,8 @@ public class BaseSegmentControl<Option>: UIView where Option: Equatable & Identi
         containerView.addSubview(indicator)
         containerView.addSubview(itemStack)
         
-        source.forEach { option in
-            let itemViews = itemBuilder(option)
-            let itemContainerView = UIView()
-            
-            itemViews.forEach { itemView in
-                itemContainerView.addSubview(itemView)
-            }
-            itemStack.addArrangedSubview(itemContainerView)
+        items.forEach {
+            itemStack.addArrangedSubview($0)
         }
     }
     

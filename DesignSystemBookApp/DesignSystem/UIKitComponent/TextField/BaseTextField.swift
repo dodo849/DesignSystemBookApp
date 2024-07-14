@@ -122,10 +122,13 @@ public class BaseTextField: UIView {
     }
     
     // MARK: Builder
-    private var titleBuilder: ViewBuilder = { [] }
-    private var prefixBuilder: ViewBuilder = { []}
-    private var suffixBuilder: ViewBuilder = { [] }
-    private var descriptionBuilder: ViewBuilder = { [] }
+    private var titles: [UIView] = []
+    
+    private var prefixs: [UIView] = []
+    
+    private var suffixs: [UIView] = []
+    
+    private var descriptions: [UIView] = []
     
     // MARK: Initializer
     public override init(frame: CGRect) {
@@ -152,17 +155,17 @@ public class BaseTextField: UIView {
     }
     
     public init(
-        titleBuilder: @escaping ViewBuilder = { [] },
-        prefixBuilder: @escaping ViewBuilder = { [] },
-        suffixBuilder: @escaping ViewBuilder = { [] },
-        descriptionBuilder: @escaping ViewBuilder = { [] }
+        titleBuilder: ViewBuilder = { [] },
+        prefixBuilder: ViewBuilder = { [] },
+        suffixBuilder: ViewBuilder = { [] },
+        descriptionBuilder: ViewBuilder = { [] }
     ) {
         super.init(frame: .zero)
         
-        self.titleBuilder = titleBuilder
-        self.prefixBuilder = prefixBuilder
-        self.suffixBuilder = suffixBuilder
-        self.descriptionBuilder = descriptionBuilder
+        titles.append(contentsOf: titleBuilder())
+        prefixs.append(contentsOf: prefixBuilder())
+        suffixs.append(contentsOf: suffixBuilder())
+        descriptions.append(contentsOf: descriptionBuilder())
         
         setupHierachy()
         setupBind()
@@ -172,27 +175,26 @@ public class BaseTextField: UIView {
     
     // MARK: Setup
     private func setupHierachy() {
-        // titleStack
         addSubview(titleStack)
-        titleBuilder().forEach {
+        titles.forEach {
             titleStack.addArrangedSubview($0)
         }
         
         addSubview(textFieldBackground)
         
         textFieldBackground.addSubview(textFieldStack)
-        prefixBuilder().forEach {
+        prefixs.forEach {
             textFieldStack.addArrangedSubview($0)
         }
         textFieldStack.addArrangedSubview(textField)
-        suffixBuilder().forEach {
+        suffixs.forEach {
             textFieldStack.addArrangedSubview($0)
         }
         
         addSubview(bottomBorder)
         
         addSubview(descriptionStack)
-        descriptionBuilder().forEach {
+        descriptions.forEach {
             descriptionStack.addArrangedSubview($0)
         }
     }

@@ -81,7 +81,7 @@ final class ButtonBookView: BaseView {
     
     lazy var buttons: [BaseButton] = BasicButtonColor.allCases.map { _ in
         BaseButton(
-            itemBuilder: {
+            contentsBuilder: {
                 [
                     UIImageView(
                         image: UIImage(systemName: "square.and.arrow.up")

@@ -47,7 +47,7 @@ final class DialogBookView: BaseView {
     }
     
     lazy var dialogOpenButton = BaseButton(
-        itemBuilder: {
+        contentsBuilder: {
             [
                 UILabel().then {
                     $0.text = "open dialog"
@@ -61,7 +61,7 @@ final class DialogBookView: BaseView {
     
     // dialog
     lazy var dialogCloseButton = BaseButton(
-        itemBuilder: {
+        contentsBuilder: {
             [
                 UILabel().then {
                     $0.text = "close"
@@ -78,7 +78,7 @@ final class DialogBookView: BaseView {
     }
     
     lazy var dialog = BaseDialog(
-        contentbuilder: { [weak self] in
+        contentsBuilder: { [weak self] in
             guard let self = self else { return [] }
             
             return [

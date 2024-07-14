@@ -8,7 +8,6 @@
 import SwiftUI
 
 public extension View {
-    // 기본 스켈레톤 설정
     func skeleton(
         variant: SkeletonVariant = .blink,
         state: SkeletonState = .loading,

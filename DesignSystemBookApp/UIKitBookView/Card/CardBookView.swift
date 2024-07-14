@@ -69,7 +69,7 @@ final class CardBookView: BaseView {
     
     // card
     lazy var okButton = BaseButton(
-            itemBuilder:
+        contentsBuilder:
                 {
                     [
                         UILabel().then {
@@ -83,7 +83,7 @@ final class CardBookView: BaseView {
         }
     
     lazy var cancleButton = BaseButton(
-            itemBuilder:
+        contentsBuilder:
                 {
                     [
                         UILabel().then {
@@ -110,7 +110,7 @@ final class CardBookView: BaseView {
                 }
             ]
         },
-        contentBuilder: {
+        contentsBuilder: {
             [
                 UILabel().then {
                     $0.text = "content section"
@@ -138,7 +138,7 @@ final class CardBookView: BaseView {
     }
     
     lazy var cardWidthImage = BaseCard(
-        contentBuilder: {
+        contentsBuilder: {
             [
                 UIImageView(image: .macBackground).then {
                     $0.setSize(height: 150)
