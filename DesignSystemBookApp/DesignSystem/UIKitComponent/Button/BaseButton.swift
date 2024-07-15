@@ -58,7 +58,10 @@ public class BaseButton: UIControl {
     public typealias ViewBuilder = () -> [UIView]
     
     // MARK: Event emitter
-    public var onTap: PublishSubject<Void> = PublishSubject()
+    public var _onTap: PublishSubject<Void> = PublishSubject()
+    public var onTap: Observable<Void> {
+        return _onTap.asObservable()
+    }
     
     // MARK: Theme
     private var colorTheme: ButtonColorTheme? {
@@ -257,7 +260,7 @@ public class BaseButton: UIControl {
                 self.transform = .identity
             }
         )
-        onTap.onNext(())
+        _onTap.onNext(())
         sendActions(for: .touchUpInside)
     }
     

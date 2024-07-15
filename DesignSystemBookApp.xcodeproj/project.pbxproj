@@ -917,12 +917,12 @@
 			path = DesignSystemBookApp;
 			sourceTree = "<group>";
 		};
-		BC0933CD2C1B2C1A00D3F8CB /* CheckButton */ = {
+		BC0933CD2C1B2C1A00D3F8CB /* CheckBox */ = {
 			isa = PBXGroup;
 			children = (
 				BC0933CC2C1B2C1A00D3F8CB /* CheckButton.swift */,
 			);
-			path = CheckButton;
+			path = CheckBox;
 			sourceTree = "<group>";
 		};
 		BC0933CF2C1B2C1A00D3F8CB /* RadioGroup */ = {
@@ -957,7 +957,7 @@
 		BC0933D42C1B2C1A00D3F8CB /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				BC0933CD2C1B2C1A00D3F8CB /* CheckButton */,
+				BC0933CD2C1B2C1A00D3F8CB /* CheckBox */,
 				BC0933D32C1B2C1A00D3F8CB /* RadioButton */,
 			);
 			path = Component;

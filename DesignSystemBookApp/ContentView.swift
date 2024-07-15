@@ -34,7 +34,7 @@ struct ContentView: View {
                     sectionHeader(title: "ToggleButton")
                     
                     exampleSection(
-                        title: "CheckButton",
+                        title: "CheckBox",
                         colorTheme: "Basic",
                         figureTheme: "Basic",
                         swiftuiDestination: CheckButtonBook()

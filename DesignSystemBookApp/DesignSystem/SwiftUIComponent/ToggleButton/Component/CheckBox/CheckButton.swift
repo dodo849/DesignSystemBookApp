@@ -1,5 +1,5 @@
 //
-//  CheckButton+Extension.swift
+//  CheckBox+Extension.swift
 //  DesignSystemBookApp
 //
 //  Created by DOYEON LEE on 6/13/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct CheckButton<Label>: View where Label: View {
+public struct CheckBox<Label>: View where Label: View {
     @Binding var isOn: Bool
     let label: () -> Label
     
@@ -24,7 +24,7 @@ public struct CheckButton<Label>: View where Label: View {
     }
 }
 
-public extension CheckButton {
+public extension CheckBox {
     func styled(
         color: BasicToggleButtonColor = .primary,
         shape: BasicToggleButtonShape = .round

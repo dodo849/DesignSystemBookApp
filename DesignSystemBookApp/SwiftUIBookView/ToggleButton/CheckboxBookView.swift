@@ -33,7 +33,7 @@ struct CheckButtonBook: View {
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundStyle(.gray)
                     
-                    CheckButton(isOn: $isOn[index]) {
+                    CheckBox(isOn: $isOn[index]) {
                         Text("Click me")
                     }
                     .styled(
@@ -73,7 +73,7 @@ struct CheckButtonBook: View {
             .joined(separator: ", ")
         
         let styledString = """
-        CheckboxButton(isOn: <#Binding<Bool>#>) {
+        CheckButton(isOn: <#Binding<Bool>#>) {
         }
         .styled(\(components))
         """
